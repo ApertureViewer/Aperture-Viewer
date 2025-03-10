@@ -241,6 +241,13 @@ void FloaterQuickPrefs::initCallbacks()
         getChild<LLSlider>("SB_Effect")->setCommitCallback(boost::bind(&FloaterQuickPrefs::onChangeRenderSSAOEffectSlider, this));
         getChild<LLSpinCtrl>("S_Effect")->setCommitCallback(boost::bind(&FloaterQuickPrefs::onChangeRenderSSAOEffectSpinner, this));
         getChild<LLButton>("Reset_Effect")->setCommitCallback(boost::bind(&FloaterQuickPrefs::onClickResetRenderSSAOEffectX, this));
+		
+        // <FS:WW> - Set callbacks for RenderSSAOEffect Y component UI elements
+        getChild<LLSlider>("SB_Effect_Y")->setCommitCallback(boost::bind(&FloaterQuickPrefs::onChangeRenderSSAOEffectSliderY, this)); // Assuming slider name in XML is "SB_Effect_Y"
+        getChild<LLSpinCtrl>("S_Effect_Y")->setCommitCallback(boost::bind(&FloaterQuickPrefs::onChangeRenderSSAOEffectSpinnerY, this)); // Assuming spinner name in XML is "S_Effect_Y"
+        getChild<LLButton>("Reset_Effect_Y")->setCommitCallback(boost::bind(&FloaterQuickPrefs::onClickResetRenderSSAOEffectY, this)); // Assuming reset button name in XML is "Reset_Effect_Y"
+        // </FS:WW> - End additions		
+		
     }
     else
     {
@@ -616,6 +623,11 @@ bool FloaterQuickPrefs::postBuild()
 
         mSliderRenderSSAOEffectX = getChild<LLSlider>("SB_Effect");
         mSpinnerRenderSSAOEffectX = getChild<LLSpinCtrl>("S_Effect");
+		
+		// <FS:WW> - Get pointers to RenderSSAOEffect Y component UI elements
+        mSliderRenderSSAOEffectY = getChild<LLSlider>("SB_Effect_Y"); // Assuming you'll name the slider "SB_Effect_Y" in XML
+        mSpinnerRenderSSAOEffectY = getChild<LLSpinCtrl>("S_Effect_Y"); // Assuming you'll name the spinner "S_Effect_Y" in XML
+        // </FS:WW> - End additions
 
 		// <FS:WW> // Animation Speed UI controls 
 		mAnimationSpeedSlider = getChild<LLSlider>("animationspeed_slider_name");
@@ -1126,6 +1138,11 @@ void FloaterQuickPrefs::refreshSettings()
         LLVector3 renderSSAOEffect = gSavedSettings.getVector3("RenderSSAOEffect");
         mSpinnerRenderSSAOEffectX->setValue(renderSSAOEffect.mV[VX]);
         mSliderRenderSSAOEffectX->setValue(renderSSAOEffect.mV[VX]);
+		
+		// <FS:WW> - Update RenderSSAOEffect Y component UI elements
+		mSpinnerRenderSSAOEffectY->setValue(renderSSAOEffect.mV[VY]);
+		mSliderRenderSSAOEffectY->setValue(renderSSAOEffect.mV[VY]);
+		// </FS:WW> - End additions
     }
     // </FS:CR>
 }
@@ -2141,6 +2158,39 @@ void FloaterQuickPrefs::onClickResetRenderSSAOEffectX()
     gSavedSettings.setVector3("RenderSSAOEffect", renderSSAOEffect);
 }
 
+      
+// <FS:WW> - Callback function for RenderSSAOEffect Y component Slider
+void FloaterQuickPrefs::onChangeRenderSSAOEffectSliderY()
+{
+    LLVector3 renderSSAOEffect = gSavedSettings.getVector3("RenderSSAOEffect");
+    renderSSAOEffect.mV[VY] = mSliderRenderSSAOEffectY->getValueF32();
+    mSpinnerRenderSSAOEffectY->setValue(renderSSAOEffect.mV[VY]);
+    gSavedSettings.setVector3("RenderSSAOEffect", renderSSAOEffect);
+}
+// </FS:WW>
+
+// <FS:WW> - Callback function for RenderSSAOEffect Y component Spinner
+void FloaterQuickPrefs::onChangeRenderSSAOEffectSpinnerY()
+{
+    LLVector3 renderSSAOEffect = gSavedSettings.getVector3("RenderSSAOEffect");
+    renderSSAOEffect.mV[VY] = mSpinnerRenderSSAOEffectY->getValueF32();
+    mSliderRenderSSAOEffectY->setValue(renderSSAOEffect.mV[VY]);
+    gSavedSettings.setVector3("RenderSSAOEffect", renderSSAOEffect);
+}
+// </FS:WW>
+
+// <FS:WW> - Callback function for Reset Button of RenderSSAOEffect Y component
+void FloaterQuickPrefs::onClickResetRenderSSAOEffectY()
+{
+    LLVector3 renderSSAOEffectDefault = LLVector3(gSavedSettings.getControl("RenderSSAOEffect")->getDefault());
+    LLVector3 renderSSAOEffect = gSavedSettings.getVector3("RenderSSAOEffect");
+    renderSSAOEffect.mV[VY] = renderSSAOEffectDefault.mV[VY];
+    mSpinnerRenderSSAOEffectY->setValue(renderSSAOEffect.mV[VY]);
+    mSliderRenderSSAOEffectY->setValue(renderSSAOEffect.mV[VY]);
+    gSavedSettings.setVector3("RenderSSAOEffect", renderSSAOEffect);
+}
+// </FS:WW>
+   
 void FloaterQuickPrefs::callbackRestoreDefaults(const LLSD& notification, const LLSD& response)
 {
     S32 option = LLNotificationsUtil::getSelectedOption(notification, response);

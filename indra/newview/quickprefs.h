@@ -141,6 +141,11 @@ private:
 
     LLSlider*           mSliderRenderSSAOEffectX;
     LLSpinCtrl*         mSpinnerRenderSSAOEffectX;
+	
+    // <FS:WW> - Add member variables for RenderSSAOEffect Y component
+    LLSlider*			mSliderRenderSSAOEffectY;
+    LLSpinCtrl*			mSpinnerRenderSSAOEffectY;
+    // </FS:WW> - End additions
 
     LLSliderCtrl*       mAvatarZOffsetSlider;
 
@@ -177,6 +182,12 @@ private:
     void onChangeRenderSSAOEffectSlider();
     void onChangeRenderSSAOEffectSpinner();
     void onClickResetRenderSSAOEffectX();
+	
+	// <FS:WW> - Add callback declarations for RenderSSAOEffect Y component
+    void onChangeRenderSSAOEffectSliderY();
+    void onChangeRenderSSAOEffectSpinnerY();
+    void onClickResetRenderSSAOEffectY();
+    // </FS:WW> - End additions
 
     // Restore Quickprefs Defaults
     void onClickRestoreDefaults();

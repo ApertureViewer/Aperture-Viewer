@@ -1765,6 +1765,49 @@
 				 width="20"
 				 tool_tip="Reset to the default value."/>
 
+				 <!-- <FS:WW> - RenderSSAOEffect Y component UI elements -->
+				<!-- RenderSSAOEffect Y component -->
+				<text
+				 name="T_Effect_Y"
+				 follows="top|left"
+				 layout="topleft"
+				 left="5"
+				 top_pad="5"
+				 tool_tip="Controls the saturation of Screen Space Ambient Occlusion (SSAO) in the darkest shadow areas.  Increase for more vibrant shadow colors. The base color of the shadows is determined by your environment settings."
+				 width="70">
+				    Saturation
+				</text>
+				<slider_bar
+				 name="SB_Effect_Y" 
+				 follows="left|right"
+				 height="16"
+				 increment="0.1"
+				 layout="topleft"
+				 left_pad="0"
+				 min_val="-1"
+				 max_val="5"
+				 top_delta="-2"
+				 width="127"/>
+				<spinner
+				 name="S_Effect_Y" 
+				 top_delta="-3"
+				 label_width="0"
+				 left_pad="0"
+				 decimal_digits="3"
+				 follows="top|right"
+				 max_val="1000"
+				 min_val="-1000"
+				 width="53"
+				 increment=".001"/>
+				<button
+				 name="Reset_Effect_Y"
+				 height="22"
+				 label="D"
+				 layout="topleft"
+				 left_pad="0"
+				 top_delta="0"
+				 width="20"
+				 tool_tip="Reset to the default value."/>
 
 				<!-- RenderShadowGaussian Y component -->
 				<text
