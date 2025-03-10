@@ -166,7 +166,7 @@ protected:
         mEventTimer.stop();
 
         static LLCachedControl<bool> alreadyComplainedAboutBW(gWarningSettings, "FSBandwidthTooHigh");
-        if (!alreadyComplainedAboutBW && mNewValue > 1500.f)
+        if (!alreadyComplainedAboutBW && mNewValue > 9999999.f)
         {
             LLNotificationsUtil::add("FSBWTooHigh");
             gWarningSettings.setBOOL("FSBandwidthTooHigh", true);
