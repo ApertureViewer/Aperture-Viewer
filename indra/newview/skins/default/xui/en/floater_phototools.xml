@@ -275,7 +275,7 @@
 				 height="20"
 				 word_wrap="true"
 				 width="130">
-					Quick Environments
+					Quick PBR Env.
 				</text>
 				<view_border
 				 bevel_style="none"
@@ -293,7 +293,7 @@
 				 label="Sunrise"
 				 layout="topleft"
 				 left="5"
-				 tool_tip="Set the environment to sunrise lighting conditions."
+				 tool_tip="Set the environment to sunrise lighting conditions.(PBR Enabled)"
 				 top_pad="5"
 				 width="130">
 					<button.commit_callback
@@ -307,7 +307,7 @@
 				 label="Noon"
 				 layout="topleft"
 				 left="5"
-				 tool_tip="Adjust lighting to simulate the brightness of midday."
+				 tool_tip="Adjust lighting to simulate the brightness of midday.(PBR Enabled)"
 				 top_pad="2"
 				 width="130">
 					<button.commit_callback
@@ -321,7 +321,7 @@
 				 label="Sunset"
 				 layout="topleft"
 				 left="5"
-				 tool_tip="Apply sunset lighting for warm, golden hues."
+				 tool_tip="Apply sunset lighting for warm, golden hues.(PBR Enabled)"
 				 top_pad="2"
 				 width="130">
 					<button.commit_callback
@@ -335,7 +335,7 @@
 				 label="Midnight"
 				 layout="topleft"
 				 left="5"
-				 tool_tip="Switch to nighttime settings for low-light environments."
+				 tool_tip="Switch to nighttime settings for low-light environments. (PBR Enabled)"
 				 top_pad="2"
 				 width="130">
 					<button.commit_callback
@@ -349,7 +349,7 @@
 				 label="Shared Environment"
 				 layout="topleft"
 				 left="5"
-				 tool_tip="Revert to the region's shared environment settings."
+				 tool_tip="Revert to the region's shared environment settings. (PBR status depends on region settings. Check region environment for PBR details.)"
 				 top_pad="2"
 				 width="130">
 					<button.commit_callback
@@ -378,7 +378,7 @@
 				 height="20"
 				 word_wrap="true"
 				 width="130">
-					Environment Presets
+					Create Env. Presets
 				</text>
 				<view_border
 				 bevel_style="none"
