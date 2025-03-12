@@ -48,6 +48,7 @@
 #include "llstartup.h"
 #include "llwindow.h"   // swapBuffers()
 
+
 // newview includes
 #include "llagent.h"
 #include "llagentcamera.h"
@@ -131,6 +132,12 @@
 
 #include "SMAAAreaTex.h"
 #include "SMAASearchTex.h"
+      
+// <AP:WW> Include llerror.h for LL_WARNS/LL_INFOS logging.
+#include "llerror.h"
+// </AP:WW>
+
+    
 
 #ifndef LL_WINDOWS
 #define A_GCC 1
@@ -787,13 +794,37 @@ void LLPipeline::requestResizeShadowTexture()
     gResizeShadowTexture = true;
 }
 
-void LLPipeline::resizeShadowTexture()
-{
-    releaseSunShadowTargets();
-    releaseSpotShadowTargets();
-    allocateShadowBuffer(mRT->width, mRT->height);
-    gResizeShadowTexture = false;
-}
+    // <AP:WW> Add frame skip counter and logging for shadow texture resizing.
+    // A static counter to keep track of skipped frames
+    static int sSkippedFrameCount = 0;
+
+    if (!mRT || mRT->width == 0 || mRT->height == 0)
+    {
+        // Log warning about invalid render target dimensions.
+        sSkippedFrameCount++;
+        // Include skipped frame count in the log message.
+        // Indicate the number of frames skipped so far.
+        // Use LL_WARNS for warning log level.
+        // Add "Render" category to the log message.
+        LL_WARNS("Render") << "Shadow texture resizing aborted: render target dimensions invalid. Skipped "
+                           << sSkippedFrameCount << " frame(s) so far." << LL_ENDL;
+        return;
+    }
+
+    // If there were skipped frames before mRT became valid, log that information.
+    if (sSkippedFrameCount > 0)
+    {
+        // Log info message when render target becomes valid after skips.
+        // Indicate the number of frames skipped previously.
+        // Use LL_INFOS for info log level.
+        // Add "Render" category to the log message.
+        LL_INFOS("Render") << "Render target now valid after "
+                           << sSkippedFrameCount << " skipped frame(s)." << LL_ENDL;
+        sSkippedFrameCount = 0;
+    }
+    // </AP:WW>
+
+
 
 void LLPipeline::resizeScreenTexture()
 {
@@ -8082,7 +8113,7 @@ bool LLPipeline::renderSnapshotFrame(LLRenderTarget* src, LLRenderTarget* dst)
     {
         float frame_width = w;
         float frame_height = frame_width / snapshot_aspect;
-        // Centre this box in [0..1]×[0..1]
+        // Centre this box in [0..1]Ã—[0..1]
         float y_offset = 0.5f * (h - frame_height);
         left   = 0.f;
         top    = y_offset / h;
@@ -8093,7 +8124,7 @@ bool LLPipeline::renderSnapshotFrame(LLRenderTarget* src, LLRenderTarget* dst)
     {
         float frame_height = h;
         float frame_width = h * snapshot_aspect;
-        // Centre this box in [0..1]×[0..1]
+        // Centre this box in [0..1]Ã—[0..1]
         float x_offset = 0.5f * (w - frame_width);
         left   = x_offset / w;
         top    = 0.f;
@@ -8796,14 +8827,20 @@ void LLPipeline::bindDeferredShader(LLGLSLShader& shader, LLRenderTarget* light_
     shader.uniform1f(LLShaderMgr::DEFERRED_SHADOW_NOISE, RenderShadowNoise);
     shader.uniform1f(LLShaderMgr::DEFERRED_BLUR_SIZE, RenderShadowBlurSize);
 
-    shader.uniform1f(LLShaderMgr::DEFERRED_SSAO_RADIUS, RenderSSAOScale);
-    shader.uniform1f(LLShaderMgr::DEFERRED_SSAO_MAX_RADIUS, (GLfloat)RenderSSAOMaxScale);
+// <FS:WW> Compute scale factor to match AO appearance between view and snapshot.
+	F32 screen_to_target_scale_factor = (F32)gViewerWindow->getWindowHeightRaw() / deferred_target->getHeight();
+	//shader.uniform1f(LLShaderMgr::DEFERRED_SSAO_RADIUS, RenderSSAOScale);
+	shader.uniform1f(LLShaderMgr::DEFERRED_SSAO_RADIUS, RenderSSAOScale / screen_to_target_scale_factor);
+	//shader.uniform1f(LLShaderMgr::DEFERRED_SSAO_MAX_RADIUS, (GLfloat)RenderSSAOMaxScale);
+	shader.uniform1f(LLShaderMgr::DEFERRED_SSAO_MAX_RADIUS, RenderSSAOMaxScale / screen_to_target_scale_factor);
+	// </FS:WW>
 
     F32 ssao_factor = RenderSSAOFactor;
     shader.uniform1f(LLShaderMgr::DEFERRED_SSAO_FACTOR, ssao_factor);
     shader.uniform1f(LLShaderMgr::DEFERRED_SSAO_FACTOR_INV, 1.0f/ssao_factor);
 
     LLVector3 ssao_effect = RenderSSAOEffect;
+
     F32 matrix_diag = (ssao_effect[0] + 2.0f*ssao_effect[1])/3.0f;
     F32 matrix_nondiag = (ssao_effect[0] - ssao_effect[1])/3.0f;
     // This matrix scales (proj of color onto <1/rt(3),1/rt(3),1/rt(3)>) by
