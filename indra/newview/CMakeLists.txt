@@ -1788,7 +1788,7 @@ if (DARWIN)
 
   # Add resource files to the project.
   set(viewer_RESOURCE_FILES
-    firestorm_icon.icns
+    aperture_icon.icns
     Info-Firestorm.plist
     Firestorm.xib/
     # CMake doesn't seem to support Xcode language variants well just yet
@@ -1838,6 +1838,27 @@ if (LINUX)
     endif()
     # </FS:ND>
 
+    # <FS:WW> Custom Icon Change - Start (Aperture Channel Icon)
+    # Added condition to use 'aperture' icon directory for --chan aperture
+    # ------------------------------------------------------------------
+    # Original code block (preserved in comments):
+    # Replace the icons with the appropriate ones for the channel
+    # ('test' is the default)
+    # set(ICON_PATH "private")
+    # string(TOLOWER ${VIEWER_CHANNEL} channel_lower)
+    # if(channel_lower MATCHES "release")
+    #     set(ICON_PATH "release")
+    # elseif(channel_lower MATCHES "beta")
+    #     set(ICON_PATH "beta")
+    # elseif(channel_lower MATCHES "project")
+    #     set(ICON_PATH "project")
+    # endif()
+    #
+    # if (OPENSIM)
+    #     set(ICON_PATH "${ICON_PATH}-os")
+    # endif (OPENSIM)
+
+    # <FS:WW> Modified code block:
     # Replace the icons with the appropriate ones for the channel
     # ('test' is the default)
     set(ICON_PATH "private")
@@ -1848,17 +1869,28 @@ if (LINUX)
         set(ICON_PATH "beta")
     elseif(channel_lower MATCHES "project")
         set(ICON_PATH "project")
+    # --- ADDED THIS ELSEIF CONDITION <FS:WW/> ---
+    elseif(channel_lower MATCHES "aperture")
+        set(ICON_PATH "aperture")
+    # --- END ADDED SECTION <FS:WW/> ---
     endif()
 
     if (OPENSIM)
         set(ICON_PATH "${ICON_PATH}-os")
     endif (OPENSIM)
+    # ------------------------------------------------------------------
+    # Custom Icon Change - End
+    # </FS:WW>
 
     message(STATUS "Copying icons for ${ICON_PATH}")
     execute_process(
       COMMAND ${CMAKE_COMMAND} -E copy_if_different
-        "${CMAKE_CURRENT_SOURCE_DIR}/icons/${ICON_PATH}/firestorm_256.bmp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/res-sdl/firestorm_icon.BMP"
+	# <FS:WW> Rebranding icons from Firestorm to Aperture
+	#         "${CMAKE_CURRENT_SOURCE_DIR}/icons/${ICON_PATH}/firestorm_256.bmp"
+	#         "${CMAKE_CURRENT_SOURCE_DIR}/res-sdl/firestorm_icon.BMP"
+        "${CMAKE_CURRENT_SOURCE_DIR}/icons/${ICON_PATH}/aperture_256.bmp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/res-sdl/aperture_icon.BMP"
+	# </FS:WW>
       )
 endif (LINUX)
 
@@ -1901,6 +1933,10 @@ if (WINDOWS)
     elseif(channel_lower MATCHES "project")
         set(ICON_PATH "project")
         #set(VIEWER_MACOSX_PHASE "a") # <FS:Ansariel> Moved to OSX section
+		    # --- ADDED THIS ELSEIF CONDITION <FS:WW/> ---
+    elseif(channel_lower MATCHES "aperture")
+        set(ICON_PATH "aperture") # <FS:WW/>  (No ticket) Added aperture icon path
+    # --- END ADDED SECTION <FS:WW/> ---
     endif()
 
     # <FS:Ansariel> FIRE-24335: Use different icon for OpenSim version
@@ -1910,21 +1946,33 @@ if (WINDOWS)
     # <FS:Ansariel>
 
     message(STATUS "Copying icons for ${ICON_PATH}")
-    execute_process(
-      COMMAND ${CMAKE_COMMAND} -E copy_if_different
-        "${CMAKE_CURRENT_SOURCE_DIR}/icons/${ICON_PATH}/firestorm_icon.ico"
-        "${CMAKE_CURRENT_SOURCE_DIR}/res/firestorm_icon.ico"
-      )
-    execute_process(
-      COMMAND ${CMAKE_COMMAND} -E copy_if_different
-        "${CMAKE_CURRENT_SOURCE_DIR}/icons/${ICON_PATH}/firestorm_256.BMP"
-        "${CMAKE_CURRENT_SOURCE_DIR}/res/firestorm_icon.BMP"
-      )
-    execute_process(
-      COMMAND ${CMAKE_COMMAND} -E copy_if_different
-        "${CMAKE_CURRENT_SOURCE_DIR}/icons/${ICON_PATH}/firestorm_256.BMP"
-        "${CMAKE_CURRENT_SOURCE_DIR}/res-sdl/firestorm_icon.BMP"
-      )
+	execute_process(
+	  COMMAND ${CMAKE_COMMAND} -E copy_if_different
+		# OLD - Firestorm filenames:
+		# "${CMAKE_CURRENT_SOURCE_DIR}/icons/${ICON_PATH}/firestorm_icon.ico"
+		# "${CMAKE_CURRENT_SOURCE_DIR}/res/firestorm_icon.ico"
+		# NEW - Aperture filenames (use aperture_ for filenames):
+		"${CMAKE_CURRENT_SOURCE_DIR}/icons/${ICON_PATH}/aperture_icon.ico" # Changed filename to aperture_icon.ico
+		"${CMAKE_CURRENT_SOURCE_DIR}/res/aperture_icon.ico"             # Changed filename to aperture_icon.ico
+	  )
+	execute_process(
+	  COMMAND ${CMAKE_COMMAND} -E copy_if_different
+		# OLD - Firestorm filenames:
+		# "${CMAKE_CURRENT_SOURCE_DIR}/icons/${ICON_PATH}/firestorm_256.BMP"
+		# "${CMAKE_CURRENT_SOURCE_DIR}/res/firestorm_icon.BMP"
+		# NEW - Aperture filenames (use aperture_ for filenames):
+		"${CMAKE_CURRENT_SOURCE_DIR}/icons/${ICON_PATH}/aperture_256.BMP"  # Changed filename to aperture_256.BMP
+		"${CMAKE_CURRENT_SOURCE_DIR}/res/aperture_icon.BMP"             # Changed filename to aperture_icon.BMP
+	  )
+	execute_process(
+	  COMMAND ${CMAKE_COMMAND} -E copy_if_different
+		# OLD - Firestorm filenames:
+		# "${CMAKE_CURRENT_SOURCE_DIR}/icons/${ICON_PATH}/firestorm_256.BMP"
+		# "${CMAKE_CURRENT_SOURCE_DIR}/res-sdl/firestorm_icon.BMP"
+		# NEW - Aperture filenames (use aperture_ for filenames):
+		"${CMAKE_CURRENT_SOURCE_DIR}/icons/${ICON_PATH}/aperture_256.BMP"  # Changed filename to aperture_256.BMP
+		"${CMAKE_CURRENT_SOURCE_DIR}/res-sdl/aperture_icon.BMP"         # Changed filename to aperture_icon.BMP
+	  )
 
     # Add resource files to the project.
     # viewerRes.rc is the only buildable file, but
@@ -1959,9 +2007,12 @@ if (WINDOWS)
         res/lltooltranslate.cur
         res/lltoolzoomin.cur
         res/lltoolzoomout.cur
-        res/firestorm_icon.BMP
-        res/firestorm_icon.ico
-        res-sdl/firestorm_icon.BMP
+		# res/firestorm_icon.BMP  <- OLD LINE - REMOVE
+		res/aperture_icon.BMP     # <- NEW LINE - APERTURE ICON
+		# res/firestorm_icon.ico  <- OLD LINE - REMOVE
+		res/aperture_icon.ico     # <- NEW LINE - APERTURE ICON
+		# res-sdl/firestorm_icon.BMP <- OLD LINE - REMOVE
+		res-sdl/aperture_icon.BMP # <- NEW LINE - APERTURE ICON
         res/resource.h
         res/toolpickobject.cur
         res/toolpickobject2.cur

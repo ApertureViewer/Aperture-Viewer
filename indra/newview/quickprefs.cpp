@@ -112,7 +112,9 @@ FloaterQuickPrefs::FloaterQuickPrefs(const LLSD& key)
     mEnvChangedConnection(),
     mRegionChangedSlot()
 {
-    // For Phototools
+        // <FS:WW> // Add registration for Animation Speed Reset Button Callback (Add this line):
+        mCommitCallbackRegistrar.add("Quickprefs.ResetAnimationSpeed", boost::bind(&FloaterQuickPrefs::onClickResetAnimationSpeed, this, _1, _2));
+        // </FS:WW>
     mCommitCallbackRegistrar.add("Quickprefs.ShaderChanged", boost::bind(&handleSetShaderChanged, LLSD()));
 
     if (!getIsPhototools() && !FSCommon::isLegacySkin())
@@ -239,6 +241,13 @@ void FloaterQuickPrefs::initCallbacks()
         getChild<LLSlider>("SB_Effect")->setCommitCallback(boost::bind(&FloaterQuickPrefs::onChangeRenderSSAOEffectSlider, this));
         getChild<LLSpinCtrl>("S_Effect")->setCommitCallback(boost::bind(&FloaterQuickPrefs::onChangeRenderSSAOEffectSpinner, this));
         getChild<LLButton>("Reset_Effect")->setCommitCallback(boost::bind(&FloaterQuickPrefs::onClickResetRenderSSAOEffectX, this));
+		
+        // <FS:WW> - Set callbacks for RenderSSAOEffect Y component UI elements
+        getChild<LLSlider>("SB_Effect_Y")->setCommitCallback(boost::bind(&FloaterQuickPrefs::onChangeRenderSSAOEffectSliderY, this)); // Assuming slider name in XML is "SB_Effect_Y"
+        getChild<LLSpinCtrl>("S_Effect_Y")->setCommitCallback(boost::bind(&FloaterQuickPrefs::onChangeRenderSSAOEffectSpinnerY, this)); // Assuming spinner name in XML is "S_Effect_Y"
+        getChild<LLButton>("Reset_Effect_Y")->setCommitCallback(boost::bind(&FloaterQuickPrefs::onClickResetRenderSSAOEffectY, this)); // Assuming reset button name in XML is "Reset_Effect_Y"
+        // </FS:WW> - End additions		
+		
     }
     else
     {
@@ -614,8 +623,37 @@ bool FloaterQuickPrefs::postBuild()
 
         mSliderRenderSSAOEffectX = getChild<LLSlider>("SB_Effect");
         mSpinnerRenderSSAOEffectX = getChild<LLSpinCtrl>("S_Effect");
+		
+		// <FS:WW> - Get pointers to RenderSSAOEffect Y component UI elements
+        mSliderRenderSSAOEffectY = getChild<LLSlider>("SB_Effect_Y"); // Assuming you'll name the slider "SB_Effect_Y" in XML
+        mSpinnerRenderSSAOEffectY = getChild<LLSpinCtrl>("S_Effect_Y"); // Assuming you'll name the spinner "S_Effect_Y" in XML
+        // </FS:WW> - End additions
 
-        refreshSettings();
+		// <FS:WW> // Animation Speed UI controls 
+		mAnimationSpeedSlider = getChild<LLSlider>("animationspeed_slider_name");
+		if (mAnimationSpeedSlider)
+		{
+		    mAnimationSpeedSlider->setCommitCallback(boost::bind(&FloaterQuickPrefs::onAnimationSpeedChanged, this, _1, _2));
+
+		    // **Add this line to initialize slider value at startup:**
+		    F32 initialSpeedFactor = LLMotionController::getCurrentTimeFactor(); 
+		    mAnimationSpeedSlider->setValue(initialSpeedFactor);             
+		}
+
+		mAnimationSpeedSpinner = getChild<LLUICtrl>("animationspeed_spinner_name");
+		if (mAnimationSpeedSpinner)
+		{
+		    mAnimationSpeedSpinner->setCommitCallback(boost::bind(&FloaterQuickPrefs::onAnimationSpeedChanged, this, _1, _2));
+
+		    // **Add these lines to initialize spinner value at startup:**
+		    F32 initialSpeedFactor = LLMotionController::getCurrentTimeFactor(); 
+		    mAnimationSpeedSpinner->setValue(initialSpeedFactor);             
+		}
+
+		// **Move refreshSettings() to the VERY END of the if block:**
+		refreshSettings(); 
+		// </FS:WW>
+
     }
     else
     {
@@ -1100,6 +1138,11 @@ void FloaterQuickPrefs::refreshSettings()
         LLVector3 renderSSAOEffect = gSavedSettings.getVector3("RenderSSAOEffect");
         mSpinnerRenderSSAOEffectX->setValue(renderSSAOEffect.mV[VX]);
         mSliderRenderSSAOEffectX->setValue(renderSSAOEffect.mV[VX]);
+		
+		// <FS:WW> - Update RenderSSAOEffect Y component UI elements
+		mSpinnerRenderSSAOEffectY->setValue(renderSSAOEffect.mV[VY]);
+		mSliderRenderSSAOEffectY->setValue(renderSSAOEffect.mV[VY]);
+		// </FS:WW> - End additions
     }
     // </FS:CR>
 }
@@ -1873,6 +1916,73 @@ void FloaterQuickPrefs::onClose(bool app_quitting)
     // close edit mode and save settings
     gSavedSettings.setBOOL("QuickPrefsEditMode", false);
 }
+
+// <FS:WW>
+void FloaterQuickPrefs::onAnimationSpeedChanged(LLUICtrl* control, const LLSD& data)
+{
+    F32 newSpeedFactor = 1.0f; // Default value in case of error
+
+    if (control == mAnimationSpeedSlider)
+    {
+        newSpeedFactor = mAnimationSpeedSlider->getValueF32();
+		// **Add this line to update the spinner when slider changes:**
+        mAnimationSpeedSpinner->setValue(newSpeedFactor); // **<-- Update spinner value from slider**
+    }
+    else if (control == mAnimationSpeedSpinner)
+    {
+        newSpeedFactor = (F32)mAnimationSpeedSpinner->getValue().asReal();
+		// **Optionally, add this line to update the slider when spinner changes (if desired - see note below):**
+        mAnimationSpeedSlider->setValue(newSpeedFactor); // Update slider value from spinner (optional - see note)
+    }
+
+    // Clamp the speed factor to reasonable limits (optional, adjust as needed)
+    newSpeedFactor = llclamp(newSpeedFactor, 0.0f, 100.0f); // Example: 0% to 1000% speed
+
+    // 1. Update the preference in settings.xml
+    gSavedSettings.setF32("FSAnimationTimeFactor", newSpeedFactor);
+
+    for (LLCharacter* character : LLCharacter::sInstances)
+    {
+        character->setAnimTimeFactor(newSpeedFactor);
+    }
+
+    // 3. Apply to running animations
+    // set_all_animation_time_factors(newSpeedFactor);
+
+    // Optionally update the UI elements to reflect the clamped value if clamping was done.
+    //if (control == mAnimationSpeedSlider)
+    //{
+    //    mAnimationSpeedSlider->setValue(newSpeedFactor);
+    //}
+    //else if (control == mAnimationSpeedSpinner)
+    //{
+    //    mAnimationSpeedSpinner->setValue(newSpeedFactor);
+    //}
+}
+// </FS:WW>
+
+// <FS:WW>
+void FloaterQuickPrefs::onClickResetAnimationSpeed(LLUICtrl* control, const LLSD& data)
+{
+    F32 defaultSpeedFactor = 1.0f; // Normal speed is 1.0
+
+    // 1. Update the preference in settings.xml to the default value (1.0)
+    gSavedSettings.setF32("FSAnimationTimeFactor", defaultSpeedFactor);
+    //gSavedSettings.saveToFile(); // Or gSavedSettings.save(); if that's what works for you
+
+    // 2. Update LLMotionController::sCurrentTimeFactor (or use character loop - choose ONE method consistently)
+    // LLMotionController::sCurrentTimeFactor = defaultSpeedFactor; // Option 1: Set global time factor
+    for (LLCharacter* character : LLCharacter::sInstances) // Option 2: Update each character directly (Let's use this for consistency)
+    {
+        character->setAnimTimeFactor(defaultSpeedFactor);
+    }
+
+    // 3. Update the UI controls to reflect the reset value (1.0)
+    mAnimationSpeedSlider->setValue(defaultSpeedFactor);
+    mAnimationSpeedSpinner->setValue(defaultSpeedFactor);
+}
+// </FS:WW>
+
 // </FS:Zi>
 
 // <FS:CR> FIRE-9630 - Vignette UI callbacks
@@ -2048,6 +2158,39 @@ void FloaterQuickPrefs::onClickResetRenderSSAOEffectX()
     gSavedSettings.setVector3("RenderSSAOEffect", renderSSAOEffect);
 }
 
+      
+// <FS:WW> - Callback function for RenderSSAOEffect Y component Slider
+void FloaterQuickPrefs::onChangeRenderSSAOEffectSliderY()
+{
+    LLVector3 renderSSAOEffect = gSavedSettings.getVector3("RenderSSAOEffect");
+    renderSSAOEffect.mV[VY] = mSliderRenderSSAOEffectY->getValueF32();
+    mSpinnerRenderSSAOEffectY->setValue(renderSSAOEffect.mV[VY]);
+    gSavedSettings.setVector3("RenderSSAOEffect", renderSSAOEffect);
+}
+// </FS:WW>
+
+// <FS:WW> - Callback function for RenderSSAOEffect Y component Spinner
+void FloaterQuickPrefs::onChangeRenderSSAOEffectSpinnerY()
+{
+    LLVector3 renderSSAOEffect = gSavedSettings.getVector3("RenderSSAOEffect");
+    renderSSAOEffect.mV[VY] = mSpinnerRenderSSAOEffectY->getValueF32();
+    mSliderRenderSSAOEffectY->setValue(renderSSAOEffect.mV[VY]);
+    gSavedSettings.setVector3("RenderSSAOEffect", renderSSAOEffect);
+}
+// </FS:WW>
+
+// <FS:WW> - Callback function for Reset Button of RenderSSAOEffect Y component
+void FloaterQuickPrefs::onClickResetRenderSSAOEffectY()
+{
+    LLVector3 renderSSAOEffectDefault = LLVector3(gSavedSettings.getControl("RenderSSAOEffect")->getDefault());
+    LLVector3 renderSSAOEffect = gSavedSettings.getVector3("RenderSSAOEffect");
+    renderSSAOEffect.mV[VY] = renderSSAOEffectDefault.mV[VY];
+    mSpinnerRenderSSAOEffectY->setValue(renderSSAOEffect.mV[VY]);
+    mSliderRenderSSAOEffectY->setValue(renderSSAOEffect.mV[VY]);
+    gSavedSettings.setVector3("RenderSSAOEffect", renderSSAOEffect);
+}
+// </FS:WW>
+   
 void FloaterQuickPrefs::callbackRestoreDefaults(const LLSD& notification, const LLSD& response)
 {
     S32 option = LLNotificationsUtil::getSelectedOption(notification, response);

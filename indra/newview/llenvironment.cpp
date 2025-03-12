@@ -821,11 +821,22 @@ const F64Seconds LLEnvironment::TRANSITION_DEFAULT(5.0f);
 const F64Seconds LLEnvironment::TRANSITION_SLOW(10.0f);
 const F64Seconds LLEnvironment::TRANSITION_ALTITUDE(5.0f);
 
-const LLUUID LLEnvironment::KNOWN_SKY_SUNRISE("01e41537-ff51-2f1f-8ef7-17e4df760bfb");
-const LLUUID LLEnvironment::KNOWN_SKY_MIDDAY("c46226b4-0e43-5a56-9708-d27ca1df3292");
+      
+// <FS:WW> Refactor: Rename non-PBR sky presets to "LEGACY" and update default presets to PBR versions.
+// Non-PBR Legacy Presets (renamed from original KNOWN_SKY_* constants):
+const LLUUID LLEnvironment::KNOWN_SKY_LEGACY_SUNRISE("01e41537-ff51-2f1f-8ef7-17e4df760bfb");
 const LLUUID LLEnvironment::KNOWN_SKY_LEGACY_MIDDAY("6c83e853-e7f8-cad7-8ee6-5f31c453721c");
-const LLUUID LLEnvironment::KNOWN_SKY_SUNSET("084e26cd-a900-28e8-08d0-64a9de5c15e2");
-const LLUUID LLEnvironment::KNOWN_SKY_MIDNIGHT("8a01b97a-cb20-c1ea-ac63-f7ea84ad0090");
+const LLUUID LLEnvironment::KNOWN_SKY_LEGACY_SUNSET("084e26cd-a900-28e8-08d0-64a9de5c15e2");
+const LLUUID LLEnvironment::KNOWN_SKY_LEGACY_MIDNIGHT("8a01b97a-cb20-c1ea-ac63-f7ea84ad0090");
+
+// PBR Enabled Default Presets (using original KNOWN_SKY_* constant names):
+const LLUUID LLEnvironment::KNOWN_SKY_SUNRISE("aae7665f-7654-e4c0-68c4-fb4acea04799");
+const LLUUID LLEnvironment::KNOWN_SKY_MIDDAY("c46226b4-0e43-5a56-9708-d27ca1df3292");
+const LLUUID LLEnvironment::KNOWN_SKY_SUNSET("aae7665f-7654-e4c0-68c4-fb4acea04799");
+const LLUUID LLEnvironment::KNOWN_SKY_MIDNIGHT("ca709215-3066-aa54-362e-be8a950ce09d");
+// </FS:WW>
+
+    
 
 const S32 LLEnvironment::NO_TRACK(-1);
 const S32 LLEnvironment::NO_VERSION(-3); // For viewer sided change, like ENV_LOCAL. -3 since -1 and -2 are taken by parcel initial server/viewer version

@@ -142,9 +142,12 @@ private:
     bool            mWantSurfaceInfo;   // do we populate mUVCoord, mNormal, mBinormal?
 
 };
-
-static const U32 MAX_SNAPSHOT_IMAGE_SIZE = 7680; // max snapshot image size 7680 * 7680 UHDTV2
-
+      
+// <FS:WWeaver/> increase max snapshot image size to 8192 for higher resolution snapshots
+// static const U32 MAX_SNAPSHOT_IMAGE_SIZE = 8096; // max snapshot image size 8096 * 8096 UHDTV2
+static const U32 MAX_SNAPSHOT_IMAGE_SIZE = 8192; // max snapshot image size 8192* 8192
+// </FS:WW>
+    
 class LLViewerWindow : public LLWindowCallbacks
 {
 public:

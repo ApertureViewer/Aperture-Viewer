@@ -13,6 +13,20 @@
     <key>Value</key>
     <integer>0</integer>
   </map>
+  <!-- <FS:WW> -->
+  <!-- Add FSAnimationTimeFactor for Animation Speed Slider in Gen tab of Phototools-->
+  <key>FSAnimationTimeFactor</key>
+  <map>
+    <key>Comment</key>
+    <string>Controls the animation speed factor. 1.0 is normal speed, 0.0 is frozen, greater than 1.0 is faster, greater then 1.0 but less than 0.0 is slower.</string>
+    <key>Persist</key>
+    <integer>0</integer>  
+    <key>Type</key>
+    <string>F32</string> 
+    <key>Value</key>
+    <real>1.0</real>    
+  </map>
+  <!-- </FS:WW> -->
   <key>FSEnforceStrictObjectCheck</key>
   <map>
     <key>Comment</key>
@@ -914,7 +928,7 @@
       <key>Type</key>
       <string>String</string>
       <key>Value</key>
-      <string>grey</string>
+      <string>dusk</string>
     </map>
 
     <key>ShowSearchTopBar</key>
@@ -1964,7 +1978,7 @@
       <key>Type</key>
       <string>Boolean</string>
       <key>Value</key>
-      <integer>1</integer>
+      <integer>0</integer>
     </map>
     <key>AutoLogin</key>
     <map>
@@ -6298,7 +6312,7 @@
       <key>Type</key>
       <string>Boolean</string>
       <key>Value</key>
-      <integer>1</integer>
+      <integer>0</integer>
     </map>
     <key>JoystickAxis0</key>
     <map>
@@ -6375,7 +6389,7 @@
       <key>Type</key>
       <string>S32</string>
       <key>Value</key>
-      <integer>-1</integer>
+      <integer>4</integer>
     </map>
     <key>JoystickBuildEnabled</key>
     <map>
@@ -6397,7 +6411,7 @@
       <key>Type</key>
       <string>Boolean</string>
       <key>Value</key>
-      <integer>0</integer>
+      <integer>1</integer>
     </map>
     <key>JoystickFlycamEnabled</key>
     <map>
@@ -10155,7 +10169,7 @@ Change of this parameter will affect the layout of buttons in notification toast
       <key>Type</key>
       <string>Boolean</string>
       <key>Value</key>
-      <integer>0</integer>
+      <integer>1</integer>
     </map>
     <key>QAModeEventHostPort</key>
     <map>
@@ -10872,7 +10886,7 @@ Change of this parameter will affect the layout of buttons in notification toast
     <key>Comment</key>
     <string>Scaling factor for irradiance input to SSAO</string>
     <key>Persist</key>
-    <integer>0</integer>
+    <integer>1</integer>
     <key>Type</key>
     <string>F32</string>
     <key>Value</key>
@@ -10883,7 +10897,7 @@ Change of this parameter will affect the layout of buttons in notification toast
     <key>Comment</key>
     <string>Max factor for irradiance input to SSAO</string>
     <key>Persist</key>
-    <integer>0</integer>
+    <integer>1</integer>
     <key>Type</key>
     <string>F32</string>
     <key>Value</key>
@@ -10931,6 +10945,17 @@ Change of this parameter will affect the layout of buttons in notification toast
     </array>
     <key>Backup</key>
     <integer>0</integer>
+  </map>
+  <key>FSRenderSSAOSampleCount</key>  
+  <map>                                 
+    <key>Comment</key>             
+    <string>Controls the number of samples used for Screen Space Ambient Occlusion (SSAO). Higher values improve quality but reduce performance.</string> 
+    <key>Persist</key>           
+    <integer>0</integer>         
+    <key>Type</key>             
+    <string>F32</string>        
+    <key>Value</key>               
+    <integer>8</integer>          
   </map>
   <key>RenderMirrors</key>
   <map>
@@ -13415,14 +13440,6 @@ Change of this parameter will affect the layout of buttons in notification toast
       <string>F32</string>
       <key>Value</key>
       <real>2.0</real>
-      <key>SanityCheckType</key>
-      <string>LessThanEquals</string>
-      <key>SanityValue</key>
-      <array>
-        <real>8.0</real>
-      </array>
-      <key>SanityComment</key>
-      <string>Values higher than 8 are meaningless and give no improvement. You should set this to no higher than 4. Setting this too high also seriously lowers your graphics performance.</string>
     </map>
     <key>RenderWater</key>
     <map>
@@ -14870,7 +14887,7 @@ Change of this parameter will affect the layout of buttons in notification toast
       <key>Type</key>
       <string>String</string>
       <key>Value</key>
-      <string>firestorm</string>
+      <string>aperture</string>
     </map>
     <key>SkinningSettingsFile</key>
     <map>
@@ -16981,7 +16998,7 @@ Change of this parameter will affect the layout of buttons in notification toast
       <key>Type</key>
       <string>Boolean</string>
       <key>Value</key>
-      <integer>0</integer>
+      <integer>1</integer>
     </map>
     <key>UseDefaultColorPicker</key>
     <map>
@@ -21402,7 +21419,7 @@ Change of this parameter will affect the layout of buttons in notification toast
       <key>Type</key>
       <string>String</string>
       <key>Value</key>
-      <string>Firestorm</string>
+      <string>Aperture</string>
     </map>
   <key>FSSkinCurrentThemeReadableName</key>
     <map>
@@ -21415,7 +21432,7 @@ Change of this parameter will affect the layout of buttons in notification toast
       <key>Type</key>
       <string>String</string>
       <key>Value</key>
-      <string>Grey</string>
+      <string>dusk</string>
     </map>
     <key>FSStatusbarShowSimulatorVersion</key>
     <map>
@@ -22754,6 +22771,19 @@ Change of this parameter will affect the layout of buttons in notification toast
       <key>Backup</key>
       <integer>0</integer>
     </map>
+<!-- <FS:WW> Setting to enable or disable fullbright rendering-->
+    <key>FSRenderEnableFullbright</key>
+    <map>
+      <key>Comment</key>
+      <string>Enable Fullbright Rendering</string>
+      <key>Persist</key>
+      <integer>0</integer>
+      <key>Type</key>
+      <string>Boolean</string>
+      <key>Value</key>
+      <real>1</real>
+    </map>
+<!-- </FS:WW> -->
     <key>FSRenderFarClipStepping</key>
     <map>
       <key>Comment</key>

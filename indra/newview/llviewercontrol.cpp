@@ -166,7 +166,7 @@ protected:
         mEventTimer.stop();
 
         static LLCachedControl<bool> alreadyComplainedAboutBW(gWarningSettings, "FSBandwidthTooHigh");
-        if (!alreadyComplainedAboutBW && mNewValue > 1500.f)
+        if (!alreadyComplainedAboutBW && mNewValue > 9999999.f)
         {
             LLNotificationsUtil::add("FSBWTooHigh");
             gWarningSettings.setBOOL("FSBandwidthTooHigh", true);
@@ -389,10 +389,10 @@ static bool handleVolumeLODChanged(const LLSD& newvalue)
     LLVOVolume::sDistanceFactor = 1.f-LLVOVolume::sLODFactor * 0.1f;
 
     // <FS:PP> Warning about too high LOD on LOD change
-    if (LLVOVolume::sLODFactor > 4.0f)
-    {
-        LLNotificationsUtil::add("RenderVolumeLODFactorWarning");
-    }
+    // if (LLVOVolume::sLODFactor > 4.0f)
+    // {
+    //    LLNotificationsUtil::add("RenderVolumeLODFactorWarning");
+    // }
     // </FS:PP>
 
     return true;
@@ -1264,9 +1264,27 @@ void setting_setup_signal_listener(LLControlGroup& group, const std::string& set
     });
 }
 
+// <FS:WW> Feature: Fullbright Toggle - Handle preference change
+static bool handleFullbrightChanged(const LLSD& newvalue)
+{
+    BOOL enabled = gSavedSettings.getBOOL("FSRenderEnableFullbright");
+
+    if (!enabled)
+    {
+        gObjectList.killAllFullbrights();
+    }
+    else
+    {
+        gObjectList.restoreAllFullbrights(); 
+    }
+    return true;
+}
+// </FS:WW>
 void settings_setup_listeners()
 {
-    setting_setup_signal_listener(gSavedSettings, "FirstPersonAvatarVisible", handleRenderAvatarMouselookChanged);
+       
+    setting_setup_signal_listener(gSavedSettings, "FSRenderEnableFullbright", handleFullbrightChanged); // <FS:WW> Feature: Fullbright Toggle - Add listener for preference changes 
+	setting_setup_signal_listener(gSavedSettings, "FirstPersonAvatarVisible", handleRenderAvatarMouselookChanged);
     setting_setup_signal_listener(gSavedSettings, "RenderFarClip", handleRenderFarClipChanged);
     setting_setup_signal_listener(gSavedSettings, "RenderTerrainScale", handleTerrainScaleChanged);
     setting_setup_signal_listener(gSavedSettings, "RenderTerrainPBRScale", handlePBRTerrainScaleChanged);
@@ -1291,7 +1309,6 @@ void settings_setup_listeners()
     // setting_setup_signal_listener(gSavedSettings, "RenderShadowResolutionScale", handleSetShaderChanged);
     setting_setup_signal_listener(gSavedSettings, "RenderShadowResolutionScale", handleShadowsResized);
     // Comment out handleSetShaderChanged.
-    // </AP:WW>
     setting_setup_signal_listener(gSavedSettings, "RenderGlow", handleReleaseGLBufferChanged);
     setting_setup_signal_listener(gSavedSettings, "RenderGlow", handleSetShaderChanged);
     setting_setup_signal_listener(gSavedSettings, "RenderGlowResolutionPow", handleReleaseGLBufferChanged);

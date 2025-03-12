@@ -141,6 +141,11 @@ private:
 
     LLSlider*           mSliderRenderSSAOEffectX;
     LLSpinCtrl*         mSpinnerRenderSSAOEffectX;
+	
+    // <FS:WW> - Add member variables for RenderSSAOEffect Y component
+    LLSlider*			mSliderRenderSSAOEffectY;
+    LLSpinCtrl*			mSpinnerRenderSSAOEffectY;
+    // </FS:WW> - End additions
 
     LLSliderCtrl*       mAvatarZOffsetSlider;
 
@@ -177,11 +182,23 @@ private:
     void onChangeRenderSSAOEffectSlider();
     void onChangeRenderSSAOEffectSpinner();
     void onClickResetRenderSSAOEffectX();
+	
+	// <FS:WW> - Add callback declarations for RenderSSAOEffect Y component
+    void onChangeRenderSSAOEffectSliderY();
+    void onChangeRenderSSAOEffectSpinnerY();
+    void onClickResetRenderSSAOEffectY();
+    // </FS:WW> - End additions
 
     // Restore Quickprefs Defaults
     void onClickRestoreDefaults();
     void loadSavedSettingsFromFile(const std::string& settings_path);
     void callbackRestoreDefaults(const LLSD& notification, const LLSD& response);
+
+	// <FS:WW> // **Insert onAnimationSpeedChanged declaration HERE:**
+	void onAnimationSpeedChanged(LLUICtrl* control, const LLSD& data);  // </FS:WW>
+	
+	// <FS:WW> // Animation Speed Reset Button Callback:
+	void onClickResetAnimationSpeed(LLUICtrl* control, const LLSD& data); // </FS:WW>
 
     void onAvatarZOffsetSliderMoved();
     void onAvatarZOffsetFinalCommit();
@@ -192,6 +209,10 @@ private:
     void updateMaxNonImpostors(const LLSD& newvalue);
     void updateMaxComplexity();
     void updateMaxComplexityLabel(const LLSD& newvalue);
+		
+	// <FS:WW> // Animation Speed UI Elements (Add these lines):
+	LLSlider* mAnimationSpeedSlider;
+	LLUICtrl*     mAnimationSpeedSpinner; // </FS:WW>
 
     boost::signals2::connection mRegionChangedSlot;
 

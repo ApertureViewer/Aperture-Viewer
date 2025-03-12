@@ -11755,6 +11755,14 @@ class LLWorldEnvSettings : public view_listener_t
             // </FS:Beq>
             defocusEnvFloaters();
         }
+        if (event_name == "legacy_sunrise")
+        {
+            // <FS:WW> Use legacy sunrise preset (non-PBR). Renamed from 'sunrise' to 'legacy_sunrise' to indicate non-PBR and deprecated status.
+            LLEnvironment::instance().setManualEnvironment(LLEnvironment::ENV_LOCAL, LLEnvironment::KNOWN_SKY_LEGACY_SUNRISE);
+            LLEnvironment::instance().setSelectedEnvironment(LLEnvironment::ENV_LOCAL);
+            // </FS:WW>
+            defocusEnvFloaters();
+        }
         else if (event_name == "noon")
         {
             // <FS:Beq> FIRE-29926 - allow manually selected environments to have a user defined transition time.
@@ -11784,6 +11792,14 @@ class LLWorldEnvSettings : public view_listener_t
             LLEnvironment::instance().setSelectedEnvironment(LLEnvironment::ENV_LOCAL);            // </FS:Beq>
             defocusEnvFloaters();
         }
+        else if (event_name == "legacy_sunset")
+        {
+            // <FS:WW> Use legacy sunset preset (non-PBR). Renamed from 'sunset' to 'legacy_sunset' to indicate non-PBR and deprecated status.
+            LLEnvironment::instance().setManualEnvironment(LLEnvironment::ENV_LOCAL, LLEnvironment::KNOWN_SKY_LEGACY_SUNSET);
+            LLEnvironment::instance().setSelectedEnvironment(LLEnvironment::ENV_LOCAL);
+            // </FS:WW>
+            defocusEnvFloaters();
+        }
         else if (event_name == "midnight")
         {
             // <FS:Beq> FIRE-29926 - allow manually selected environments to have a user defined transition time.
@@ -11792,7 +11808,15 @@ class LLWorldEnvSettings : public view_listener_t
             LLEnvironment::instance().setManualEnvironment(LLEnvironment::ENV_LOCAL, LLEnvironment::KNOWN_SKY_MIDNIGHT);
             LLEnvironment::instance().setSelectedEnvironment(LLEnvironment::ENV_LOCAL);            // </FS:Beq>
             defocusEnvFloaters();
-        }
+		}
+        else if (event_name == "legacy_midnight")
+        {
+            // <FS:WW> Use legacy midnight preset (non-PBR). Renamed from 'midnight' to 'legacy_midnight' to indicate non-PBR and deprecated status.
+            LLEnvironment::instance().setManualEnvironment(LLEnvironment::ENV_LOCAL, LLEnvironment::KNOWN_SKY_LEGACY_MIDNIGHT);
+            LLEnvironment::instance().setSelectedEnvironment(LLEnvironment::ENV_LOCAL);
+            // </FS:WW>
+            defocusEnvFloaters();
+		}
         else if (event_name == "region")
         {
             // reset probe data when reverting back to region sky setting
