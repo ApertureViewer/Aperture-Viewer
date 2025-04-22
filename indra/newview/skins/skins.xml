@@ -1,6 +1,6 @@
 <llsd>
   <array>
-  
+
   <map>
       <key>name</key>
       <string>Aperture</string>
@@ -9,12 +9,6 @@
       <key>themes</key>
     
       <array>
-        <map>
-          <key>name</key>
-          <string>Nocturn</string>
-          <key>folder</key>
-          <string/>
-        </map>
         <map>
           <key>name</key>
           <string>Phantom</string>
