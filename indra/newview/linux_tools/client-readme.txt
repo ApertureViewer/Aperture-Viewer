@@ -1,7 +1,7 @@
-Firestorm - Linux Beta README
+Aperture - Linux Beta README
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-This document contains information about the Firestorm Linux
+This document contains information about the Aperture Linux
 client
 
 1. Introduction
@@ -25,7 +25,7 @@ client
 1. INTRODUCTION
 -=-=-=-=-=-=-=-
 
-Hi!  This is a BETA release of the Firestorm client for Linux.
+Hi!  This is a BETA release of the Aperture client for Linux.
 The 'beta' status means that although we're still smoothing-out a few rough
 edges, this version of the client is functionally complete and should
 work quite well 'out of the box'.
@@ -59,10 +59,10 @@ Minimum requirements:
           o OR ATI Radeon 8500, 9250, or better
           (nVidia cards are recommended for the Linux client)
 
-      **NOTE**: Firestorm absolutely requires you to have recent, correctly-
+      **NOTE**: Aperture absolutely requires you to have recent, correctly-
       configured OpenGL 3D drivers for your hardware - the graphics drivers
       that came with your operating system may not be good enough!  See the
-      TROUBLESHOOTING section if you encounter problems starting Firestorm.
+      TROUBLESHOOTING section if you encounter problems starting Aperture.
 
 For a more comfortable experience, the RECOMMENDED hardware for the Second
 Life Linux client is very similar to that for Windows, as detailed at:
@@ -72,11 +72,11 @@ Life Linux client is very similar to that for Windows, as detailed at:
 3. INSTALLING & RUNNING
 -=-=-=-=-=-=-=-=-=-=-=-
 
-The Firestorm Linux client can entirely run from the directory you have
+The Aperture Linux client can entirely run from the directory you have
 unpacked it into - no installation step is required.  If you wish to
 perform a separate installation step anyway, you may run './install.sh'
 
-Run './firestorm' from the installation directory to start Firestorm.
+Run './aperture' from the installation directory to start Aperture.
 
 For in-world MOVIE and MUSIC PLAYBACK, you will need (32-bit) GStreamer 0.10
 installed on your system.  This is optional - it is not required for general
@@ -86,8 +86,8 @@ plugins you have; if you cannot play a certain in-world movie then you are
 probably missing the appropriate GStreamer plugin on your system - you may
 be able to install it (see TROUBLESHOOTING).
 
-User data is stored in the hidden directory ~/.firestorm by default; you may
-override this location with the FIRESTORM_USER_DIR, or FIRESTORM_X64_USER_DIR
+User data is stored in the hidden directory ~/.aerture by default; you may
+override this location with the APERTURE_VIEWER_USER_DIR, or APERTURE_VIEWER_X64_USER_DIR
 if using the 64 bit version, environment variable if you wish.
 
 
@@ -210,15 +210,15 @@ an Open Source license compatible with the 'LGPL'.
 For general help and support with Firestorm:
 <http://wiki.firestormviewer.org>
 
-In-world discussion: 
+In-world discussion:
 
 Main support: Join one of our in-world support groups.
 <http://wiki.firestormviewer.org/firestorm_in-world_groups>
 
-There is also a 'Linux Client Users' group inside Second Life which 
-is free to join.  You can find it by pressing the 'Search' button at 
-the bottom of the window and then selecting the 'Groups' tab and 
-searching for 'Linux'.  This group is useful for discussing Linux 
+There is also a 'Linux Client Users' group inside Second Life which
+is free to join.  You can find it by pressing the 'Search' button at
+the bottom of the window and then selecting the 'Groups' tab and
+searching for 'Linux'.  This group is useful for discussing Linux
 issues with fellow Linux client users who are online.
 
 The Firestorm Issue Tracker:
