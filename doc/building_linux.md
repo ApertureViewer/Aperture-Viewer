@@ -6,7 +6,7 @@
 This procedure is based on discussions with the Firestorm Linux development team and is the only one recommended for Firestorm for Linux. System requirements are:
 - Ubuntu 22.04 LTS (x86_64) - fully upgraded (this is also now the minimum requirement for running the viewer).
 - 16GB or more RAM ([Low Memory Caution](#common-issuesbugsglitches-and-solutions))
-- 64GB hard drive space 
+- 64GB hard drive space
 - 4 or more core CPU (you could get by with 2 cores, but the process will take much longer)
 - GCC 11 compiler (which is the default version on Ubuntu 22.04 LTS)
 
@@ -15,7 +15,7 @@ It is recommended that you use a virtual machine for compiling, ensuring the gue
 This procedure may or may not work on other Linux distributions (or you might need to adjust some of the package names to suit the distribution you are using).
 
 > [!WARNING]
-> A system with a glibc version of at least 2.34 is required (Ubuntu 22.04 LTS meets this requirement) 
+> A system with a glibc version of at least 2.34 is required (Ubuntu 22.04 LTS meets this requirement)
 > Building on a system with a glibc version older than 2.34 will likely result in linker errors.
 
 > [!IMPORTANT]
@@ -60,20 +60,20 @@ There are two required repositories, the viewer itself and the build variables. 
 
 ```
 cd ~/src
-git clone https://github.com/FirestormViewer/phoenix-firestorm.git
+git clone https://github.com/ApertureViewer/Aperture-Viewer.git
 ```
 
-This will create a folder called phoenix-firestorm and add all the source files. If you desire, you can choose a different folder name by adding the name to the end of the command:
+This will create a folder called Aperture-Viewer and add all the source files. If you desire, you can choose a different folder name by adding the name to the end of the command:
 
 ```
-git clone https://github.com/FirestormViewer/phoenix-firestorm.git NewDestinationDirectory
+git clone https://github.com/ApertureViewer/Aperture-Viewer.git NewDestinationDirectory
 ```
- 
-The rest of this document will assume the default directory, `phoenix-firestorm`
+
+The rest of this document will assume the default directory, `Aperture-Viewer`
 
 ### Clone the Autobuild build variables
 
-Autobuild uses a separate file to control compiler options, switches, and the like for different configurations. 
+Autobuild uses a separate file to control compiler options, switches, and the like for different configurations.
 
 ```
 cd ~/src
@@ -116,7 +116,7 @@ wrote  !/home/username/src/3p-fmodstudio/fmodstudio-2.01.02-linux64-202161533.ta
 Additionally, a file `result.txt` has been created containing the md5 hash value of the package file, which you will need in the next steps.
 
 ```
-cd ~/src/phoenix-firestorm
+cd ~/src/Aperture-Viewer
 ```
 
 Copy the FMOD Studio path and md5 value from the package process into this command:
@@ -147,7 +147,7 @@ export AUTOBUILD_VARIABLES_FILE=$HOME/src/fs-build-variables/variables
 You can add that to `~/.bashrc` or `~/.profile` so they execute automatically, or execute them before you run autobuild.
 
 ```
-cd ~/src/phoenix-firestorm
+cd ~/src/Aperture-Viewer
 autobuild configure -A 64 -c ReleaseFS_open
 ```
 
@@ -185,9 +185,9 @@ autobuild configure -A 64 -c ReleaseFS_open -- --fmodstudio
 autobuild configure -A 64 -c ReleaseFS_open -- --chan="MyBuild"
 ```
 
-In the last example, the channel and resulting viewer name would be "Firestorm-MyBuild". 
+In the last example, the channel and resulting viewer name would be "Aperture-MyBuild".
 
-The first time you configure, several additional files will be downloaded from Firestorm and Second Life sources. These are mostly binary packages maintained outside the viewer development itself. And if you use the `--clean` switch, you will re-download them all.
+The first time you configure, several additional files will be downloaded from Aperture and Second Life sources. These are mostly binary packages maintained outside the viewer development itself. And if you use the `--clean` switch, you will re-download them all.
 
 ## Compiling the viewer
 
@@ -216,18 +216,18 @@ If you build the viewer using a virtual machine (guest), you will need to copy t
 The build process created a ready-to-use viewer as well as a compressed archive. The archive can be copied or moved to any shared filesystem, such as a flash or cloud drive, and it could be installed or extracted in the same manner as is the official release.
 
 ```
-cp ~/src/phoenix-firestorm/build-linux-x86_64/newview/Phoenix*.tar.* /path/to/shared/drive
+cp ~/src/Aperture-Viewer/build-linux-x86_64/newview/Aperture*.tar.* /path/to/shared/drive
 ```
 
 or
 ```
-mv ~/src/phoenix-firestorm/build-linux-x86_64/newview/Phoenix*.tar.* /path/to/shared/drive
+mv ~/src/Aperture-Viewer/build-linux-x86_64/newview/Aperture*.tar.* /path/to/shared/drive
 ```
 
 When copying the ready-to-run folders and files, use
 
 ```
-rsync -rptgoDLK --update --progress ~/src/phoenix-firestorm/build-linux-x86_64/newview/packaged/* /path/to/destination
+rsync -rptgoDLK --update --progress ~/src/Aperture-Viewer/build-linux-x86_64/newview/packaged/* /path/to/destination
 ```
 
 Using rsync has the advantage of updating the destination, replacing only those files that changed or are missing, which takes much less time than copying and replacing every file.
@@ -239,17 +239,17 @@ Using rsync has the advantage of updating the destination, replacing only those 
 Create the desktop launcher after copying to the destination machine
 
 ```
-cd /path/to/firestorm
+cd /path/to/aperture
 etc/refresh_desktop_app_entry.sh
 ```
 
-Then open your applications menu and look in the Internet or Network branch for the Firestorm launcher.
+Then open your applications menu and look in the Internet or Network branch for the Aperture launcher.
 
 ### Running from command line or file browser
 
 ```
-cd /path/to/firestorm
-./firestorm
+cd /path/to/aperture
+./aperture
 ```
 
 ## Troubleshooting
@@ -273,5 +273,5 @@ rm ../build-linux-x86_64/packages/LICENSES/SDL.txt
 rm ../build-linux-x86_64/packages/lib/release/*SDL*
 ```
 - **Delayed sounds:** Some users have noted that OpenAL plays sounds from the viewer up to 20 seconds after they are triggered. There is no solution to this via the viewer, but there may be some solutions on the Internet. Compiling with FModStudio may resolve this issue.
-- **No sounds:** The viewer will try to use whatever sound service you have running, but might need a little coaxing. Read through the firestorm script inside the program directlry, you will find various commented options. Uncommenting one or more may help restore sound, as can compiling with FModStudio. Refer also to the README.Linux.txt and README-linux-voice.txt files in the program directory. 
+- **No sounds:** The viewer will try to use whatever sound service you have running, but might need a little coaxing. Read through the firestorm script inside the program directlry, you will find various commented options. Uncommenting one or more may help restore sound, as can compiling with FModStudio. Refer also to the README.Linux.txt and README-linux-voice.txt files in the program directory.
 - **Voice won't connect:** Refer to **[this link](https://wiki.firestormviewer.org/fs_voice#linux)** or the relevant link on **[this page](https://wiki.firestormviewer.org/linux)** to make needed adjustments to your computer and/or the SLVoice files.
