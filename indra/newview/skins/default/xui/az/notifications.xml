@@ -65,7 +65,7 @@ Bütün qovluqlar ticarət mərkəzinə uğurla göndərildi.
 		<usetemplate ignoretext="Bütün qovluqlar ticarət mərkəzinə göndərildi" name="okignore" yestext="Bəli"/>
 	</notification>
 	<notification name="OutboxImportHadErrors">
-	Bəzi qovluqlar daşınılmır	
+	Bəzi qovluqlar daşınılmır
 
 Bəzi qovluqları ticarət mərkəzinə göndərərkən xətalar. Bu qovluqlar sizin &quot;Ticarətə gedən&quot; qovluğunda qaldı.
 
@@ -2440,7 +2440,7 @@ Onları silmək istədiyinizə əminsiniz?
 	</notification>
 	<notification name="HelpReportAbuseConfirm">
 		Bu məsələ ilə bağlı bizə vaxt ayırdığınız üçün təşəkkür edirik.
-Mümkün pozuntular üçün hesabatınızı nəzərdən keçirəcəyik və 
+Mümkün pozuntular üçün hesabatınızı nəzərdən keçirəcəyik və
 müvafiq tədbirlər görəcəyik.
 	</notification>
 	<notification name="HelpReportAbuseSelectCategory">
@@ -2871,7 +2871,7 @@ Bir obyekt seçin.
 	</notification>
 	<notification name="TeleportToLandmark">
 		[NAME] kimi məkanlara teleportasiya etmək üçün &quot;Yerlər&quot; düyməsini basın,
-    sonra açılan pəncərədə &quot;Əlfəcinlər&quot; pəncərəsini seçin. İstənilən əlfəcini 
+    sonra açılan pəncərədə &quot;Əlfəcinlər&quot; pəncərəsini seçin. İstənilən əlfəcini
 	seçmək üçün üzərinə basın, sonra pəncərənin altındakı &quot;Teleport&quot; düyməsini basın.
     (Həmçinin əlfəcin üzərinə iki dəfə basa və ya sağ siçan düyməsini basıb &quot;Teleport&quot; seçə bilərsiniz)
 	</notification>
@@ -4051,12 +4051,6 @@ Davam edilsin?
 	<notification name="AOImportLinkFailed">
 		"[NAME]" animasiyası üçün keçid yaradılması uğursuz oldu!
 	</notification>
-	<notification name="SendSysinfoToIM">
-		Bu, cari İM sessiyasına aşağıdakı məlumatları göndərəcək:
-
-[SYSINFO]
-		<usetemplate name="okcancelbuttons" yestext="Göndər" notext="Ləğv et"/>
-	</notification>
 	<notification name="TestversionExpired">
 		[APP_NAME] tətbiqinin bu sınaq versiyasının vaxtı keçib və daha istifadə edilə bilməz.
 	</notification>
@@ -5112,7 +5106,7 @@ Bu əməliyyatı geri qaytara bilməzsiniz.
 	</notification>
 	<notification name="ExodusFlickrVerificationExplanation">
 		Flickr yükləmə funksiyasından istifadə etmək üçün hesabınıza daxil olmaq üçün [APP_NAME] tətbiqinə icazə verməlisiniz. Davam etsəniz, veb brauzeriniz Flickr veb-saytını açacaq, burada sizdən daxil olmaq və [APP_NAME] tətbiqinə icazə vermək istəniləcək. Daha sonra sizə [APP_NAME] tətbiqinə yenidən köçürtmək üçün kod veriləcək.
-		
+
 [APP_NAME] tətbiqinə Flickr hesabınıza yazmağa icazə vermək istərdinizmi?
 		<usetemplate name="okcancelbuttons" notext="Xeyr" yestext="Bəli"/>
 	</notification>

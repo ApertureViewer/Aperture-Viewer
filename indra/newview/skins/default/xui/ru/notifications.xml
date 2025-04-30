@@ -3637,8 +3637,8 @@ URL: [AUDIOURL]
 Если вы - владелец премиум-аккаунта, [[PREMIUM_URL] щелкните здесь], чтобы получить право на анимационное изменение голоса.
 	</notification>
 	<notification name="VoiceEffectsWillExpire">
-		Срок действия одного или нескольких ваших типов анимационного изменения голоса истекает через [INTERVAL] дней или раньше. 
-[[URL] Щелкните здесь], чтобы обновить подписку. 
+		Срок действия одного или нескольких ваших типов анимационного изменения голоса истекает через [INTERVAL] дней или раньше.
+[[URL] Щелкните здесь], чтобы обновить подписку.
 
 Если вы - владелец премиум-аккаунта, [[PREMIUM_URL] щелкните здесь], чтобы получить право на анимационное изменение голоса.
 	</notification>
@@ -4245,28 +4245,6 @@ https://wiki.firestormviewer.org/fs_voice
 	</notification>
 	<notification name="AOImportLinkFailed">
 		Создание ссылки для анимации "[NAME]" не удалось!
-	</notification>
-	<notification name="SendSysinfoToIM">
-		Это отправит следующую информацию в текущую сессию ЛС:
-
-[SYSINFO]
-		<usetemplate name="okcancelbuttons" yestext="Отправить" notext="Отмена"/>
-	</notification>
-	<notification name="BlockLoginInfo">
-		[REASON]
-	</notification>
-	<notification name="TestversionExpired">
-		Срок действия этой тестовой версии [APP_NAME] истек, и ее нельзя использовать в дальнейшем.
-	</notification>
-	<notification name="FireStormReqInfo">
-		[NAME] просит, чтобы вы отправили информацию о ваших настройках [APP_NAME].
-(Это та же информация, которую можно найти, перейдя в Помощь -> Информация о [APP_NAME])
-[REASON]
-Хотите отправить данную информацию?
-		<form name="form">
-			<button name="Yes" text="Да"/>
-			<button name="No" text="Нет"/>
-		</form>
 	</notification>
 	<notification name="PhantomOn">
 		Фантомный режим включен.

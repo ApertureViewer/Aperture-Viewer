@@ -161,7 +161,6 @@
 
 // Firestorm includes
 #include "fsassetblacklist.h"
-#include "fsdata.h"
 #include "fslslbridge.h"
 #include "fscommon.h"
 #include "fsfloaterexport.h"
@@ -6478,12 +6477,12 @@ void handle_take(bool take_separate)
     // Fix: pass selection to the confirm_take, so that selection doesn't "die" after confirmation dialog is opened
     LLObjectSelectionHandle obj_selection = LLSelectMgr::instance().getSelection();
     params.functor.function([take_separate, obj_selection](const LLSD &notification, const LLSD &response)
-    { 
-        if (take_separate) 
+    {
+        if (take_separate)
         {
             confirm_take_separate(notification, response, obj_selection);
         }
-        else 
+        else
         {
             confirm_take(notification, response, obj_selection);
         }
@@ -7760,7 +7759,7 @@ class LLCommSetShowOnscreenConsole : public view_listener_t
         // This change will propagate to the other controls for this value
         bool show_onscreen_console = !gSavedSettings.getBOOL("FSShowOnscreenConsole");
         gSavedSettings.setBOOL("FSShowOnscreenConsole", show_onscreen_console);
-        
+
         return true;
     }
 };
@@ -11252,25 +11251,6 @@ void handle_show_url(const LLSD& param)
 
 }
 
-void handle_report_bug(const LLSD& param)
-{
-    // <FS:Ansariel> Keep linking to out JIRA
-    //std::string url = gSavedSettings.getString("ReportBugURL");
-    //LLWeb::loadURLExternal(url);
-    LLSD sysinfo = FSData::getSystemInfo();
-    LLStringUtil::format_map_t replace;
-    replace["[ENVIRONMENT]"] = LLURI::escape(sysinfo["Part1"].asString().substr(1) + sysinfo["Part2"].asString().substr(1));
-    LLSLURL location_url;
-    LLAgentUI::buildSLURL(location_url);
-    replace["[LOCATION]"] = LLURI::escape(location_url.getSLURLString());
-
-    LLUIString file_bug_url = gSavedSettings.getString("ReportBugURL");
-    file_bug_url.setArgs(replace);
-
-    LLWeb::loadURLExternal(file_bug_url.getString());
-    // </FS:Ansariel>
-}
-
 void handle_buy_currency_test()
 {
     std::string url =
@@ -11876,7 +11856,7 @@ class LLWorldEnvSettings : public view_listener_t
             // </AP:WW>
             defocusEnvFloaters();
         }
-        
+
         else if (event_name == "pause_clouds")
         {
             if (LLEnvironment::instance().isCloudScrollPaused())
@@ -12726,7 +12706,6 @@ void initialize_menus()
     commit.add("Advanced.WebBrowserTest", boost::bind(&handle_web_browser_test, _2));   // sigh! this one opens the MEDIA browser
     commit.add("Advanced.WebContentTest", boost::bind(&handle_web_content_test, _2));   // this one opens the Web Content floater
     commit.add("Advanced.ShowURL", boost::bind(&handle_show_url, _2));
-    commit.add("Advanced.ReportBug", boost::bind(&handle_report_bug, _2));
     view_listener_t::addMenu(new LLAdvancedBuyCurrencyTest(), "Advanced.BuyCurrencyTest");
     view_listener_t::addMenu(new LLAdvancedDumpSelectMgr(), "Advanced.DumpSelectMgr");
     view_listener_t::addMenu(new LLAdvancedDumpInventory(), "Advanced.DumpInventory");
@@ -12861,7 +12840,7 @@ void initialize_menus()
     // Develop (Fonts debugging)
     commit.add("Develop.Fonts.Dump", boost::bind(&LLFontGL::dumpFonts));
     commit.add("Develop.Fonts.DumpTextures", boost::bind(&LLFontGL::dumpFontTextures));
-    
+
     //Develop (dump data)
     commit.add("Develop.TextureList.Dump", boost::bind(&LLViewerTextureList::dumpTexturelist));
 

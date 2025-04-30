@@ -257,7 +257,7 @@ A tutti i membri che in un ruolo hanno questa abilità verranno concesse anche l
 
  *AVVISO*
 Rimuovendo questa abilità, NON rimuovi le abilità &apos;[ACTION_NAME_2]&apos; e &apos;[ACTION_NAME_3]&apos;.
- 
+
 Se non desideri che queste abilità siano assegnate a questo ruolo, disattivale immediatamente.
 	</notification>
 	<notification name="EjectGroupMemberWarning">
@@ -834,7 +834,7 @@ Attese [VALIDS].
 		Impossibile codificare il file: [FILE]
 	</notification>
 	<notification name="CorruptedProtectedDataStore">
-		Impossibile leggere il file contenente nomi e password. Salvando o cancellando credenziali cancellerà tutte quelle precedentemente salvate. Ciò può succedere alla modifica delle impostazioni di rete. 
+		Impossibile leggere il file contenente nomi e password. Salvando o cancellando credenziali cancellerà tutte quelle precedentemente salvate. Ciò può succedere alla modifica delle impostazioni di rete.
 Se si riavvia il viewer con le impostazioni precedenti potrebbe essere possibile recuperare gli account salvati.
 	</notification>
 	<notification name="CorruptResourceFile">
@@ -1631,22 +1631,22 @@ Imposta l&apos;oggetto per la vendita e riprova.
 [DOWNLOAD_PATH].
 	</notification>
 	<notification name="RequiredUpdate">
-		Per effettuare l&apos;accesso è richiesta la versione [VERSION]. 
+		Per effettuare l&apos;accesso è richiesta la versione [VERSION].
 Scaricala dal sito https://secondlife.com/support/downloads/
 		<usetemplate name="okbutton" yestext="OK"/>
 	</notification>
 	<notification name="PauseForUpdate">
-		Per effettuare l&apos;accesso è richiesta la versione [VERSION]. 
+		Per effettuare l&apos;accesso è richiesta la versione [VERSION].
 Fai clic su OK per scaricarla e installarla.
 		<usetemplate name="okbutton" yestext="OK"/>
 	</notification>
 	<notification name="OptionalUpdateReady">
-		La versione [VERSION] è stata scaricata ed è pronta per essere installata. 
+		La versione [VERSION] è stata scaricata ed è pronta per essere installata.
 Fai clic su OK per installarla.
 		<usetemplate name="okbutton" yestext="OK"/>
 	</notification>
 	<notification name="PromptOptionalUpdate">
-		La versione [VERSION] è stata scaricata ed è pronta per essere installata. 
+		La versione [VERSION] è stata scaricata ed è pronta per essere installata.
 Vuoi procedere?
 		<usetemplate canceltext="Non adesso" name="yesnocancelbuttons" notext="Salta" yestext="Installa"/>
 	</notification>
@@ -1794,7 +1794,7 @@ Se sei sceso a normale, dovrai diminuire i gruppi a [MAX_BASIC] prima di poter a
 	</notification>
 	<notification name="GroupLimitInfoPlus">
 		I residenti con un'iscrizione Base possono aderire fino a [MAX_BASIC] gruppi.
-Le iscrizioni Premium consentono fino a [MAX_PREMIUM]. Le iscrizioni Premium Plus 
+Le iscrizioni Premium consentono fino a [MAX_PREMIUM]. Le iscrizioni Premium Plus
 consentono fino a [MAX_PREMIUM_PLUS]. [https://secondlife.com/my/account/membership.php? Per saperne di più o per l'aggiornamento]
 		<usetemplate name="okbutton" yestext="Chiudi"/>
 	</notification>
@@ -1862,7 +1862,7 @@ Riprova più tardi.
 	</notification>
 	<notification name="AgentDisplayNameSetBlocked">
 		Non è possibile impostare il nome richiesto perché contiene una parola vietata.
- 
+
  Riprova con un altro nome.
 	</notification>
 	<notification name="AgentDisplayNameSetInvalidUnicode">
@@ -1882,7 +1882,7 @@ Rimuovere l&apos;alias?
 			<button name="Yes" text="Sì"/>
 			<button name="No" text="No"/>
 		</form>
-	</notification> 
+	</notification>
 	<notification name="OfferTeleport">
 		Offri un teleport nel posto dove sei con il seguente messaggio?
 		<form name="form">
@@ -2611,7 +2611,7 @@ Abilitare il filtro media?
 			<button name="Disable" text="Disabilita"/>
 		</form>
 	</notification>
-	<notification name="MediaAlert"> 
+	<notification name="MediaAlert">
 		Questo lotto fornisce media da :
 
 Dominio: [MEDIADOMAIN]
@@ -2621,7 +2621,7 @@ URL: [MEDIAURL]
 			<button name="Deny" text="Nega"/>
 		</form>
 	</notification>
-	<notification name="MediaAlert2"> 
+	<notification name="MediaAlert2">
 		Ricordare la scelta fatta e [LCONDITION] permettere i media da questa fonte?
 
 Dominio: [MEDIADOMAIN]
@@ -2632,7 +2632,7 @@ URL: [MEDIAURL]
 			<button name="RememberURL" text="[CONDITION] permetti questo URL"/>
 		</form>
 	</notification>
-	<notification name="MediaAlertSingle"> 
+	<notification name="MediaAlertSingle">
 	Questo lotto fornisce media da
 
 Dominio: [MEDIADOMAIN]
@@ -2644,7 +2644,7 @@ URL: [MEDIAURL]
 			<button name="WhitelistDomain" text="Lista bianca"/>
 		</form>
 	</notification>
-	<notification name="AudioAlert"> 
+	<notification name="AudioAlert">
 		Questo lotto fornisce musica da :
 
 Dominio: [AUDIODOMAIN]
@@ -2654,7 +2654,7 @@ URL: [AUDIOURL]
 			<button name="Deny" text="Nega"/>
 		</form>
 	</notification>
-	<notification name="AudioAlert2"> 
+	<notification name="AudioAlert2">
 		Ricordare la scelta fatta e [LCONDITION] permettere la musica da questa fonte?
 
 Dominio: [AUDIODOMAIN]
@@ -2665,7 +2665,7 @@ URL: [AUDIOURL]
 			<button name="RememberURL" text="[CONDITION] permetti questo URL"/>
 		</form>
 	</notification>
-	<notification name="AudioAlertSingle"> 
+	<notification name="AudioAlertSingle">
 		Ricordare la scelta fatta e [LCONDITION] permettere la musica da questa fonte?
 
 Dominio: [AUDIODOMAIN]
@@ -3304,7 +3304,7 @@ Potrebbero essere disponibili altre esperienze chiave.
 
 Una volta concessa l&apos;autorizzazione, questo messaggio non verrà più visualizzato per questa esperienza, a meno che l&apos;autorizzazione non venga revocata nel profilo dell&apos;esperienza.
 
-Gli script associati a questa esperienza potranno fare quanto segue nelle regioni in cui è attiva l&apos;esperienza: 
+Gli script associati a questa esperienza potranno fare quanto segue nelle regioni in cui è attiva l&apos;esperienza:
 
 [QUESTIONS]
 
@@ -3432,19 +3432,19 @@ Clicca su Accetta per unirti alla chat oppure su Rifiuta per declinare l&apos;in
 		Stiamo creando una canale voce per te. Questo può richiedere fino a un minuto.
 	</notification>
 	<notification name="VoiceEffectsExpired">
-		Almeno una delle manipolazioni vocali alle quali sei iscritto è scaduta. 
-[[URL] Fai clic qui] per rinnovare l&apos;abbonamento. 
+		Almeno una delle manipolazioni vocali alle quali sei iscritto è scaduta.
+[[URL] Fai clic qui] per rinnovare l&apos;abbonamento.
 
 Se sei un utente Premium, [[PREMIUM_URL] clic qui] per ricevere la tua offerta di manipolazioni vocali.
 	</notification>
 	<notification name="VoiceEffectsExpiredInUse">
-		Poiché la manipolazione vocale attiva è scaduta, sono state applicate le tue impostazioni normali. 
-[[URL] Fai clic qui] per rinnovare l&apos;abbonamento. 
+		Poiché la manipolazione vocale attiva è scaduta, sono state applicate le tue impostazioni normali.
+[[URL] Fai clic qui] per rinnovare l&apos;abbonamento.
 
 Se sei un utente Premium, [[PREMIUM_URL] clic qui] per ricevere la tua offerta di manipolazioni vocali.
 	</notification>
-	<notification name="VoiceEffectsWillExpire">Almeno una delle tue manipolazioni vocali scadrà tra meno di [INTERVAL] giorni. 
-[[URL] Fai clic qui] per rinnovare l'abbonamento. 
+	<notification name="VoiceEffectsWillExpire">Almeno una delle tue manipolazioni vocali scadrà tra meno di [INTERVAL] giorni.
+[[URL] Fai clic qui] per rinnovare l'abbonamento.
 
 Se sei un membro Premium, [[PREMIUM_URL] fai clic qui] per ricevere in regalo la manipolazione vocale.
 		<usetemplate ignoretext="Avvisami quando scade la trasformazione vocale" name="okignore" />
@@ -3453,7 +3453,7 @@ Se sei un membro Premium, [[PREMIUM_URL] fai clic qui] per ricevere in regalo la
 		Sono disponibili nuove manipolazioni vocali.
 	</notification>
 	<notification name="VoiceEffectsNotSupported">
-		La trasformazione vocale non è supportata da questo viewer. 
+		La trasformazione vocale non è supportata da questo viewer.
 Per maggiori informazioni su altri strumenti di trasformazione vocale, consulta [[FAQ_URL] questo articolo].
 		<usetemplate ignoretext="Avvisami se la trasformazione vocale non è supportata" name="okignore" />
 	</notification>
@@ -4048,25 +4048,6 @@ Il nome può contenere solo caratteri ASCII esclusi : e | .
 	<notification name="AOImportLinkFailed">
 		Creazione del link all&apos;animazione "[NAME]" non riuscita.
 	</notification>
-	<notification name="SendSysinfoToIM">
-		Verranno inviate le seguenti informazioni alla sessione IM in corso:
-
-[SYSINFO]
-		<usetemplate name="okcancelbuttons" yestext="Invia" notext="Annulla" />
-	</notification>
-	<notification name="TestversionExpired">
-		Questa versione di prova di [APP_NAME] è scaduta e non può più essere usata.
-	</notification>
-	<notification name="FireStormReqInfo">
-		[NAME] chiede che vengano inviate informazioni sulla configurazione di [APP_NAME].
-(Sono le stesse informazioni che si possono trovare in Aiuto->A proposito di [APP_NAME])
-[REASON]
-Inviare queste informazioni?
-		<form name="form">
-			<button name="Yes" text="Sì"/>
-			<button name="No" text="No"/>
-		</form>
-	</notification>
 	<notification name="PhantomOn">
 		Modalità fantasma attiva.
 	</notification>
@@ -4285,7 +4266,7 @@ non è nella stessa regione in cui ti trovi.
 		Impossibile duplicare gli oggetti - Impossibile trovare i lotti in cui si trovano.
 	</notification>
 	<notification name="CantCreateCuzParcelFull">
-		Impossibile creare l&apos;oggetto perché 
+		Impossibile creare l&apos;oggetto perché
 il lotto è pieno.
 	</notification>
 	<notification name="RezAttemptFailed">
@@ -4445,7 +4426,7 @@ Riprova tra un minuto.
 	</notification>
 	<notification name="AttachmentHasTooMuchInventory">
 		I tuoi oggetti attaccati contengono troppo inventario per aggiungerne ancora.
-	</notification>	
+	</notification>
 	<notification name="TooManyScripts">
 		Troppi script.
 	</notification>
@@ -4919,8 +4900,8 @@ Potrai utilizzare http://opensimulator.org/wiki/inventory per risolvere i proble
 		Si è verificato un problema nel salvare le autorizzazioni predefinite dell&apos;oggetto: [REASON].  Riprovare più tardi.
 	</notification>
 	<notification name="AddPaymentMethod">
-		Nella pagina successiva, scegli 
-l'importo L$ e clicca su Ordina. Potrai 
+		Nella pagina successiva, scegli
+l'importo L$ e clicca su Ordina. Potrai
 aggiungere un metodo di pagamento al checkout.
 		<form name="form">
 			<button name="Continue" text="Continua" />

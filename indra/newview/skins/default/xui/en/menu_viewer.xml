@@ -9,7 +9,7 @@
      name="Me"
      tear_off="true"
      visible="true">
-        
+
         <menu_item_call
              label="Account"
              name="Manage Account">
@@ -338,7 +338,7 @@
          function="GridFeatureCheck"
          parameter="avatar_picker"/>
       </menu_item_call>
-		
+
         <menu_item_separator/>
 
       <menu_item_call
@@ -402,7 +402,7 @@
            function="Agent.toggleFlying" />
           <menu_item_call.on_enable
            function="Agent.getFlying" />
-        </menu_item_call>	
+        </menu_item_call>
             <menu_item_check
              label="Always Run"
              name="Always Run"
@@ -453,7 +453,7 @@
 			<menu_item_check.on_click
 			 function="Floater.Toggle"
 			 parameter="moveview" />
-		</menu_item_check>   
+		</menu_item_check>
 
 		<menu_item_check
 		 label="Camera Controls"
@@ -494,13 +494,13 @@
 	            <menu_item_call.on_click
                 function="Tools.Undeform" />
 	        </menu_item_call>
-            <menu_item_call 
+            <menu_item_call
                label="Reset skeleton"
                name="Reset Skeleton">
                <menu_item_call.on_click
                 function="Avatar.ResetSkeleton" />
             </menu_item_call>
-            <menu_item_call 
+            <menu_item_call
                 label="Reset skeleton and animations"
                 name="Reset Skeleton And Animations">
                 <menu_item_call.on_click
@@ -589,7 +589,7 @@
           function="Floater.Toggle"
           parameter="money_tracker" />
       </menu_item_call>
-		
+
 		<menu_item_call
 			label="Pose Stand..."
 			name="pose_stand">
@@ -625,7 +625,7 @@
              function="Floater.Toggle"
              parameter="preferences" />
         </menu_item_call>
-        
+
         <menu_item_call
          label="Toolbar Buttons"
          name="Toolbar Buttons">
@@ -666,7 +666,7 @@
             <menu_item_call.on_click
              function="Advanced.RequestAdminStatus" />
         </menu_item_call>
-        
+
         <menu_item_call
          label="Leave Admin Status"
          name="Leave Admin Options"
@@ -684,16 +684,16 @@
         </menu_item_call>
 
     </menu>
-    
+
     <!-- Comm Menu -->
-    
+
     <menu
      create_jump_keys="true"
      label="Comm"
      name="Communicate"
      tear_off="true"
      visible="true">
-     
+
         <menu
          create_jump_keys="true"
          label="Online Status"
@@ -731,7 +731,7 @@
                 <menu_item_check.on_click
                  function="World.SetAutorespondNonFriends"/>
             </menu_item_check>
-        
+
             <menu_item_separator/>
                 <menu_item_check
              label="Reject teleport offers and requests"
@@ -757,11 +757,11 @@
                 <menu_item_check.on_click
                  function="World.SetRejectFriendshipRequests"/>
             </menu_item_check>
-        
+
         </menu>
-        
+
         <menu_item_separator/>
-             
+
         <menu_item_call
          label="Friends"
          name="My Friends"
@@ -936,11 +936,11 @@
 	      <menu_item_check.on_click
 	      function="Comm.SetShowOnscreenConsole" />
 	    </menu_item_check>
-        <!-- </FS:minerjr> [FIRE-35039] -->		      
+        <!-- </FS:minerjr> [FIRE-35039] -->
     </menu>
-    
+
     <!-- World Menu -->
-    
+
     <menu
      create_jump_keys="true"
      label="World"
@@ -954,9 +954,9 @@
             <menu_item_call.on_click
              function="Tools.ResyncAnimations" />
         </menu_item_call>
-        
+
         <menu_item_separator/>
-     
+
         <menu_item_call
             label="Nearby Avatars"
             name="Active Speakers"
@@ -1039,7 +1039,7 @@
              function="Floater.Toggle"
              parameter="world_map" />
         </menu_item_check>
-        
+
          <menu_item_check
              label="Region Tracker"
              name="Region Tracker">
@@ -1061,7 +1061,7 @@
              parameter="fs_streamtitle" />
         </menu_item_check>
         <menu_item_separator/>
-        
+
         <menu_item_call
          label="Landmark this Place"
          name="Create Landmark Here">
@@ -1080,7 +1080,7 @@
             <menu_item_call.on_enable
              function="World.EnablePlaceProfile" />
         </menu_item_call>
-        
+
         <menu_item_call
          label="Parcel Details"
          name="About Land">
@@ -1091,7 +1091,7 @@
              function="Floater.CanShow"
              parameter="about_land" />
         </menu_item_call>
-        
+
         <menu_item_call
          label="Region Details"
          name="RegionEstate"
@@ -1123,7 +1123,7 @@
                 <menu_item_call.on_enable
                  function="World.EnableBuyLand" />
             </menu_item_call>
-        
+
         <menu_item_call
              label="Show Owned Land"
              name="My Land">
@@ -1141,13 +1141,13 @@
             <menu_item_call.on_click
              function="World.LindenHome"/>
         </menu_item_call>
-        
+
         <menu
            create_jump_keys="true"
            label="Show More"
            name="LandShow"
            tear_off="true">
-          
+
           <menu_item_check
              label="Hide Ban Lines"
              name="Hide Ban Lines">
@@ -1180,7 +1180,7 @@
           </menu_item_check>
 
           <menu_item_separator />
-           
+
            <menu_item_check
                  label="Beacons"
                  name="beacons"
@@ -1192,7 +1192,7 @@
                      function="Floater.Toggle"
                      parameter="beacons" />
           </menu_item_check>
-          
+
           <menu_item_check
              label="Property Lines"
              name="Property Lines"
@@ -1203,7 +1203,7 @@
                function="ToggleControl"
                parameter="ShowPropertyLines" />
           </menu_item_check>
-          
+
           <menu_item_check
              label="Land Owners"
              name="Land Owners"
@@ -1214,7 +1214,7 @@
                function="ToggleControl"
                parameter="ShowParcelOwners" />
           </menu_item_check>
-          
+
           <menu_item_check
              label="Coordinates"
              name="Coordinates">
@@ -1224,7 +1224,7 @@
             <menu_item_check.on_check
                control="NavBarShowCoordinates" />
           </menu_item_check>
-          
+
           <menu_item_check
              label="Parcel Permissions"
              name="Parcel Properties">
@@ -1303,7 +1303,7 @@
                  function="World.EnvSettings"
                  parameter="sunrise" />
                 <menu_item_check.on_check
-                 function="World.EnableEnvSettings" 
+                 function="World.EnableEnvSettings"
                  parameter="sunrise" />
                 <menu_item_check.on_enable
                  function="RLV.EnableIfNot"
@@ -1344,7 +1344,7 @@
                  function="World.EnvSettings"
                  parameter="sunset" />
                 <menu_item_check.on_check
-                 function="World.EnableEnvSettings" 
+                 function="World.EnableEnvSettings"
                  parameter="sunset" />
                 <menu_item_check.on_enable
                  function="RLV.EnableIfNot"
@@ -1358,7 +1358,7 @@
                  function="World.EnvSettings"
                  parameter="midnight" />
                 <menu_item_check.on_check
-                 function="World.EnableEnvSettings" 
+                 function="World.EnableEnvSettings"
                  parameter="midnight" />
                 <menu_item_check.on_enable
                  function="RLV.EnableIfNot"
@@ -1371,7 +1371,7 @@
                  function="World.EnvSettings"
                  parameter="region" />
                 <menu_item_check.on_check
-                 function="World.EnableEnvSettings" 
+                 function="World.EnableEnvSettings"
                  parameter="region" />
                 <menu_item_check.on_enable
                  function="RLV.EnableIfNot"
@@ -1406,7 +1406,7 @@
                  function="World.EnvSettings"
                  parameter="pause_clouds" />
                 <menu_item_check.on_check
-                 function="World.EnableEnvSettings" 
+                 function="World.EnableEnvSettings"
                  parameter="pause_clouds" />
                 <menu_item_check.on_enable
                  function="RLV.EnableIfNot"
@@ -1445,14 +1445,14 @@
                 </menu_item_call>
             </menu>
         </menu>
-	    
-<!--   
+
+<!--
 	    <menu
 	     create_jump_keys="true"
 	     label="Environment Editor"
 	     name="Environment Editor"
 	     tear_off="true">
-	     	
+
 	     	<menu_item_call
 	     	 label="Environment Settings..."
 	     	 name="Environment Settings">
@@ -1463,7 +1463,7 @@
            function="RLV.EnableIfNot"
            parameter="setenv" />
 	     	</menu_item_call>
-	     	
+
 	     	<menu_item_separator/>
 
 	     	<menu
@@ -1515,7 +1515,7 @@
             parameter="setenv" />
           </menu_item_call>
 	     	</menu>
-	     	
+
 	     	<menu
 	     	 name="Day Presets"
 	     	 label="Day Presets">
@@ -1541,7 +1541,7 @@
           </menu_item_call>
 	     	</menu>
 	    </menu>
--->    
+-->
 		<menu
 			 create_jump_keys="true"
 			 name="photo_and_video"
@@ -1829,7 +1829,7 @@
           <menu_item_call.on_enable
              function="SomethingSelectedNoHUD" />
         </menu_item_call>
-		 
+
         <menu_item_separator/>
 
         <menu
@@ -1993,7 +1993,7 @@
                parameter="delete" />
             <menu_item_call.on_enable
                function="EditableSelected" />
-          </menu_item_call>          
+          </menu_item_call>
         </menu>
 
       <menu
@@ -2208,7 +2208,7 @@
                     function="View.HighlightTransparentRigged" />
                </menu_item_check>
         <menu_item_separator/>
-          
+
           <menu_item_check
             label="No Post-processing"
             name="No Post">
@@ -2218,7 +2218,7 @@
              function="ToggleControl"
              parameter="RenderDisablePostProcessing" />
           </menu_item_check>
-          
+
         <menu_item_separator/>
 
                 <menu_item_check
@@ -2395,11 +2395,11 @@
              userdata="" />
             <on_enable
              function="Edit.EnableRedo" />
-        </menu_item_call>        
+        </menu_item_call>
     </menu>
-    
+
     <!-- Content Menu -->
-    
+
     <menu
     	create_jump_keys="true"
     	label="Content"
@@ -2463,9 +2463,9 @@
              name="community_pages_url"
              parameter="WebLaunchExternalTarget,https://community.secondlife.com" />
        </menu_item_call>
-       
+
        <!--
-       
+
        <menu_item_separator/>
     	<menu_item_call
              label="Firestorm Blog"
@@ -2515,14 +2515,14 @@
              function="Advanced.ToggleHUDInfo"
              parameter="motd" />
        </menu_item_call>
-       
+
        -->
-       
-      </menu>   
-    
+
+      </menu>
+
     <!-- Help Menu -->
-    
-    
+
+
     <menu
      create_jump_keys="true"
      label="Help"
@@ -2537,7 +2537,7 @@
           <on_click
             function="ToggleUIHints"/>
         </menu_item_check>
-        
+
         <menu_item_call
          label="Aperture Wiki"
          name="Aperture Wiki"
@@ -2546,7 +2546,7 @@
              function="Advanced.ShowURL"
              parameter="https://github.com/ApertureViewer/Aperture-Viewer/wiki" />
         </menu_item_call>
-        
+
         <menu_item_call
          label="Troubleshooting"
          name="Troubleshooting">
@@ -2554,7 +2554,7 @@
              function="Advanced.ShowURL"
              parameter="https://github.com/ApertureViewer/Aperture-Viewer/wiki/Troubleshooting" />
         </menu_item_call>
-	   
+
        <!--
         <menu_item_call
          label="Join Firestorm Support Group"
@@ -2597,7 +2597,7 @@
              parameter="guidebook" />
         </menu_item_check>
 
-        
+
 
       <menu_item_call
          label="Second Life Help"
@@ -2650,13 +2650,13 @@
              <menu_item_call.on_click
                  function="Advanced.ShowURL"
                  parameter="http://community.secondlife.com/t5/Forums/ct-p/Forums"/>
-        </menu_item_call>         
+        </menu_item_call>
         <menu_item_call
              label="Support portal"
              name="Support portal">
              <menu_item_call.on_click
                  function="Advanced.ShowURL"
-                 parameter="https://support.secondlife.com/"/>         
+                 parameter="https://support.secondlife.com/"/>
         </menu_item_call>
         <menu_item_separator/>
         <menu_item_call
@@ -2666,7 +2666,7 @@
                  function="Advanced.ShowURL"
                  parameter="https://community.secondlife.com/news/"/>
         </menu_item_call>
-      
+
         <menu_item_separator/>
         <menu_item_call
             name="whitelist_folders"
@@ -2675,7 +2675,7 @@
                function="Floater.Show"
                parameter="fs_whitelist_floater" />
         </menu_item_call>
-        
+
         -->
         <menu_item_check
              label="Check Grid status"
@@ -2708,23 +2708,6 @@
                  function="Floater.Show"
                  parameter="bumps" />
             </menu_item_call>
-        <!--
-        <menu_item_separator/>
-
-
-        <menu_item_check
-            label="Enable Sysinfo Button"
-            name="Enable Sysinfo Button">
-            <menu_item_check.on_check
-                function="CheckControl"
-                parameter="SysinfoButtonInIM" />
-            <menu_item_check.on_click
-                function="ToggleControl"
-                parameter="SysinfoButtonInIM" />
-        </menu_item_check>
-
-        -->
-
         <menu_item_separator/>
 
         <menu_item_call
@@ -2735,7 +2718,7 @@
              parameter="sl_about" />
         </menu_item_call>
     </menu>
-    
+
     <menu
      create_jump_keys="true"
      label="RLVa"
@@ -3012,7 +2995,7 @@
              function="ToggleControl"
              parameter="DisableCameraConstraints" />
         </menu_item_check>
-        
+
         <menu_item_separator/>
 
         <menu_item_check
@@ -3082,7 +3065,7 @@
              function="Floater.Visible"
              parameter="performance" />
             </menu_item_check>
-  
+
       <menu_item_check
         label="Show avatar complexity information"
         name="Avatar Draw Info">
@@ -3492,7 +3475,7 @@
                  function="Advanced.ToggleFeature"
                  parameter="flexible" />
             </menu_item_check>
-        </menu>        
+        </menu>
         <menu
          label="RLVa"
          name="RLVa Embedded"
@@ -3732,7 +3715,7 @@
              function="CheckControl"
              parameter="FSAlwaysFly" />
             <menu_item_check.on_click
-             function="ToggleControl" 
+             function="ToggleControl"
              parameter="FSAlwaysFly" />
         </menu_item_check>
 
@@ -3795,7 +3778,7 @@
                 <menu_item_check.on_click
                  function="Advanced.ToggleConsole"
                  parameter="texture" />
-            </menu_item_check>            
+            </menu_item_check>
             <menu_item_check
              label="Debug Console"
              name="Debug Console"
@@ -3874,7 +3857,7 @@
                function="Floater.Toggle"
                parameter="region_debug_console" />
             </menu_item_check>
-            
+
             <menu_item_separator/>
 
             <menu_item_call
@@ -4904,7 +4887,7 @@
          name="Dump Scripted Camera">
             <menu_item_call.on_click
              function="Advanced.DumpScriptedCamera" />
-        </menu_item_call>      
+        </menu_item_call>
         <menu
          create_jump_keys="true"
          label="Recorder"
@@ -5691,7 +5674,7 @@
         <menu_item_call.on_click
            function="Advanced.ToggleVisualLeakDetector" />
         </menu_item_call>
-      
+
         <menu_item_check
          label="Output Debug Minidump"
          name="Output Debug Minidump">
@@ -5808,7 +5791,7 @@
                 <menu_item_call.on_click
                  function="Develop.TextureList.Dump" />
             </menu_item_call>
-        </menu>        
+        </menu>
     </menu>
     <menu
      create_jump_keys="true"
@@ -5932,10 +5915,10 @@
              function="IsGodCustomerService" />
         </menu_item_call>
     </menu>
-    
-    
+
+
     <!-- God Menu -->
-    
+
     <menu
      create_jump_keys="true"
      label="Admin"

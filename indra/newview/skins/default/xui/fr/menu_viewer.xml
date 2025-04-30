@@ -293,7 +293,6 @@
 		<menu_item_call label="Signaler une infraction" name="Report Abuse"/>
 		<menu_item_call label="Signaler un problème" name="Report Bug"/>
 		<menu_item_call label="Collisions, coups et bousculades" name="Bumps, Pushes &amp;amp; Hits"/>
-		<menu_item_check label="Activer le bouton Sysinfo" name="Enable Sysinfo Button"/>
 		<menu_item_call label="À propos de [APP_NAME]" name="About Second Life"/>
 	</menu>
 	<menu label="Avancé" name="Advanced">

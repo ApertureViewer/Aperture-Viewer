@@ -302,7 +302,6 @@
 		<menu_item_call label="Şikayət et" name="Report Abuse"/>
 		<menu_item_call label="Xəta haqqında xəbərdarlıq ver" name="Report Bug"/>
 		<menu_item_call label="Zərbələr, toqquşmalar və vurmaqlar" name="Bumps, Pushes &amp;amp; Hits"/>
-		<menu_item_check label="Sistem məlumatı düyməsini aktivləşdir" name="Enable Sysinfo Button"/>
 		<menu_item_call label="[APP_NAME] haqqında" name="About Second Life"/>
 	</menu>
 	<menu name="RLVa Main">

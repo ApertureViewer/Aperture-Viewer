@@ -1140,8 +1140,8 @@ bool LLAppViewer::init()
     // <FS:Beq> allow detected hardware to be overridden.
     gGLManager.mVRAMDetected = gGLManager.mVRAM;
     LL_INFOS("AppInit") << "VRAM detected: " << gGLManager.mVRAMDetected << LL_ENDL;
-    overrideDetectedHardware(); 
-    // </FS:Beq> 
+    overrideDetectedHardware();
+    // </FS:Beq>
 
 
     // writeSystemInfo can be called after window is initialized (gViewerWindow non-null)
@@ -3009,20 +3009,6 @@ bool LLAppViewer::initConfiguration()
         LLAppViewer::instance()->createErrorMarker(LAST_EXEC_MISSING_FILES);
         return false;
     }
-
-    // <FS:Techwolf Lupindo>
-    // load defaults overide here. Can not use settings_files.xml as path is different then above loading of defaults.
-    // <AP:WW> Disable loading of fsdata_defaults.xml in Aperture Viewer // </AP:WW>
-    // <FS:WW>
-    // std::string fsdata_defaults = gDirUtilp->getExpandedFilename(LL_PATH_USER_SETTINGS, llformat("fsdata_defaults.%s.xml", LLVersionInfo::getInstance()->getShortVersion().c_str()));
-    // std::string fsdata_global = "Global";
-    // std::shared_ptr<LLControlGroup> settings_group = LLControlGroup::getInstance(fsdata_global);
-    // if(settings_group && settings_group->loadFromFile(fsdata_defaults, set_defaults))
-    // {
-    //     LL_INFOS() << "Loaded settings file " << fsdata_defaults << LL_ENDL;
-    // }
-    // </FS:WW>
-    // </FS:Techwolf Lupindo>
 
     initStrings(); // setup paths for LLTrans based on settings files only
     // - set procedural settings

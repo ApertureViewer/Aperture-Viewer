@@ -340,7 +340,6 @@
 		<menu_item_call label="Пожаловаться" name="Report Abuse"/>
 		<menu_item_call label="Сообщить об ошибке" name="Report Bug"/>
 		<menu_item_call label="Удары, толчки и попадания" name="Bumps, Pushes &amp;amp; Hits"/>
-		<menu_item_check label="Включить кнопку системной информации" name="Enable Sysinfo Button"/>
 		<menu_item_call label="Информация о [APP_NAME]" name="About Second Life"/>
 	</menu>
 	<menu name="RLVa Main">

@@ -333,14 +333,14 @@ Initialization with the Marketplace failed because of a system or network error.
         name="StockPasteFailed"
         type="alertmodal">
         Copy or move to Stock Folder failed with error :
-        
+
         &apos;[ERROR_CODE]&apos;
-        
+
         <usetemplate
         name="okbutton"
         yestext="OK"/>
     </notification>
-  
+
     <notification
         icon="OutboxStatus_Error"
         name="MyOutfitsPasteFailed"
@@ -350,39 +350,39 @@ Initialization with the Marketplace failed because of a system or network error.
         name="okbutton"
         yestext="OK"/>
     </notification>
-    
+
     <notification
         icon="OutboxStatus_Error"
         name="MerchantPasteFailed"
         type="alertmodal">
         Copy or move to Marketplace Listings failed with error :
-        
+
         &apos;[ERROR_CODE]&apos;
-        
+
         <usetemplate
         name="okbutton"
         yestext="OK"/>
     </notification>
-    
+
     <notification
         icon="OutboxStatus_Error"
         name="MerchantTransactionFailed"
         type="alertmodal">
         The transaction with the Marketplace failed with the following error :
-        
+
         [ERROR_REASON][ERROR_DESCRIPTION]
-        
+
         <usetemplate
         name="okbutton"
         yestext="OK"/>
     </notification>
-    
+
     <notification
         icon="OutboxStatus_Error"
         name="MerchantUnprocessableEntity"
         type="alertmodal">
         We are unable to list this product or activate the version folder. Usually this is caused by missing information in the listing description form, but it may be due to errors in the folder structure. Either edit the listing or check the listing folder for errors.
-        
+
         <usetemplate
         name="okbutton"
         yestext="OK"/>
@@ -393,14 +393,14 @@ Initialization with the Marketplace failed because of a system or network error.
         name="MerchantListingFailed"
         type="alertmodal">
         Listing to Marketplace failed with error :
-        
+
         &apos;[ERROR_CODE]&apos;
-        
+
         <usetemplate
         name="okbutton"
         yestext="OK"/>
     </notification>
-    
+
     <notification
         icon="OutboxStatus_Error"
         name="MerchantFolderActivationFailed"
@@ -431,7 +431,7 @@ Please input a valid text.
         <tag>confirm</tag>
         <usetemplate
             ignoretext="Warn me that creating a listing fixes the hierarchy of the content"
-            name="okignore" 
+            name="okignore"
             yestext="OK"/>
     </notification>
 
@@ -460,7 +460,7 @@ Please input a valid text.
         notext="Cancel"
         yestext="OK"/>
     </notification>
-    
+
     <notification
         icon="alertmodal.tga"
         name="ConfirmListingCutOrDelete"
@@ -473,7 +473,7 @@ Please input a valid text.
         notext="Cancel"
         yestext="OK"/>
     </notification>
-    
+
     <notification
         icon="alertmodal.tga"
         name="ConfirmCopyToMarketplace"
@@ -487,7 +487,7 @@ Please input a valid text.
         notext="Don't move item(s)"
         canceltext="Cancel"/>
     </notification>
-    
+
     <notification
         icon="alertmodal.tga"
         name="ConfirmMerchantUnlist"
@@ -500,7 +500,7 @@ Please input a valid text.
         notext="Cancel"
         yestext="OK"/>
     </notification>
-    
+
     <notification
         icon="alertmodal.tga"
         name="ConfirmMerchantClearVersion"
@@ -532,7 +532,7 @@ This listing could not be updated.
         You cannot wear clothes or body parts that are in the Marketplace Listings folder.
         <tag>fail</tag>
     </notification>
-    
+
     <notification
         icon="alertmodal.tga"
         name="AlertMerchantListingInvalidID"
@@ -540,7 +540,7 @@ This listing could not be updated.
         Invalid listing ID.
         <tag>fail</tag>
     </notification>
-    
+
     <notification
         icon="alertmodal.tga"
         name="AlertMerchantListingActivateRequired"
@@ -564,7 +564,7 @@ This listing could not be updated.
         name="okignore"
         yestext="OK"/>
     </notification>
-    
+
     <notification
         icon="alertmodal.tga"
         name="AlertMerchantStockFolderEmpty"
@@ -640,7 +640,7 @@ Save all changes to clothing/body parts?
   <notification
    icon="alertmodal.tga"
    name="FavoritesOnLogin"
-   type="alertmodal">    
+   type="alertmodal">
     Note: When you turn on this option, anyone who uses this computer can see your list of favorite locations.
     <usetemplate
      name="okbutton"
@@ -718,7 +718,7 @@ A group name must be between [MIN_LEN] and [MAX_LEN] characters.
        name="okbutton"
        yestext="OK"/>
   </notification>
-  
+
   <notification
    icon="alertmodal.tga"
    name="UnableToCreateGroup"
@@ -829,7 +829,7 @@ You are removing the Ability &apos;[ACTION_NAME]&apos; to the Role &apos;[ROLE_N
 
  *WARNING*
 Removing this ability will NOT remove the Abilities &apos;[ACTION_NAME_2]&apos; and &apos;[ACTION_NAME_3]&apos;.
- 
+
 If you no longer wish to have these abilities granted to this role, disable them immediately!
     <usetemplate
      name="okbutton"
@@ -862,7 +862,7 @@ If you no longer wish to have these abilities granted to this role, disable them
       notext="Cancel"
       yestext="Eject"/>
   </notification>
-  
+
   <notification
     icon="alertmodal.tga"
     name="BanGroupMemberWarning"
@@ -1056,7 +1056,7 @@ Unable to transfer the required L$ [membership_fee] membership fee.
        name="okbutton"
        yestext="OK"/>
   </notification>
-  
+
   <notification
    icon="alertmodal.tga"
    name="LandBuyPass"
@@ -1311,7 +1311,7 @@ Error encoding snapshot.
     You need L$[COST] to save a photo to your inventory. You may either buy L$ or save the photo to your computer instead.
     <tag>fail</tag>
   </notification>
-  
+
   <notification
    icon="alertmodal.tga"
    name="ErrorCannotAffordUpload"
@@ -1319,7 +1319,7 @@ Error encoding snapshot.
     You need L$[COST] to upload this item.
     <tag>fail</tag>
   </notification>
-  
+
   <notification
    icon="alertmodal.tga"
    name="ErrorTextureCannotAfford"
@@ -1382,7 +1382,7 @@ You must agree to the Terms and Conditions, Privacy Policy, and Terms of Service
      notext="No"
      yestext="OK"/>
   </notification>
-  
+
   <notification
    icon="alertmodal.tga"
    name="CouldNotPutOnOutfit"
@@ -1424,7 +1424,7 @@ You cannot wear this item because it has not yet loaded. Please try again in a m
    <tag>fail</tag>
 Please enter your Password to log in.
   </notification>
-  
+
   <notification
    icon="alertmodal.tga"
    name="MustHaveAccountToLogIn"
@@ -1452,7 +1452,7 @@ You need an account to enter [CURRENT_GRID]. Would you like to create one now?
    <tag>fail</tag>
 You need to enter either the Username or both the First and Last name of your avatar into the Username field, then login again.
   </notification>
-  
+
   <notification
    icon="alertmodal.tga"
    name="InvalidGrid"
@@ -1460,7 +1460,7 @@ You need to enter either the Username or both the First and Last name of your av
    <tag>fail</tag>
 '[GRID]' is not a valid grid identifier.
   </notification>
-  
+
   <notification
    icon="alertmodal.tga"
    name="InvalidLocationSLURL"
@@ -1468,7 +1468,7 @@ You need to enter either the Username or both the First and Last name of your av
    <tag>fail</tag>
 Your start location did not specify a valid grid.
   </notification>
-  
+
   <notification
    icon="alertmodal.tga"
    name="DeleteClassified"
@@ -1664,7 +1664,7 @@ Cache will be cleared after restarting [APP_NAME].
  type="alertmodal">
 If you disable Javascript, the search function will not work properly, and you will not be able to use it.
   </notification>
-  
+
   <notification
    icon="alertmodal.tga"
    name="CacheWillBeMoved"
@@ -1672,7 +1672,7 @@ If you disable Javascript, the search function will not work properly, and you w
 Cache will be moved after restarting [APP_NAME].
 Note: This will also clear the cache.
   </notification>
-  
+
   <notification
    icon="alertmodal.tga"
    name="SoundCacheWillBeMoved"
@@ -1754,7 +1754,7 @@ Are you sure you want to delete this notecard?
      notext="Cancel"
      yestext="OK"/>
   </notification>
-  
+
   <notification
    icon="alertmodal.tga"
    name="LoadPreviousReportScreenshot"
@@ -1767,7 +1767,7 @@ Do you want to use previous screenshot for your report?
      notext="Cancel"
      yestext="OK"/>
   </notification>
-  
+
   <notification
    icon="alertmodal.tga"
    name="GestureSaveFailedTooManySteps"
@@ -1884,7 +1884,7 @@ The object may be out of range or may have been deleted.
      name="okignore"
      yestext="OK"/>
   </notification>
-  
+
   <notification
    icon="alertmodal.tga"
    name="CannotWriteFile"
@@ -2001,7 +2001,7 @@ To enable shadows, we need to increase quality to level 4.
 The region [REGION] does not allow terraforming.
   <tag>fail</tag>
   </notification>
-  
+
   <notification
    icon="alertmodal.tga"
    name="ParcelNoTerraforming"
@@ -2105,22 +2105,22 @@ He or she will temporarily be unable to move, chat, or interact with the world.
      notext="Unfreeze"
      yestext="Freeze"/>
   </notification>
-  
+
   <notification
     icon="alertmodal.tga"
     name="FreezeAvatarMultiple"
     type="alertmodal">
  Freeze the following avatars?
- 
+
  [RESIDENTS]
- 
+
  They will temporarily be unable to move, chat, or interact with the world.
      <usetemplate
       canceltext="Cancel"
       name="yesnocancelbuttons"
       notext="Unfreeze"
       yestext="Freeze"/>
-  </notification>  
+  </notification>
 
   <notification
    icon="alertmodal.tga"
@@ -2229,7 +2229,7 @@ Go to [_URL] for information on purchasing L$?
      notext="Cancel"
      yestext="OK"/>
   </notification>
-  
+
   <notification
    icon="alertmodal.tga"
    name="MuteLimitReached"
@@ -2238,7 +2238,7 @@ Go to [_URL] for information on purchasing L$?
 Unable to add new entry to block list because you reached the limit of [MUTE_LIMIT] entries.
   <tag>fail</tag>
   </notification>
-  
+
   <notification
    icon="alertmodal.tga"
    name="UnableToLinkObjects"
@@ -2435,13 +2435,13 @@ Unable to encode file: [FILE]
    type="alertmodal">
    We were unable to decode the file storing your saved login credentials. At this point saving or deleting credentials will erase all those that were previously stored.
    This may happen when you change network setup. Restarting the viewer with previous network configuration may help recovering your saved login credentials.
-    
+
   <tag>fail</tag>
     <usetemplate
      name="okbutton"
      yestext="OK"/>
   </notification>
-    
+
   <notification
    icon="alertmodal.tga"
    name="CorruptResourceFile"
@@ -2483,7 +2483,7 @@ Unable to upload [FILE] due to the following reason: [REASON]
 Please try again later.
   <tag>fail</tag>
   </notification>
-    
+
   <notification
    icon="alertmodal.tga"
    name="CannotUploadSnapshotEmailTooBig"
@@ -2493,7 +2493,7 @@ Unable to upload snapshot [FILE] due to the following reason: [REASON]
 File might be too big, try reducing resolution, quality or try again later.
   <tag>fail</tag>
   </notification>
-    
+
   <notification
    icon="alertmodal.tga"
    name="CannotUploadSnapshotWebTooBig"
@@ -2503,7 +2503,7 @@ Unable to upload snapshot.
 File might be too big, try reducing resolution or try again later.
   <tag>fail</tag>
   </notification>
-    
+
   <notification
    icon="alertmodal.tga"
    name="CannotOpenFileTooBig"
@@ -2592,7 +2592,7 @@ Not able to perform &apos;reset&apos;.
 Select objects with scripts.
   <tag>fail</tag>
   </notification>
-  
+
    <notification
     icon="alertmodal.tga"
     name="CannotdeleteSelectObjectsNoScripts"
@@ -2909,7 +2909,7 @@ Try selecting a single parcel.
   <notification
    icon="alertmodal.tga"
    name="ParcelCanPlayMedia"
-   type="alertmodal">   
+   type="alertmodal">
 This location provides streaming media, which may require more of your network bandwidth.
 
 Play streaming media when available?
@@ -2921,10 +2921,10 @@ Play streaming media when available?
          text="Play Media Now"/>
         <button
          index="1"
-         name="Always Play Media"  
+         name="Always Play Media"
          text="Always Play Media"/>
         <button
-         index="2"   
+         index="2"
          name="Do Not Pley Media"
          text="Do Not Play Media"/>
    </form>
@@ -4095,7 +4095,7 @@ Would you like to trust this authority?
    icon="alertmodal.tga"
    name="GrantedModifyRights"
    persist="true"
-   log_to_im="true"   
+   log_to_im="true"
    type="notify">
 [NAME] has given you permission to edit their objects.
   </notification>
@@ -4104,7 +4104,7 @@ Would you like to trust this authority?
    icon="alertmodal.tga"
    name="RevokedModifyRights"
    persist="true"
-   log_to_im="true"   
+   log_to_im="true"
    type="notify">
 Your privilege to modify [NAME]&apos;s objects has been revoked.
   </notification>
@@ -4361,42 +4361,42 @@ Cannot add estate owner to estate &apos;Banned resident&apos; list.
    type="alertmodal">
 Unable to add banned resident to estate manager list.
   </notification>
-    
+
   <notification
    icon="alertmodal.tga"
    name="ProblemBanningEstateManager"
    type="alertmodal">
 Unable to add estate manager [AGENT] to banned list.
   </notification>
-  
+
   <notification
    icon="alertmodal.tga"
    name="GroupIsAlreadyInList"
    type="alertmodal">
 &lt;nolink&gt;[GROUP]&lt;/nolink&gt; is already in the Allowed Groups list.
   </notification>
-    
+
   <notification
    icon="alertmodal.tga"
    name="AgentIsAlreadyInList"
    type="alertmodal">
 [AGENT] is already in your [LIST_TYPE] list.
   </notification>
-    
+
   <notification
    icon="alertmodal.tga"
    name="AgentsAreAlreadyInList"
    type="alertmodal">
 [AGENT] are already in your [LIST_TYPE] list.
   </notification>
-    
+
   <notification
    icon="alertmodal.tga"
    name="AgentWasAddedToList"
    type="alertmodal">
 [AGENT] was added to [LIST_TYPE] list of [ESTATE].
   </notification>
-    
+
   <notification
    icon="alertmodal.tga"
    name="AgentsWereAddedToList"
@@ -4410,7 +4410,7 @@ Unable to add estate manager [AGENT] to banned list.
    type="alertmodal">
 [AGENT] was removed from [LIST_TYPE] list of [ESTATE].
   </notification>
-    
+
   <notification
    icon="alertmodal.tga"
    name="AgentsWereRemovedFromList"
@@ -4809,7 +4809,7 @@ Unavailable mode is on.  You will not be notified of incoming communications.
      name="okignore"
      yestext="OK"/>
   </notification>
-  
+
     <notification
    icon="alert.tga"
    name="AutorespondModeSet"
@@ -5085,7 +5085,7 @@ Please try again later.
    name="AgentDisplayNameSetBlocked"
    type="alertmodal">
  Sorry, we could not set your requested name because it contains a banned word.
- 
+
  Please try a different name.
  <tag>fail</tag>
   </notification>
@@ -5131,7 +5131,7 @@ type="notify">
        name="No"
        text="No"/>
     </form>
-  </notification> 
+  </notification>
 
   <notification
    icon="alertmodal.tga"
@@ -5223,7 +5223,7 @@ Are you sure you want to teleport to &lt;nolink&gt;[LOCATION]&lt;/nolink&gt;?
      notext="Cancel"
      yestext="Teleport"/>
   </notification>
-  
+
   <notification
    icon="alertmodal.tga"
    name="TeleportViaSLAPP"
@@ -5235,7 +5235,7 @@ Are you sure you want to teleport to &lt;nolink&gt;[LOCATION]&lt;/nolink&gt;?
      name="okcancelignore"
      notext="Cancel"
      yestext="Teleport"/>
-  </notification>	
+  </notification>
 
   <notification
    icon="alertmodal.tga"
@@ -5530,7 +5530,7 @@ Remove estate manager for this estate only or for [ALL_ESTATES]?
      name="yesnocancelbuttons"
      notext="All Estates"
      yestext="This Estate"/>
-  </notification>  
+  </notification>
 
   <notification
    icon="alert.tga"
@@ -5637,8 +5637,8 @@ Do you wish to proceed?
      notext="Cancel"
      yestext="OK"/>
   </notification>
-  
-  
+
+
   <notification
    icon="alertmodal.tga"
    name="RegionEntryAccessBlocked"
@@ -5663,7 +5663,7 @@ Are you sure you want to change the estate covenant?
      notext="Cancel"
      yestext="OK"/>
   </notification>
-  
+
   <notification
     icon="alertmodal.tga"
     name="SLM_UPDATE_FOLDER"
@@ -5720,7 +5720,7 @@ The region you're trying to visit contains [REGIONMATURITY] content, but your cu
        index="0"
        name="OK"
        text="Change preferences"/>
-      <button 
+      <button
        default="true"
        index="1"
        name="Cancel"
@@ -6445,7 +6445,7 @@ Move the inventory item(s)?
 You have selected &apos;no copy&apos; inventory items.  These items will be moved to your inventory, not copied.
 Because this object is scripted, moving these items to your inventory may cause the script to malfunction.
 
-Move the inventory item(s)?    
+Move the inventory item(s)?
     <tag>confirm</tag>
     <usetemplate
      ignoretext="Warn me before I move &apos;no-copy&apos; items which might break a scripted object"
@@ -6533,7 +6533,7 @@ When you add a person to an existing conversation, a new conversation will be cr
      notext="Cancel"
      yestext="OK"/>
   </notification>
- 
+
   <notification
    icon="alertmodal.tga"
    name="ConfirmQuit"
@@ -6568,7 +6568,7 @@ You cannot undo this action.
    type="alertmodal">
     <unique/>
 This action will return all buttons to the toolbox and your toolbars will be empty.
-    
+
 You cannot undo this action.
     <usetemplate
      name="okcancelbuttons"
@@ -6628,7 +6628,7 @@ Remove these items from your avatar?
      notext="Cancel"
      yestext="Remove item(s) and delete"/>
   </notification>
-    
+
   <notification
    icon="alertmodal.tga"
    name="CantDeleteRequiredClothing"
@@ -6712,19 +6712,19 @@ You must replace those layers before deleting them.
      notext="Cancel"
      yestext="Unlink"/>
   </notification>
-  
+
   <notification
    icon="alertmodal.tga"
    name="HelpReportAbuseConfirm"
    type="alertmodal">
    <unique/>
-Thank you for taking the time to inform us of this issue. 
+Thank you for taking the time to inform us of this issue.
 We will review your report for possible violations and take the appropriate action.
     <usetemplate
      name="okbutton"
      yestext="OK"/>
   </notification>
-  
+
   <notification
    icon="alertmodal.tga"
    name="HelpReportAbuseSelectCategory"
@@ -6863,7 +6863,7 @@ Would you like to turn off Unavailable mode before completing this transaction?
   <notification
    icon="notify.tga"
    label="Parcel is Playing Media"
-   name="ParcelPlayingMedia"   
+   name="ParcelPlayingMedia"
    persist="false"
    type="notify">
 This location plays media:
@@ -6964,7 +6964,7 @@ Are you sure you want to delete your travel, web, and search history?
      notext="Cancel"
      yestext="OK"/>
   </notification>
-  
+
   <notification
    icon="alertmodal.tga"
    name="ConfirmClearCache"
@@ -6976,7 +6976,7 @@ Are you sure you want to clear your viewer cache?
      notext="Cancel"
      yestext="OK"/>
   </notification>
-  
+
   <notification
    icon="alertmodal.tga"
    name="ConfirmClearInventoryCache"
@@ -6988,7 +6988,7 @@ Are you sure you want to clear your inventory cache?
      notext="Cancel"
      yestext="OK"/>
   </notification>
-  
+
   <notification
    icon="alertmodal.tga"
    name="ConfirmClearWebBrowserCache"
@@ -7051,7 +7051,7 @@ Are you sure you want to proceed?
      notext="No"
      yestext="Yes"/>
   </notification>
-  
+
   <notification
    icon="alertmodal.tga"
    name="CopySLURL"
@@ -7109,7 +7109,7 @@ Sorry, the settings couldn't be applied to the region. Reason: [FAIL_REASON]
 A Local texture is in use on track [TRACK], frame #[FRAMENO] ([FRAME]%) in field [FIELD].
 Settings may not be saved using local textures.
   </notification>
-    
+
   <notification
    icon="alertmodal.tga"
    name="WLLocalTextureFixedBlock"
@@ -7276,9 +7276,9 @@ The string [STRING_NAME] is missing from strings.xml.
   </notification>
 
   <notification
-   icon="alert.tga"  
+   icon="alert.tga"
    name="EnableMediaFilter"
-   type="alert"> 
+   type="alert">
 Playing media or music can expose your identity to sites outside [CURRENT_GRID]. You can enable a filter that will allow you to select which sites will receive media requests, and give you better control over your privacy.
 
 Enable the media filter?
@@ -7296,9 +7296,9 @@ Enable the media filter?
   </notification>
 
   <notification
-   icon="alert.tga"  
+   icon="alert.tga"
    name="MediaAlert"
-   type="alert"> 
+   type="alert">
 This parcel provides media from:
 
 Domain: [MEDIADOMAIN]
@@ -7316,9 +7316,9 @@ URL: [MEDIAURL]
   </notification>
 
   <notification
-   icon="alert.tga"  
+   icon="alert.tga"
    name="MediaAlert2"
-   type="alert"> 
+   type="alert">
 Do you want to remember your choice and [LCONDITION] allow media from this source?
 
 Domain: [MEDIADOMAIN]
@@ -7329,7 +7329,7 @@ URL: [MEDIAURL]
          name="Do Now"
          text="[ACTION] Now"/>
         <button
-         index="1"   
+         index="1"
          name="RememberDomain"
          text="[CONDITION] Allow This Domain"/>
         <button
@@ -7340,9 +7340,9 @@ URL: [MEDIAURL]
   </notification>
 
   <notification
-   icon="alert.tga"  
+   icon="alert.tga"
    name="MediaAlertSingle"
-   type="alert"> 
+   type="alert">
 This parcel provides media from:
 
 Domain: [MEDIADOMAIN]
@@ -7357,20 +7357,20 @@ URL: [MEDIAURL]
          name="Deny"
          text="Deny"/>
         <button
-         index="2"   
+         index="2"
          name="BlacklistDomain"
          text="Blacklist"/>
         <button
-         index="3"   
+         index="3"
          name="WhitelistDomain"
          text="Whitelist"/>
    </form>
   </notification>
 
   <notification
-   icon="alert.tga"  
+   icon="alert.tga"
    name="AudioAlert"
-   type="alert"> 
+   type="alert">
 This parcel provides music from:
 
 Domain: [AUDIODOMAIN]
@@ -7388,9 +7388,9 @@ URL: [AUDIOURL]
   </notification>
 
   <notification
-   icon="alert.tga"  
+   icon="alert.tga"
    name="AudioAlert2"
-   type="alert"> 
+   type="alert">
 Do you want to remember your choice and [LCONDITION] allow music from this source?
 
 Domain: [AUDIODOMAIN]
@@ -7401,7 +7401,7 @@ URL: [AUDIOURL]
          name="Do Now"
          text="[ACTION] Now"/>
         <button
-         index="1"   
+         index="1"
          name="RememberDomain"
          text="[CONDITION] Allow This Domain"/>
         <button
@@ -7410,11 +7410,11 @@ URL: [AUDIOURL]
          text="[CONDITION] Allow This URL"/>
    </form>
   </notification>
-  
+
   <notification
-   icon="alert.tga"  
+   icon="alert.tga"
    name="AudioAlertSingle"
-   type="alert"> 
+   type="alert">
 Do you want to remember your choice and [LCONDITION] allow music from this source?
 
 Domain: [AUDIODOMAIN]
@@ -7429,7 +7429,7 @@ URL: [AUDIOURL]
          name="Deny"
          text="Deny"/>
         <button
-         index="2"   
+         index="2"
          name="BlacklistDomain"
          text="Blacklist"/>
         <button
@@ -7445,7 +7445,7 @@ URL: [AUDIOURL]
    type="notifytip">
 [MESSAGE]
   </notification>
-  
+
   <notification
    icon="notifytip.tga"
    name="ChatSystemMessageTip"
@@ -7457,8 +7457,8 @@ URL: [AUDIOURL]
   <notification
    icon="notifytip.tga"
    name="IMSystemMessageTip"
-   log_to_im="true"   
-   log_to_chat="false"   
+   log_to_im="true"
+   log_to_chat="false"
    type="notifytip">
 [MESSAGE]
   </notification>
@@ -7818,7 +7818,7 @@ You do not have permission to copy this.
   <notification
    icon="notifytip.tga"
    name="InventoryAccepted"
-   log_to_im="true"   
+   log_to_im="true"
    log_to_chat="false"
    type="notifytip">
 [NAME] received your inventory offer.
@@ -7827,7 +7827,7 @@ You do not have permission to copy this.
   <notification
    icon="notifytip.tga"
    name="InventoryDeclined"
-   log_to_im="true"   
+   log_to_im="true"
    log_to_chat="false"
    type="notifytip">
 [NAME] declined your inventory offer.
@@ -7915,7 +7915,7 @@ Please select at least one type of content to search (General, Moderate, or Adul
   <notification
    icon="notify.tga"
    name="PaymentReceived"
-   log_to_im="true"   
+   log_to_im="true"
    persist="true"
    type="notify">
     <tag>funds</tag>
@@ -7925,7 +7925,7 @@ Please select at least one type of content to search (General, Moderate, or Adul
   <notification
    icon="notify.tga"
    name="PaymentSent"
-   log_to_im="true"   
+   log_to_im="true"
    persist="true"
    type="notify">
     <tag>funds</tag>
@@ -7941,7 +7941,7 @@ Please select at least one type of content to search (General, Moderate, or Adul
 [MESSAGE]
   </notification>
 
-   <!-- EventNotification couldn't be persist since server decide is it necessary to notify 
+   <!-- EventNotification couldn't be persist since server decide is it necessary to notify
    user about subscribed event via LLEventNotifier-->
   <notification
    icon="notify.tga"
@@ -8070,7 +8070,7 @@ The objects on the selected parcel that are *NOT* owned by you have been returne
   <notification
    icon="notify.tga"
    name="ServerObjectMessage"
-   log_to_im="true"   
+   log_to_im="true"
    persist="true"
    type="notify">
 Message from [NAME]:
@@ -8103,7 +8103,7 @@ You cannot fly here.
    name="PushRestricted"
    persist="true"
    type="notify">
-    <unique/>    
+    <unique/>
 This area does not allow pushing. You can&apos;t push others here unless you own the land.
   </notification>
 
@@ -8112,7 +8112,7 @@ This area does not allow pushing. You can&apos;t push others here unless you own
    name="NoVoice"
    persist="true"
    type="notify">
-    <unique/>    
+    <unique/>
 This area has voice chat disabled. You will not be able to use voice chat here.
     <tag>voice</tag>
   </notification>
@@ -8122,7 +8122,7 @@ This area has voice chat disabled. You will not be able to use voice chat here.
    name="NoBuild"
    persist="true"
    type="notify">
-    <unique/>    
+    <unique/>
 This area has building disabled. You can&apos;t build or rez objects here.
   </notification>
 
@@ -8178,7 +8178,7 @@ The region has pending pathfinding changes.  If you have build rights, you may r
    name="SeeAvatars"
    persist="true"
    type="notify">
-    <unique/>    
+    <unique/>
 This parcel hides avatars and text chat from another parcel.   You can&apos;t see other residents outside the parcel, and those outside are not able to see you.  Regular text chat on channel 0 is also blocked.
   </notification>
 
@@ -8239,7 +8239,7 @@ Complete information on maturity ratings can be found [https://community.secondl
     <tag>fail</tag>
     The region you're trying to enter is about to shut down.
   </notification>
-  
+
   <notification
 	icon="notify.tga"
 	name="URBannedFromRegion"
@@ -8808,7 +8808,7 @@ Offer a teleport?
   <notification
    icon="notify.tga"
    name="FriendshipOffered"
-   log_to_im="true"   
+   log_to_im="true"
    type="notify">
     <tag>friendship</tag>
 	You have offered friendship to [TO_NAME]
@@ -8839,7 +8839,7 @@ Offer a teleport?
   <notification
    icon="notify.tga"
    name="FriendshipAccepted"
-   log_to_im="true"   
+   log_to_im="true"
    type="notify">
     <tag>friendship</tag>
 &lt;nolink&gt;[NAME]&lt;/nolink&gt; accepted your friendship offer.
@@ -8848,17 +8848,17 @@ Offer a teleport?
   <notification
    icon="notify.tga"
    name="FriendshipDeclined"
-   log_to_im="true"   
+   log_to_im="true"
    persist="true"
    type="notify">
     <tag>friendship</tag>
 &lt;nolink&gt;[NAME]&lt;/nolink&gt; declined your friendship offer.
   </notification>
-  
+
     <notification
    icon="notify.tga"
    name="FriendshipAcceptedByMe"
-   log_to_im="true"   
+   log_to_im="true"
    type="notify">
     <tag>friendship</tag>
 Friendship offer accepted.
@@ -8867,12 +8867,12 @@ Friendship offer accepted.
   <notification
    icon="notify.tga"
    name="FriendshipDeclinedByMe"
-   log_to_im="true"   
+   log_to_im="true"
    type="notify">
     <tag>friendship</tag>
 Friendship offer declined.
   </notification>
-  
+
   <notification
    icon="notify.tga"
    name="OfferCallingCard"
@@ -9057,7 +9057,7 @@ Unable to acquire a new experience:
     type="notify">
     The following terms prevented the update of the experience profile name and/or description: [extra_info]
   </notification>
-  
+
   <notification
     icon="notify.tga"
     name="TeleportedHomeExperienceRemoved"
@@ -9093,7 +9093,7 @@ You do not have access to this destination. You may be allowed into the region b
 
 Other Key Experiences may be available.
   </notification>
-    
+
 
   <notification
     icon="notify.tga"
@@ -9114,7 +9114,7 @@ Other Key Experiences may be available.
     An attachment was allowed to [EventType] by the secondlife:///app/experience/[public_id]/profile experience.
     Owner: secondlife:///app/agent/[OwnerID]/inspect
   </notification>
-  
+
   <notification
    icon="notify.tga"
    name="ScriptQuestionExperience"
@@ -9127,7 +9127,7 @@ Other Key Experiences may be available.
 
 Once permission is granted you will not see this message again for this experience unless it is revoked from the experience profile.
 
-Scripts associated with this experience will be able to do the following on regions where the experience is active: 
+Scripts associated with this experience will be able to do the following on regions where the experience is active:
 
 [QUESTIONS]Is this OK?
 
@@ -9162,7 +9162,7 @@ Scripts associated with this experience will be able to do the following on regi
    persist="true"
    type="notify">
 The object &apos;&lt;nolink&gt;[OBJECTNAME]&lt;/nolink&gt;&apos; wants access to take money from your Linden Dollar account. If you allow this, it can take any or all of your money from you at any time, with no further warning or request.
-   
+
 Before allowing this access, make sure you know what the object is and why it is making this request, as well as whether you trust the creator. If you're not certain, click Deny.
   <tag>confirm</tag>
     <form name="form">
@@ -9502,7 +9502,7 @@ Failed to connect to [VOICE_CHANNEL_NAME], please try again later.  You will now
    sound="UISndAlert"
    persist="true"
    type="notify">
-    <unique/>    
+    <unique/>
 One or more of your subscribed Voice Morphs has expired.
 [[URL] Click here] to renew your subscription.
 
@@ -9532,7 +9532,7 @@ If you are a Premium Member, [[PREMIUM_URL] click here] to receive your voice mo
    sound="UISndAlert"
    persist="true"
    type="notify">
-    <unique/>    
+    <unique/>
 One or more of your Voice Morphs will expire in less than [INTERVAL] days.
 [[URL] Click here] to renew your subscription.
 
@@ -9551,7 +9551,7 @@ If you are a Premium Member, [[PREMIUM_URL] click here] to receive your voice mo
    sound="UISndAlert"
    persist="true"
    type="notify">
-    <unique/>    
+    <unique/>
 New Voice Morphs are available!
    <tag>voice</tag>
   </notification>
@@ -9672,12 +9672,12 @@ Are you sure you want to close all IMs?
 		name="AttachmentSaved" type="notifytip">
 Attachment has been saved.
   </notification>
-  
+
   <notification icon="notify.tga" persist="true"
 		name="AppearanceToXMLSaved" type="notify">
 Appearance has been saved to XML to [PATH]
   </notification>
-  
+
     <notification icon="notifytip.tga"
 		name="AppearanceToXMLFailed" type="notifytip">
 Failed to save appearance to XML.
@@ -9699,7 +9699,7 @@ Failed to save snapshot to [PATH]: Directory does not exist.
     type="notifytip">
 Error saving preset [NAME].
   </notification>
-    
+
   <notification
     icon="notifytip.tga"
     name="DefaultPresetNotSaved"
@@ -9786,7 +9786,7 @@ Your current balance of L$[BALANCE] is not enough to upload [COUNT] items at a t
      name="okbutton"
      yestext="OK"/>
    </notification>
-  
+
    <notification
     icon="alertmodal.tga"
     name="BulkUploadNoCompatibleFiles"
@@ -9862,21 +9862,21 @@ Select residents to share with.
 
 See Firestorm.log for details
   </notification>
-   
+
   <notification
     name="MeshUploadPermError"
     icon="alert.tga"
     type="alert">
     Error while requesting mesh upload permissons.
   </notification>
-  
+
   <notification
     name="RegionCapabilityRequestError"
     icon="alert.tga"
     type="alert">
     Could not get region capability &apos;[CAPABILITY]&apos;.
   </notification>
-   
+
   <notification
    icon="notifytip.tga"
    name="ShareItemsConfirmation"
@@ -9895,7 +9895,7 @@ With the following residents:
      notext="Cancel"
      yestext="OK"/>
   </notification>
-  
+
   <notification
    icon="notifytip.tga"
    name="ShareFolderConfirmation"
@@ -9915,14 +9915,14 @@ With the following Residents:
      notext="Cancel"
      yestext="OK"/>
   </notification>
-  
+
   <notification
    icon="notifytip.tga"
    name="ItemsShared"
    type="notifytip">
 Items successfully shared.
   </notification>
-  
+
   <notification
    icon="notifytip.tga"
    name="DeedToGroupFail"
@@ -9939,7 +9939,7 @@ Deed to group failed.
 The parcel [PARCEL_NAME] can not be abandoned at this time.
    <tag>fail</tag>
   </notification>
-	
+
   <notification
    icon="notifytip.tga"
    name="ReleasedLandWithReclaim"
@@ -9949,7 +9949,7 @@ The [AREA] m² parcel &apos;[PARCEL_NAME]&apos; has been released.
 You will have [RECLAIM_PERIOD] hours to reclaim for L$0 before it is set for sale to anyone.
    <tag>fail</tag>
   </notification>
-	
+
   <notification
    icon="notifytip.tga"
    name="ReleasedLandNoReclaim"
@@ -9984,7 +9984,7 @@ You finished baking your outfit after [TIME] seconds.
 You sent out an update of your appearance after [TIME] seconds.
 [STATUS]
   </notification>
-  
+
   <notification
    icon="notifytip.tga"
    name="AvatarRezSelfBakeForceUpdateNotification"
@@ -10109,14 +10109,14 @@ You uploaded a [RESOLUTION] baked texture for '[BODYREGION]' after [TIME] second
 ( [EXISTENCE] seconds alive )
 You locally updated a [RESOLUTION] baked texture for '[BODYREGION]' after [TIME] seconds.
   </notification>
-	
+
   <notification
    icon="alertmodal.tga"
    name="CannotUploadTexture"
    type="alertmodal">
 Unable to upload texture: &apos;[NAME]&apos;
-[REASON]   
-  <tag>fail</tag>  
+[REASON]
+  <tag>fail</tag>
   </notification>
 
   <notification
@@ -10200,7 +10200,7 @@ We cannot display a preview of this texture because it is no-copy and/or no-tran
    icon="alertmodal.tga"
    name="LivePreviewUnavailablePBR"
    type="alert">
-   
+
 We cannot display a preview of this material because it is no-copy, no-transfer, and/or no-modify.
   <usetemplate
     ignoretext="Warn me that Live Preview mode is not available for no-copy, no-transfer, and/or no-modify materials"
@@ -10307,7 +10307,7 @@ Mute everyone?
   name="HintSpeak"
   label="Speak"
   type="hint">
-    <unique/>    
+    <unique/>
 Click the Speak button to turn your microphone on and off.
 
 Click on the up arrow to see the voice control panel.
@@ -10343,7 +10343,7 @@ Hiding the Speak button will disable the voice feature.
   name="HintMoveClick"
   label=""
   type="hint">
-    <unique/>    
+    <unique/>
 1. Click to Walk
 Click anywhere on the ground to walk to that spot.
 
@@ -10420,7 +10420,7 @@ Click and drag anywhere on the world to rotate your view
 	<tag>fail</tag>
    <usetemplate
      name="okbutton"
-     yestext="OK"/>	 
+     yestext="OK"/>
   </notification>
 
   <notification
@@ -10466,7 +10466,7 @@ Click and drag anywhere on the world to rotate your view
      name="okbutton"
      yestext="OK"/>
   </notification>
-  
+
   <notification
    icon="alertmodal.tga"
    name="SOCKS_UNKNOWN_STATUS"
@@ -10477,7 +10477,7 @@ Click and drag anywhere on the world to rotate your view
      name="okbutton"
      yestext="OK"/>
   </notification>
-  
+
   <notification
    icon="alertmodal.tga"
    name="SOCKS_INVALID_HOST"
@@ -10488,7 +10488,7 @@ Click and drag anywhere on the world to rotate your view
      name="okbutton"
      yestext="OK"/>
   </notification>
-  
+
   <notification
    icon="alertmodal.tga"
    name="SOCKS_BAD_CREDS"
@@ -10499,7 +10499,7 @@ Click and drag anywhere on the world to rotate your view
      name="okbutton"
      yestext="OK"/>
   </notification>
-  
+
   <notification
    icon="alertmodal.tga"
    name="PROXY_INVALID_HTTP_HOST"
@@ -10664,7 +10664,7 @@ Change mode and quit?
    yestext="Quit"
    notext="Don't Quit"/>
   </notification>
-  
+
   <notification
  name="NoAvatarPay"
  label=""
@@ -10882,7 +10882,7 @@ Do you wish to continue?
   <global name="UnsupportedRAM">
 - Your system memory does not meet the minimum requirements.
   </global>
-  
+
   <global name="LLLeapUpdaterFailure">
 Failed to launch updater service [UPDATER_APP]. Please verify the viewer is installed correctly and has the necessary permissions to run. If you continue to experience issues, please visit the [SUPPORT_SITE].
   </global>
@@ -11119,59 +11119,6 @@ Creating animation link for animation "[NAME]" failed!
 
 <!-- ## Zi: Animation Overrider -->
 
-<notification
-   icon="alertmodal.tga"
-   name="SendSysinfoToIM"
-   type="alertmodal">
-This will send the following information to the current IM session:
-
-[SYSINFO]
-    <usetemplate
-     name="okcancelbuttons"
-     yestext="Send"
-     notext="Cancel" />
-  </notification>
-
-<!-- fsdata -->
-  <notification
-   icon="alertmodal.tga"
-   name="BlockLoginInfo"
-   type="alertmodal">
-    [REASON]
-    <usetemplate
-     name="okbutton"
-     yestext="OK"/>
-  </notification>
-
-  <notification
-   icon="alertmodal.tga"
-   name="TestversionExpired"
-   type="alertmodal">
-    This test version of [APP_NAME] has expired and cannot be used any further.
-    <usetemplate
-     name="okbutton"
-     yestext="OK"/>
-  </notification>
-
-  <notification
-   icon="alertmodal.tga"
-   name="FireStormReqInfo"
-   type="alertmodal">
-    [NAME] is requesting that you send them information about your [APP_NAME] setup.
-(This is the same information that can be found by going to Help->About [APP_NAME])
-[REASON]
-Would you like to send them this information?
-    <form name="form">
-      <button
-       index="0"
-       name="Yes"
-       text="Yes"/>
-      <button
-       index="1"
-       name="No"
-       text="No"/>
-    </form>
-  </notification>
 
 <!-- Firestorm Phantom -->
 
@@ -11232,7 +11179,7 @@ Flight Assist is enabled
     label="Reset all settings"
     name="FirestormClearSettingsPrompt"
     type="alertmodal">
-    Resetting all settings may be helpful if you are experiencing problems; however, you will need to redo any customizations you have made to the default configuration. 
+    Resetting all settings may be helpful if you are experiencing problems; however, you will need to redo any customizations you have made to the default configuration.
 
     Are you sure you want to reset all settings?
     <usetemplate
@@ -11377,7 +11324,7 @@ Current setting: [CURRENT_VALUE]
    <usetemplate
     ignoretext="A LSL script has switch statement without a default label"
     name="notifyignore"/>
-The behavior for switch() statements without a default case was previously incorrect and has been fixed. 
+The behavior for switch() statements without a default case was previously incorrect and has been fixed.
 See FIRE-17710 for details.
   </notification>
   <!-- </FS:Sei> -->
@@ -11616,7 +11563,7 @@ Can't rez object at [OBJECT_POS] because the owner of this land does not allow i
    <tag>fail</tag>
 Object can not be rezzed because there are too many requests.
   </notification>
- 
+
   <notification
    icon="alertmodal.tga"
    name="SitFailCantMove"
@@ -11632,7 +11579,7 @@ You cannot sit because you cannot move at this time.
    <tag>fail</tag>
 You cannot sit because you are not allowed on that land.
   </notification>
- 
+
   <notification
    icon="alertmodal.tga"
    name="SitFailNotSameRegion"
@@ -11641,7 +11588,7 @@ You cannot sit because you are not allowed on that land.
 Try moving closer.  Can't sit on object because
 it is not in the same region as you.
   </notification>
-  
+
   <notification
    icon="alert.tga"
    name="ChatHistoryIsBusyAlert"
@@ -11651,7 +11598,7 @@ it is not in the same region as you.
      name="okbutton"
      yestext="OK"/>
   </notification>
-  
+
   <notification
    icon="alertmodal.tga"
    name="NoNewObjectRegionFull"
@@ -11729,7 +11676,7 @@ Can't duplicate objects - Can't find the parcel they are on.
    name="CantCreateCuzParcelFull"
    type="notify">
    <tag>fail</tag>
-Can't create object because 
+Can't create object because
 the parcel is full.
   </notification>
 
@@ -11764,7 +11711,7 @@ That inventory item has been blacklisted.
    <tag>fail</tag>
 You are not currently allowed to create objects.
   </notification>
- 
+
   <notification
    icon="alertmodal.tga"
    name="LandSearchBlocked"
@@ -12873,7 +12820,7 @@ Only the first 10 selected objects have been disabled. Refresh and make addition
    type="notify">
    <tag>fail</tag>
 You need to update your viewer to buy this parcel.
-  </notification>  
+  </notification>
 
   <notification
    icon="alertmodal.tga"
@@ -13349,7 +13296,7 @@ Changes won't take effect until after you restart [APP_NAME].
       ignoretext="Warn if inventory validation errors have been detected."
       name="okignore"
       yestext="OK"/>
-Corruption has been found in your inventory. 
+Corruption has been found in your inventory.
 Please contact [HELP] with the following list of issues.
 They can use http://opensimulator.org/wiki/inventory to fix the issues.
 
@@ -13369,7 +13316,7 @@ They can use http://opensimulator.org/wiki/inventory to fix the issues.
      notext="Cancel"
      yestext="OK"/>
   </notification>
-  
+
   <notification
    icon="alertmodal.tga"
    name="PreferenceControlsDefaults"
@@ -13382,7 +13329,7 @@ They can use http://opensimulator.org/wiki/inventory to fix the issues.
        notext="Current mode"
        yestext="All modes"/>
   </notification>
-    
+
   <notification
    icon="alertmodal.tga"
    name="PreferenceChatDeleteTranscripts"
@@ -13417,7 +13364,7 @@ They can use http://opensimulator.org/wiki/inventory to fix the issues.
      name="okbutton"
      yestext="OK"/>
   </notification>
-  
+
   <notification
    icon="alert.tga"
    name="OutfitPhotoLoadError"
@@ -13450,7 +13397,7 @@ able to add a payment method at checkout.
        text="Cancel"/>
     </form>
   </notification>
-  
+
 <!-- <FS:Zi> Add float LSL color entry widgets -->
   <notification
    icon="notify.tga"
@@ -13489,14 +13436,14 @@ Caution: Use the Fly Override responsibly! Using the Fly Override without the la
   </notification>
 
   <notification
-   icon="notifytip.tga" 
+   icon="notifytip.tga"
    name="ServerVersionChanged"
    type="notifytip">
 The region you have entered is running a different simulator version.
 Current simulator: [NEWVERSION]
 Previous simulator: [OLDVERSION]
   </notification>
-  
+
   <notification
    icon="alertmodal.tga"
    name="RegExFail"
@@ -13505,7 +13452,7 @@ Error in the regular expression:
 [EWHAT]
   <tag>fail</tag>
   </notification>
-	
+
   <notification
     icon="alertmodal.tga"
 	name="NoHavok"
@@ -13524,14 +13471,14 @@ Error in the regular expression:
 		type="notify">
 		Successfully exported stream list to XML to [FILENAME].
 	</notification>
-	
+
 	<notification
 		icon="notify.tga"
 		name="StreamListImportSuccess"
 		type="notify">
 		Successfully imported stream list from XML.
 	</notification>
-	
+
     <notification
         icon="notifytip.tga"
         name="StreamMetadata"
@@ -13551,7 +13498,7 @@ Error in the regular expression:
 ♫ Now Playing:
   [TITLE] ♫
     </notification>
-    
+
     <notification
         icon="notifytip.tga"
         name="RadarAlert"
@@ -13560,7 +13507,7 @@ Error in the regular expression:
 		[NAME] [MESSAGE]
 	</notification>
 
-	
+
    <!-- <FS:Zi> Backup Settings -->
   <notification
    icon="alertmodal.tga"
@@ -13652,7 +13599,7 @@ Setting has already been added. Please select a different one.
      name="okbutton"
      yestext="OK"/>
     </notification>
-    
+
     <notification
      icon="alertmodal.tga"
      name="ExportFinished"
@@ -13660,7 +13607,7 @@ Setting has already been added. Please select a different one.
       <tag>Export</tag>
 Export finished and saved to [FILENAME].
     </notification>
-    
+
     <notification
      icon="alertmodal.tga"
      name="ExportFailed"
@@ -13668,7 +13615,7 @@ Export finished and saved to [FILENAME].
       <tag>Export</tag>
 Export failed unexpectedly. Please see the log for details.
     </notification>
-    
+
     <notification
      icon="alertmodal.tga"
      name="ExportColladaSuccess"
@@ -13692,7 +13639,7 @@ Export failed unexpectedly. Please see the log for details.
 The value you set, [VALUE], for the number of concurrent requests to load mesh objects (debug setting [DEBUGNAME]) is higher than the maximum of [MAX]. It has been reset to the default of [DEFAULT].
     <tag>fail</tag>
     </notification>
-	
+
     <notification
      icon="alertmodal.tga"
      name="ImportSuccess"
@@ -13700,7 +13647,7 @@ The value you set, [VALUE], for the number of concurrent requests to load mesh o
         <tag>Export</tag>
         Successfully imported [COUNT] [OBJECT].
     </notification>
-    
+
     <notification
       icon="notifytip.tga"
       name="AntiSpamBlocked"
@@ -14046,10 +13993,10 @@ Due to server load, mass toggling online status visibility can take a while to b
    type="alert">
     WARNING: The Level of Detail (LOD) Factor is set high
 
-For everyday use, LOD Factor in the range of 1-3 suffices. 
+For everyday use, LOD Factor in the range of 1-3 suffices.
 Consider replacing objects that look deformed at such values.
 
-LOD Factor >3: Adds to lag. Advised only for photography. 
+LOD Factor >3: Adds to lag. Advised only for photography.
 LOD Factor >4: Use in special circumstances. Reverts after relog.
 LOD Factor >8: Has no real effect. May cause errors.
     <usetemplate
@@ -14073,9 +14020,9 @@ This setting is intended for cases where VRAM detection is reporting incorrect v
    icon="alertmodal.tga"
    name="CurrencyURIOverrideReceived"
    type="alertmodal">
-This region has elected to specify a third-party currency portal. 
-Please note that currency purchases made through Firestorm Viewer are transactions between you (the user) and the provider(s) or seller(s) of the currency. 
-Neither Firestorm Viewer, the Phoenix Firestorm Viewer Project Inc., nor its team shall be liable for any cost or damage arising either directly or indirectly from any such transaction. 
+This region has elected to specify a third-party currency portal.
+Please note that currency purchases made through Firestorm Viewer are transactions between you (the user) and the provider(s) or seller(s) of the currency.
+Neither Firestorm Viewer, the Phoenix Firestorm Viewer Project Inc., nor its team shall be liable for any cost or damage arising either directly or indirectly from any such transaction.
 If you do not agree to these terms of use, then no financial transactions should be conducted using this viewer.
    <usetemplate
     ignoretext="When the region sets a new currency helper."
@@ -14097,7 +14044,7 @@ Enabling HiDPI support may have adverse effects and may impair performance.
 Could not load the settings for [NAME] from the database.
   <tag>fail</tag>
   </notification>
-  
+
   <notification
    icon="notify.tga"
    name="FailedToLoadSettingsApply"
@@ -14106,7 +14053,7 @@ Could not load the settings for [NAME] from the database.
 Unable to apply those settings to the environment.
   <tag>fail</tag>
   </notification>
-  
+
   <notification
    icon="notify.tga"
    name="FailedToBuildSettingsDay"
@@ -14124,7 +14071,7 @@ Unable to apply those settings to the environment.
 This Region does not support environmental settings.
   <tag>fail</tag>
   </notification>
- 
+
   <notification
    icon="alertmodal.tga"
    label="Save Environmental Settings"
@@ -14154,7 +14101,7 @@ This Region does not support environmental settings.
    name="WLImportFail"
    persist="true"
    type="alertmodal">
-Unable to import legacy Windlight settings [NAME] from 
+Unable to import legacy Windlight settings [NAME] from
 [FILE].
 
 [REASONS]
@@ -14176,7 +14123,7 @@ Please enter or select a parcel that you have rights to modify.
    name="SettingsUnsuported"
    persist="true"
    type="alertmodal">
-Settings are not supported on this region. 
+Settings are not supported on this region.
 Please move to a settings enabled region and retry your action.
   <tag>fail</tag>
   </notification>
@@ -14225,7 +14172,7 @@ Are you sure you want to continue?
    icon="alertmodal.tga"
    name="SettingsMakeNoTrans"
    type="alertmodal">
-You are about to import non-transferable settings into this daycycle. Continuing will cause the settings you are editing to become non-transferable also. 
+You are about to import non-transferable settings into this daycycle. Continuing will cause the settings you are editing to become non-transferable also.
 
 This change can not be undone.
 
@@ -14237,13 +14184,13 @@ Are you sure you want to continue?
      notext="No"
      yestext="Yes"/>
   </notification>
-  
+
   <notification
    icon="notify.tga"
    name="NoEditFromLibrary"
    persist="true"
    type="alertmodal">
-You may not edit settings directly from the libary.  
+You may not edit settings directly from the libary.
 Please copy to your own inventory and try again.
   <tag>fail</tag>
   </notification>
@@ -14395,7 +14342,7 @@ This will replace the items in the selected outfit with the items you are wearin
        notext="Cancel"
        yestext="Save"/>
   </notification>
-    
+
   <notification
     icon="alertmodal.tga"
     name="ClearInventoryThumbnailsWarning"
@@ -14423,7 +14370,7 @@ This will replace the items in the selected outfit with the items you are wearin
        notext="No"
        yestext="Yes"/>
   </notification>
-    
+
   <notification
     icon="notifytip.tga"
     name="ReflectionProbeApplied"

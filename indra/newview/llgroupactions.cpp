@@ -52,7 +52,6 @@
 // Firestorm includes
 #include "exogroupmutelist.h"
 #include "fscommon.h"
-#include "fsdata.h"
 #include "fsfloatercontacts.h"
 #include "fsfloatergroup.h"
 #include "fsfloaterim.h"
@@ -309,13 +308,6 @@ void LLGroupActions::join(const LLUUID& group_id)
         LLNotificationsUtil::add("JoinedTooManyGroups");
         return;
     }
-
-    // <FS:Techwolf Lupindo> fsdata support
-    if (FSData::instance().isSupportGroup(group_id) && FSData::instance().isAgentFlag(gAgentID, FSData::NO_SUPPORT))
-    {
-        return;
-    }
-    // </FS:Techwolf Lupindo>
 
     LLGroupMgrGroupData* gdatap =
         LLGroupMgr::getInstance()->getGroupData(group_id);

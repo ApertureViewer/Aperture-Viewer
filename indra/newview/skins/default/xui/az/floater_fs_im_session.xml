@@ -36,9 +36,6 @@
 		<layout_panel name="add_participant_panel">
 			<button tool_tip="İstifadəçini bu söhbətə əlavə edin" name="add_participant_btn"/>
 		</layout_panel>
-		<layout_panel name="send_sysinfo_btn_panel">
-			<button tool_tip="Sistem məlumatı göndər" name="send_sysinfo_btn"/>
-		</layout_panel>
 
 		<layout_panel name="lp_options_btn">
 			<menu_button tool_tip="Söhbət seçimləri" name="chat_options_btn"/>

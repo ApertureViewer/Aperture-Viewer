@@ -234,7 +234,7 @@ namespace
                 // </FS:Beq>
             }
             // <FS:Beq> Improve bugsplat reporting with attributes
-            LLAppViewer::instance()->writeDebugInfo();            
+            LLAppViewer::instance()->writeDebugInfo();
             sBugSplatSender->sendAdditionalFile(WCSTR(BugSplatAttributes::getCrashContextFileName())); // <FS:Beq/> Add the new attributes file
             // </FS:Beq>
         } // MDSCB_EXCEPTIONCODE
@@ -666,7 +666,7 @@ void LLAppViewerWin32::bugsplatAddStaticAttributes(const LLSD& info)
 
         bugSplatMap.setAttribute("CPU", info["CPU"].asString());
         bugSplatMap.setAttribute("Graphics Driver", info["GRAPHICS_DRIVER_VERSION"].asString());
-        bugSplatMap.setAttribute("CPU MHz", (S32)gSysCPU.getMHz()); // 
+        bugSplatMap.setAttribute("CPU MHz", (S32)gSysCPU.getMHz()); //
 #ifdef USE_AVX2_OPTIMIZATION
         bugSplatMap.setAttribute("SIMD", "AVX2");
 #elif USE_AVX_OPTIMIZATION
@@ -698,7 +698,7 @@ void LLAppViewerWin32::bugsplatAddStaticAttributes(const LLSD& info)
     bugSplatMap.setAttribute("Draw Distance (m)", info["DRAW_DISTANCE"].asInteger());
     bugSplatMap.setAttribute("Bandwidth (kbit/s)", info["BANDWIDTH"].asInteger());
     bugSplatMap.setAttribute("LOD Factor", info["LOD"].asReal());
-    bugSplatMap.setAttribute("Render quality", info["RENDERQUALITY_FSDATA_ENGLISH"].asString());
+    bugSplatMap.setAttribute("Render quality", info["RENDERQUALITY_ENGLISH"].asString());
     bugSplatMap.setAttribute("Disk Cache", info["DISK_CACHE_INFO"].asString());
 
     bugSplatMap.setAttribute("GridName", gDebugInfo["GridName"].asString());

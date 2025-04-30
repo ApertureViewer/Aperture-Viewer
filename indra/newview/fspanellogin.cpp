@@ -69,8 +69,6 @@
 #include "llglheaders.h"
 #include "llpanelloginlistener.h"
 
-#include "fsdata.h"
-
 #if LL_WINDOWS
 #pragma warning(disable: 4355)      // 'this' used in initializer list
 #endif  // LL_WINDOWS

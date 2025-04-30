@@ -4,7 +4,7 @@
 		Nicht mehr anzeigen
 	</global>
 	<global name="skipnexttimesessiononly">
-		Nicht mehr anzeigen 
+		Nicht mehr anzeigen
 (während der aktuellen Sitzung)
 	</global>
 	<global name="alwayschoose">
@@ -135,7 +135,7 @@ Marktplatzinitialisierung aufgrund eines System- oder Netzwerkfehlers fehlgeschl
 	</notification>
 	<notification name="StockPasteFailed">
 		Kopieren oder Verschieben in Bestandsordner fehlgeschlagen mit Fehler:
-        
+
         „[ERROR_CODE]“
 		<usetemplate name="okbutton" yestext="OK"/>
 	</notification>
@@ -145,13 +145,13 @@ Marktplatzinitialisierung aufgrund eines System- oder Netzwerkfehlers fehlgeschl
 	</notification>
 	<notification name="MerchantPasteFailed">
 		Kopieren oder Verschieben von Marktplatz-Auflistungen fehlgeschlagen mit Fehler:
-        
+
         „[ERROR_CODE]“
 		<usetemplate name="okbutton" yestext="OK"/>
 	</notification>
 	<notification name="MerchantTransactionFailed">
 		Marktplatztransaktion fehlgeschlagen mit Fehler:
-        
+
         [ERROR_REASON][ERROR_DESCRIPTION]
 		<usetemplate name="okbutton" yestext="OK"/>
 	</notification>
@@ -161,7 +161,7 @@ Marktplatzinitialisierung aufgrund eines System- oder Netzwerkfehlers fehlgeschl
 	</notification>
 	<notification name="MerchantListingFailed">
 		Auflistung in Marktplatz fehlgeschlagen mit Fehler:
-        
+
         „[ERROR_CODE]“
 		<usetemplate name="okbutton" yestext="OK"/>
 	</notification>
@@ -331,7 +331,7 @@ Jedem Mitglied in einer Rolle mit dieser Fähigkeit werden auch die Fähigkeiten
 
  *ACHTUNG*
 Durch Entfernen dieser Fähigkeit werden die Fähigkeiten „[ACTION_NAME_2]“ und „[ACTION_NAME_3]“ NICHT entfernt.
- 
+
 Wenn diese Rolle nicht mehr diese Fähigkeiten haben soll, deaktivieren Sie sie bitte umgehend.
 		<usetemplate name="okbutton" yestext="OK"/>
 	</notification>
@@ -396,12 +396,12 @@ Bitte laden Sie innerhalb von 48 Stunden Mitglieder in Ihre Gruppe ein.
 		<usetemplate name="okbutton" yestext="OK"/>
 	</notification>
 	<notification name="JoinGroupMaxGroups">
-		Sie können „&lt;nolink&gt;[group_name]&lt;/nolink&gt;“ nicht beitreten: 
+		Sie können „&lt;nolink&gt;[group_name]&lt;/nolink&gt;“ nicht beitreten:
 Sie sind bereits Mitglied in [group_count] Gruppen, die maximale zulässige Anzahl beträgt [max_groups]
 		<usetemplate name="okbutton" yestext="OK"/>
 	</notification>
 	<notification name="JoinGroupClosedEnrollment">
-		Sie können „&lt;nolink&gt;[group_name]&lt;/nolink&gt;“ nicht beitreten: 
+		Sie können „&lt;nolink&gt;[group_name]&lt;/nolink&gt;“ nicht beitreten:
 Die Gruppe steht für freie Registrierungen nicht mehr zur Verfügung.
 		<usetemplate name="okbutton" yestext="OK"/>
 	</notification>
@@ -431,9 +431,9 @@ Der Verkaufspreis beträgt [SALE_PRICE] L$. Der Verkauf an [NAME] wird zu diesem
 		<usetemplate name="okcancelbuttons" notext="Abbrechen" yestext="OK"/>
 	</notification>
 	<notification name="ReturnObjectsDeededToGroup">
-		Möchten Sie alle Ihre Objekte auf dieser Parzelle, die gemeinsam mit der Gruppe „&lt;nolink&gt;[NAME]&lt;/nolink&gt;“ verwendet werden, zurück in das Inventar ihrer vorherigen Eigentümer transferieren? 
+		Möchten Sie alle Ihre Objekte auf dieser Parzelle, die gemeinsam mit der Gruppe „&lt;nolink&gt;[NAME]&lt;/nolink&gt;“ verwendet werden, zurück in das Inventar ihrer vorherigen Eigentümer transferieren?
 
-*WARNUNG* Hierdurch werden alle nicht transferierbaren Objekte gelöscht, die der Gruppe übertragen wurden. 
+*WARNUNG* Hierdurch werden alle nicht transferierbaren Objekte gelöscht, die der Gruppe übertragen wurden.
 
 Objekte: [N]
 		<usetemplate name="okcancelbuttons" notext="Abbrechen" yestext="OK"/>
@@ -477,7 +477,7 @@ Objekte: [N]
 		<usetemplate name="okcancelbuttons" notext="Abbrechen" yestext="OK"/>
 	</notification>
 	<notification name="ReturnObjectsNotOwnedByGroup">
-		Möchten Sie die Objekte auf dieser Parzelle, die NICHT gemeinsam mit der Gruppe „&lt;nolink&gt;[NAME]&lt;/nolink&gt;“ verwendet werden, an ihre Eigentümer zurückgeben? 
+		Möchten Sie die Objekte auf dieser Parzelle, die NICHT gemeinsam mit der Gruppe „&lt;nolink&gt;[NAME]&lt;/nolink&gt;“ verwendet werden, an ihre Eigentümer zurückgeben?
 
 Objekte: [N]
 		<usetemplate name="okcancelbuttons" notext="Abbrechen" yestext="OK"/>
@@ -772,7 +772,7 @@ Sie können die Grafikqualität unter Einstellungen &gt; Grafik wieder erhöhen.
 		Sie sind nicht zum Terraformen der Parzelle „[PARCEL]“ berechtigt.
 	</notification>
 	<notification name="CannotCopyWarning">
-		Sie sind nicht berechtigt, die folgenden Objekte zu kopieren: 
+		Sie sind nicht berechtigt, die folgenden Objekte zu kopieren:
 &lt;nolink&gt;[ITEMS]&lt;/nolink&gt;
 Wenn Sie diese weitergeben, werden sie aus Ihrem Inventar entfernt. Möchten Sie diese Objekte wirklich weggeben?
 		<usetemplate name="okcancelbuttons" notext="Nein" yestext="Ja"/>
@@ -1481,16 +1481,16 @@ Möchten Sie diese Objekte nehmen?
 Wählen Sie ein kleineres Gebiet und versuchen Sie es erneut.
 	</notification>
 	<notification name="DeedLandToGroup">
-		Die Schenkung dieser Parzelle setzt voraus, dass die Gruppe über ausreichende Landnutzungsrechte verfügt. 
-Dem Eigentümer wird der Kaufpreis für das Land nicht zurückerstattet. Bei einem Verkauf der übertragenen Parzelle wird der Erlös zu gleichen Teilen unter den Gruppenmitgliedern aufgeteilt. 
+		Die Schenkung dieser Parzelle setzt voraus, dass die Gruppe über ausreichende Landnutzungsrechte verfügt.
+Dem Eigentümer wird der Kaufpreis für das Land nicht zurückerstattet. Bei einem Verkauf der übertragenen Parzelle wird der Erlös zu gleichen Teilen unter den Gruppenmitgliedern aufgeteilt.
 
 Der Gruppe „&lt;nolink&gt;[GROUP_NAME]&lt;/nolink&gt;“ diese [AREA] m² Land schenken?
 		<usetemplate name="okcancelbuttons" notext="Abbrechen" yestext="OK"/>
 	</notification>
 	<notification name="DeedLandToGroupWithContribution">
-		Die Schenkung dieser Parzelle setzt voraus, dass die Gruppe über ausreichende Landnutzungsrechte verfügt. 
-Die Schenkung beinhaltet eine Landübertragung an die Gruppe von &quot;[NAME]&quot;. 
-Dem Eigentümer wird der Kaufpreis für das Land nicht zurückerstattet. Bei einem Verkauf der übertragenen Parzelle wird der Erlös zu gleichen Teilen unter den Gruppenmitgliedern aufgeteilt. 
+		Die Schenkung dieser Parzelle setzt voraus, dass die Gruppe über ausreichende Landnutzungsrechte verfügt.
+Die Schenkung beinhaltet eine Landübertragung an die Gruppe von &quot;[NAME]&quot;.
+Dem Eigentümer wird der Kaufpreis für das Land nicht zurückerstattet. Bei einem Verkauf der übertragenen Parzelle wird der Erlös zu gleichen Teilen unter den Gruppenmitgliedern aufgeteilt.
 
 Der Gruppe „&lt;nolink&gt;[GROUP_NAME]&lt;/nolink&gt;“ diese [AREA] m² Land schenken?
 		<usetemplate name="okcancelbuttons" notext="Abbrechen" yestext="OK"/>
@@ -1797,22 +1797,22 @@ Geben Sie das Objekt zum Verkauf frei und versuchen Sie es erneut.
 [DOWNLOAD_PATH].
 	</notification>
 	<notification name="RequiredUpdate">
-		Für die Anmeldung ist Version [VERSION] erforderlich. 
+		Für die Anmeldung ist Version [VERSION] erforderlich.
 Bitte laden Sie die Datei unter https://secondlife.com/support/downloads/ herunter.
 		<usetemplate name="okbutton" yestext="OK"/>
 	</notification>
 	<notification name="PauseForUpdate">
-		Für die Anmeldung ist Version [VERSION] erforderlich. 
+		Für die Anmeldung ist Version [VERSION] erforderlich.
 Klicken Sie zum Herunterladen und Installieren auf OK.
 		<usetemplate name="okbutton" yestext="OK"/>
 	</notification>
 	<notification name="OptionalUpdateReady">
-		Version [VERSION] wurde heruntergeladen und ist bereit zur Installation. 
+		Version [VERSION] wurde heruntergeladen und ist bereit zur Installation.
 Klicken Sie zur Installation auf OK.
 		<usetemplate name="okbutton" yestext="OK"/>
 	</notification>
 	<notification name="PromptOptionalUpdate">
-		Version [VERSION] wurde heruntergeladen und ist bereit zur Installation. 
+		Version [VERSION] wurde heruntergeladen und ist bereit zur Installation.
 Fortfahren?
 		<usetemplate canceltext="Nicht jetzt" name="yesnocancelbuttons" notext="Überspringen" yestext="Installieren"/>
 	</notification>
@@ -1963,7 +1963,7 @@ Premium-Mitgliedschaften erlauben bis zu [MAX_PREMIUM]. [https://secondlife.com/
 	</notification>
 	<notification name="GroupLimitInfoPlus">
 		Einwohner mit Basic-Mitgliedschaft können bis zu [MAX_BASIC] Gruppen beitreten.
-Premium-Mitgliedschaften erlauben bis zu [MAX_PREMIUM]. Premium-Plus-Mitgliedschaften 
+Premium-Mitgliedschaften erlauben bis zu [MAX_PREMIUM]. Premium-Plus-Mitgliedschaften
 erlauben bis zu [MAX_PREMIUM_PLUS]. [https://secondlife.com/my/account/membership.php? Mehr Informationen oder Upgrade]
 		<usetemplate name="okbutton" yestext="Schließen"/>
 	</notification>
@@ -2035,7 +2035,7 @@ Versuchen Sie es später erneut.
 	</notification>
 	<notification name="AgentDisplayNameSetBlocked">
 		Der angeforderte Name enthält ein unzulässiges Wort und konnte deshalb nicht festgelegt werden.
- 
+
  Versuchen Sie einen anderen Namen.
 	</notification>
 	<notification name="AgentDisplayNameSetInvalidUnicode">
@@ -2055,7 +2055,7 @@ Soll dieses entfernt werden?
 			<button name="Yes" text="Ja"/>
 			<button name="No" text="Nein"/>
 		</form>
-	</notification> 
+	</notification>
 	<notification name="OfferTeleport">
 		Teleport an Ihre Position mit der folgenden Meldung anbieten?
 		<form name="form">
@@ -2197,7 +2197,7 @@ Tausende Regionen werden verändert und der Spaceserver wird dadurch stark belas
 [RESIDENTS]
 		<usetemplate name="okcancelbuttons" notext="Abbrechen" yestext="OK"/>
 	</notification>
-	
+
 	<notification label="Nach Hause teleportieren bestätigen" name="EstateTeleportHomeUser">
 		[AVATAR_NAME] nach Hause teleportieren?
 		<usetemplate name="okcancelbuttons" notext="Abbrechen" yestext="OK"/>
@@ -2227,13 +2227,13 @@ Tausende Regionen werden verändert und der Spaceserver wird dadurch stark belas
 		<usetemplate name="okbutton" yestext="OK"/>
 	</notification>
 	<notification name="EstateParcelEnvironmentOverride">
-		Durch Deaktivieren dieser Option werden jegliche benutzerdefinierten Umgebungen entfernt, die von den Parzelleneigentümern zu ihren Parzellen hinzugefügt wurden. Bitte sprechen Sie mit den Parzellenbesitzern, falls erforderlich. 
+		Durch Deaktivieren dieser Option werden jegliche benutzerdefinierten Umgebungen entfernt, die von den Parzelleneigentümern zu ihren Parzellen hinzugefügt wurden. Bitte sprechen Sie mit den Parzellenbesitzern, falls erforderlich.
 Fortfahren?
 		<usetemplate name="okcancelbuttons" notext="Abbrechen" yestext="OK"/>
 	</notification>
 	<notification name="RegionEntryAccessBlocked">
 		Die Region, die Sie besuchen möchten, besitzt eine Alterseinstufung, die Ihre aktuellen Einstellungen überschreiten. Sie können Ihre Einstellungen unter „Avatar“ &gt; „Einstellungen“ &gt; „Allgemein“ ändern.
-		
+
 Vollständige Informationen zu Alterseinstufungen finden Sie [https://community.secondlife.com/knowledgebase/deutsche-knowledge-base/inhaltseinstufungen-r90/ hier].
 		<usetemplate name="okbutton" yestext="OK"/>
 	</notification>
@@ -2594,7 +2594,7 @@ Diese Aktion kann nicht rückgängig gemacht werden.
 		</form>
 	</notification>
 	<notification name="DeleteFilteredItems">
-		Ihr Inventar wird zur Zeit gefiltert, und nicht alle Objekte, die gelöscht werden sollen, sind momentan sichtbar. 
+		Ihr Inventar wird zur Zeit gefiltert, und nicht alle Objekte, die gelöscht werden sollen, sind momentan sichtbar.
 
 Möchten Sie diese Objekte wirklich löschen?
 		<usetemplate ignoretext="Vor dem Löschen gefilterter Objekte bestätigen" name="okcancelignore" notext="Abbrechen" yestext="OK"/>
@@ -2628,7 +2628,7 @@ Diese Aktion kann nicht rückgängig gemacht werden.
 		<usetemplate name="okcancelbuttons" notext="Abbrechen" yestext="Trennen"/>
 	</notification>
 	<notification name="HelpReportAbuseConfirm">
-		Vielen Dank, dass Sie uns über dieses Problem informiert haben. 
+		Vielen Dank, dass Sie uns über dieses Problem informiert haben.
 Wir untersuchen Ihre Meldung, um zu bestimmen, ob ein Missbrauch vorliegt, und werden dann die entsprechende Maßnahme ergreifen.
 		<usetemplate name="okbutton" yestext="OK"/>
 	</notification>
@@ -2771,11 +2771,11 @@ Von einer Webseite zu diesem Formular linken, um anderen leichten Zugang zu dies
 		Die Einstellungen konnten nicht auf die Region angewendet werden. Grund: [FAIL_REASON]
 	</notification>
 	<notification name="WLLocalTextureDayBlock">
-		Eine lokale Textur wird im Pfad [TRACK], Frame #[FRAMENO] ([FRAME]%) im Feld [FIELD] verwendet. 
+		Eine lokale Textur wird im Pfad [TRACK], Frame #[FRAMENO] ([FRAME]%) im Feld [FIELD] verwendet.
 Die Einstellungen können nicht mit lokalen Texturen gespeichert werden.
 	</notification>
 	<notification name="WLLocalTextureFixedBlock">
-		Im Feld [FIELD] wird eine lokale Textur verwendet. 
+		Im Feld [FIELD] wird eine lokale Textur verwendet.
 Die Einstellungen können nicht mit lokalen Texturen gespeichert werden.
 	</notification>
 	<notification name="EnvCannotDeleteLastDayCycleKey">
@@ -3504,7 +3504,7 @@ Möglicherweise sind noch weitere Schlüsselerlebnisse verfügbar.
 
 Nach Erteilung der Genehmigung wird diese Nachricht für dieses Erlebnis nicht erneut angezeigt, es sei denn, Sie widerrufen die Genehmigung im Erlebnisprofil.
 
-Mit diesem Erlebnis verknüpfte Skripts können in Regionen, in denen dieses Erlebnis aktiv ist, Folgendes tun: 
+Mit diesem Erlebnis verknüpfte Skripts können in Regionen, in denen dieses Erlebnis aktiv ist, Folgendes tun:
 
 [QUESTIONS]Sind Sie damit einverstanden?
 		<form name="form">
@@ -3516,7 +3516,7 @@ Mit diesem Erlebnis verknüpfte Skripts können in Regionen, in denen dieses Erl
 	</notification>
 	<notification name="ScriptQuestionCaution">
 		Warnung: Das Objekt „&lt;nolink&gt;[OBJECTNAME]&lt;/nolink&gt;“ wünscht Zugriff auf Ihr Linden-Dollar-Konto. Wenn Sie dies erlauben, kann es jederzeit Geld vom Konto abheben oder es komplett leeren ohne eine weitere Warnung.
-  
+
 Bevor Sie den Zugriff erlauben, sollten Sie wissen, um was für ein Objekt es sich handelt, warum es den Zugriff benötigt und ob Sie dem Ersteller vertrauen. Falls Sie unsicher sind, klicken Sie auf Verweigern.
 		<form name="form">
 			<button name="Grant" text="Vollen Zugriff erlauben"/>
@@ -3532,7 +3532,7 @@ Bevor Sie den Zugriff erlauben, sollten Sie wissen, um was für ein Objekt es si
 		</form>
 	</notification>
 	<notification name="ScriptDialogGroup">
-		&lt;nolink&gt;[GROUPNAME]&lt;/nolink&gt;s &quot;&lt;nolink&gt;[TITLE]&lt;/nolink&gt;&quot; 
+		&lt;nolink&gt;[GROUPNAME]&lt;/nolink&gt;s &quot;&lt;nolink&gt;[TITLE]&lt;/nolink&gt;&quot;
 [MESSAGE]
 		<form name="form">
 			<button name="Client_Side_Mute" text="Blockieren"/>
@@ -3553,7 +3553,7 @@ Manche Objekte (wie Waffen) müssen per Mouselook gesteuert werden.
 Drücken Sie dazu „M“.
 	</notification>
 	<notification name="FirstSandbox">
-		Dies ist ein Sandkasten. Hier können Einwohner lernen, wie Objekte gebaut werden. 
+		Dies ist ein Sandkasten. Hier können Einwohner lernen, wie Objekte gebaut werden.
 
 Objekte, die Sie hier bauen, werden gelöscht, nachdem Sie den Sandkasten verlassen. Vergessen Sie nicht, Ihr Werk mit einem Rechtsklick und der Auswahl „Nehmen“ in Ihrem Inventar zu speichern.
 	</notification>
@@ -3628,19 +3628,19 @@ Klicken Sie auf  &apos;Akzeptieren &apos;, um dem Chat beizutreten, oder auf  &a
 		Verbindung zu [VOICE_CHANNEL_NAME] nicht möglich. Bitte versuchen Sie es später.  Sie werden nun wieder mit dem Chat in Ihrer Nähe verbunden.
 	</notification>
 	<notification name="VoiceEffectsExpired">
-		Ein oder mehrere Ihrer Voice-Morph-Abos sind abgelaufen. 
-[[URL] Klicken Sie hier], um Ihr Abo zu erneuern. 
+		Ein oder mehrere Ihrer Voice-Morph-Abos sind abgelaufen.
+[[URL] Klicken Sie hier], um Ihr Abo zu erneuern.
 
 Wenn Sie Premium-Mitglied sind, [[PREMIUM_URL] klicken Sie hier], um Ihren Voice-Morphing-Vorteil zu nutzen.
 	</notification>
 	<notification name="VoiceEffectsExpiredInUse">
-		Das aktive Voice-Morph-Abo ist abgelaufen. Ihre normalen Voice-Einstellungen werden angewendet. 
-[[URL] Klicken Sie hier], um Ihr Abo zu erneuern. 
+		Das aktive Voice-Morph-Abo ist abgelaufen. Ihre normalen Voice-Einstellungen werden angewendet.
+[[URL] Klicken Sie hier], um Ihr Abo zu erneuern.
 
 Wenn Sie Premium-Mitglied sind, [[PREMIUM_URL] klicken Sie hier], um Ihren Voice-Morphing-Vorteil zu nutzen.
 	</notification>
-	<notification name="VoiceEffectsWillExpire">Ein oder mehrere Ihrer Voice-Morph-Abos laufen in weniger als [INTERVAL] Tagen ab. 
-[[URL] Klicken Sie hier], um Ihr Abo zu erneuern. 
+	<notification name="VoiceEffectsWillExpire">Ein oder mehrere Ihrer Voice-Morph-Abos laufen in weniger als [INTERVAL] Tagen ab.
+[[URL] Klicken Sie hier], um Ihr Abo zu erneuern.
 
 Wenn Sie Premium-Mitglied sind, [[PREMIUM_URL] klicken Sie hier], um Ihren Voice-Morphing-Vorteil zu nutzen.</notification>
 	<notification name="VoiceEffectsNew">
@@ -3861,7 +3861,7 @@ Bitte überprüfen Sie Ihre Netzwerk- und Firewalleinstellungen.
 		<usetemplate name="okbutton" yestext="OK"/>
 	</notification>
 	<notification name="NoVoiceConnect">
-		Wir können uns nicht mit dem Voice-Server verbinden: 
+		Wir können uns nicht mit dem Voice-Server verbinden:
 
 &lt;nolink&gt;[HOSTID]&lt;/nolink&gt;
 
@@ -3870,7 +3870,7 @@ Folgende Ports müssen für Voice freigegeben werden:
 :UDP: 3478, 3479, 5060, 5062, 6250, 12000-32000
 
 Bitte prüfen Sie Ihre Netzwerk- und Firewall-Konfiguration.
-Deaktivieren Sie alle SIP ALG-Funktionen in Ihrem Router. 
+Deaktivieren Sie alle SIP ALG-Funktionen in Ihrem Router.
 
 Voice-Kommunikation ist leider nicht verfügbar.
 https://wiki.firestormviewer.org/fs_voice
@@ -4303,7 +4303,7 @@ es sich nicht in der gleichen Region befindet wie Sie.
 		Objekte können nicht dupliziert werden, da die Parzelle, in der sie sich befinden, nicht auffindbar ist.
 	</notification>
 	<notification name="CantCreateCuzParcelFull">
-		Objekt kann nicht erstellt werden, da 
+		Objekt kann nicht erstellt werden, da
 die Parzelle voll ist.
 	</notification>
 	<notification name="RezAttemptFailed">
@@ -4333,7 +4333,7 @@ Warten Sie kurz und versuchen Sie es noch einmal.
 		Sie nicht hier nicht mehr zugelassen und haben [EJECT_TIME] Sekunden Zeit, um zu gehen.
 	</notification>
 	<notification name="NoEnterRegionMaybeFull">
-		Sie können die Region „[NAME]“ nicht betreten. 
+		Sie können die Region „[NAME]“ nicht betreten.
 Sie ist voll oder startet in Kürze neu.
 	</notification>
 	<notification name="SaveBackToInvDisabled">
@@ -4549,7 +4549,7 @@ Sie ist voll oder startet in Kürze neu.
 	</notification>
 	<notification name="TeleportedByAttachment">
 		Sie wurden von einem Anhang an [ITEM_ID] teleportiert
-		<usetemplate ignoretext="Teleport: Sie wurden von einem Anhang teleportiert." name="notifyignore"/> 
+		<usetemplate ignoretext="Teleport: Sie wurden von einem Anhang teleportiert." name="notifyignore"/>
 	</notification>
 	<notification name="TeleportedByObjectOnParcel">
 		Sie wurden von Objekt „[OBJECT_NAME]“ auf der Parzelle „[PARCEL_NAME]“ teleportiert
@@ -4983,44 +4983,44 @@ zu hinterlegen.
 		</form>
 	</notification>
 	<notification name="WLImportFail">
-		Alte Windlight-Einstellungen [NAME] konnten nicht aus 
-[FILE] geladen werden. 
+		Alte Windlight-Einstellungen [NAME] konnten nicht aus
+[FILE] geladen werden.
 
 [REASONS]
 	</notification>
 	<notification name="WLParcelApplyFail">
-		Die Umgebung für diese Parzelle kann nicht eingestellt werden. 
+		Die Umgebung für diese Parzelle kann nicht eingestellt werden.
 Bitte eine Parzelle eingeben oder auswählen, für die Sie die Änderungsrechte besitzen.
 	</notification>
 	<notification name="SettingsUnsuported">
-		Einstellungen werden von dieser Region nicht unterstützt. 
+		Einstellungen werden von dieser Region nicht unterstützt.
 Bitte wechseln sie zu einer Region mit aktivierten Einstellungsmöglichkeiten und versuchen Sie es erneut.
 	</notification>
 	<notification name="SettingsConfirmLoss">
-		Sie werden die Änderungen an diesem [TYPE] mit der Bezeichnung &quot;[NAME]&quot; verlieren. 
+		Sie werden die Änderungen an diesem [TYPE] mit der Bezeichnung &quot;[NAME]&quot; verlieren.
 Möchten Sie diesen Vorgang wirklich fortsetzen?
 		<usetemplate ignoretext="Sind Sie sicher, dass Sie die Änderungen verlieren möchten?" name="okcancelignore" notext="Nein" yestext="Ja"/>
 	</notification>
 	<notification name="SettingsConfirmReset">
-		Sie sind dabei, alle angewendeten Einstellungen zu entfernen. 
+		Sie sind dabei, alle angewendeten Einstellungen zu entfernen.
 Möchten Sie diesen Vorgang wirklich fortsetzen?
 		<usetemplate name="okcancelbuttons" notext="Nein" yestext="Ja"/>
 	</notification>
 	<notification name="PersonalSettingsConfirmReset">
-		Sie sind dabei, alle angewendeten persönlichen Beleuchtungseinstellungen zu entfernen. 
+		Sie sind dabei, alle angewendeten persönlichen Beleuchtungseinstellungen zu entfernen.
 Möchten Sie diesen Vorgang wirklich fortsetzen?
 		<usetemplate name="okcancelbuttons" notext="Nein" yestext="Ja"/>
 	</notification>
 	<notification name="SettingsMakeNoTrans">
-		Sie versuchen, nicht transferierbare Einstellungen in diesen Tageszyklus zu importieren. Wenn Sie fortfahren, verlieren die von Ihnen bearbeiteten Einstellungen ebenfalls ihre Transferierbarkeit. 
+		Sie versuchen, nicht transferierbare Einstellungen in diesen Tageszyklus zu importieren. Wenn Sie fortfahren, verlieren die von Ihnen bearbeiteten Einstellungen ebenfalls ihre Transferierbarkeit.
 
-Diese Änderung kann nicht rückgängig gemacht werden. 
+Diese Änderung kann nicht rückgängig gemacht werden.
 
 Möchten Sie diesen Vorgang wirklich fortsetzen?
 		<usetemplate ignoretext="Sind Sie sicher, dass Sie die Transferierbarkeit der Einstellungen aufgeben möchten?" name="okcancelignore" notext="Nein" yestext="Ja"/>
 	</notification>
 	<notification name="NoEditFromLibrary">
-		Sie können Einstellungen aus der Bibliothek nicht direkt bearbeiten. 
+		Sie können Einstellungen aus der Bibliothek nicht direkt bearbeiten.
 Bitte kopieren Sie diese in Ihr Inventar und versuchen Sie es erneut.
 	</notification>
 	<notification name="EnvironmentApplyFailed">
@@ -5145,7 +5145,7 @@ Möchten Sie fortfahren?
 
 	<notification name="NoValidEnvSettingFound">
 		Keine gültige Einstellung für die Umgebung ausgewählt.
-		
+
 Bitte beachten Sie, dass „Gemeinsame Umgebung“ und „Tageszyklus-basiert“ nicht ausgewählt werden können!
 	</notification>
 
@@ -5252,37 +5252,7 @@ Erstellung der Verknüpfung zur Animation [NAME] ist fehlgeschlagen!
 
 <!-- ## Zi: Animation Overrider -->
 
-<notification name="SendSysinfoToIM">
-Dieses wird die folgenden Informationen an die aktuelle IM-Sitzung senden:
 
-[SYSINFO]
-    <usetemplate name="okcancelbuttons" yestext="Senden" notext="Abbrechen" />
-  </notification>
-
-<!-- fsdata -->
-  <notification name="BlockLoginInfo">
-    [REASON]
-    <usetemplate
-     name="okbutton"
-     yestext="OK"/>
-  </notification>
-  <notification name="TestversionExpired">
-    Diese Testversion von [APP_NAME] is abgelaufen und kann nicht weiter verwendet werden.
-    <usetemplate
-     name="okbutton"
-     yestext="OK"/>
-  </notification>
-
-  <notification name="FireStormReqInfo">
-[NAME] hat die eine Anfrage geschickt, Informationen über Ihre [APP_NAME]-Konfiguration zu übermitteln.
-(Dies sind dieselben Informationen, die unter Hilfe->Info über [APP_NAME] zu finden sind.)
-[REASON]
-Möchten Sie diese Informationen übermitteln?
-    <form name="form">
-      <button name="Yes" text="Ja"/>
-      <button name="No" text="Nein"/>
-    </form>
-  </notification>
 
 	<notification name="PhantomOn">
 		Phantom-Modus eingeschaltet.
@@ -5373,7 +5343,7 @@ Der Name der Debug-Einstellung wurde in die Zwischenablage kopiert. Er kann jetz
        text="Der Namen einer Debug-Einstellung wurde in die Zwischenablage kopiert"/>
     </form>
   </notification>
-  
+
   <notification name="SanityCheck">
 [APP_NAME] hat ein mögliches Problem mit einer Einstellung erkannt:
 
@@ -5394,7 +5364,7 @@ Aktueller Wert: [CURRENT_VALUE]
       <ignore name="ignore"
        text="Eine Einstellung hat die Prüfung auf einen sinnvollen Wert nicht bestanden."/>
     </form>
-  </notification>  
+  </notification>
   <!-- ## Zi: Debug Settings Editor -->
 
 	<notification name="DefaultLabelMissing">
@@ -5419,7 +5389,7 @@ Siehe FIRE-17710 für Details.
 		Der Viewercache ist momentan leer. Während des Downloads von neuen Inhalten kann es daher zu niedrigeren Frameraten und langsamerem Laden des Inventars kommen.
 	</notification>
 
-	<notification name="EnableMediaFilter"> 
+	<notification name="EnableMediaFilter">
 Das Abspielen von Medien oder Musik kann deine Identität an Webseiten außerhalb von [CURRENT_GRID] verraten. Durch das Einschalten des Filters kann ausgewählt werden, welche Webseiten Medien abspielen dürfen, wodurch eine bessere Kontrolle über die Privatspähre ermöglicht wird.
 
 Medienfilter aktivieren?
@@ -5430,7 +5400,7 @@ Medienfilter aktivieren?
 		</form>
 	</notification>
 
-	<notification name="MediaAlert"> 
+	<notification name="MediaAlert">
 Diese Parzelle enthält Medien von:
 
 Domain: [MEDIADOMAIN]
@@ -5441,7 +5411,7 @@ URL: [MEDIAURL]
 		</form>
 	</notification>
 
-	<notification name="MediaAlert2"> 
+	<notification name="MediaAlert2">
 Auswahl merken und [LCONDITION] Medien von dieser Quelle erlauben?
 
 Domain: [MEDIADOMAIN]
@@ -5453,7 +5423,7 @@ URL: [MEDIAURL]
 		</form>
 	</notification>
 
-	<notification name="MediaAlertSingle"> 
+	<notification name="MediaAlertSingle">
 Diese Parzelle enthält Medien von:
 
 Domain: [MEDIADOMAIN]
@@ -5477,7 +5447,7 @@ URL: [AUDIOURL]
 		</form>
 	</notification>
 
-	<notification name="AudioAlert2"> 
+	<notification name="AudioAlert2">
 Auswahl merken und [LCONDITION] Musik von dieser Quelle erlauben?
 
 Domain: [AUDIODOMAIN]
@@ -5489,7 +5459,7 @@ URL: [AUDIOURL]
 		</form>
 	</notification>
 
-	<notification name="AudioAlertSingle"> 
+	<notification name="AudioAlertSingle">
 Auswahl merken und [LCONDITION] Musik von dieser Quelle erlauben?
 
 Domain: [AUDIODOMAIN]
@@ -5591,7 +5561,7 @@ Stream-Liste erfolgreich als XML nach [FILENAME] exportiert.
 	<notification name="StreamListImportSuccess">
 Stream-Liste erfolgreich aus XML importiert.
 	</notification>
-	
+
 	<notification name="StreamMetadata">
 ♫ Aktueller Titel:
   [TITLE]
@@ -5693,7 +5663,7 @@ Der Wert, der für das gleichzeitige Laden von Mesh-Objekten gesetzt wurde ([VAL
 			<ignore name="ignore" text="Eine Einstellung wurde auf den Standardwert für das gewählte Oberflächendesign zurückgesetzt."/>
 		</form>
 	</notification>
-	
+
 	<notification name="AddNewContactSet">
 		Neues Kontakt-Set mit folgendem Namen erstellen:
 		<form name="form">

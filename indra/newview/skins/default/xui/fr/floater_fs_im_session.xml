@@ -34,9 +34,6 @@
 		<layout_panel name="add_participant_panel">
 			<button tool_tip="Invitez quelqu'un à cette conversation" name="add_participant_btn"/>
 		</layout_panel>
-		<layout_panel name="send_sysinfo_btn_panel">
-			<button tool_tip="Envoyez system info" name="send_sysinfo_btn"/>
-		</layout_panel>
 		<layout_panel name="lp_options_btn">
 			<menu_button tool_tip="Options du Chat" name="chat_options_btn"/>
 		</layout_panel>

@@ -39,9 +39,6 @@
 		<layout_panel name="add_participant_panel">
 			<button name="add_participant_btn" tool_tip="將某人新增到此聊天" />
 		</layout_panel>
-		<layout_panel name="send_sysinfo_btn_panel">
-			<button name="send_sysinfo_btn" tool_tip="傳送系統資訊" />
-		</layout_panel>
 		<layout_panel name="lp_options_btn">
 			<button name="chat_options_btn" tool_tip="聊天選項" />
 		</layout_panel>

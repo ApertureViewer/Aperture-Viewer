@@ -9,7 +9,7 @@
 		</layout_panel>
 		<layout_panel name="trans_panel">
 			<button tool_tip="Usar el servicio de traducción seleccionado" name="translate_btn"/>
-		</layout_panel>      
+		</layout_panel>
 		<layout_panel name="friend_panel">
 			<button tool_tip="Ofrecer amistad a este residente" name="add_friend_btn"/>
 		</layout_panel>
@@ -36,9 +36,6 @@
 		</layout_panel>
 		<layout_panel name="im_history_btn_panel">
 			<button tool_tip="Abre la transcripción de esta conversación" name="im_history_btn"/>
-		</layout_panel>
-		<layout_panel name="send_sysinfo_btn_panel">
-			<button tool_tip="Enviar información de tu sistema" name="send_sysinfo_btn"/>
 		</layout_panel>
 		<layout_panel name="support_panel" width="120">
 			<icon name="dummy_icon_support_group" width="118"/>

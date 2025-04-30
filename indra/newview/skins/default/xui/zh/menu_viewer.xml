@@ -278,7 +278,6 @@
 		<menu_item_call label="違規檢舉" name="Report Abuse" />
 		<menu_item_call label="報告問題" name="Report Bug" />
 		<menu_item_call label="碰撞、推擠與打擊" name="Bumps, Pushes &amp;amp; Hits" />
-		<menu_item_check label="啟用系統資訊按鈕" name="Enable Sysinfo Button" />
 		<menu_item_call label="關於 [APP_NAME]" name="About Second Life" />
 	</menu>
 	<menu label="RLVa" name="RLVa Main">

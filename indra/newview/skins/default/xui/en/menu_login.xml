@@ -23,7 +23,7 @@
         <menu_item_call
          label="Close Window"
          name="Close Window"
-         visible="false" 
+         visible="false"
          shortcut="control|W">
             <menu_item_call.on_click
              function="File.CloseWindow" />
@@ -33,7 +33,7 @@
         <menu_item_check
          label="Show Grid Picker"
          name="Show Grid Picker"
-         visible="false" 
+         visible="false"
          shortcut="control|shift|G">
         <on_check
          function="CheckControl"
@@ -64,7 +64,7 @@
              function="Advanced.ShowURL"
              parameter="https://github.com/ApertureViewer/Aperture-Viewer/wiki" />
         </menu_item_call>
-        
+
         <menu_item_call
          label="Troubleshooting"
          name="Troubleshooting">
@@ -94,13 +94,13 @@
              <menu_item_call.on_click
                  function="Advanced.ShowURL"
                  parameter="http://community.secondlife.com/t5/Forums/ct-p/Forums"/>
-        </menu_item_call>         
+        </menu_item_call>
         <menu_item_call
              label="Support portal"
              name="Support portal">
              <menu_item_call.on_click
                  function="Advanced.ShowURL"
-                 parameter="https://support.secondlife.com/"/>         
+                 parameter="https://support.secondlife.com/"/>
         </menu_item_call>
         <menu_item_separator/>
         <menu_item_call
@@ -110,13 +110,14 @@
                  function="Advanced.ShowURL"
                  parameter="https://community.secondlife.com/news/"/>
         </menu_item_call>
-        <menu_item_separator/>       
+        <menu_item_separator/>
 -->
         <menu_item_call
              label="Report Problem"
              name="Report Bug">
                 <menu_item_call.on_click
-                 function="Advanced.ReportBug"/>
+                 function="Advanced.ShowURL"
+                 parameter="https://github.com/ApertureViewer/Aperture-Viewer/issues"/>
             </menu_item_call>
         <menu_item_separator/>
         <menu_item_call
@@ -145,7 +146,7 @@
     <menu_item_check
       label="Show Debug Menu"
       name="Show Debug Menu"
-      visible="false" 
+      visible="false"
       shortcut="control|alt|D">
       <on_check
        function="CheckControl"

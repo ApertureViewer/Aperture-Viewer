@@ -3662,8 +3662,8 @@ Si vous êtes un membre Premium,  [[PREMIUM_URL] cliquez ici] pour recevoir votr
 
 Si vous êtes un membre Premium, [[PREMIUM_URL] cliquez ici] pour recevoir votre effet de voix.
 	</notification>
-	<notification name="VoiceEffectsWillExpire">Au moins l'un de vos effets de voix expirera dans moins de [INTERVAL] jours.  
-[[URL] Cliquez ici] pour renouveler votre abonnement. 
+	<notification name="VoiceEffectsWillExpire">Au moins l'un de vos effets de voix expirera dans moins de [INTERVAL] jours.
+[[URL] Cliquez ici] pour renouveler votre abonnement.
 
 Si vous êtes un membre Premium,  [[PREMIUM_URL] cliquez ici] pour recevoir votre effet de voix.
 		<usetemplate ignoretext="M'avertir de l'expiration du morphing vocal" name="okignore" yestext="OK"/>
@@ -4294,26 +4294,6 @@ Le nom ne peut contenir que des caractères ASCII, sauf ":" et "|".
 	</notification>
 	<notification name="AOImportLinkFailed">
 		Échec de la création d'un lien d'animation pour l'animation "[NAME]" !
-	</notification>
-	<notification name="SendSysinfoToIM">
-		Cela enverra les informations suivantes à la session actuelle d'IM :
-
-[SYSINFO]
-		<usetemplate name="okcancelbuttons" yestext="Envoie" notext="Annuler" />
-	</notification>
-	<notification name="TestversionExpired">
-		Cette version de test de [APP_NAME] a expiré et ne peut plus être utilisé.
-		<usetemplate name="okbutton" yestext="OK"/>
-	</notification>
-	<notification name="FireStormReqInfo">
-		[NAME] demande que vous leur envoyiez des informations sur votre configuration de [APP_NAME].
-(Il s'agit des mêmes informations que celles que l'on peut trouver en se rendant à Aide->À propos de [APP_NAME])
-[REASON]
-Voulez-vous leur envoyer ces informations ?
-		<form name="form">
-			<button name="Yes" text="Oui"/>
-			<button name="No" text="Non"/>
-		</form>
 	</notification>
 	<notification name="PhantomOn">
 		Mode fantôme activé.

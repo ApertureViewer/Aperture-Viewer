@@ -294,7 +294,6 @@
 		<menu_item_call label="Segnala un abuso" name="Report Abuse"/>
 		<menu_item_call label="Segnala un bug" name="Report Bug"/>
 		<menu_item_call label="Urti, spinte, contatti" name="Bumps, Pushes &amp;amp; Hits"/>
-		<menu_item_check label="Abilita tasto Info di sistema" name="Enable Sysinfo Button"/>
 		<menu_item_call label="Informazioni su [APP_NAME]" name="About Second Life"/>
 	</menu>
 	<menu label="RLVa" name="RLVa Main" >

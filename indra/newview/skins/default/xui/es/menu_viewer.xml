@@ -35,7 +35,7 @@
 			<menu_item_call label="Volver al avatar femenino por defecto (Character Test)" name="ResetDefaultAvF"/>
 	        	<menu_item_check label="Mostrar coste de dibujo del avatar (ARC)" name="Avatar Rendering Cost"/>
 			<menu_item_call label="Medidor de lag" name="Lag Meter"/>
-			<menu_item_call label="Regenerar el LSL Bridge" name="Recreate LSL Bridge"/>			
+			<menu_item_call label="Regenerar el LSL Bridge" name="Recreate LSL Bridge"/>
 		</menu>
 		<menu_item_call label="Historial de transacciones" name="money_tracker"/>
 		<menu_item_call label="Pose..." name="pose_stand"/>
@@ -51,7 +51,7 @@
 		<menu_item_call label="Solicitar estatus de Administrador" name="Request Admin Options"/>
 		<menu_item_call label="Abandonar estatus de Administrador" name="Leave Admin Options"/>
 		<menu_item_check label="Mostrar los HUD anexados" name="Show HUD Attachments"/>
-		<menu_item_call label="Salir de [APP_NAME]" name="Quit"/>		
+		<menu_item_call label="Salir de [APP_NAME]" name="Quit"/>
 	</menu>
 	<menu label="Comunicarme" name="Communicate">
 		<menu label="Estado" name="Status">
@@ -211,7 +211,7 @@
 		<menu_item_call label="SL Marketplace" name="SL Marketplace"/>
 		<menu_item_call label="Mercado de L$" name="LindenXchange"/>
 		<menu_item_call label="Librería de scripts" name="Script Library"/>
-	</menu>	
+	</menu>
 	<menu label="Ayuda" name="Help">
 		<menu_item_check label="Mostrar consejos" name="Enable Hints"/>
 		<menu_item_call label="Firestorm Wiki" name="Firestorm Wiki"/>
@@ -236,7 +236,6 @@
 		<menu_item_call label="Denunciar una infracción" name="Report Abuse"/>
 		<menu_item_call label="Informar de un fallo" name="Report Bug"/>
 		<menu_item_call label="Golpes, empujones e impactos" name="Bumps, Pushes &amp;amp; Hits"/>
-		<menu_item_check label="Activar botón de Información del Sistema" name="Enable Sysinfo Button"/>
 		<menu_item_call label="Acerca de [APP_NAME]" name="About Second Life"/>
 	</menu>
 	<menu label="RLVa" name="RLVa Main">
@@ -460,7 +459,7 @@
 			<menu_item_check label="Reproducción en bucle" name="Loop Playback"/>
 			<menu_item_call label="Iniciar grabación" name="Start Record"/>
 			<menu_item_call label="Detener greabación" name="Stop Record"/>
-		</menu>		
+		</menu>
 		<menu label="Mundo virtual" name="DevelopWorld">
 			<menu_item_check label="Anular el sol de la región" name="Sim Sun Override"/>
 			<menu_item_check label="Meteorología fija" name="Fixed Weather"/>

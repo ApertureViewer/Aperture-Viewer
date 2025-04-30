@@ -4378,26 +4378,6 @@ https://wiki.firestormviewer.org/fs_voice
 	<notification name="AOImportLinkFailed">
 		建立到動畫[NAME]的連結失敗！
 	</notification>
-	<notification name="SendSysinfoToIM">
-		這將向當前私聊會話發送以下資訊：
-
-[SYSINFO]
-		<usetemplate name="okcancelbuttons" yestext="發送" notext="取消"/>
-	</notification>
-	<notification name="TestversionExpired">
-		[APP_NAME]的測試版本已過期，無法繼續使用。
-		<usetemplate name="okbutton" yestext="確定"/>
-	</notification>
-	<notification name="FireStormReqInfo">
-		[NAME]請求發送有關您的[APP_NAME]配置資訊。
-（這些資訊與幫助-&gt;關於[APP_NAME]下找到的資訊相同。）
-[REASON]
-您是否願意發送這些資訊？
-		<form name="form">
-			<button name="Yes" text="是"/>
-			<button name="No" text="否"/>
-		</form>
-	</notification>
 	<notification name="PhantomOn">
 		幻影模式開啟。
 	</notification>

@@ -123,7 +123,6 @@
 #include <boost/lexical_cast.hpp>
 
 #include "fscommon.h"
-#include "fsdata.h"
 #include "lfsimfeaturehandler.h"    // <FS:CR> Opensim
 #include "lggcontactsets.h"
 #include "llcontrol.h"
@@ -2037,7 +2036,7 @@ void LLVOAvatar::renderOnlySelectedBones(const std::vector<std::string> &selecte
 
         gGL.popMatrix();
 
-        
+
         // renderBoxAroundJointAttachments( jointp );
 
     }
@@ -2127,7 +2126,7 @@ void LLVOAvatar::renderOnlySelectedBones(const std::vector<std::string> &selecte
 void LLVOAvatar::renderBoxAroundJointAttachments(LLJoint * joint)
 {
     LLJointRiggingInfo* rig_info = NULL;
-    
+
     if (joint->getJointNum() < mJointRiggingInfoTab.size())
     {
         rig_info = &mJointRiggingInfoTab[joint->getJointNum()];
@@ -4087,24 +4086,6 @@ void LLVOAvatar::idleUpdateNameTagText(bool new_name)
         || complexity != mNameArc
         || complexity_color != mNameArcColor)
     {
-
-        //WS: If we got a uuid and if we know if it's id_based or not, ask FSDATA for the other tagdata, before we display it.
-        if (mClientTagData.has("uuid") && mClientTagData.has("id_based"))
-        {
-            LLColor4 color;
-            if (mClientTagData.has("tex_color"))
-            {
-                color.setValue(mClientTagData["tex_color"]);
-            }
-            else
-            {
-                color = LLColor4::black;
-            }
-            mClientTagData = FSData::getInstance()->resolveClientTag(LLUUID(mClientTagData["uuid"].asString()),
-                                                                     mClientTagData["id_based"].asBoolean(),
-                                                                     color);
-        }
-
         clearNameTag();
 
         // <FS:Ansariel> Show auto-response in nametag
