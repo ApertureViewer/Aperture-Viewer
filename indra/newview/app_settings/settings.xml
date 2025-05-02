@@ -26,7 +26,7 @@
     <key>Type</key>
     <string>F32</string>
     <key>Value</key>
-    <real>1.0</real> 
+    <real>1.0</real>
   </map>
   <key>APPhototoolsShowOnlyMySettings</key>
   <map>
@@ -57,11 +57,11 @@
     <key>Comment</key>
     <string>Controls the animation speed factor. 1.0 is normal speed, 0.0 is frozen, greater than 1.0 is faster, greater then 1.0 but less than 0.0 is slower.</string>
     <key>Persist</key>
-    <integer>0</integer>  
+    <integer>0</integer>
     <key>Type</key>
-    <string>F32</string> 
+    <string>F32</string>
     <key>Value</key>
-    <real>1.0</real>    
+    <real>1.0</real>
   </map>
   <!-- </FS:WW> -->
   <key>FSEnforceStrictObjectCheck</key>
@@ -273,7 +273,7 @@
     <key>Value</key>
     <real>0.0</real>
   </map>
-  
+
   <key>FSUseLegacyClienttags</key>
   <map>
     <key>Comment</key>
@@ -571,7 +571,7 @@
       <key>Value</key>
       <integer>-777777777</integer>
     </map>
-    
+
   <key>RadarLegacyChannelAlertRefreshUUID</key>
     <map>
       <key>Comment</key>
@@ -595,7 +595,7 @@
       <key>Value</key>
       <integer>0</integer>
     </map>
-    
+
    <key>RadarLeaveChannelAlert</key>
     <map>
       <key>Comment</key>
@@ -607,7 +607,7 @@
       <key>Value</key>
       <integer>0</integer>
     </map>
-    
+
    <key>RadarAvatarAgeAlert</key>
     <map>
       <key>Comment</key>
@@ -619,7 +619,7 @@
       <key>Value</key>
       <integer>0</integer>
     </map>
-    
+
    <key>RadarAvatarAgeAlertValue</key>
     <map>
       <key>Comment</key>
@@ -655,7 +655,7 @@
       <key>Value</key>
       <integer>0</integer>
     </map>
-    
+
   <key>LimitRadarByRange</key>
     <map>
       <key>Comment</key>
@@ -749,7 +749,7 @@
       <string>Boolean</string>
       <key>Value</key>
       <integer>0</integer>
-    </map>  
+    </map>
 
   <key>FSShowChatType</key>
     <map>
@@ -761,7 +761,7 @@
       <string>Boolean</string>
       <key>Value</key>
       <integer>1</integer>
-    </map>  
+    </map>
 
   <key>ScriptDialogsPosition</key>
     <map>
@@ -908,7 +908,7 @@
       <integer>0</integer>
     </map>
 
-  <key>RadarReportSimRangeLeave</key>	
+  <key>RadarReportSimRangeLeave</key>
     <map>
       <key>Comment</key>
       <string>Display a chat message when avatar leaves local region</string>
@@ -929,7 +929,7 @@
       <key>Type</key>
       <string>Boolean</string>
       <key>Value</key>
-      <integer>0</integer>   
+      <integer>0</integer>
     </map>
 
   <key>TempAllowScriptedMedia</key>
@@ -941,7 +941,7 @@
       <key>Type</key>
       <string>Boolean</string>
       <key>Value</key>
-      <integer>0</integer>   
+      <integer>0</integer>
     </map>
 
   <key>NearbyListShowRange</key>
@@ -953,7 +953,7 @@
       <key>Type</key>
       <string>Boolean</string>
       <key>Value</key>
-      <integer>1</integer>   
+      <integer>1</integer>
     </map>
 
   <key>SkinCurrentTheme</key>
@@ -977,7 +977,7 @@
       <key>Type</key>
       <string>Boolean</string>
       <key>Value</key>
-      <integer>1</integer>   
+      <integer>1</integer>
     </map>
 
     <key>ChatTabDirection</key>
@@ -1644,7 +1644,7 @@
     <key>AFKTimeout</key>
     <map>
       <key>Comment</key>
-      <string>Time before automatically setting AFK (away from keyboard) mode (seconds, 0=never). 
+      <string>Time before automatically setting AFK (away from keyboard) mode (seconds, 0=never).
         Valid values are: 0, 120, 300, 600, 1800, 3600, 5400, 7200</string>
       <key>Persist</key>
       <integer>1</integer>
@@ -4989,7 +4989,7 @@
       <key>Value</key>
       <integer>0</integer>
     </map>
-    <key>DoubleClickTeleport</key> 
+    <key>DoubleClickTeleport</key>
     <map>
       <key>Comment</key>
       <string>Enable double-click to teleport where allowed (afects minimap and people panel)</string>
@@ -5986,7 +5986,7 @@
       <string>https://wiki.firestormviewer.org/start#basic_functions</string>
       <key>Backup</key>
       <integer>0</integer>
-    </map>    
+    </map>
     <key>HomeSidePanelURL</key>
     <map>
       <key>Comment</key>
@@ -6012,7 +6012,7 @@
       <string>https://search.[GRID]/viewer/?query_term=[QUERY]&amp;search_type=[TYPE][COLLECTION]&amp;maturity=[MATURITY]&amp;lang=[LANGUAGE]&amp;sid=[SESSION_ID]</string>
       <key>Backup</key>
       <integer>0</integer>
-      <!-- LL, possibly privacy leaking search string 
+      <!-- LL, possibly privacy leaking search string
       <string>https://search.[GRID]/viewer/?query_term=[QUERY]&amp;search_type=[TYPE][COLLECTION]&amp;maturity=[MATURITY]&amp;lang=[LANGUAGE]&amp;g=[GODLIKE]&amp;sid=[SESSION_ID]&amp;rid=[REGION_ID]&amp;pid=[PARCEL_ID]&amp;channel=[CHANNEL]&amp;version=[VERSION]&amp;major=[VERSION_MAJOR]&amp;minor=[VERSION_MINOR]&amp;patch=[VERSION_PATCH]&amp;build=[VERSION_BUILD]</string>
 	  -->
     </map>
@@ -6050,7 +6050,7 @@
       <integer>0</integer>
       <key>Backup</key>
       <integer>0</integer>
-    </map>	
+    </map>
     <key>HostID</key>
     <map>
       <key>Comment</key>
@@ -7947,7 +7947,7 @@
   </map>
   <key>MediaEnableFilter</key>
   <map>
-    <key>Comment</key>   
+    <key>Comment</key>
     <string>Enable media domain filtering</string>
     <key>Persist</key>
     <integer>1</integer>
@@ -8235,7 +8235,7 @@
     <string>String</string>
     <key>Value</key>
     <string>LOD0</string>
-  </map>  
+  </map>
   <key>FSMeshLowLodSuffix</key>
   <map>
     <key>Comment</key>
@@ -8246,7 +8246,7 @@
     <string>String</string>
     <key>Value</key>
     <string>LOD1</string>
-  </map>  
+  </map>
   <key>FSMeshMediumLodSuffix</key>
   <map>
     <key>Comment</key>
@@ -8257,7 +8257,7 @@
     <string>String</string>
     <key>Value</key>
     <string>LOD2</string>
-  </map>  
+  </map>
   <key>FSMeshHighLodSuffix</key>
   <map>
     <key>Comment</key>
@@ -8268,7 +8268,7 @@
     <string>String</string>
     <key>Value</key>
     <string></string>
-  </map>  
+  </map>
   <key>FSMeshPhysicsSuffix</key>
   <map>
     <key>Comment</key>
@@ -8279,7 +8279,7 @@
     <string>String</string>
     <key>Value</key>
     <string>PHYS</string>
-  </map>  
+  </map>
 
   <key>FSMeshUploadAutoEnableWeights</key>
   <map>
@@ -9133,9 +9133,9 @@
     <key>ToastButtonWidth</key>
     <map>
       <key>Comment</key>
-      <string>Default width of buttons in the toast. 
+      <string>Default width of buttons in the toast.
 Notes:
-If required width will be less than this one, a button will be reshaped to default size , otherwise to required. 
+If required width will be less than this one, a button will be reshaped to default size , otherwise to required.
 Change of this parameter will affect the layout of buttons in notification toast.</string>
       <key>Persist</key>
       <integer>1</integer>
@@ -9858,7 +9858,7 @@ Change of this parameter will affect the layout of buttons in notification toast
       <key>Value</key>
 	  <integer>13</integer>
     </map>
-  <key>PreviewRenderSize</key>  
+  <key>PreviewRenderSize</key>
   <map>
     <key>Comment</key>
     <string>Resolution of the image rendered for the mesh upload preview (must be a power of 2)</string>
@@ -11007,16 +11007,16 @@ Change of this parameter will affect the layout of buttons in notification toast
     <key>Backup</key>
     <integer>0</integer>
   </map>
-  <key>APRenderSSAOSampleCount</key>  
-  <map>                                 
-    <key>Comment</key>             
-    <string>Controls the number of samples used for Screen Space Ambient Occlusion (SSAO). Higher values improve quality but reduce performance.</string> 
-    <key>Persist</key>           
-    <integer>0</integer>         
-    <key>Type</key>             
-    <string>F32</string>        
-    <key>Value</key>               
-    <integer>8</integer>          
+  <key>APRenderSSAOSampleCount</key>
+  <map>
+    <key>Comment</key>
+    <string>Controls the number of samples used for Screen Space Ambient Occlusion (SSAO). Higher values improve quality but reduce performance.</string>
+    <key>Persist</key>
+    <integer>0</integer>
+    <key>Type</key>
+    <string>F32</string>
+    <key>Value</key>
+    <integer>8</integer>
   </map>
   <key>RenderMirrors</key>
   <map>
@@ -12675,7 +12675,7 @@ Change of this parameter will affect the layout of buttons in notification toast
       <key>Value</key>
       <integer>1</integer>
     </map>
-  
+
   <key>RenderReflectionDetail</key>
     <map>
       <key>Comment</key>
@@ -12764,7 +12764,7 @@ Change of this parameter will affect the layout of buttons in notification toast
     <key>Value</key>
     <real>1.0</real>
   </map>
-  
+
   <key>RenderReflectionProbeDrawDistance</key>
   <map>
     <key>Comment</key>
@@ -12976,7 +12976,7 @@ Change of this parameter will affect the layout of buttons in notification toast
     <key>Value</key>
     <real>1.0</real>
   </map>
-  
+
   <key>RenderReflectionProbeMaxLocalLightAmbiance</key>
   <map>
     <key>Comment</key>
@@ -14528,7 +14528,7 @@ Change of this parameter will affect the layout of buttons in notification toast
             <string>Boolean</string>
         <key>Value</key>
             <integer>0</integer>
-    </map> 
+    </map>
     <key>NearbyListShowIcons</key>
     <map>
       <key>Comment</key>
@@ -17468,7 +17468,7 @@ Change of this parameter will affect the layout of buttons in notification toast
       <key>Type</key>
       <string>Boolean</string>
       <key>Value</key>
-      <integer>1</integer>    
+      <integer>1</integer>
     </map>
     <key>RelockMoveLockAfterRegionChange</key>
     <map>
@@ -18899,7 +18899,7 @@ Change of this parameter will affect the layout of buttons in notification toast
 			<key>Value</key>
 			<string>rolld</string>
 		</map>
-<!--<FS:HG> FIRE-6340, FIRE-6567 - Setting Bandwidth issues-->  
+<!--<FS:HG> FIRE-6340, FIRE-6567 - Setting Bandwidth issues-->
     <key>FSCmdLineBandWidth</key>
     <map>
       <key>Comment</key>
@@ -18911,7 +18911,7 @@ Change of this parameter will affect the layout of buttons in notification toast
       <key>Value</key>
       <string>bw</string>
     </map>
-<!--</FS:HG> FIRE-6340, FIRE-6567 - Setting Bandwidth issues-->  
+<!--</FS:HG> FIRE-6340, FIRE-6567 - Setting Bandwidth issues-->
     <key>FSIgnoreClientsideMeshValidation</key>
     <map>
       <key>Comment</key>
@@ -19310,7 +19310,7 @@ Change of this parameter will affect the layout of buttons in notification toast
 			<key>Value</key>
 			<integer>0</integer>
 		</map>
-		
+
     <key>SessionSettingsFile</key>
     <map>
       <key>Comment</key>
@@ -20647,7 +20647,7 @@ Change of this parameter will affect the layout of buttons in notification toast
       <key>Value</key>
       <integer>0</integer>
     </map>
-    
+
   <key>SimulateFBOFailure</key>
   <map>
     <key>Comment</key>
@@ -20703,7 +20703,7 @@ Change of this parameter will affect the layout of buttons in notification toast
     <key>Value</key>
     <integer>0</integer>
   </map>
-  
+
     <key>GroupMembersSortOrder</key>
     <map>
       <key>Comment</key>
@@ -20799,10 +20799,10 @@ Change of this parameter will affect the layout of buttons in notification toast
       <real>0.0</real>
     </array>
   </map>
- 
+
   <key>UseAntiSpam</key>
-  <map>    
-    <key>Comment</key>    
+  <map>
+    <key>Comment</key>
     <string>Activate the Anti-Spam System</string>
     <key>Persist</key>
     <integer>1</integer>
@@ -20813,8 +20813,8 @@ Change of this parameter will affect the layout of buttons in notification toast
   </map>
   <!-- FS:TS FIRE-23138: Enable antispam even for user's own objects -->
   <key>FSUseAntiSpamMine</key>
-  <map>    
-    <key>Comment</key>    
+  <map>
+    <key>Comment</key>
     <string>Use the Anti-Spam System even for the user's own objects</string>
     <key>Persist</key>
     <integer>1</integer>
@@ -21122,8 +21122,8 @@ Change of this parameter will affect the layout of buttons in notification toast
         <string>Boolean</string>
         <key>Value</key>
         <integer>1</integer>
-    </map>   
-  <!-- <FS:minerjr> [FIRE-35039] -->     
+    </map>
+  <!-- <FS:minerjr> [FIRE-35039] -->
   <key>FSAdvancedWorldmapRegionInfo</key>
   <map>
     <key>Comment</key>
@@ -21526,7 +21526,7 @@ Change of this parameter will affect the layout of buttons in notification toast
       <key>Type</key>
       <string>String</string>
       <key>Value</key>
-      <string>dusk</string>
+      <string>Dusk</string>
     </map>
     <key>FSStatusbarShowSimulatorVersion</key>
     <map>
@@ -22054,7 +22054,7 @@ Change of this parameter will affect the layout of buttons in notification toast
       <key>Value</key>
       <integer>-25000</integer>
     </map>
-	
+
     <!-- Start: Prefs > Sound/Media > UI Sounds -->
     <key>PlayModeUISndAlert</key>
     <map>
@@ -24839,7 +24839,7 @@ Change of this parameter will affect the layout of buttons in notification toast
       <string>S32</string>
       <key>Value</key>
       <integer>0</integer>
-    </map>  
+    </map>
     <key>FSUseAis3Api</key>
     <map>
       <key>Comment</key>
@@ -25312,8 +25312,8 @@ Change of this parameter will affect the layout of buttons in notification toast
         <string>Boolean</string>
         <key>Value</key>
         <integer>0</integer>
-    </map>   
-    <!-- </FS:minerjr> [FIRE-35019] -->  
+    </map>
+    <!-- </FS:minerjr> [FIRE-35019] -->
     <key>FSStartupClearBrowserCache</key>
     <map>
       <key>Comment</key>
@@ -26295,7 +26295,7 @@ Change of this parameter will affect the layout of buttons in notification toast
         <real>0.0</real>
         <real>0.0</real>
       </array>
-    </map>    
+    </map>
     <key>FSSnapshotFrameGuideColor</key>
     <map>
       <key>Comment</key>
@@ -26310,7 +26310,7 @@ Change of this parameter will affect the layout of buttons in notification toast
         <real>1.0</real>
         <real>0.0</real>
       </array>
-    </map>    
+    </map>
     <key>FSSnapshotFrameBorderWidth</key>
     <map>
       <key>Comment</key>
