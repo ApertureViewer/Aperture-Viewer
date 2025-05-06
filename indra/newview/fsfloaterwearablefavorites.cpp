@@ -244,26 +244,28 @@ void FSFloaterWearableFavorites::initCategory(inventory_func_type callback)
         sFolderID = fs_favs_id.value();
         callback(sFolderID);
     }
-    else
+        else // If "#Wearable Favorites" subfolder is NOT found
     {
         LLUUID fs_root_cat_id = gInventory.findCategoryByName(ROOT_FIRESTORM_FOLDER);
-        if (fs_root_cat_id.isNull())
+        if (fs_root_cat_id.isNull()) // If the root #Aperture folder is NOT found
         {
-            gInventory.createNewCategory(gInventory.getRootFolderID(), LLFolderType::FT_NONE, ROOT_FIRESTORM_FOLDER, [callback](const LLUUID& new_cat_id)
+            // Create the #Aperture root folder WITH THE CORRECT SYSTEM TYPE
+            gInventory.createNewCategory(gInventory.getRootFolderID(), LLFolderType::FT_APERTURE, ROOT_FIRESTORM_FOLDER, [callback](const LLUUID& new_cat_id_root)
             {
-                gInventory.createNewCategory(new_cat_id, LLFolderType::FT_NONE, FS_WEARABLE_FAVORITES_FOLDER, [callback](const LLUUID& new_cat_id)
+                gInventory.createNewCategory(new_cat_id_root, LLFolderType::FT_NONE, FS_WEARABLE_FAVORITES_FOLDER, [callback](const LLUUID& new_cat_id_favs)
                 {
-                    FSFloaterWearableFavorites::sFolderID = new_cat_id;
-                    callback(new_cat_id);
+                    FSFloaterWearableFavorites::sFolderID = new_cat_id_favs;
+                    callback(new_cat_id_favs);
                 });
             });
         }
-        else
+        else // If the root #Aperture folder IS found
         {
-            gInventory.createNewCategory(fs_root_cat_id, LLFolderType::FT_NONE, FS_WEARABLE_FAVORITES_FOLDER, [callback](const LLUUID& new_cat_id)
+            // This part should be fine if fs_root_cat_id is the correct FT_APERTURE folder.
+            gInventory.createNewCategory(fs_root_cat_id, LLFolderType::FT_NONE, FS_WEARABLE_FAVORITES_FOLDER, [callback](const LLUUID& new_cat_id_favs)
             {
-                FSFloaterWearableFavorites::sFolderID = new_cat_id;
-                callback(new_cat_id);
+                FSFloaterWearableFavorites::sFolderID = new_cat_id_favs;
+                callback(new_cat_id_favs);
             });
         }
     }

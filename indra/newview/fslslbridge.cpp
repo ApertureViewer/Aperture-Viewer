@@ -1514,7 +1514,7 @@ void FSLSLBridge::setupFSCategory(inventory_func_type callback)
     }
     else
     {
-        gInventory.createNewCategory(gInventory.getRootFolderID(), LLFolderType::FT_NONE, ROOT_FIRESTORM_FOLDER, [this, callback](const LLUUID& new_cat_id)
+        gInventory.createNewCategory(gInventory.getRootFolderID(), LLFolderType::FT_APERTURE, ROOT_FIRESTORM_FOLDER, [this, callback](const LLUUID& new_cat_id)
             {
                 gInventory.createNewCategory(new_cat_id, LLFolderType::FT_NONE, FS_BRIDGE_FOLDER, [this, callback](const LLUUID& new_cat_id)
                     {
