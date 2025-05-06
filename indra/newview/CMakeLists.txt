@@ -2163,6 +2163,7 @@ set(viewer_APPSETTINGS_FILES
     ${CMAKE_SOURCE_DIR}/../scripts/messages/message_template.msg
     packages-info.txt
     featuretable.txt
+    featuretable_aperture.txt
     featuretable_mac.txt
     featuretable_linux.txt
     )
@@ -2305,6 +2306,7 @@ if (WINDOWS)
       ${AUTOBUILD_INSTALL_DIR}/ca-bundle.crt
       ${CMAKE_CURRENT_SOURCE_DIR}/licenses-win32.txt
       ${CMAKE_CURRENT_SOURCE_DIR}/featuretable.txt
+      ${CMAKE_CURRENT_SOURCE_DIR}/featuretable_aperture.txt
       ${viewer_APPSETTINGS_FILES}
       ${ARCH_PREBUILT_DIRS_RELEASE}/growl.dll
       ${SHARED_LIB_STAGING_DIR}/glod.dll # <FS:Beq> Restore GLOD build dependencies

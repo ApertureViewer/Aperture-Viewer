@@ -34,8 +34,13 @@
 #include "llenvironment.h"
 #include "llfloater.h"
 
+#include "llfloatercamera.h"
+#include "llpanel.h"
+
 #include "llsettingsbase.h"
 #include "llsettingssky.h"
+
+#include "llfeaturemanager.h"
 
 #include "boost/signals2.hpp"
 
@@ -54,7 +59,8 @@ class LLSliderCtrl;
 class LLSpinCtrl;
 class LLTextBox;
 class LLColorSwatchCtrl;
-
+class LLJoystickCameraRotate;
+class LLJoystickCameraTrack;
 
 #define PRESET_NAME_REGION_DEFAULT "__Regiondefault__"
 #define PRESET_NAME_DAY_CYCLE "__Day_Cycle__"
@@ -92,7 +98,9 @@ public:
 
     // --- Settings Refresh: A method for other code to request the floater be refreshed with new values. ---
     void refreshSettings();
-    
+
+    void refreshColorBalanceControls(); // Updates sliders/spinners based on mCurrentColorBalanceMode
+
     // General Environment Editing Functions 
     void captureCurrentEnvironment();           // FEA
     void refreshSky();                         // FEA
@@ -123,6 +131,10 @@ private:
     LLSlider*           mAnimationSpeedSlider;
     LLUICtrl*           mAnimationSpeedSpinner;
     LLCheckBoxCtrl*     mShowMySettingsCheckbox; 
+    LLSlider*           mUIScaleSlider;
+    LLSpinCtrl*         mUIScaleSpinner;
+    LLButton*           mResetUIScaleBtn;
+    LLComboBox*         mGraphicsPresetCombo; // <AP:WW> Pointer for preset combo box
 
     // --- Environment Management: These member variables are closely related to environment settings. ---
     LLSettingsSky::ptr_t        mLiveSky;
@@ -170,10 +182,12 @@ private:
     void onClickResetRenderSSAOEffectX();
     void onChangeRenderSSAOEffectSliderY();
     void onChangeRenderSSAOEffectSpinnerY();
-    void onClickResetRenderSSAOEffectY();                                     
+    void onClickResetRenderSSAOEffectY();
 
     // --- UI Control Event Handlers (General Tab): methods that handle the events triggered by changes in the settings on the "General" tab. ---
     void onShowMySettingsChanged();
+
+    void onChangeQuality(const LLSD& data); // <AP:WW> Declare the callback
 
     // --- Complexity Management: All methods to the complexcity management and complexcity label. ---
     void updateMaxNonImpostors(const LLSD& newvalue);
@@ -227,14 +241,32 @@ private:
     void onStarBrightnessChanged();             // FES
     void onSunScaleChanged();                   // FES
     void onSunAzimElevChanged();                // FES
-    
+
     // Moon Settings
     void onMoonImageChanged();                  // PES
     void onMoonScaleChanged();                  // PES
     void onMoonBrightnessChanged();             // PES
     void onMoonAzimElevChanged();               // FEA
-    
-    // <AP:WW> ADD START: Luminance Weight UI Control Member Variables
+
+    // <AP:WW> ADD START: Water Settings Event Handlers (Declarations) - KEEP THESE
+    void onWaterFogColorChanged();
+    void onWaterFogDensityChanged();
+    void onWaterUnderwaterModChanged(); // Renamed from onFogUnderWaterChanged for clarity and consistency
+    void onWaterNormalMapChanged();
+
+    void onWaterLargeWaveChanged(); // Renamed from onLargeWaveChanged for clarity
+    void onWaterSmallWaveChanged(); // Renamed from onSmallWaveChanged for clarity
+
+    void onWaterNormalScaleChanged();
+
+    void onWaterFresnelScaleChanged();
+    void onWaterFresnelOffsetChanged();
+    void onWaterScaleAboveChanged();
+    void onWaterScaleBelowChanged();
+    void onWaterBlurMultipChanged();
+    // <AP:WW> ADD END: Water Settings Event Handlers (Declarations)
+
+
     LLSlider*           mSliderLumWeightR;
     LLSpinCtrl*         mSpinnerLumWeightR;
     LLButton*           mResetLumWeightRBtn;
@@ -246,10 +278,22 @@ private:
     LLSlider*           mSliderLumWeightB;
     LLSpinCtrl*         mSpinnerLumWeightB;
     LLButton*           mResetLumWeightBBtn;
-    // <AP:WW> ADD END: Luminance Weight UI Control Member Variables
+    
+    LLSlider*           mSliderCB_CyanRed;
+    LLSpinCtrl*         mSpinnerCB_CyanRed;
+    LLButton*           mResetBtnCB_CyanRed;
+
+    LLSlider*           mSliderCB_MagentaGreen;
+    LLSpinCtrl*         mSpinnerCB_MagentaGreen;
+    LLButton*           mResetBtnCB_MagentaGreen;
+
+    LLSlider*           mSliderCB_YellowBlue;
+    LLSpinCtrl*         mSpinnerCB_YellowBlue;
+    LLButton*           mResetBtnCB_YellowBlue;
+
+    S32                 mCurrentColorBalanceMode; // 0: Shads, 1: Mids, 2: Lites
 
     // --- Callbacks ---
-    // <AP:WW> ADD START: Luminance Weight Callbacks (Sliders, Spinners, Buttons)
     void onChangeLumWeightRSlider();
     void onChangeLumWeightRSpinner();
     void onClickResetLumWeightR();
@@ -261,7 +305,18 @@ private:
     void onChangeLumWeightBSlider();
     void onChangeLumWeightBSpinner();
     void onClickResetLumWeightB();
-    // <AP:WW> ADD END: Luminance Weight Callbacks
+
+    void onColorBalanceModeChanged(); // Handler for APColorBalanceMode setting change
+    void onColorBalanceSliderChanged(LLUICtrl* ctrl, const LLSD& value); // Unified handler for sliders
+    void onColorBalanceSpinnerChanged(LLUICtrl* ctrl, const LLSD& value); // Unified handler for spinners
+    void onClickResetColorBalance(LLUICtrl* ctrl, const LLSD& value);    // Unified handler for reset buttons
+
+    void onChangeUIScaleSlider();
+    void onChangeUIScaleSpinner();
+    void onClickResetUIScale();
+
+    // void refreshEnabledGraphics();         // <AP:WW> To enable/disable controls based on preset
+    //  void refresh();                        // <AP:WW> To update control values (maybe refreshSettings() is enough?)
 
     // --- Helper Methods ---
     // void updateVectorComponent(int index, F32 value); // Helper to update setting
@@ -274,6 +329,61 @@ private:
     // void onSunElevationChanged();
     // void onSunAzimuthSpinnerChanged();
     // void onSunElevationSpinnerChanged();
+
+    // --- Graphics Preset Management Callbacks ---
+    void saveGraphicsPreset(const LLSD& user_data);
+    void loadGraphicsPreset(const LLSD& user_data);
+    void deleteGraphicsPreset(const LLSD& user_data);
+
+    // --- Camera Control UI Elements ---
+    LLJoystickCameraRotate* mCamRotateStick;
+    LLButton*               mBtnRollLeft;
+    LLButton*               mBtnRollRight;
+    LLButton*               mBtnZoomPlus;
+    LLButton*               mBtnZoomMinus;
+    LLSlider*               mSliderZoomDistance; // Maps to slider_bar name="zoom_slider"
+    LLJoystickCameraTrack*  mCamTrackStick;
+
+    // --- Camera Control Mode Buttons & Panels ---
+    LLButton*               mBtnCamPresetsView; // presets_btn
+    LLButton*               mBtnCamPanView;     // pan_btn
+    LLButton*               mBtnCamModesView;   // avatarview_btn
+
+    LLPanel*                mPanelPresetViews;  // preset_views_list
+    LLPanel*                mPanelCameraModes;  // camera_modes_list
+    LLPanel*                mPanelZoomControls; // panel name="zoom" containing joysticks/slider
+
+    // --- Camera Control Event Handlers & Helpers ---
+    void onCameraZoomPlusHeldDown();
+    void onCameraZoomMinusHeldDown();
+    void onCameraZoomSliderChanged();
+    void onCameraRollLeftHeldDown();
+    void onCameraRollRightHeldDown();
+    void onCameraTrackJoystick();   // Minimal handler
+    void onCameraRotateJoystick();  // Minimal handler
+
+    // Handler for switching camera control views
+    void switchViews(ECameraControlMode mode); // Uses ECameraControlMode from llfloatercamera.h
+
+    // Helper for calculating nudge rate
+    F32 getCameraOrbitRate(F32 time);
+
+    // Function to refresh camera controls UI from current state/settings
+    void refreshCameraControls();
+
+    void updateCameraItemsSelection(); // Updates selection highlight for preset/mode items
+    void onClickCameraItemHandler(const LLSD& userdata); // Back to reference
+    void onShowCameraPresetsFloater(); // Handles CameraPresets.ShowPresetsList (gear_btn)
+
+    // Dummy handlers for Preset buttons (Part 2) - parameters match expected usage later
+    void onStoreCameraView(S32 slot_index); // Handles Camera.StoreViewXX
+    void onLoadCameraView(S32 slot_index);  // Handles Camera.LoadViewXX
+
+    // Handlers for Flycam Camera Presets (Uses LLViewerCamera state)
+    void onStoreFlycamView(S32 slot_index); // Handles Camera.StoreFlycamViewXX
+    void onLoadFlycamView(S32 slot_index);  // Handles Camera.LoadFlycamViewXX
+
+
 
 
 };

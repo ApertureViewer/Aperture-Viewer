@@ -113,6 +113,9 @@ public:
     void            resetCamera();                  // Slam camera into its default position
     void            updateLastCamera();             // Set last camera to current camera
 
+    void            setRollAngle(F32 angle); // Setter
+    F32             getRollAngle() const;    // Getter
+
 private:
     ECameraMode     mCameraMode;                    // Target mode after transition animation is done
     ECameraMode     mLastCameraMode;

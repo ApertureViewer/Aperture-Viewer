@@ -44,9 +44,9 @@
                  width="670" />
                 <layout_panel
                  auto_resize="false"
-                 height="255"
+                 height="185"
                  layout="topleft"
-                 min_height="255"
+                 min_height="185"
                  name="panel4"
                  width="670">
                     <icon
@@ -56,11 +56,11 @@
                      layout="topleft"
                      left="0"
                      top="0"
-                     height="255"
+                     height="185"
                      width="670" />
                     <layout_stack
                      follows="left|right|top|bottom"
-                     height="255"
+                     height="185"
                      layout="topleft"
                      left="0"
                      orientation="vertical"
@@ -78,9 +78,9 @@
                       </layout_panel>
                       <layout_panel
                        auto_resize="false"
-                       height="100"
+                       height="110"
                        layout="topleft"
-                       min_height="100"
+                       min_height="110"
                        name="panel_login"
                        width="670">
                         <text
@@ -91,9 +91,10 @@
                          halign="left"
                          height="20"
                          left="47"
-                         top="32"
+                         top="42"
                          right="-47"
-                         name="title_text"
+                         name="title_text2"
+                         value="Aperture Viewer"
                          text_color="LoginProgressBoxTextColor"/>
                         <text
                          follows="left|right|top"
@@ -118,6 +119,9 @@
                          name="login_progress_bar"
                          right="-45" />
                       </layout_panel>
+
+<!--
+
                       <layout_panel
                        auto_resize="false"
                        height="90"
@@ -141,11 +145,14 @@
                          right="-90"
                          word_wrap="true"/>
                       </layout_panel>
+
+-->
+
                       <layout_panel
                        auto_resize="false"
-                       height="40"
+                       height="50"
                        layout="topleft"
-                       min_height="40"
+                       min_height="50"
                        name="panel_icons"
                        width="670">
                         <!--Logos are tied to following label from code-->
@@ -158,11 +165,12 @@
                          height="16"
                          width="240"
                          left="47"
-                         top="6"
+                         top="15"
+                         v_pad="8"
                          line_spacing.pixels="2"
                          name="logos_lbl"
                          text_color="LoginProgressBoxTextColor">
-                          Second Life uses
+                          Powered by
                         </text>
                       </layout_panel>
                     </layout_stack>

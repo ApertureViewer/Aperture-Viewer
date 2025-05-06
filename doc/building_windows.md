@@ -1,12 +1,6 @@
 # Build instructions for Windows
 
-This page describes all necessary steps to build the Firestorm viewer for Windows. For building instructions up to (and including) release 6.5.3, see the archived version for [building with Python 2.7](https://wiki.firestormviewer.org/archive:fs_compiling_firestorm_windows_py_27).
-
-> [!WARNING]
-> Please note that we do not give support for compiling the viewer on your own. However, there is a self-compilers group in Second Life that can be joined to ask questions related to compiling the viewer: [Firestorm Self Compilers](https://tinyurl.com/firestorm-self-compilers)
-
-> [!IMPORTANT]
-> With the [merge of Linden Lab release 6.6.16](https://github.com/FirestormViewer/phoenix-firestorm/commit/b64793e2b0d14e44274335c874660af9f679f7f8) it is **NOT** possible to create 32bit builds anymore! Only 64bit builds are possible going forward!
+This page describes all necessary steps to build the Aperture viewer for Windows.
 
 ## Install required development tools
 
@@ -107,9 +101,6 @@ If they all report sensible values and not "Command not found" errors, then you 
 - If you plan to package the viewer and create an installer file, you must install the NSIS from the [official website](https://nsis.sourceforge.io).
 - Not required unless you need to build an actual viewer installer for distribution, or change the NSIS installer package logic itself
   
-> [!IMPORTANT]
-> If you want to package the viewer built on a revision prior to the [Bugsplat merge](https://github.com/FirestormViewer/phoenix-firestorm/commit/a399c6778579ac7c8965737088c275dde1371c9e), you must install the Unicode version of NSIS [from here](http://www.scratchpaper.com) - the installer from the NSIS website **WILL NOT** work!
-
 ## Setup viewer build variables
 
 In order to make it easier to build collections of related packages (such as the viewer and all the library packages that it imports) with the same compilation options, Autobuild expects a file of variable definitions. This can be set using the environmenat variable AUTOBUILD_VARIABLES_FILE.
@@ -126,12 +117,12 @@ In order to make it easier to build collections of related packages (such as the
 
 ## Set up your source code tree
 
-Plan your directory structure ahead of time. If you are going to be producing changes or patches you will be cloning a copy of an unaltered source code tree for every change or patch you make, so you might want to have all this work stored in its own directory. If you are a casual compiler and won't be producing any changes, you can use one directory. For this document, it is assumed that you created a folder c:\firestorm.
+Plan your directory structure ahead of time. If you are going to be producing changes or patches you will be cloning a copy of an unaltered source code tree for every change or patch you make, so you might want to have all this work stored in its own directory. If you are a casual compiler and won't be producing any changes, you can use one directory. For this document, it is assumed that you created a folder c:\aperture.
 
 ```
 c:
-cd \firestorm
-git clone https://github.com/FirestormViewer/phoenix-firestorm.git
+cd \aperture
+git clone https://github.com/ApertureViewer/Aperture-Viewer.git
 ```
 
 ## Prepare third party libraries
@@ -150,7 +141,7 @@ If you want to use FMOD Studio to play sounds within the viewer, you will have t
 
 ```
 c:
-cd \firestorm
+cd \aperture
 git clone https://github.com/FirestormViewer/3p-fmodstudio.git
 ```
 
@@ -171,7 +162,7 @@ FMOD_VERSION_PRETTY="2.01.02"
 >
 > 1. **Install `dos2unix` in Cygwin:** If you don't have it already, run the Cygwin installer again (setup-x86_64.exe) and in the "Select Packages" screen, search for `dos2unix` in the "Util" category and install it.
 > 2. **Open a Cygwin terminal.**
-> 3. **Navigate to the `3p-fmodstudio` directory:** `cd /cygdrive/c/firestorm/3p-fmodstudio` (adjust `/cygdrive/c/firestorm` if your `firestorm` directory is elsewhere).
+> 3. **Navigate to the `3p-fmodstudio` directory:** `cd /cygdrive/c/aperture/3p-fmodstudio` (adjust `/cygdrive/c/aperture` if your `aperture` directory is elsewhere).
 > 4. **Run the `dos2unix` command:** `dos2unix build-cmd.sh`
 >
 > This will convert the line endings of `build-cmd.sh` to LF, ensuring it runs correctly in Cygwin.
@@ -181,7 +172,7 @@ Continue on the Windows command line:
 
 ```
 c:
-cd \firestorm\3p-fmodstudio
+cd \aperture\3p-fmodstudio
 autobuild build -A 64 --all
 autobuild package -A 64 --results-file result.txt
 ```
@@ -191,13 +182,13 @@ While running the Autobuild build command, Windows might ask if you want to allo
 Near the end of the output you will see the package name written:
 
 ```
-wrote  C:\firestorm\3p-fmodstudio\fmodstudio-{version#}-windows64-{build_id}.tar.bz2''
+wrote  C:\aperture\3p-fmodstudio\fmodstudio-{version#}-windows64-{build_id}.tar.bz2''
 ```
 
 where {version#} is the version of FMOD Studio (like 2.01.02) and {build_id} is an internal build id of the package. Additionally, a file `result.txt` has been created containing the md5 hash value of the package file, which you will need in the next step.
 
 ```
-cd \firestorm\phoenix-firestorm
+cd \aperture\
 cp autobuild.xml my_autobuild.xml
 set AUTOBUILD_CONFIG_FILE=my_autobuild.xml
 ```
@@ -208,7 +199,7 @@ Copy the FMOD Studio path and md5 value from the package process into this comma
 
 For example:
 
-`autobuild installables edit fmodstudio platform=windows64 hash=a0d1821154e7ce5c418e3cdc2f26f3fc url=file:///C:/firestorm/3p-fmodstudio/fmodstudio-2.01.02-windows-192171947.tar.bz2`
+`autobuild installables edit fmodstudio platform=windows64 hash=a0d1821154e7ce5c418e3cdc2f26f3fc url=file:///C:/aperture/3p-fmodstudio/fmodstudio-2.01.02-windows-192171947.tar.bz2`
 
 > [!NOTE]
 > Having to copy autobuild.xml and modify the copy from within a cloned repository is a lot of work for every repository you make, but this is the only way to guarantee you pick up upstream changes to autobuild.xml and do not send up a modified autobuild.xml when you do a git push.
@@ -225,13 +216,13 @@ Then enter:
 
 ```
 c:
-cd \firestorm\phoenix-firestorm
+cd \aperture
 autobuild configure -A 64 -c ReleaseFS_open
 ```
 
-This will configure Firestorm to be built with all defaults and without third party libraries.
+This will configure Aperture to be built with all defaults and without third party libraries.
 
-Available premade firestorm-specific build targets:
+Available premade aperture-specific build targets:
 
 ```
 ReleaseFS             (includes KDU, FMOD)
@@ -282,9 +273,9 @@ Compiling will take quite a bit of time.
 
 ### Building from within Visual Studio
 
-Inside the Firestorm source folder, you will find a folder named build-vc170-\<architecture\>, with \<architecture\> either being 32 or 64, depending on what you chose during the configuration step. Inside the folder is the Visual Studio solution file for Firestorm, called Firestorm.sln.
+Inside the Aperture source folder, you will find a folder named build-vc170-\<architecture\>, with \<architecture\> either being 32 or 64, depending on what you chose during the configuration step. Inside the folder is the Visual Studio solution file for Aperture, called Aperture.sln.
 
-- Double-click Firestorm.sln to open the Firestorm solution in Visual Studio.
+- Double-click Aperture.sln to open the Aperture solution in Visual Studio.
 - From the menu, choose Build -> Build Solution
 - Wait until the build is finished
 

@@ -1240,6 +1240,18 @@ void LLTabContainer::addTabPanel(const TabPanelParams& panel)
         p.tab_stop(false);
         p.follows.flags = FOLLOWS_LEFT;
 
+        // <AP:WW> REVISED Tooltip Logic - Get tooltip from Panel if available
+        std::string panel_tooltip = child->getToolTip();
+        if (!panel_tooltip.empty())
+        {
+            p.tool_tip(panel_tooltip);
+        }
+        else
+        {
+            p.tool_tip(label);
+        }
+        // <AP:WW>
+
         if (mIsVertical)
         {
           p.name("vtab_"+std::string(child->getName()));
@@ -1254,9 +1266,10 @@ void LLTabContainer::addTabPanel(const TabPanelParams& panel)
             p.image_unselected(tab_img);
             p.image_selected(tab_selected_img);
             p.follows.flags = p.follows.flags() | (getTabPosition() == TOP ? FOLLOWS_TOP : FOLLOWS_BOTTOM);
-            // Try to squeeze in a bit more text
+            // <AP:WW> Reduce padding to fit text as needed
             p.pad_left( mLabelPadLeft );
-            p.pad_right(2);
+            p.pad_right(0);
+            // <AP:WW>
         }
 
         // inits flash timer

@@ -66,7 +66,7 @@ public:
     void setPercent(const F32 percent);
 
     // Set it to NULL when you want to eliminate the message.
-    void setMessage(const std::string& msg);
+    // void setMessage(const std::string& msg);
 
     // turns on (under certain circumstances) the into video after login
     void revealIntroPanel();
@@ -82,7 +82,7 @@ public:
     void setCancelButtonVisible(bool b, const std::string& label);
 
     static void onCancelButtonClicked( void* );
-    static void onClickMessage(void*);
+    // static void onClickMessage(void*);
     bool onAlertModal(const LLSD& sd);
 
 protected:
@@ -90,19 +90,19 @@ protected:
     LLMediaCtrl* mMediaCtrl;
     LLTextBox* mLogosLabel = nullptr;
     LLTextBox* mProgressText = nullptr;
-    LLTextBox* mMessageText = nullptr;
+    // LLTextBox* mMessageText = nullptr;
     F32 mPercentDone;
-    std::string mMessage;
+    // std::string mMessage;
     LLButton*   mCancelBtn;
     LLFrameTimer mFadeToWorldTimer;
     LLFrameTimer mFadeFromLoginTimer;
     LLRect mOutlineRect;
     LLView* mLayoutPanel4 = nullptr;
-    LLView* mLayoutMOTD = nullptr;
+    // LLView* mLayoutMOTD = nullptr;
     // Rects for resizing purposes
-    LLRect mMessageTextRectInitial;
-    LLRect mLayoutPanel4RectInitial;
-    LLRect mLayoutMOTDRectInitial;
+    // LLRect mMessageTextRectInitial;
+    // LLRect mLayoutPanel4RectInitial;
+    // LLRect mLayoutMOTDRectInitial;
 
     bool mMouseDownInActiveArea;
     bool mStartupComplete;

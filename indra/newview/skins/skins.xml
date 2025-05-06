@@ -7,8 +7,8 @@
       <key>folder</key>
       <string>aperture</string>
       <key>themes</key>
-  	
-	  <array>
+    
+      <array>
         <map>
           <key>name</key>
           <string>Nocturn</string>
@@ -21,21 +21,45 @@
           <key>folder</key>
           <string>phantom</string>
         </map>
-		<map>
+        <map>
           <key>name</key>
           <string>Umbra</string>
           <key>folder</key>
           <string>umbra</string>
-		</map>
-		<map>
+        </map>
+        <map>
           <key>name</key>
           <string>Dusk</string>
           <key>folder</key>
           <string>dusk</string>
-		</map>
-	  </array>
-	</map>
-  
+        </map>
+        <map>
+          <key>name</key>
+          <string>Vader</string>
+          <key>folder</key>
+          <string>vader</string>
+        </map>
+        <map>
+          <key>name</key>
+          <string>Yoda</string>
+          <key>folder</key>
+          <string>yoda</string>
+        </map>
+        <map>
+          <key>name</key>
+          <string>X-wing</string>
+          <key>folder</key>
+          <string>xwing</string>
+        </map>
+        <map>
+          <key>name</key>
+          <string>Obiwan</string>
+          <key>folder</key>
+          <string>obiwan</string>
+        </map>
+      </array>
+    </map>
+
     <map>
       <key>name</key>
       <string>AnsaStorm</string>

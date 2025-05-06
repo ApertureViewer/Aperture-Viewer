@@ -831,7 +831,7 @@ const LLUUID LLEnvironment::KNOWN_SKY_LEGACY_MIDNIGHT("8a01b97a-cb20-c1ea-ac63-f
 
 // PBR Enabled Default Presets (using original KNOWN_SKY_* constant names):
 // Added No Light Preset UUID for use in viewer and specificall in PT
-const LLUUID LLEnvironment::KNOWN_SKY_SUNRISE("aae7665f-7654-e4c0-68c4-fb4acea04799");
+const LLUUID LLEnvironment::KNOWN_SKY_SUNRISE("02fbd22e-b88b-0294-6854-47ee153ec840");
 const LLUUID LLEnvironment::KNOWN_SKY_MIDDAY("c46226b4-0e43-5a56-9708-d27ca1df3292");
 const LLUUID LLEnvironment::KNOWN_SKY_SUNSET("aae7665f-7654-e4c0-68c4-fb4acea04799");
 const LLUUID LLEnvironment::KNOWN_SKY_MIDNIGHT("ca709215-3066-aa54-362e-be8a950ce09d");

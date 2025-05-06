@@ -887,6 +887,10 @@ with the same filename but different name
   <texture name="skin aperture umbra" file_name="skinspreview/aperture_umbra.jpg" preload="true" />
   <texture name="skin aperture phantom" file_name="skinspreview/aperture_phantom.jpg" preload="true" />
   <texture name="skin aperture dusk" file_name="skinspreview/aperture_dusk.jpg" preload="true" />
+  <texture name="skin aperture vader" file_name="skinspreview/aperture_vader.jpg" preload="true" />
+  <texture name="skin aperture yoda" file_name="skinspreview/aperture_yoda.jpg" preload="true" />
+  <texture name="skin aperture x-wing" file_name="skinspreview/aperture_x-wing.jpg" preload="true" />
+  <texture name="skin aperture obiwan" file_name="skinspreview/aperture_obiwan.jpg" preload="true" />
   <texture name="skin ansastorm blood" file_name="skinspreview/ansa_blood.jpg" preload="true" />
   <texture name="skin ansastorm bright blue" file_name="skinspreview/ansa_blue.jpg" preload="true" />
   <texture name="skin ansastorm classic brown" file_name="skinspreview/ansa_brown.jpg" preload="true" />

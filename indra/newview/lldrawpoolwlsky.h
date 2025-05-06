@@ -36,8 +36,10 @@ public:
 
     static const U32 SKY_VERTEX_DATA_MASK = LLVertexBuffer::MAP_VERTEX |
                             LLVertexBuffer::MAP_TEXCOORD0;
+    // Add MAP_WEIGHT flag to include the F32 intensity data
     static const U32 STAR_VERTEX_DATA_MASK =    LLVertexBuffer::MAP_VERTEX |
-        LLVertexBuffer::MAP_COLOR | LLVertexBuffer::MAP_TEXCOORD0;
+        LLVertexBuffer::MAP_COLOR | LLVertexBuffer::MAP_TEXCOORD0 |
+        LLVertexBuffer::MAP_WEIGHT; // Add this flag for the intensity
     static const U32 ADV_ATMO_SKY_VERTEX_DATA_MASK = LLVertexBuffer::MAP_VERTEX
                                                    | LLVertexBuffer::MAP_TEXCOORD0;
     LLDrawPoolWLSky(void);

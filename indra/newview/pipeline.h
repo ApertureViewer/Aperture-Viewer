@@ -122,12 +122,6 @@ public:
         FBO_FAILURE
     } eFBOStatus;
 
-    static F32 APRenderSaturation; // <AP:WW> Controls final image saturation (0=gray, 1=normal, >1=more saturated)
-    // <AP:WW> ADD END: Saturation Control Setting Variable
-    // <AP:WW> ADD START: Luminance Weights Setting Variable
-    static LLVector3 APLuminanceWeights; // User-controllable RGB weights for luminance calc
-    // <AP:WW> ADD END: Luminance Weights Setting Variable
-
 private:
     //implementation of above, wrapped for easy error handling
     eFBOStatus doAllocateScreenBuffer(U32 resX, U32 resY);
@@ -1131,6 +1125,37 @@ public:
     static bool RenderMirrors;
     static S32 RenderHeroProbeUpdateRate;
     static S32 RenderHeroProbeConservativeUpdateMultiplier;
+        // <AP:WW> ADD START - Post controls
+    static F32 APRenderContrast;
+    static F32 APRenderHighlights;
+    static F32 APRenderShadows;
+    static F32 APRenderWhites;
+    static F32 APRenderBlacks;
+    static F32 APRenderCrushBlacks;
+    static F32 APRenderCrushBlacksFadeEnd;
+    static F32 APRenderTemperature;
+    static F32 APRenderTint;
+    static F32 APRenderVibrance;
+    static F32 APRenderGrainAmount;
+    static F32 APRenderGrainSize;
+    static F32 APRenderGrainRoughness;
+    static F32 APRenderSaturation; 
+    static LLVector3 APLuminanceWeights;
+    static F32 APRenderCARedCyan;
+    static F32 APRenderCAGreenMagenta;
+    static F32 APRenderCABlueYellow;
+    static F32 APRenderCASoftness;
+    static F32 APRenderColorBalanceShadsRed;
+    static F32 APRenderColorBalanceShadsGreen;
+    static F32 APRenderColorBalanceShadsBlue;
+    static F32 APRenderColorBalanceMidsRed;
+    static F32 APRenderColorBalanceMidsGreen;
+    static F32 APRenderColorBalanceMidsBlue;
+    static F32 APRenderColorBalanceLitesRed;
+    static F32 APRenderColorBalanceLitesGreen;
+    static F32 APRenderColorBalanceLitesBlue;
+    static BOOL APColorBalancePreserveLuma; 
+    // <AP:WW>
 };
 
 void render_bbox(const LLVector3 &min, const LLVector3 &max);

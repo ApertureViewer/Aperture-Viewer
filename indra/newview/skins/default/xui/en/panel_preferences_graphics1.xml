@@ -30,6 +30,8 @@
      follows="all"
      label="General"
      name="General" >
+
+<!--<AP:WW> We are removing slider for new Featuretable Structure
   <text
     follows="top|left|right"
     height="16"
@@ -91,7 +93,6 @@
         Quality
       </text>
 
-      <!--Reset Button-->
       <button
        follows="left|top"
        height="23"
@@ -178,7 +179,7 @@
        initial_value="0"
        layout="topleft"
        left="193"
-       max_val="6"
+       max_val="8"
        name="QualityPerformanceSelection"
        show_text="false"
        top_delta="-1"
@@ -238,6 +239,76 @@
        width="80">
         Ultra
       </text>
+-->
+
+                <text
+                 name="T_Grahpics_Presets"
+                 follows="left|top"
+                 height="20"
+                 left="5"
+                 v_pad="7"
+                 tool_tip=""
+                 top_pad="10"
+                 width="100"
+                 layout="topleft">
+                    Graphics Presets
+                </text>
+               <combo_box
+                 name="CB_Graphics_Preset"
+                 control_name="RenderQualityPerformance"
+                 layout="topleft"
+                 follows="left|top"
+                 left_pad="0"
+                 top_delta="0"
+                 height="25"
+                 width="275"
+                 >
+                    <combo_box.item
+                     label="Level 1 - Essential Features"
+                     name="GP_Essential"
+                     value="0"/>
+                    <combo_box.item
+                     label="Level 2 - Basic HDR &amp; Effects"
+                     name="GP_HDR"
+                     value="1"/>
+                    <combo_box.item
+                     label="Level 3 - Shadows"
+                     name="GP_Shadows"
+                     value="2"/>
+                    <combo_box.item
+                     label="Level 4 - Ambient Occlusion"
+                     name="GP_Ambient_Occlusion"
+                     value="3"/>
+                    <combo_box.item
+                     label="Level 5 - Depth of Field"
+                     name="GP_Depth_of_Field"
+                     value="4"/>
+                    <combo_box.item
+                     label="Level 6 - Screen Space Reflections"
+                     name="GP_SSR"
+                     value="5"/>
+                    <combo_box.item
+                     label="Level 7 - Mirrors"
+                     name="GP_Mirrors"
+                     value="6"/>
+                    <combo_box.item
+                     label="Level 8 - Eye Candy without Mirrors"
+                     name="GP_Eye_Candy_No_Mirrors"
+                     value="7"/>
+                    <combo_box.item
+                     label="Level 9 - Eye Candy with Mirrors"
+                     name="GP_Eye_Candy_Mirrors"
+                     value="8"/>
+                    <!--combo_box.item
+                     label="Level 10 - Chocolate - Everything Full Blast"
+                     name="GP_Chocolate"
+                     value="9"/-->
+                <combo_box.commit_callback function="Pref.QualityPerformance"/>
+                
+                </combo_box>
+
+
+
         <text
          type="string"
          length="1"
@@ -246,7 +317,7 @@
          layout="topleft"
          left="4"
          name="ShadersText"
-         top="60"
+         top="45"
          width="128">
           Shaders:
         </text>
@@ -537,7 +608,7 @@
          left="196"
          name="Fullscreen Mode"
          tool_tip="Run Firestorm in Fullscreen mode. A restart is required to change mode."
-         top="60"
+         top="45"
          width="280" />
 
         <slider
@@ -898,7 +969,7 @@
          layout="topleft"
          left="200"
          name="Presets_Label"
-         top_pad="18"
+         top_pad="25"
          width="155">
           Presets:
         </text>

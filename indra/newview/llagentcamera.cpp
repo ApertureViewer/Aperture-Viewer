@@ -3396,4 +3396,14 @@ void LLAgentCamera::loadCameraPosition()
 }
 // </FS:Ansariel> FIRE-7758: Save/load camera position feature
 
-// EOF
+void LLAgentCamera::setRollAngle(F32 angle)
+{
+
+    mRollAngle = angle;
+}
+
+
+F32 LLAgentCamera::getRollAngle() const
+{
+    return mRollAngle;
+}

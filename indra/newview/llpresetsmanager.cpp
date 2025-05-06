@@ -43,6 +43,7 @@
 #include "llfile.h"
 #include "quickprefs.h"
 #include "llperfstats.h"
+#include "apfloaterphototools.h"
 
 LLPresetsManager::LLPresetsManager()
     // <FS:Ansariel> Graphic preset controls independent from XUI
@@ -514,6 +515,7 @@ bool LLPresetsManager::setPresetNamesInComboBox(const std::string& subdirectory,
     return sts;
 }
 
+      
 void LLPresetsManager::loadPreset(const std::string& subdirectory, std::string name)
 {
     if (LLTrans::getString(PRESETS_DEFAULT) == name)
@@ -526,43 +528,72 @@ void LLPresetsManager::loadPreset(const std::string& subdirectory, std::string n
 
     LL_DEBUGS() << "attempting to load preset '"<<name<<"' from '"<<full_path<<"'" << LL_ENDL;
 
+    // Store pre-load state for specific settings if necessary (like camera movement flags)
     bool appearance_camera_movement = gSavedSettings.getBOOL("AppearanceCameraMovement");
     bool edit_camera_movement = gSavedSettings.getBOOL("EditCameraMovement");
 
-    mIsLoadingPreset = true; // <FS:Ansariel> Graphic preset controls independent from XUI
-    mIgnoreChangedSignal = true;
+    // Set flags to prevent unwanted signal handling during the load process
+    mIsLoadingPreset = true;
+    mIgnoreChangedSignal = true; // Prevents marking preset dirty immediately
+
+    // Attempt to load the preset file into gSavedSettings
     if(gSavedSettings.loadFromFile(full_path, false, true) > 0)
     {
+        // Load successful
+
+        // Allow specific signals again *after* load completes but *before* UI refreshes
+        // (Though our refresh calls don't rely on signals here)
         mIgnoreChangedSignal = false;
+
+        // --- Graphics Preset Specific Actions ---
         if(PRESETS_GRAPHIC == subdirectory)
         {
+            // Update the active preset setting
             gSavedSettings.setString("PresetGraphicActive", name);
 
-            // <FS:Ansariel> Update indirect controls
+            // Update avatar complexity indirect controls (Existing code)
             LLAvatarComplexityControls::setIndirectControls();
 
-            LLFloaterPreference* instance = LLFloaterReg::findTypedInstance<LLFloaterPreference>("preferences");
-            if (instance)
+            // <FS> [FIRE-35390] Old viewer presets have these as true and 0.7, whereas the equivalent on modern viewers is false and 1.0
+            if (auto control = gSavedSettings.getControl("RenderSkyAutoAdjustLegacy"))
+                control->resetToDefault(true);
+            if (auto control = gSavedSettings.getControl("RenderSkyAmbientScale"))
+                control->resetToDefault(true);
+            // </FS>
+
+            // Refresh Preferences Floater UI if open (Existing code)
+            LLFloaterPreference* preferences_floater = LLFloaterReg::findTypedInstance<LLFloaterPreference>("preferences");
+            if (preferences_floater)
+
             {
-                instance->refreshEnabledGraphics();
+                preferences_floater->refreshEnabledGraphics();
             }
-            // <AP:WW> // Refactor: Remove Phototools refresh from preset change.
-            // Removed FloaterQuickPrefs refresh as graphic presets control is reversed from XUI.
-            // Code block removed:
-            // FloaterQuickPrefs* phototools = LLFloaterReg::findTypedInstance<FloaterQuickPrefs>(PHOTOTOOLS_FLOATER);
-            // if (phototools)
-            // {
-            //     phototools->refreshSettings();
-            // }
-            // </AP:WW>
+
+            APFloaterPhototools* phototools_floater = LLFloaterReg::findTypedInstance<APFloaterPhototools>("phototools"); 
+            if (phototools_floater)
+
+            {
+                phototools_floater->refreshSettings();          // Refresh general settings (reads mode)
+                phototools_floater->refreshColorBalanceControls(); // Refresh CB controls using correct mode
+            }
+            else {
+            }
+            // <AP:WW> ADD END: Refresh Phototools Floater UI if open
+
+            // Signal that the preset list might need updating (Existing code)
             triggerChangeSignal();
-        }
+        } // End if(PRESETS_GRAPHIC)
+
+        // --- Camera Preset Specific Actions ---
         if(PRESETS_CAMERA == subdirectory)
         {
+            // Update the active preset setting
             gSavedSettings.setString("PresetCameraActive", name);
+
+            // Signal camera preset list update (Existing code)
             triggerChangeCameraSignal();
 
-            //SL-20277 old preset files may contain settings that should be ignored when loading camera presets
+            // Restore specific camera settings potentially overwritten by old presets (Existing code)
             if (appearance_camera_movement != (bool)gSavedSettings.getBOOL("AppearanceCameraMovement"))
             {
                 gSavedSettings.setBOOL("AppearanceCameraMovement", appearance_camera_movement);
@@ -571,15 +602,19 @@ void LLPresetsManager::loadPreset(const std::string& subdirectory, std::string n
             {
                 gSavedSettings.setBOOL("EditCameraMovement", edit_camera_movement);
             }
-        }
-    }
-    else
+        } // End if(PRESETS_CAMERA)
+
+    } // End if (loadFromFile succeeded)
+    else // Load failed
     {
-        mIgnoreChangedSignal = false;
+        mIgnoreChangedSignal = false; // Still need to reset this flag on failure
         LL_WARNS("Presets") << "failed to load preset '"<<name<<"' from '"<<full_path<<"'" << LL_ENDL;
     }
-    mIsLoadingPreset = false; // <FS:Ansariel> Graphic preset controls independent from XUI
-}
+
+    // Clear the loading flag *after* all loading and refreshing is done
+    mIsLoadingPreset = false;
+
+} // End of loadPreset function
 
 bool LLPresetsManager::deletePreset(const std::string& subdirectory, std::string name)
 {

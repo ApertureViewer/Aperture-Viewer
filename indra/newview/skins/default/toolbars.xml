@@ -7,6 +7,10 @@
         <command
          name="phototools" />
         <command
+         name="poser" />
+        <command
+         name="teleport_history" />
+        <command
          name="phototools_view" />
         <command
          name="myenvironments" />

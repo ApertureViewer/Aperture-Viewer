@@ -66,23 +66,37 @@ LLProgressBar::~LLProgressBar()
 
 void LLProgressBar::draw()
 {
+    // <AP:WW> Note: The static timer is still declared but won't be used for the pulsing effect anymore. </AP:WW>
+    // <AP:WW> If it's not used elsewhere, it could potentially be removed, but leaving it is harmless. </AP:WW>
     static LLTimer timer;
-    F32 alpha = getDrawContext().mAlpha;
+    F32 alpha = getDrawContext().mAlpha; // Get the base alpha from the drawing context
 
+    // --- Draw Background ---
     if (mImageBar) // optional according to parameters
     {
         LLColor4 image_bar_color = mColorBackground.get();
-        image_bar_color.setAlpha(alpha);
+        image_bar_color.setAlpha(alpha); // Apply base alpha to background
         mImageBar->draw(getLocalRect(), image_bar_color);
     }
 
+    // --- Draw Filled Portion ---
     if (mImageFill)
     {
-        alpha *= 0.5f + 0.5f*0.5f*(1.f + (F32)sin(3.f*timer.getElapsedTimeF32()));
-        LLColor4 bar_color = mColorBar.get();
-        bar_color.mV[VALPHA] *= alpha; // modulate alpha
-        LLRect progress_rect = getLocalRect();
+        // <AP:WW> Disable the pulsing alpha effect by commenting out the calculation </AP:WW>
+        // Calculate pulsing alpha effect - ORIGINAL LINE:
+        // alpha *= 0.5f + 0.5f*0.5f*(1.f + (F32)sin(3.f*timer.getElapsedTimeF32()));
+        // <AP:WW> By commenting out the line above, 'alpha' retains its original value </AP:WW>
+        // <AP:WW> obtained from getDrawContext().mAlpha. </AP:WW>
+
+        LLColor4 bar_color = mColorBar.get(); // Get the fill tint color
+        // <AP:WW> Now apply the *unmodified* base alpha to the fill color's alpha </AP:WW>
+        bar_color.mV[VALPHA] *= alpha; // modulate alpha using only the base alpha
+
+        LLRect progress_rect = getLocalRect(); // Start with the full bar rectangle
+        // Calculate the width of the filled portion based on percentage
         progress_rect.mRight = ll_round(getRect().getWidth() * (mPercentDone / 100.f));
+
+        // Draw the fill image, clipped/scaled to progress_rect, using the bar_color (with non-pulsing alpha)
         mImageFill->draw(progress_rect, bar_color);
     }
 }

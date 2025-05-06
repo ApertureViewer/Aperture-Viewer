@@ -46,6 +46,8 @@ public:
     /*virtual*/ LLDrawable * createDrawable(LLPipeline *pipeline);
     /*virtual*/ bool         updateGeometry(LLDrawable *drawable);
 
+    LLColor4 blackBodyColor(F32 temperature);
+
     void drawStars(void);
     void drawDome(void);
     void drawFsSky(void); // fullscreen sky for advanced atmo
@@ -81,6 +83,11 @@ private:
     LLPointer<LLVertexBuffer>                   mFsSkyVerts;
     std::vector< LLPointer<LLVertexBuffer> >    mStripsVerts;
     LLPointer<LLVertexBuffer>                   mStarsVerts;
+    
+    void generateProceduralStars(
+    U32 count, U32 startIndex,
+    F32 min_intensity, F32 max_intensity, F32 brightness_exponent, F32 color_variation,
+    std::vector<LLVector3>& vertices, std::vector<LLColor4>& colors, std::vector<F32>& intensities);
 
     std::vector<LLVector3>  mStarVertices;              // Star verticies
     std::vector<LLColor4>   mStarColors;                // Star colors

@@ -1,50 +1,83 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <floater
- legacy_header_height="18"
- height="130"
+ height="80"
  help_topic="floater_delete_preset"
  layout="topleft"
  name="delete_pref_preset"
- positioning="centered"
  save_rect="true"
  title="Delete Pref Preset"
- width="240">
+ width="288">
 
     <string name="title_graphic">Delete Graphic Preset</string>
     <string name="title_camera">Delete Camera Preset</string>
 
-    <text
-     follows="top|left|right"
-     height="10"
-     layout="topleft"
-     left="10"
-     name="Preset"
-     top="30"
-     width="200">
-     Select a preset
-    </text>
-    <combo_box
+    <panel
+     name="P_Delete_Preset_Header"
      follows="top|left"
      layout="topleft"
-     left="10"
-     name="preset_combo"
-     top_delta="20"
-     width="220"/>
-    <button
+     top_pad="3"
+     left="0"
+     width="288"
+     height="22"
+     bg_alpha_color="Phototools_Header"
+     border_visible="false"
+     border_thickness="1"
+     border="none"
+     background_visible="true">
+
+        <text
+        name="Preset"
+         follows="left|top"
+         layout="topleft"
+         left="7"
+         font="SansSerif"
+         height="13"
+         width="275">
+         Select a preset
+        </text>
+
+    </panel>
+
+    <panel
+     name="P_Delete_Preset_Settings"
      follows="top|left"
-     height="23"
-     label="Delete"
      layout="topleft"
-     top_delta="40"
-     left="10"
-     name="delete"
-     width="100"/>
-    <button
-     follows="top|left"
-     height="23"
-     label="Cancel"
-     layout="topleft"
-     left_pad="20"
-     name="cancel"
-     width="100"/>
+     top_pad="0"
+     left="0"
+     width="288"
+     height="57" 
+     border_visible="false"
+     bevel_style="none"
+     background_visible="true">
+
+        <combo_box
+         follows="top|left"
+         layout="topleft"
+         left="5"
+         name="preset_combo"
+         top_pad="5"
+         height="22"
+         right="-5"/>
+
+        <button
+         name="delete"
+         label="Delete"
+         follows="top|left"
+         height="22"
+         layout="topleft"
+         top_pad="3"
+         left="5"
+         width="100"/>
+
+        <button
+         follows="bottom|right"
+         height="22"
+         label="Cancel"
+         layout="topleft"
+         left_pad="0"
+         name="cancel"
+         width="100"/>
+
+    </panel>
+
 </floater>

@@ -2,7 +2,7 @@ Privacy Policy for Aperture Viewer
 
 Effective Date: March 1, 2025
 
-IMPORTANT NOTICE – PLEASE READ CAREFULLY
+IMPORTANT NOTICE � PLEASE READ CAREFULLY
 
 This Privacy Policy ("Policy") governs your use of Aperture Viewer (the "Software") provided by the Aperture Viewer Development Team ("we," "us," or "our"). By downloading, installing, or using the Software, you agree to be bound by the terms set forth herein. Interactive Consent: When you access the Software via our official installer an interactive mechanism (for example, an "I Agree" checkbox) may be provided to allow you to explicitly indicate your acceptance of these terms. In cases where such a mechanism is not displayed for any reason your continued use of the Software will be deemed to signify your informed acceptance of these terms. If you do not agree with any part of this Policy, do not download, install, or use the Software.
 
@@ -10,30 +10,31 @@ This Policy is for informational purposes only and does not constitute legal adv
 
 1. Introduction and Scope
 
-    Purpose and Nature: Aperture Viewer is a third‑party client application for accessing virtual worlds (e.g., Second Life) and is developed as a fork of the open‑source Firestorm Viewer project. This Policy outlines our data handling practices and, to the maximum extent permitted by applicable law, limits our liability with respect to the Software.
+    Purpose and Nature: Aperture Viewer is a third-party client application for accessing virtual worlds (e.g., Second Life) and is developed as a fork of the open-source Firestorm Viewer project. This Policy outlines our data handling practices and, to the maximum extent permitted by applicable law, limits our liability with respect to the Software.
 
     Acceptance of Terms: Your act of downloading, installing, or using the Software constitutes your agreement to be bound by this Policy. If you do not agree with any part of this Policy, you must not use the Software.
 
-    Definition – “Standard and Intended Operation”: "Standard and intended operation" means using the Software solely to connect to and interact with virtual world grids via its documented features, without modifications that might trigger additional or unforeseen data collection.
+    Definition � �Standard and Intended Operation�: "Standard and intended operation" means using the Software solely to connect to and interact with virtual world grids via its documented features, without modifications that might trigger additional or unforeseen data collection.
 
 2. Data Collection Practices
 
     No Intentional Data Collection: During standard and intended operation, we do not intentionally collect, process, or transmit personal or usage data, including (but not limited to):
+    
         Usage Data: Activity patterns, feature utilization, or session durations.
         Personal Information: Usernames, passwords (entered only on external platforms), email addresses, IP addresses, geographic locations, or other personally identifiable information.
-        Communications: Text chat, voice communications, or other in‑world communications.
+        Communications: Text chat, voice communications, or other in-world communications.
         System Information: Details about hardware, software, or network configurations.
-        Crash Logs and Error Reports: These are not automatically transmitted; any future crash reporting feature will require your explicit opt‑in via a clear consent mechanism.
+        Crash Logs and Error Reports: These are not automatically transmitted; any future crash reporting feature will require your explicit opt-in via a clear consent mechanism.
 
     Unintentional Data Collection: Due to the inherent complexity of software systems, inadvertent data collection may occur. To the extent permitted by applicable law, we disclaim liability for such unintentional collection; however, nothing herein limits our liability for matters (such as gross negligence or willful misconduct) that cannot be waived under law.
 
 3. Open Source Transparency
 
-    Public Code Access: The Software is based on open‑source code available for review at: https://github.com/williamweaver/Aperture-Viewer.git This code is provided solely for transparency and does not constitute a warranty or guarantee regarding the absence of data collection. Any conclusions drawn from a review are solely your responsibility.
+    Public Code Access: The Software is based on open-source code available for review at: https://github.com/williamweaver/Aperture-Viewer.git This code is provided solely for transparency and does not constitute a warranty or guarantee regarding the absence of data collection. Any conclusions drawn from a review are solely your responsibility.
 
-4. Client‑Side Operation and Infrastructure
+4. Client-Side Operation and Infrastructure
 
-    Client‑Side Design: The Software is designed to operate exclusively on the client side. We do not operate servers or maintain communication channels for collecting user data.
+    Client-Side Design: The Software is designed to operate exclusively on the client side. We do not operate servers or maintain communication channels for collecting user data.
 
     Inadvertent Communications: Although the Software is engineered to avoid unintended data transmissions, any such occurrences are unintentional, and our liability for these, to the maximum extent permitted by law, is strictly limited.
 
@@ -45,9 +46,9 @@ This Policy is for informational purposes only and does not constitute legal adv
 
 6. Data Security and Limitation of Liability
 
-    Security Efforts: We implement "reasonable security measures"—including industry‑standard security practices, regular security assessments, and secure coding practices—to protect the Software and our development processes. While this language is intentionally flexible to adapt to evolving threats, it demonstrates our commitment to security without creating fixed obligations that may become outdated.
+    Security Efforts: We implement "reasonable security measures"�including industry-standard security practices, regular security assessments, and secure coding practices�to protect the Software and our development processes. While this language is intentionally flexible to adapt to evolving threats, it demonstrates our commitment to security without creating fixed obligations that may become outdated.
 
-    Limitation of Liability: Subject to applicable law, our aggregate liability for any claims arising out of or relating to the Software—including claims related to security breaches or unauthorized access—is limited to the maximum extent permitted by law. Nothing in this Policy shall limit or waive any rights or obligations that are non‑waivable under applicable law, including any mandatory statutory rights you may have.
+    Limitation of Liability: Subject to applicable law, our aggregate liability for any claims arising out of or relating to the Software�including claims related to security breaches or unauthorized access�is limited to the maximum extent permitted by law. Nothing in this Policy shall limit or waive any rights or obligations that are non-waivable under applicable law, including any mandatory statutory rights you may have.
 
 7. Modifications and Redistribution
 
@@ -60,6 +61,7 @@ This Policy is for informational purposes only and does not constitute legal adv
     Governing Law: This Policy is governed by and construed in accordance with the laws of the State of Delaware, USA, without regard to conflict-of-law principles.
 
     Pre-Arbitration Negotiations: Before initiating arbitration, the parties must engage in good-faith negotiations to attempt resolution of any dispute. Upon written notice of a dispute:
+    
         Each party must designate a representative with decision-making authority.
         The recipient of the dispute notice must respond within 15 days.
 
@@ -71,7 +73,7 @@ This Policy is for informational purposes only and does not constitute legal adv
 
 9. Consent and Acknowledgment
 
-    Assumption of Risk: By using the Software, you acknowledge and accept the inherent risks associated with third‑party software and online services, and you assume full responsibility for your use of the Software and any consequences thereof.
+    Assumption of Risk: By using the Software, you acknowledge and accept the inherent risks associated with third-party software and online services, and you assume full responsibility for your use of the Software and any consequences thereof.
 
 10. International Considerations
 

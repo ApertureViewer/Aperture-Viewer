@@ -2370,7 +2370,7 @@ void LLFloaterPreference::onCommitWindowedMode()
 
 void LLFloaterPreference::onChangeQuality(const LLSD& data)
 {
-    U32 level = (U32)(data.asReal());
+    U32 level = (U32)(data.asInteger());
     LLFeatureManager::getInstance()->setGraphicsLevel(level, true);
     refreshEnabledGraphics();
     refresh();

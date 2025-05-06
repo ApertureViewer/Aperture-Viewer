@@ -186,6 +186,9 @@ S32 LLPipeline::RenderGlowResolutionPow;
 S32 LLPipeline::RenderGlowIterations;
 F32 LLPipeline::RenderGlowWidth;
 F32 LLPipeline::RenderGlowStrength;
+// <AP:WW> Restore RenderGlowMinLuminance functionality (operates on post-tonemap values)
+F32 LLPipeline::RenderGlowMinLuminance;
+// </AP:WW>
 bool LLPipeline::RenderGlowNoise;
 bool LLPipeline::RenderDepthOfField;
 bool LLPipeline::RenderDepthOfFieldInEditMode;
@@ -202,15 +205,39 @@ F32 LLPipeline::RenderShadowBlurSize;
 F32 LLPipeline::RenderSSAOScale;
 U32 LLPipeline::RenderSSAOMaxScale;
 F32 LLPipeline::RenderSSAOFactor;
-// <AP:WW> // Refactor: Rename SSAO sample count setting for Aperture.
 F32 LLPipeline::APRenderSSAOSampleCount; // <AP:WW> Default SSAO sample count
-// </AP:WW>
-// <AP:WW> Define Saturation Variable
+
+//<AP:WW> Define Post Effects
+F32 LLPipeline::APRenderContrast;
+F32 LLPipeline::APRenderHighlights;
+F32 LLPipeline::APRenderShadows;
+F32 LLPipeline::APRenderWhites;
+F32 LLPipeline::APRenderBlacks;
+F32 LLPipeline::APRenderCrushBlacks;
+F32 LLPipeline::APRenderCrushBlacksFadeEnd;
+F32 LLPipeline::APRenderTemperature;
+F32 LLPipeline::APRenderTint;
+F32 LLPipeline::APRenderVibrance;
+F32 LLPipeline::APRenderGrainAmount;
+F32 LLPipeline::APRenderGrainSize;
+F32 LLPipeline::APRenderGrainRoughness;
 F32 LLPipeline::APRenderSaturation;
-// <AP:WW> 
-// <AP:WW> ADD START: Define Luminance Weights Variable
 LLVector3 LLPipeline::APLuminanceWeights;
-// <AP:WW> ADD END: Define Luminance Weights Variable
+F32 LLPipeline::APRenderCARedCyan;
+F32 LLPipeline::APRenderCAGreenMagenta;
+F32 LLPipeline::APRenderCABlueYellow;
+F32 LLPipeline::APRenderCASoftness;
+F32 LLPipeline::APRenderColorBalanceShadsRed;
+F32 LLPipeline::APRenderColorBalanceShadsGreen;
+F32 LLPipeline::APRenderColorBalanceShadsBlue;
+F32 LLPipeline::APRenderColorBalanceMidsRed;
+F32 LLPipeline::APRenderColorBalanceMidsGreen;
+F32 LLPipeline::APRenderColorBalanceMidsBlue;
+F32 LLPipeline::APRenderColorBalanceLitesRed;
+F32 LLPipeline::APRenderColorBalanceLitesGreen;
+F32 LLPipeline::APRenderColorBalanceLitesBlue;
+BOOL LLPipeline::APColorBalancePreserveLuma; 
+// <AP:WW>
 LLVector3 LLPipeline::RenderSSAOEffect;
 F32 LLPipeline::RenderShadowOffsetError;
 F32 LLPipeline::RenderShadowBiasError;
@@ -612,6 +639,9 @@ void LLPipeline::init()
     connectRefreshCachedSettingsSafe("RenderGlowMaxExtractAlpha");
     connectRefreshCachedSettingsSafe("RenderGlowWarmthAmount");
     connectRefreshCachedSettingsSafe("RenderGlowLumWeights");
+    // <AP:WW> Restore RenderGlowMinLuminance functionality
+    connectRefreshCachedSettingsSafe("RenderGlowMinLuminance");
+    // </AP:WW>
     connectRefreshCachedSettingsSafe("RenderGlowWarmthWeights");
     connectRefreshCachedSettingsSafe("RenderGlowResolutionPow");
     connectRefreshCachedSettingsSafe("RenderGlowIterations");
@@ -630,15 +660,38 @@ void LLPipeline::init()
     connectRefreshCachedSettingsSafe("RenderSSAOMaxScale");
     connectRefreshCachedSettingsSafe("RenderSSAOFactor");
     connectRefreshCachedSettingsSafe("RenderSSAOEffect");
-	// <AP:WW> // Refactor: Rename SSAO sample count setting.
-	connectRefreshCachedSettingsSafe("APRenderSSAOSampleCount");
-    // </AP:WW>
-    // <AP:WW> Add Saturation listener
+    connectRefreshCachedSettingsSafe("APRenderSSAOSampleCount"); // <AP:WW> ADD SSAO sample count setting.
+    // <AP:WW> Add Post Effect Listeners
+    connectRefreshCachedSettingsSafe("APRenderContrast");
+    connectRefreshCachedSettingsSafe("APRenderHighlights");
+    connectRefreshCachedSettingsSafe("APRenderShadows");
+    connectRefreshCachedSettingsSafe("APRenderWhites");
+    connectRefreshCachedSettingsSafe("APRenderBlacks");
+    connectRefreshCachedSettingsSafe("APRenderCrushBlacks");
+    connectRefreshCachedSettingsSafe("APRenderCrushBlacksFadeEnd");
+    connectRefreshCachedSettingsSafe("APRenderTemperature");
+    connectRefreshCachedSettingsSafe("APRenderTint");
+    connectRefreshCachedSettingsSafe("APRenderVibrance");
+    connectRefreshCachedSettingsSafe("APRenderGrainAmount");
+    connectRefreshCachedSettingsSafe("APRenderGrainSize");
+    connectRefreshCachedSettingsSafe("APRenderGrainRoughness");
     connectRefreshCachedSettingsSafe("APRenderSaturation");
-    // <AP:WW> 
-    // <AP:WW> ADD START: Add Luminance Weights listener
     connectRefreshCachedSettingsSafe("APLuminanceWeights");
-    // <AP:WW> ADD END: Add Luminance Weights listener
+    connectRefreshCachedSettingsSafe("APRenderCARedCyan");
+    connectRefreshCachedSettingsSafe("APRenderCAGreenMagenta");
+    connectRefreshCachedSettingsSafe("APRenderCABlueYellow");
+    connectRefreshCachedSettingsSafe("APRenderCASoftness");
+    connectRefreshCachedSettingsSafe("APRenderColorBalanceShadsRed");
+    connectRefreshCachedSettingsSafe("APRenderColorBalanceShadsGreen");
+    connectRefreshCachedSettingsSafe("APRenderColorBalanceShadsBlue");
+    connectRefreshCachedSettingsSafe("APRenderColorBalanceMidsRed");
+    connectRefreshCachedSettingsSafe("APRenderColorBalanceMidsGreen");
+    connectRefreshCachedSettingsSafe("APRenderColorBalanceMidsBlue");
+    connectRefreshCachedSettingsSafe("APRenderColorBalanceLitesRed");
+    connectRefreshCachedSettingsSafe("APRenderColorBalanceLitesGreen");
+    connectRefreshCachedSettingsSafe("APRenderColorBalanceLitesBlue");
+    connectRefreshCachedSettingsSafe("APColorBalancePreserveLuma");
+    // <AP/WW>
     connectRefreshCachedSettingsSafe("RenderShadowOffsetError");
     connectRefreshCachedSettingsSafe("RenderShadowBiasError");
     connectRefreshCachedSettingsSafe("RenderShadowOffset");
@@ -1233,6 +1286,9 @@ void LLPipeline::refreshCachedSettings()
     RenderGlowIterations = gSavedSettings.getS32("RenderGlowIterations");
     RenderGlowWidth = gSavedSettings.getF32("RenderGlowWidth");
     RenderGlowStrength = gSavedSettings.getF32("RenderGlowStrength");
+    // <AP:WW> Restore RenderGlowMinLuminance functionality
+    RenderGlowMinLuminance = gSavedSettings.getF32("RenderGlowMinLuminance");
+    // </AP:WW>
     RenderGlowNoise = gSavedSettings.getBOOL("RenderGlowNoise");
     RenderDepthOfField = gSavedSettings.getBOOL("RenderDepthOfField");
     RenderDepthOfFieldInEditMode = gSavedSettings.getBOOL("RenderDepthOfFieldInEditMode");
@@ -1250,15 +1306,38 @@ void LLPipeline::refreshCachedSettings()
     RenderSSAOMaxScale = gSavedSettings.getU32("RenderSSAOMaxScale");
     RenderSSAOFactor = gSavedSettings.getF32("RenderSSAOFactor");
     RenderSSAOEffect = gSavedSettings.getVector3("RenderSSAOEffect");
-    // <AP:WW> // Refactor: Rename SSAO sample count setting.
     APRenderSSAOSampleCount = gSavedSettings.getF32("APRenderSSAOSampleCount"); // <AP:WW> Load SSAO sample count setting
-    // </AP:WW>
-    // <AP:WW> Load Saturation Setting
+    // <AP:WW> Load post effect settings
+    APRenderContrast = gSavedSettings.getF32("APRenderContrast");
+    APRenderHighlights = gSavedSettings.getF32("APRenderHighlights");
+    APRenderShadows = gSavedSettings.getF32("APRenderShadows");
+    APRenderWhites = gSavedSettings.getF32("APRenderWhites");
+    APRenderBlacks = gSavedSettings.getF32("APRenderBlacks");
+    APRenderCrushBlacks = gSavedSettings.getF32("APRenderCrushBlacks");
+    APRenderCrushBlacksFadeEnd = gSavedSettings.getF32("APRenderCrushBlacksFadeEnd");
+    APRenderTemperature = gSavedSettings.getF32("APRenderTemperature");
+    APRenderTint = gSavedSettings.getF32("APRenderTint");
+    APRenderVibrance = gSavedSettings.getF32("APRenderVibrance");
+    APRenderGrainAmount = gSavedSettings.getF32("APRenderGrainAmount");
+    APRenderGrainSize = gSavedSettings.getF32("APRenderGrainSize");
+    APRenderGrainRoughness = gSavedSettings.getF32("APRenderGrainRoughness");
     APRenderSaturation = gSavedSettings.getF32("APRenderSaturation");
-    // <AP:WW> 
-    // <AP:WW> ADD START: Load Luminance Weights Setting
     APLuminanceWeights = gSavedSettings.getVector3("APLuminanceWeights");
-    // <AP:WW> ADD END: Load Luminance Weights Setting
+    APRenderCARedCyan = gSavedSettings.getF32("APRenderCARedCyan");
+    APRenderCAGreenMagenta = gSavedSettings.getF32("APRenderCAGreenMagenta");
+    APRenderCABlueYellow = gSavedSettings.getF32("APRenderCABlueYellow");
+    APRenderCASoftness = gSavedSettings.getF32("APRenderCASoftness");
+    APRenderColorBalanceShadsRed = gSavedSettings.getF32("APRenderColorBalanceShadsRed");
+    APRenderColorBalanceShadsGreen = gSavedSettings.getF32("APRenderColorBalanceShadsGreen");
+    APRenderColorBalanceShadsBlue = gSavedSettings.getF32("APRenderColorBalanceShadsBlue");
+    APRenderColorBalanceMidsRed = gSavedSettings.getF32("APRenderColorBalanceMidsRed");
+    APRenderColorBalanceMidsGreen = gSavedSettings.getF32("APRenderColorBalanceMidsGreen");
+    APRenderColorBalanceMidsBlue  = gSavedSettings.getF32("APRenderColorBalanceMidsBlue");
+    APRenderColorBalanceLitesRed = gSavedSettings.getF32("APRenderColorBalanceLitesRed");
+    APRenderColorBalanceLitesGreen = gSavedSettings.getF32("APRenderColorBalanceLitesGreen");
+    APRenderColorBalanceLitesBlue = gSavedSettings.getF32("APRenderColorBalanceLitesBlue");
+    APColorBalancePreserveLuma = gSavedSettings.getBOOL("APColorBalancePreserveLuma");
+    // <AP:WW>
     RenderShadowOffsetError = gSavedSettings.getF32("RenderShadowOffsetError");
     RenderShadowBiasError = gSavedSettings.getF32("RenderShadowBiasError");
     RenderShadowOffset = gSavedSettings.getF32("RenderShadowOffset");
@@ -1440,12 +1519,22 @@ void LLPipeline::createGLBuffers()
     GLuint resY = gViewerWindow->getWorldViewHeightRaw();
 
     // allocate screen space glow buffers
-    const U32 glow_res = llmax(1, llmin(512, 1 << gSavedSettings.getS32("RenderGlowResolutionPow")));
+    // Original line: Clamped resolution calculation to 512
+    // const U32 glow_res = llmax(1, llmin(512, 1 << gSavedSettings.getS32("RenderGlowResolutionPow")));
+
+    // <AP:WW> Increase max glow buffer resolution clamp to 4096 (requires Pow=12)
+    const U32 glow_res = llmax(1, llmin(4096, 1 << gSavedSettings.getS32("RenderGlowResolutionPow")));
+    // </AP:WW>
     const bool glow_hdr = gSavedSettings.getBOOL("RenderGlowHDR");
     const U32 glow_color_fmt = glow_hdr ? GL_RGBA16F : GL_RGBA;
     for (U32 i = 0; i < 3; i++)
     {
-        mGlow[i].allocate(512, glow_res, glow_color_fmt);
+        // Original line: Used hardcoded 512 for width, clamped glow_res for height
+        // mGlow[i].allocate(512, glow_res, glow_color_fmt);
+
+        // <AP:WW> Use calculated glow_res for both dimensions for square buffers up to 4096x4096
+        mGlow[i].allocate(glow_res, glow_res, glow_color_fmt);
+        // </AP:WW>
     }
 
     allocateScreenBuffer(resX, resY);
@@ -7557,12 +7646,19 @@ void LLPipeline::generateGlow(LLRenderTarget* src)
         mGlow[2].clear();
 
         gGlowExtractProgram.bind();
+        // <AP:WW> Restore RenderGlowMinLuminance functionality.
+        F32 minLum = llmax((F32)RenderGlowMinLuminance, 0.0f);
         F32 maxAlpha = RenderGlowMaxExtractAlpha;
         F32 warmthAmount = RenderGlowWarmthAmount;
         LLVector3 lumWeights = RenderGlowLumWeights;
         LLVector3 warmthWeights = RenderGlowWarmthWeights;
 
-        gGlowExtractProgram.uniform1f(LLShaderMgr::GLOW_MIN_LUMINANCE, 9999);
+        
+        // gGlowExtractProgram.uniform1f(LLShaderMgr::GLOW_MIN_LUMINANCE, 9999);
+        // NOTE: This threshold now applies to POST-TONEMAPPING luminance values (mostly 0.0-1.0 range).
+        // Values need to be adjusted accordingly (e.g., 0.7-0.9 might be typical).
+        gGlowExtractProgram.uniform1f(LLShaderMgr::GLOW_MIN_LUMINANCE, minLum);
+        // </AP:WW>
         gGlowExtractProgram.uniform1f(LLShaderMgr::GLOW_MAX_EXTRACT_ALPHA, maxAlpha);
         gGlowExtractProgram.uniform3f(LLShaderMgr::GLOW_LUM_WEIGHTS, lumWeights.mV[0], lumWeights.mV[1],
             lumWeights.mV[2]);
@@ -8575,12 +8671,37 @@ void LLPipeline::renderFinalize()
 
     final_shader.uniform2f(LLShaderMgr::DEFERRED_SCREEN_RES, (GLfloat)finalBuffer->getWidth(), (GLfloat)finalBuffer->getHeight());
 
-    // <AP:WW> ADD START: Set Saturation Uniform
+    // <AP:WW> Set Post Effect Uniforms
+    final_shader.uniform1f(LLShaderMgr::AP_CONTRAST, APRenderContrast);
+    final_shader.uniform1f(LLShaderMgr::AP_HIGHLIGHTS, APRenderHighlights);
+    final_shader.uniform1f(LLShaderMgr::AP_SHADOWS, APRenderShadows);
+    final_shader.uniform1f(LLShaderMgr::AP_WHITES, APRenderWhites);
+    final_shader.uniform1f(LLShaderMgr::AP_BLACKS, APRenderBlacks);
+    final_shader.uniform1f(LLShaderMgr::AP_CRUSH_BLACK, APRenderCrushBlacks);
+    final_shader.uniform1f(LLShaderMgr::AP_CRUSH_BLACK_FADE_END, APRenderCrushBlacksFadeEnd); 
+    final_shader.uniform1f(LLShaderMgr::AP_TEMPERATURE, APRenderTemperature);
+    final_shader.uniform1f(LLShaderMgr::AP_TINT, APRenderTint);
+    final_shader.uniform1f(LLShaderMgr::AP_VIBRANCE, APRenderVibrance);
+    final_shader.uniform1f(LLShaderMgr::AP_GRAIN_AMOUNT, APRenderGrainAmount);
+    final_shader.uniform1f(LLShaderMgr::AP_GRAIN_SIZE, APRenderGrainSize);
+    final_shader.uniform1f(LLShaderMgr::AP_GRAIN_ROUGHNESS, APRenderGrainRoughness);
     final_shader.uniform1f(LLShaderMgr::AP_SATURATION, APRenderSaturation);
-    // <AP:WW> ADD END: Set Saturation Uniform
-    // <AP:WW> ADD START: Set Luminance Weights Uniform
     final_shader.uniform3fv(LLShaderMgr::AP_LUMINANCE_WEIGHTS, 1, APLuminanceWeights.mV);
-    // <AP:WW> ADD END: Set Luminance Weights Uniform
+    final_shader.uniform1f(LLShaderMgr::AP_CA_RED_CYAN,       APRenderCARedCyan);
+    final_shader.uniform1f(LLShaderMgr::AP_CA_GREEN_MAGENTA,  APRenderCAGreenMagenta);
+    final_shader.uniform1f(LLShaderMgr::AP_CA_BLUE_YELLOW,    APRenderCABlueYellow);
+    final_shader.uniform1f(LLShaderMgr::AP_CA_SOFTNESS,    APRenderCASoftness);
+    final_shader.uniform1f(LLShaderMgr::AP_CB_SHADS_R, APRenderColorBalanceShadsRed);
+    final_shader.uniform1f(LLShaderMgr::AP_CB_SHADS_G, APRenderColorBalanceShadsGreen);
+    final_shader.uniform1f(LLShaderMgr::AP_CB_SHADS_B, APRenderColorBalanceShadsBlue);
+    final_shader.uniform1f(LLShaderMgr::AP_CB_MIDS_R,  APRenderColorBalanceMidsRed);
+    final_shader.uniform1f(LLShaderMgr::AP_CB_MIDS_G,  APRenderColorBalanceMidsGreen);
+    final_shader.uniform1f(LLShaderMgr::AP_CB_MIDS_B,  APRenderColorBalanceMidsBlue);
+    final_shader.uniform1f(LLShaderMgr::AP_CB_LITES_R, APRenderColorBalanceLitesRed);
+    final_shader.uniform1f(LLShaderMgr::AP_CB_LITES_G, APRenderColorBalanceLitesGreen);
+    final_shader.uniform1f(LLShaderMgr::AP_CB_LITES_B, APRenderColorBalanceLitesBlue);
+    final_shader.uniform1i(LLShaderMgr::AP_CB_PRESERVE_LUMA, (APColorBalancePreserveLuma ? 1 : 0));
+    // <AP:WW>
 
     {
         LLGLDepthTest depth_test(GL_TRUE, GL_TRUE, GL_ALWAYS);

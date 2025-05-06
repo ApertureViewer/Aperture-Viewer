@@ -16,7 +16,7 @@ class FSViewerManifest:
             'optimized': opt_string,
             'app_name_oneword':self.app_name_oneword()
             }
-		# <AP:WW> Viewer Rebrand
+        # <AP:WW> Viewer Rebrand
         return "%(app_name)s_%(optimized)s-%(version_dashes)s" % substitution_strings
 
     def fs_is_opensim(self):
@@ -65,7 +65,7 @@ class FSViewerManifest:
         metadata_file = os.getenv("CODESIGNING_METADATA_PATH")
         # at some point we might want to sign other DLLs as well.
         executable_paths = [
-        	# <AP:WW> Viewer Rebrand - though line  was already precommented out
+            # <AP:WW> Viewer Rebrand - though line  was already precommented out
             # self.args['configuration'] + "\\aperture-bin.exe", # no need to sign this we are not packaging it.
             self.args['configuration'] + "\\slplugin.exe",
             self.args['configuration'] + "\\SLVoice.exe",
@@ -130,7 +130,7 @@ class FSViewerManifest:
         self.fs_save_symbols("linux")
 
     def fs_linux_tar_excludes(self):
-    	# <AP:WW> Viewer Rebrand
+        # <AP:WW> Viewer Rebrand
         installer_name_components = ['Aperture',self.app_name(),self.args.get('arch'),'.'.join(self.args['version'])]
         installer_name = "_".join(installer_name_components)
         return "--exclude=%s/bin/.debug" % installer_name
@@ -138,25 +138,29 @@ class FSViewerManifest:
     def fs_save_windows_symbols(self):
         self.fs_save_symbols("windows")
 
-		# <AP:WW> Viewer Rebrand
+        # <AP:WW> Viewer Rebrand
         pdbName = "aperture.pdb"
         try:
             subprocess.check_call( [ "pdbcopy.exe" ,
-            						# <AP:WW> Viewer Rebrand
+                                    # <AP:WW> Viewer Rebrand
                                      self.args['configuration'] + "\\aperture.pdb", 
                                      self.args['configuration'] + "\\aperture-public.pdb",
                                      "-p"
                                  ], stderr=subprocess.PIPE,stdout=subprocess.PIPE )
-			# <AP:WW> Viewer Rebrand
+            # <AP:WW> Viewer Rebrand
             pdbName = "aperture-public.pdb"
         except:
             print("Cannot run pdbcopy, packaging private symbols")
 
-        tarName = "%s/Phoenix_%s_%s_%s_pdbsymbols-windows-%d.tar.xz" % (self.args['configuration'].lower(),
-                                                                        self.fs_channel_legacy_oneword(),
-                                                                        '-'.join(self.args['version']),
-                                                                        self.args['viewer_flavor'],
-                                                                        self.address_size)                                      
+        # <AP:WW> Viewer Rebrand: Use channel name directly for symbols tarball name
+        # Old: tarName = "%s/Aperture_%s_%s_%s_pdbsymbols-windows-%d.tar.xz" % (self.args['configuration'].lower(), ... )
+        # Corrected: Remove hardcoded "Aperture_" prefix
+        tarName = "%s/%s_%s_%s_pdbsymbols-windows-%d.tar.xz" % (self.args['configuration'].lower(),
+                                                                self.fs_channel_legacy_oneword(), # This function should return "Aperture-Pre-Beta" etc.
+                                                                '-'.join(self.args['version']),
+                                                                self.args['viewer_flavor'],
+                                                                self.address_size)
+        # </AP:WW>
         # Store windows symbols we want to keep for debugging in a tar file.
         symbolTar = tarfile.open( name=tarName, mode="w:xz")
         # <AP:WW> Viewer Rebrand
@@ -243,7 +247,7 @@ class FSViewerManifest:
         from shutil import rmtree
         import tarfile
 
-		# <AP:WW> Viewer Rebrand
+        # <AP:WW> Viewer Rebrand
         components = ['Aperture',self.app_name(),self.args.get('arch'),'.'.join(self.args['version'])]
         symbolsName = "_".join(components)
         symbolsName = symbolsName + "_" + self.args["viewer_flavor"] + "-" + osname + "-" + str(self.address_size) + ".tar.bz2"

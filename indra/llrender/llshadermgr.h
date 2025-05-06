@@ -363,12 +363,37 @@ public:
         SNAPSHOT_GUIDE_STYLE,               // "guide_style"
         SNAPSHOT_FRAME_RECT,                // "frame_rect"
         // </FS:Beq>
-        // <AP:WW> ADD START: Saturation Uniform Enum
+        // <AP:WW> Post Effects Uniforms Enum
         AP_SATURATION,                      // "ap_saturation" - Controls overall image saturation
-        // <AP:WW> ADD END: Saturation Uniform Enum
-        // <AP:WW> ADD START: Luminance Weights Uniform Enum
         AP_LUMINANCE_WEIGHTS,               // "ap_luminance_weights" - RGB weights for luminance calculation
-        // <AP:WW> ADD END: Luminance Weights Uniform Enum
+        AP_CONTRAST,                        // "ap_contrast"
+        AP_HIGHLIGHTS,                      // "ap_highlights"
+        AP_SHADOWS,                         // "ap_shadows"
+        AP_WHITES,                          // "ap_whites"
+        AP_BLACKS,                          // "ap_blacks"
+        AP_CRUSH_BLACK,                     // "ap_crush_black"
+        AP_CRUSH_BLACK_FADE_END,            // "ap_crush_black_fade_end"
+        AP_TEMPERATURE,                     // "ap_temperature"
+        AP_TINT,                            // "ap_tint"
+        AP_VIBRANCE,                        // "ap_vibrance"
+        AP_GRAIN_AMOUNT,                    // "ap_grain_amount"
+        AP_GRAIN_SIZE,                      // "ap_grain_size"
+        AP_GRAIN_ROUGHNESS,                 // "ap_grain_roughness"
+        AP_CA_RED_CYAN,                     // "ap_ca_red_cyan"
+        AP_CA_GREEN_MAGENTA,                // "ap_ca_green_magenta"
+        AP_CA_BLUE_YELLOW,                  // "ap_ca_blue_yellow"
+        AP_CA_SOFTNESS,                     // "ap_ca_softness"
+        AP_CB_SHADS_R,                      // "ap_cb_shads_r" - Color Balance Shadows Red/Cyan
+        AP_CB_SHADS_G,                      // "ap_cb_shads_g" - Color Balance Shadows Green/Magenta
+        AP_CB_SHADS_B,                      // "ap_cb_shads_b" - Color Balance Shadows Blue/Yellow
+        AP_CB_MIDS_R,                       // "ap_cb_mids_r"  - Color Balance Midtones Red/Cyan
+        AP_CB_MIDS_G,                       // "ap_cb_mids_g"  - Color Balance Midtones Green/Magenta
+        AP_CB_MIDS_B,                       // "ap_cb_mids_b"  - Color Balance Midtones Blue/Yellow
+        AP_CB_LITES_R,                      // "ap_cb_lites_r" - Color Balance Highlights Red/Cyan
+        AP_CB_LITES_G,                      // "ap_cb_lites_g" - Color Balance Highlights Green/Magenta
+        AP_CB_LITES_B,                      // "ap_cb_lites_b" - Color Balance Highlights Blue/Yellow
+        AP_CB_PRESERVE_LUMA,                // "ap_cb_preserve_luma" - Color Balance Preserve Luminosity (int/bool)
+        // <AP:WW>
         END_RESERVED_UNIFORMS
     } eGLSLReservedUniforms;
     // clang-format on

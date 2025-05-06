@@ -5,7 +5,7 @@
  * $LicenseInfo:firstyear=2007&license=viewerlgpl$
  * Second Life Viewer Source Code
  * Copyright (C) 2010, Linden Research, Inc.
- *
+ * Copyright (C) 2025, William Weaver (#paperwork sl)
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation;
@@ -35,9 +35,17 @@
 #include "llviewercontrol.h"
 #include "llenvironment.h"
 #include "llsettingssky.h"
+#include "llcamera.h" // For LLCamera and getView()
+#include "llviewerwindow.h" // For LLViewerWindow and getWindowHeightRaw()
+
+extern LLViewerWindow* gViewerWindow; // Declare as a POINTER
 
 constexpr U32 MIN_SKY_DETAIL = 8;
 constexpr U32 MAX_SKY_DETAIL = 180;
+
+constexpr U32 NUM_PRIMARY_STARS = 120000; // e.g., Brighter procedural stars (or future catalog size)
+constexpr U32 NUM_DUST_STARS = 500000;    // Fainter procedural stars for density
+constexpr U32 TOTAL_STARS = (NUM_PRIMARY_STARS + NUM_DUST_STARS); 
 
 inline U32 LLVOWLSky::getNumStacks(void)
 {
@@ -61,12 +69,13 @@ inline U32 LLVOWLSky::getStripsNumIndices(void)
 
 inline U32 LLVOWLSky::getStarsNumVerts(void)
 {
-    return 1000;
+    // Return the combined total number of stars
+    return TOTAL_STARS;
 }
 
 inline U32 LLVOWLSky::getStarsNumIndices(void)
 {
-    return 1000;
+    return getStarsNumVerts() * 1000; // Theoretical max if indexed is 6 yet in original code it is set to 1000 - need to investigate
 }
 
 LLVOWLSky::LLVOWLSky(const LLUUID &id, const LLPCode pcode, LLViewerRegion *regionp)
@@ -97,7 +106,6 @@ LLDrawable * LLVOWLSky::createDrawable(LLPipeline * pipeline)
     return mDrawable;
 }
 
-// a tiny helper function for controlling the sky dome tesselation.
 inline F32 calcPhi(const U32 &i, const F32 &reciprocal_num_stacks)
 {
     // Calc: PI/8 * 1-((1-t^4)*(1-t^4))  { 0<t<1 }
@@ -289,7 +297,7 @@ void LLVOWLSky::drawStars(void)
     if (mStarsVerts.notNull())
     {
         mStarsVerts->setBuffer();
-        mStarsVerts->drawArrays(LLRender::TRIANGLES, 0, getStarsNumVerts()*4);
+        mStarsVerts->drawArrays(LLRender::TRIANGLES, 0, getStarsNumVerts()*6); // this is being changed from 4 to 6 to correct the vertex count passed to the drawing function to match how the star geometry is actually built in updateStarGeometry.
     }
 }
 
@@ -335,41 +343,204 @@ void LLVOWLSky::drawDome(void)
     LLVertexBuffer::unbind();
 }
 
+LLColor4 LLVOWLSky::blackBodyColor(F32 temperature)
+{
+    LLColor4 color;
+    temperature /= 100.0f;
+
+    // Red
+    if (temperature <= 66.0f) {
+        color.mV[VRED] = 1.0f;
+    } else {
+        color.mV[VRED] = temperature - 60.0f;
+        color.mV[VRED] = 329.698727446f * pow(color.mV[VRED], -0.1332047592f);
+        color.mV[VRED] = llclamp(color.mV[VRED] / 255.0f, 0.0f, 1.0f);
+    }
+
+    // Green
+    if (temperature <= 66.0f) {
+        color.mV[VGREEN] = temperature;
+        color.mV[VGREEN] = 99.4708025861f * log(color.mV[VGREEN]) - 161.1195681661f;
+        color.mV[VGREEN] = llclamp(color.mV[VGREEN] / 255.0f, 0.0f, 1.0f);
+    } else {
+        color.mV[VGREEN] = temperature - 60.0f;
+        color.mV[VGREEN] = 288.1221695283f * pow(color.mV[VGREEN], -0.0755148492f);
+        color.mV[VGREEN] = llclamp(color.mV[VGREEN] / 255.0f, 0.0f, 1.0f);
+    }
+
+    // Blue
+    if (temperature >= 66.0f) {
+        color.mV[VBLUE] = 1.0f;
+    } else if (temperature <= 19.0f) {
+        color.mV[VBLUE] = 0.0f;
+    } else {
+        color.mV[VBLUE] = temperature - 10;
+        color.mV[VBLUE] = 138.5177312231f * log(color.mV[VBLUE]) - 305.0447927307f;
+        color.mV[VBLUE] = llclamp(color.mV[VBLUE] / 255.0f, 0.0f, 1.0f);
+    }
+
+    color.mV[VALPHA] = 1.0f;
+    return color;
+}
+void generateProceduralStars(
+    U32 count, U32 startIndex,
+    F32 min_intensity, F32 max_intensity, F32 brightness_exponent, F32 color_variation,
+    std::vector<LLVector3>& vertices, std::vector<LLColor4>& colors, std::vector<F32>& intensities);
+
+// The main initStars function orchestrates the generation
 void LLVOWLSky::initStars()
+{
+    // Resize vectors to hold ALL stars (primary + dust)
+    mStarVertices.resize(TOTAL_STARS);
+    mStarColors.resize(TOTAL_STARS);
+    mStarIntensities.resize(TOTAL_STARS);
+
+    // --- Phase 1: Generate Primary Stars ---
+    // Use parameters similar to the original code for brighter stars
+    const F32 primary_min_intensity = 0.05f;
+    const F32 primary_max_intensity = 1.0f;
+    const F32 primary_brightness_exponent = 3.5f;
+    const F32 primary_color_variation = 0.30f;
+
+    generateProceduralStars(
+        NUM_PRIMARY_STARS, 0, // Generate NUM_PRIMARY_STARS starting at index 0
+        primary_min_intensity, primary_max_intensity, primary_brightness_exponent, primary_color_variation,
+        mStarVertices, mStarColors, mStarIntensities
+    );
+
+    // --- Phase 2: Generate Dust Stars ---
+    // Use parameters for much fainter stars
+    const F32 dust_min_intensity = 0.01f;       // Lower minimum intensity
+    const F32 dust_max_intensity = 0.15f;       // SIGNIFICANTLY lower maximum intensity
+    const F32 dust_brightness_exponent = 5.0f;  // Higher exponent skews towards faintness
+    const F32 dust_color_variation = 0.15f;     // Less color variation for faint dust
+
+    generateProceduralStars(
+        NUM_DUST_STARS, NUM_PRIMARY_STARS, // Generate NUM_DUST_STARS starting after primary stars
+        dust_min_intensity, dust_max_intensity, dust_brightness_exponent, dust_color_variation,
+        mStarVertices, mStarColors, mStarIntensities
+    );
+}
+
+void LLVOWLSky::generateProceduralStars(
+    U32 count, U32 startIndex,
+    F32 min_intensity, F32 max_intensity, F32 brightness_exponent, F32 color_variation,
+    std::vector<LLVector3>& vertices, std::vector<LLColor4>& colors, std::vector<F32>& intensities)
 {
     const F32 DISTANCE_TO_STARS = LLEnvironment::instance().getCurrentSky()->getDomeRadius();
 
-    // Initialize star map
-    mStarVertices.resize(getStarsNumVerts());
-    mStarColors.resize(getStarsNumVerts());
-    mStarIntensities.resize(getStarsNumVerts());
+    // Milky Way Settings (Can be kept the same for both layers, or adjusted)
+    const bool enable_milky_way = true;
+    const F32 milky_way_density_factor = 15.0f;
+    LLVector3 milky_way_normal(0.5f, 0.0f, 0.866f);
+    milky_way_normal.normVec();
+    const F32 milky_way_thickness_factor = 0.4f;
 
-    std::vector<LLVector3>::iterator v_p = mStarVertices.begin();
-    std::vector<LLColor4>::iterator v_c = mStarColors.begin();
-    std::vector<F32>::iterator v_i = mStarIntensities.begin();
+    // Pointers to the correct starting position in the vectors
+    std::vector<LLVector3>::iterator v_p = vertices.begin() + startIndex;
+    std::vector<LLColor4>::iterator v_c = colors.begin() + startIndex;
+    std::vector<F32>::iterator v_i = intensities.begin() + startIndex;
 
-    U32 i;
+    // Temperature range for black body color calculation (Kelvin)
+    const F32 min_temperature = 3000.0f; // Cool Red M-type approx
+    const F32 max_temperature = 25000.0f; // Hot Blue/White B/O-type approx (Reduced from 30k for potentially better spread)
+    const F32 temperature_range = max_temperature - min_temperature;
 
-    for (i = 0; i < getStarsNumVerts(); ++i)
+    U32 stars_generated = 0;
+    while (stars_generated < count) // Loop only for the specified 'count'
     {
-        v_p->mV[VX] = ll_frand() - 0.5f;
-        v_p->mV[VY] = ll_frand() - 0.5f;
+        // 1. Generate a candidate position randomly on a full sphere
+        LLVector3 candidate_pos;
+        candidate_pos.mV[VX] = ll_frand() * 2.0f - 1.0f;
+        candidate_pos.mV[VY] = ll_frand() * 2.0f - 1.0f;
+        candidate_pos.mV[VZ] = ll_frand() * 2.0f - 1.0f;
 
-        // we only want stars on the top half of the dome!
+        if (candidate_pos.magVec() < 1e-6f) { continue; }
+        candidate_pos.normVec();
 
-        v_p->mV[VZ] = ll_frand()/2.f;
+        // 2. Ensure the star is in the upper hemisphere (Optional - currently commented out)
+        // if (candidate_pos.mV[VZ] < -0.01f) { continue; }
 
-        v_p->normVec();
-        *v_p *= DISTANCE_TO_STARS;
-        *v_i = llmin((F32)pow(ll_frand(),2.f) + 0.1f, 1.f);
-        v_c->mV[VRED]   = 0.75f + ll_frand() * 0.25f ;
-        v_c->mV[VGREEN] = 1.f ;
-        v_c->mV[VBLUE]  = 0.75f + ll_frand() * 0.25f ;
-        v_c->mV[VALPHA] = 1.f;
-        v_c->clamp();
+        // 3. Determine probability based on Milky Way simulation
+        F32 acceptance_probability = 1.0f;
+        if (enable_milky_way)
+        {
+            F32 dist_from_plane = fabsf(candidate_pos * milky_way_normal);
+            acceptance_probability *= pow(1.0f - dist_from_plane, 1.0f / milky_way_thickness_factor) * (milky_way_density_factor - 1.0f) + 1.0f;
+        }
+
+        // 4. Probabilistically decide whether to keep this star
+        if (ll_frand() * acceptance_probability < 1.0f) { continue; }
+
+        // --- Accept the star ---
+
+        // 5. Assign Final Position (Using Distance Tiers)
+        F32 distance_scale = DISTANCE_TO_STARS;
+        F32 distance_tier1 = DISTANCE_TO_STARS * 1.0f;
+        F32 distance_tier2 = DISTANCE_TO_STARS * 100.0f;
+        F32 distance_tier3 = DISTANCE_TO_STARS * 1000.0f;
+        F32 prob = ll_frand();
+        if (prob < 0.15) { distance_scale = distance_tier1; }
+        else if (prob > .50) { distance_scale = distance_tier3; }
+        else { distance_scale = distance_tier2; }
+         *v_p = candidate_pos * distance_scale;
+
+        // 6. Calculate Intrinsic Intensity (BEFORE distance dimming)
+        //    (Using the original reverted calculation method)
+        F32 intensity = pow(ll_frand(), brightness_exponent + (ll_frand() - 0.5f) * 1.0f);
+        intensity = min_intensity + intensity * (max_intensity - min_intensity);
+        intensity = llclamp(intensity, min_intensity, max_intensity); // Clamp to the layer's max BEFORE dimming
+
+        // Store the intensity *before* distance dimming for color calculation
+        F32 intensity_for_color = intensity;
+
+        // Apply Dimming based on Distance to get the final intensity for brightness/size
+        F32 distance_dim_factor = 1.0f;
+        if (distance_scale == distance_tier2) { distance_dim_factor = 0.50f; }
+        else if (distance_scale == distance_tier3) { distance_dim_factor = 0.10f; }
+        intensity *= distance_dim_factor; // Apply dimming
+        intensity = llmax(intensity, 0.0f); // Ensure not negative after dimming
+        *v_i = intensity; // Assign final intensity (for brightness/size/twinkle)
+
+
+        // 7. Calculate Color (Using intensity_for_color)
+        F32 intensity_factor_for_color = 0.0f;
+        float layer_intensity_range = max_intensity - min_intensity;
+        if (layer_intensity_range > 1e-5f) // Avoid divide by zero
+        {
+             // Calculate factor based on where the PRE-DIMMING intensity falls in the layer's range
+             intensity_factor_for_color = (intensity_for_color - min_intensity) / layer_intensity_range;
+             intensity_factor_for_color = llclamp(intensity_factor_for_color, 0.0f, 1.0f); // Clamp factor
+        }
+
+        // Calculate temperature using a non-linear mapping for better visual spread
+        // pow(factor, N) where N < 1 pushes values towards max_temperature (makes more stars bluish)
+        // pow(factor, N) where N > 1 pushes values towards min_temperature (makes more stars reddish)
+        // Let's try N = 0.6 to slightly emphasize brighter/bluer colors visually. TUNABLE!
+        float color_curve_exponent = 3.0f;
+        float curved_intensity_factor = pow(intensity_factor_for_color, color_curve_exponent);
+
+        F32 temperature = min_temperature + curved_intensity_factor * temperature_range;
+        // Clamp temperature just in case pow calculation gives unexpected results at edges
+        temperature = llclamp(temperature, min_temperature, max_temperature);
+
+        LLColor4 star_color = blackBodyColor(temperature);
+
+        // Add random color variation (using parameter passed to the function)
+        // Optional: Reduce random variation if the base colors are now distinct enough?
+        // const F32 reduced_color_variation = color_variation * 0.5f; // Example
+        star_color.mV[VRED]   += (ll_frand() * 2.0f - 1.0f) * color_variation; // Using original variation for now
+        star_color.mV[VGREEN] += (ll_frand() * 2.0f - 1.0f) * color_variation;
+        star_color.mV[VBLUE]  += (ll_frand() * 2.0f - 1.0f) * color_variation;
+        star_color.mV[VALPHA] = 1.0f;
+        star_color.clamp();
+        *v_c = star_color; // Assign final color
+
+        // Increment iterators and count
         v_p++;
         v_c++;
         v_i++;
+        stars_generated++;
     }
 }
 
@@ -515,32 +686,36 @@ bool LLVOWLSky::updateStarGeometry(LLDrawable *drawable)
     LLStrider<LLVector3> verticesp;
     LLStrider<LLColor4U> colorsp;
     LLStrider<LLVector2> texcoordsp;
+    LLStrider<F32> intensityp; 
+
 
     if (mStarsVerts.isNull())
     {
         mStarsVerts = new LLVertexBuffer(LLDrawPoolWLSky::STAR_VERTEX_DATA_MASK);
         if (!mStarsVerts->allocateBuffer(getStarsNumVerts()*6, 0))
         {
-            LL_WARNS() << "Failed to allocate Vertex Buffer for Sky to " << getStarsNumVerts() * 6 << " vertices" << LL_ENDL;
+             return false;
         }
     }
 
     bool success = mStarsVerts->getVertexStrider(verticesp)
         && mStarsVerts->getColorStrider(colorsp)
-        && mStarsVerts->getTexCoord0Strider(texcoordsp);
+        && mStarsVerts->getTexCoord0Strider(texcoordsp)
+        && mStarsVerts->getWeightStrider(intensityp); 
 
     if(!success)
-    {
-        LL_ERRS() << "Failed updating star geometry." << LL_ENDL;
-    }
+        {
 
-    // *TODO: fix LLStrider with a real prefix increment operator so it can be
-    // used as a model of OutputIterator. -Brad
-    // std::copy(mStarVertices.begin(), mStarVertices.end(), verticesp);
+            mStarsVerts->unmapBuffer(); 
+            return false; 
+        }
 
-    if (mStarVertices.size() < getStarsNumVerts())
+
+    if (mStarVertices.size() < getStarsNumVerts() || mStarIntensities.size() < getStarsNumVerts())
+
     {
-        LL_ERRS() << "Star reference geometry insufficient." << LL_ENDL;
+        mStarsVerts->unmapBuffer();
+        return false; 
     }
 
     for (U32 vtx = 0; vtx < getStarsNumVerts(); ++vtx)
@@ -550,7 +725,118 @@ bool LLVOWLSky::updateStarGeometry(LLDrawable *drawable)
         LLVector3 left = at%LLVector3(0,0,1);
         LLVector3 up = at%left;
 
-        F32 sc = 16.0f + (ll_frand() * 20.0f);
+        // Get the distance scale of the star:
+        F32 distance_scale = 1.0f; // Default to 1.0 if not found for some reason
+
+        //Get some of the vars so that we can do an accurate scale
+        const F32 DISTANCE_TO_STARS = LLEnvironment::instance().getCurrentSky()->getDomeRadius();
+        F32 distance_tier1 = DISTANCE_TO_STARS * 1.0f;
+        F32 distance_tier2 = DISTANCE_TO_STARS * 100.0f;
+        F32 distance_tier3 = DISTANCE_TO_STARS * 1000.0f;
+
+        // Find what "distance_scale" the particular star is at:
+        if (at.magVec() > (distance_tier3 - 0.1f) )
+        {
+            distance_scale = distance_tier3;
+        }
+        else if (at.magVec() > (distance_tier2 - 0.1f))
+        {
+            distance_scale = distance_tier2;
+        }
+        else
+        {
+            distance_scale = distance_tier1;
+        }
+
+        // Get the vertical field of view (FOV) in radians from the camera
+        const F32 FOV_RADIANS = LLViewerCamera::instance().getView();
+
+        // Get the window height in pixels from the viewer window
+        const F32 screen_height = (F32)gViewerWindow->getWindowHeightRaw();  // INITIALIZED
+        const F32 screen_width  = (F32)gViewerWindow->getWindowWidthRaw();   // INITIALIZED;
+
+        //Goal, should that be needed.
+        const F32 pixel_aspect_ratio = screen_width/screen_height;
+
+        // Resolution-dependent base size calculations (crucially important!)
+        // Start with base size assuming a one pixel object at "distance_tier3":
+        F32 base_tier3 = distance_tier3 / (screen_height / (2.0f * tanf(FOV_RADIANS / 2.0f)));
+
+        // Now Adjust for Tier sizes!
+        F32 base_tier2 = distance_tier2 / (screen_height / (2.0f * tanf(FOV_RADIANS / 2.0f)));
+        F32 base_tier1 = distance_tier1 / (screen_height / (2.0f * tanf(FOV_RADIANS / 2.0f)));
+
+
+        //Now base can be properly set via the values above:
+        F32 base;
+
+        if (distance_scale == distance_tier3) {
+           base = base_tier3;
+        } else if (distance_scale == distance_tier2) {
+            base = base_tier2;
+        } else
+        {
+            base = base_tier1;
+        }
+
+        // --- NEW RESOLUTION-DEPENDENT SCALING START ---
+
+        // --- Define Screen Height Thresholds ---
+        // These define the upper bounds of each resolution category (exclusive for next category)
+        const F32 height_720p = 720.0f;
+        const F32 height_1080p = 1080.0f;
+        const F32 height_4k_approx = 2160.0f; // Approximate 4K height
+        // Anything above height_4k_approx is considered "8K+" category
+
+        // --- Define Max Apparent Pixel Size *Ratio* for Each Range ---
+        // Set the desired maximum apparent size (as a ratio to the 1-pixel base)
+        // for the brightest stars within each resolution category.
+        // ** THESE ARE THE VALUES YOU WILL TUNE **
+        F32 target_max_pixel_ratio = 4.0f; // Default value (used for 8K+ or if somehow missed)
+
+        if (screen_height <= height_720p)
+        {
+            // --- <= 720p ---
+            target_max_pixel_ratio = 1.33f; // Example: Max 2.0x size at 720p or lower
+        }
+        else if (screen_height <= height_1080p)
+        {
+            // --- >720p and <= 1080p ---
+            target_max_pixel_ratio = 2.0f; // Example: Max 2.5x size up to 1080p
+        }
+        else if (screen_height <= height_4k_approx)
+        {
+            // --- >1080p and <= 4K ---
+            target_max_pixel_ratio = 4.0f; // Example: Max 3.0x size up to 4K
+        }
+        else
+        {
+            // --- >4K (Considered 8K+) ---
+            target_max_pixel_ratio = 8.0f; // Example: Max 4.0x size for >4K
+        }
+
+        // --- Calculate the world size scale based on the chosen ratio ---
+
+        // 1. The minimum world size needed is simply 'base' (for the ~1-pixel target).
+        const F32 min_world_size = base;
+
+        // 2. Calculate the *additional* world size needed to scale from the 1-pixel
+        //    target up to the 'target_max_pixel_ratio'.
+        //    additional_size = base * (target_max_pixel_ratio - 1.0f)
+        F32 world_size_influence = base * (target_max_pixel_ratio - 1.0f);
+
+        //    Safety check: Ensure influence isn't negative if ratio was somehow set < 1.0
+        if (world_size_influence < 0.0f) {
+            world_size_influence = 0.0f;
+        }
+
+        // 3. Calculate the final world size scale ('sc') for this specific star
+        //    by interpolating based on its intensity using the calculated influence.
+        //    sc = min_world_size + intensity * additional_size
+        F32 sc = min_world_size + mStarIntensities[vtx] * world_size_influence;
+        // --- NEW RESOLUTION-DEPENDENT SCALING END ---
+
+        // Apply the final scale 'sc'
         left *= sc;
         up *= sc;
 
@@ -586,6 +872,16 @@ bool LLVOWLSky::updateStarGeometry(LLDrawable *drawable)
         *(colorsp++)    = color4u;
 
         // </FS:ND>
+        
+        // <AP:WW> Write Intensity Data </AP:WW>
+        float current_intensity = mStarIntensities[vtx];
+        *(intensityp++) = current_intensity;
+        *(intensityp++) = current_intensity;
+        *(intensityp++) = current_intensity;
+        *(intensityp++) = current_intensity;
+        *(intensityp++) = current_intensity;
+        *(intensityp++) = current_intensity;
+        // <AP:WW>
 
     }
 

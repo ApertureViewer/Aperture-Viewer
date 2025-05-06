@@ -70,7 +70,7 @@ const char FEATURE_TABLE_FILENAME[] = "featuretable_mac.txt";
 #elif LL_LINUX
 const char FEATURE_TABLE_FILENAME[] = "featuretable_linux.txt";
 #else
-const char FEATURE_TABLE_FILENAME[] = "featuretable.txt";
+const char FEATURE_TABLE_FILENAME[] = "featuretable_aperture.txt";
 #endif
 
 #if 0                               // consuming code in #if 0 below
@@ -190,13 +190,15 @@ void LLFeatureList::dump()
 }
 
 static const std::vector<std::string> sGraphicsLevelNames = boost::assign::list_of
-    ("Low")
-    ("LowMid")
-    ("Mid")
-    ("MidHigh")
-    ("High")
-    ("HighUltra")
-    ("Ultra")
+    ("AP_Level_0_Essential_Visuals")   // Level 0
+    ("AP_Level_1_HDR_Foundation")      // Level 1
+    ("AP_Level_2_Shadows")             // Level 2
+    ("AP_Level_3_SSAO")                // Level 3
+    ("AP_Level_4_DOF")                 // Level 4
+    ("AP_Level_5_SSR")                 // Level 5
+    ("AP_Level_6_Mirrors")             // Level 6
+    ("AP_Level_7_Rich_Candy")          // Level 7
+    ("AP_Level_8_Full_Candy")          // Level 8
 ;
 
 U32 LLFeatureManager::getMaxGraphicsLevel() const
@@ -265,10 +267,6 @@ bool LLFeatureManager::loadFeatureTables()
     // *TODO - if I or anyone else adds something else to the skipped list
     // make this data driven.  Put it in the feature table and parse it
     // correctly
-    mSkippedFeatures.insert("RenderAnisotropic");
-    mSkippedFeatures.insert("RenderGamma");
-    mSkippedFeatures.insert("RenderVBOEnable");
-    mSkippedFeatures.insert("RenderFogRatio");
 
     // first table is install with app
     std::string app_path = gDirUtilp->getAppRODataDir();

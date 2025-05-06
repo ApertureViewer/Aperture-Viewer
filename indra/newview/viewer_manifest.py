@@ -751,6 +751,7 @@ class Windows_x86_64_Manifest(ViewerManifest):
 
         self.path(src="licenses-win32.txt", dst="licenses.txt")
         self.path("featuretable.txt")
+        self.path("featuretable_aperture.txt")
         self.path("cube.dae")
 
         with self.prefix(src=pkgdir):

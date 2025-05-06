@@ -1415,7 +1415,7 @@ void LLReflectionMapManager::renderDebug()
 void LLReflectionMapManager::initReflectionMaps()
 {
     static LLCachedControl<U32> ref_probe_res(gSavedSettings, "RenderReflectionProbeResolution", 128U);
-    U32 probe_resolution = nhpo2(llclamp(ref_probe_res(), (U32)64, (U32)512));
+    U32 probe_resolution = nhpo2(llclamp(ref_probe_res(), (U32)64, (U32)2048));
     if (mTexture.isNull() || mReflectionProbeCount != mDynamicProbeCount || mProbeResolution != probe_resolution || mReset)
     {
         if(mProbeResolution != probe_resolution)

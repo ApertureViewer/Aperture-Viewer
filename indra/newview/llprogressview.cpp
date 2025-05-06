@@ -138,8 +138,8 @@ bool LLProgressView::postBuild()
     mLogosLabel = getChild<LLTextBox>("logos_lbl");
 
     mProgressText = getChild<LLTextBox>("progress_text");
-    mMessageText = getChild<LLTextBox>("message_text");
-    mMessageTextRectInitial = mMessageText->getRect(); // auto resizes, save initial size
+    // mMessageText = getChild<LLTextBox>("message_text");
+    // mMessageTextRectInitial = mMessageText->getRect(); // auto resizes, save initial size
 
     // media control that is used to play intro video
     mMediaCtrl = getChild<LLMediaCtrl>("login_media_panel");
@@ -152,14 +152,14 @@ bool LLProgressView::postBuild()
     mCancelBtn->setClickedCallback(  LLProgressView::onCancelButtonClicked, NULL );
 
     mLayoutPanel4 = getChild<LLView>("panel4");
-    mLayoutPanel4RectInitial = mLayoutPanel4->getRect();
+    // mLayoutPanel4RectInitial = mLayoutPanel4->getRect();
 
-    mLayoutMOTD = getChild<LLView>("panel_motd");
-    mLayoutMOTDRectInitial = mLayoutMOTD->getRect();
+    // mLayoutMOTD = getChild<LLView>("panel_motd");
+    // mLayoutMOTDRectInitial = mLayoutMOTD->getRect();
 
-    getChild<LLTextBox>("title_text")->setText(LLStringExplicit(LLAppViewer::instance()->getSecondLifeTitle()));
+    // getChild<LLTextBox>("title_text")->setText(LLStringExplicit(LLAppViewer::instance()->getSecondLifeTitle()));
 
-    getChild<LLTextBox>("message_text")->setClickedCallback(onClickMessage, this);
+    // getChild<LLTextBox>("message_text")->setClickedCallback(onClickMessage, this);
 
     // hidden initially, until we need it
     setVisible(false);
@@ -419,23 +419,23 @@ void LLProgressView::setPercent(const F32 percent)
     mProgressBar->setValue(percent);
 }
 
-void LLProgressView::setMessage(const std::string& msg)
-{
-    mMessage = msg;
-    mMessageText->setValue(mMessage);
-    S32 height = mMessageText->getTextPixelHeight();
-    S32 delta  = height - mMessageTextRectInitial.getHeight();
-    if (delta > 0)
-    {
-        mLayoutPanel4->reshape(mLayoutPanel4RectInitial.getWidth(), mLayoutPanel4RectInitial.getHeight() + delta);
-        mLayoutMOTD->reshape(mLayoutMOTDRectInitial.getWidth(), mLayoutMOTDRectInitial.getHeight() + delta);
-    }
-    else
-    {
-        mLayoutPanel4->reshape(mLayoutPanel4RectInitial.getWidth(), mLayoutPanel4RectInitial.getHeight());
-        mLayoutMOTD->reshape(mLayoutMOTDRectInitial.getWidth(), mLayoutMOTDRectInitial.getHeight());
-    }
-}
+// void LLProgressView::setMessage(const std::string& msg)
+// {
+    // mMessage = msg;
+    // mMessageText->setValue(mMessage);
+    // S32 height = mMessageText->getTextPixelHeight();
+    // S32 delta  = height - mMessageTextRectInitial.getHeight();
+    // if (delta > 0)
+    // {
+        // mLayoutPanel4->reshape(mLayoutPanel4RectInitial.getWidth(), mLayoutPanel4RectInitial.getHeight() + delta);
+        // mLayoutMOTD->reshape(mLayoutMOTDRectInitial.getWidth(), mLayoutMOTDRectInitial.getHeight() + delta);
+    // }
+    // else
+    // {
+        // mLayoutPanel4->reshape(mLayoutPanel4RectInitial.getWidth(), mLayoutPanel4RectInitial.getHeight());
+        // mLayoutMOTD->reshape(mLayoutMOTDRectInitial.getWidth(), mLayoutMOTDRectInitial.getHeight());
+    // }
+// }
 
 void LLProgressView::loadLogo(const std::string &path,
                               const U8 image_codec,
@@ -499,9 +499,9 @@ void LLProgressView::initLogos()
 #ifdef LL_FMODSTUDIO
     // original image size is 264x96, it is on longer side but
     // with no internal paddings so it gets additional padding
-    icon_width = 77;
-    icon_height = 21;
-    S32 pad_fmod_y = 4;
+    icon_width = 61;
+    icon_height = 16;
+    S32 pad_fmod_y = 0;
     texture_start_x++;
     loadLogo(temp_str + "fmod_logo.png",
         image_codec,
@@ -514,8 +514,8 @@ void LLProgressView::initLogos()
 #ifdef LL_HAVOK
     // original image size is 342x113, central element is on a larger side
     // plus internal padding, so it gets slightly more height than desired 32
-    icon_width = 88;
-    icon_height = 29;
+    icon_width = 48;
+    icon_height = 16;
     S32 pad_havok_y = -1;
     loadLogo(temp_str + "havok_logo.png",
         image_codec,
@@ -527,11 +527,17 @@ void LLProgressView::initLogos()
 #endif //LL_HAVOK
 
     // 108x41
-    icon_width = 74;
-    icon_height = default_height;
+    icon_width = 53;
+    icon_height = 16;
+
+    S32 pad_vivox_y = 0; //<AP:WW> Adding the right padding for layout
+
     loadLogo(temp_str + "vivox_logo.png",
         image_codec,
-        LLRect(texture_start_x, texture_start_y + icon_height, texture_start_x + icon_width, texture_start_y),
+        LLRect(texture_start_x,
+               texture_start_y + pad_vivox_y + icon_height, // Apply padding to Top Y
+               texture_start_x + icon_width,
+               texture_start_y + pad_vivox_y),              // Apply padding to Bottom
         default_clip,
         default_clip);
 }
@@ -657,32 +663,32 @@ void LLProgressView::onCancelButtonClicked(void*)
 }
 
 // static
-void LLProgressView::onClickMessage(void* data)
-{
-    LLProgressView* viewp = (LLProgressView*)data;
-    if ( viewp != NULL && ! viewp->mMessage.empty() )
-    {
-        std::string url_to_open( "" );
+// void LLProgressView::onClickMessage(void* data)
+// {
+    // LLProgressView* viewp = (LLProgressView*)data;
+    // if ( viewp != NULL && ! viewp->mMessage.empty() )
+    // {
+        // std::string url_to_open( "" );
 
-        size_t start_pos;
-        start_pos = viewp->mMessage.find( "https://" );
-        if (start_pos == std::string::npos)
-            start_pos = viewp->mMessage.find( "http://" );
-        if (start_pos == std::string::npos)
-            start_pos = viewp->mMessage.find( "ftp://" );
+        // size_t start_pos;
+        // start_pos = viewp->mMessage.find( "https://" );
+        // if (start_pos == std::string::npos)
+            // start_pos = viewp->mMessage.find( "http://" );
+        // if (start_pos == std::string::npos)
+            // start_pos = viewp->mMessage.find( "ftp://" );
 
-        if ( start_pos != std::string::npos )
-        {
-            size_t end_pos = viewp->mMessage.find_first_of( " \n\r\t", start_pos );
-            if ( end_pos != std::string::npos )
-                url_to_open = viewp->mMessage.substr( start_pos, end_pos - start_pos );
-            else
-                url_to_open = viewp->mMessage.substr( start_pos );
+        // if ( start_pos != std::string::npos )
+        // {
+            // size_t end_pos = viewp->mMessage.find_first_of( " \n\r\t", start_pos );
+            // if ( end_pos != std::string::npos )
+                // url_to_open = viewp->mMessage.substr( start_pos, end_pos - start_pos );
+            // else
+                // url_to_open = viewp->mMessage.substr( start_pos );
 
-            LLWeb::loadURLExternal( url_to_open );
-        }
-    }
-}
+            // LLWeb::loadURLExternal( url_to_open );
+        // }
+    // }
+// }
 
 bool LLProgressView::handleUpdate(const LLSD& event_data)
 {
@@ -690,10 +696,10 @@ bool LLProgressView::handleUpdate(const LLSD& event_data)
     LLSD desc = event_data.get("desc");
     LLSD percent = event_data.get("percent");
 
-    if(message.isDefined())
-    {
-        setMessage(message.asString());
-    }
+    // if(message.isDefined())
+    // {
+        // setMessage(message.asString());
+    // }
 
     if(desc.isDefined())
     {

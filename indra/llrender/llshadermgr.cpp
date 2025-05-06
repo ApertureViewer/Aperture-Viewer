@@ -1527,12 +1527,41 @@ void LLShaderMgr::initAttribsAndUniforms()
     mReservedUniforms.push_back("guide_style");
     mReservedUniforms.push_back("frame_rect");
     // </FS:Beq>
-    // <AP:WW> ADD START: Saturation Uniform Name String
+    // <AP:WW> Saturation Uniform Name String
     mReservedUniforms.push_back("ap_saturation");
-    // <AP:WW> ADD END: Saturation Uniform Name String
-    // <AP:WW> ADD START: Luminance Weights Uniform Name String
+    // <AP:WW>
+    // <AP:WW> Luminance Weights Uniform Name String
     mReservedUniforms.push_back("ap_luminance_weights");
-    // <AP:WW> ADD END: Luminance Weights Uniform Name String
+    // <AP:WW>
+    // <AP:WW> Post Effects Unifrom Name Strings
+    mReservedUniforms.push_back("ap_contrast");
+    mReservedUniforms.push_back("ap_highlights");
+    mReservedUniforms.push_back("ap_shadows");
+    mReservedUniforms.push_back("ap_whites");
+    mReservedUniforms.push_back("ap_blacks");
+    mReservedUniforms.push_back("ap_crush_black");
+    mReservedUniforms.push_back("ap_crush_black_fade_end");
+    mReservedUniforms.push_back("ap_temperature");
+    mReservedUniforms.push_back("ap_tint");
+    mReservedUniforms.push_back("ap_vibrance");
+    mReservedUniforms.push_back("ap_grain_amount");
+    mReservedUniforms.push_back("ap_grain_size");
+    mReservedUniforms.push_back("ap_grain_roughness");
+    mReservedUniforms.push_back("ap_ca_red_cyan");
+    mReservedUniforms.push_back("ap_ca_green_magenta");
+    mReservedUniforms.push_back("ap_ca_blue_yellow");
+    mReservedUniforms.push_back("ap_ca_softness");
+    mReservedUniforms.push_back("ap_cb_shads_r");
+    mReservedUniforms.push_back("ap_cb_shads_g");
+    mReservedUniforms.push_back("ap_cb_shads_b");
+    mReservedUniforms.push_back("ap_cb_mids_r");
+    mReservedUniforms.push_back("ap_cb_mids_g");
+    mReservedUniforms.push_back("ap_cb_mids_b");
+    mReservedUniforms.push_back("ap_cb_lites_r");
+    mReservedUniforms.push_back("ap_cb_lites_g");
+    mReservedUniforms.push_back("ap_cb_lites_b");
+    mReservedUniforms.push_back("ap_cb_preserve_luma");
+    // <AP:WW>
     llassert(mReservedUniforms.size() == END_RESERVED_UNIFORMS);
 
     std::set<std::string> dupe_check;

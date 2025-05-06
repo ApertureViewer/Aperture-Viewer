@@ -283,11 +283,11 @@ bool gQuietSnapshot = false;
 const F32 MIN_AFK_TIME = 6.f; // minimum time after setting away state before coming back
 
 // Minimum value for UIScaleFactor, also defined in preferences, ui_scale_slider
-static const F32 MIN_UI_SCALE = 0.75f;
+static const F32 MIN_UI_SCALE = 0.25f;
 // 4.0 in preferences, but win10 supports larger scaling and value is used more as
 // sanity check, so leaving space for larger values from DPI updates.
 static const F32 MAX_UI_SCALE = 7.0f;
-static const F32 MIN_DISPLAY_SCALE = 0.75f;
+static const F32 MIN_DISPLAY_SCALE = 0.25f;
 
 // <FS:Ansariel> FIRE-31852: Now it aggressively executes gestures within focussed floaters...
 //static const char KEY_MOUSELOOK = 'M';
@@ -5936,8 +5936,15 @@ void LLViewerWindow::saveImageLocal(LLImageFormatted *image, const snapshot_save
         filepath = sSnapshotDir;
         filepath += gDirUtilp->getDirDelimiter();
         filepath += sSnapshotBaseName;
-        filepath += now.toLocalDateString("_%Y-%m-%d_%H%M%S");
-        filepath += llformat("%.2d", i);
+// <FS:Beq> FIRE-35391 - Restore ability for snapshots saving with simple index number        
+// filepath += now.toLocalDateString("_%Y-%m-%d_%H%M%S");
+// filepath += llformat("%.2d", i);
+        if (gSavedSettings.getBOOL("FSSnapshotLocalNamesWithTimestamps"))
+        {
+            filepath += now.toLocalDateString("_%Y-%m-%d_%H%M%S");
+        }
+        filepath += llformat("_%.3d", i);
+// </FS:Beq>
         filepath += extension;
 
         llstat stat_info;
@@ -6918,7 +6925,7 @@ void LLViewerWindow::setProgressMessage(const std::string& msg)
 {
     if(mProgressView)
     {
-        mProgressView->setMessage(msg);
+       // mProgressView->setMessage(msg); <AP:WW> Since we removed the  message of the day from llprogressview.cpp and panel_progress.xml we dont need this any more.
     }
 }
 
