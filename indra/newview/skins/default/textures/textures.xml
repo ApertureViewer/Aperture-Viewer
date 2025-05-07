@@ -1192,4 +1192,10 @@ with the same filename but different name
 <texture name="LagStatus_Good" file_name="icons/green_square.png" preload="false" />
 <texture name="LagStatus_Warning" file_name="icons/yellow_square.png" preload="false" />
 <texture name="LagStatus_Critical" file_name="icons/red_square.png" preload="false" />
+
+<!-- <AP:WW> Aperture System Folder Icons -->
+<texture name="Inv_ApertureOpen"          file_name="legacy/inv_folder_aperture.tga" />
+<texture name="Inv_ApertureClosed"        file_name="legacy/inv_folder_aperture.tga" />
+<!--<AP:WW-->
+
 </textures>
