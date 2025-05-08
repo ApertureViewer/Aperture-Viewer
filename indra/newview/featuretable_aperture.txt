@@ -52,7 +52,7 @@ RenderHDREnabled                                    1 1     // HDR Pipeline ON
 RenderEnableEmissiveBuffer                          1 1     // Emmisive Enablement
 RenderExposure                                      1 1.0   // Neutral Exposure default
 RenderTonemapType                                   1 1     // ACES Tonemapping default
-RenderTonemapMix                                    1 0.0   // Default Tonemap Mix
+RenderTonemapMix                                    1 1.0   // Default Tonemap Mix
 
 // Legacy Sky Auto-Adjustment Settings
 RenderSkyAutoAdjustLegacy                           1 1     // fOR level 0 = 0. 
@@ -62,7 +62,7 @@ RenderTerrainPBRDetail                              1 0     // 0 is highest and 
 RenderTerrainPBRPlanarSampleCount                   1 3     // for level 0 set to 1
 
 // Basic Lighting
-RenderLocalLightCount                               1 16   // Number of local lights to render
+RenderLocalLightCount                               1 8192   // Number of local lights to render
 RenderShaderLightingMaxLevel                        1 3     // Enable All Local Light Shadows 1 - S/M, 2 Redueced, 3 Full
 
 // Basic Texture Handling
@@ -70,9 +70,9 @@ RenderAnisotropic                                   1 1     // Anisotropic Filte
 RenderCompressTextures                              1 1     // Compression OFF (Max Quality) - We leave on for Level set to 1 for level 0
 
 // Reflection Probe Enablement & Quality (Fundamental for PBR/HDR lighting)
-RenderReflectionProbeResolution                     1 256  // High Probe Resolution (Restart) - Aperture feautre only - 1024 and 2048 (set at 64 for default and test VRAM impact of candy - 512 might be best)
+RenderReflectionProbeResolution                     1 2048  // High Probe Resolution (Restart) - Aperture feautre only - 1024 and 2048 (set at 64 for default and test VRAM impact of candy - 512 might be best)
 RenderReflectionProbeLevel                          1 3     // Full Scene Coverage - we set to 3 from level 1
-RenderReflectionProbeDrawDistance                   1 32  // Generous Draw Distance - maybe set to 32 and candy at 256 or 512/1024
+RenderReflectionProbeDrawDistance                   1 1024  // Generous Draw Distance - maybe set to 32 and candy at 256 or 512/1024
 RenderReflectionProbeMaxLocalLightAmbiance          1 4.0   // Default Max Local Ambience - never changing here - just in case user changes we want to reset it here
 RenderReflectionProbeDetail                         1 2     // -1 - Disabled, 0 - Static Only, 1 - Static + Dynamic, 2 - Realtime
 RenderReflectionsEnabled                            1 1     // Base Toggle for Reflection Probes ON - Depreciated?! think still needed for single function
@@ -80,7 +80,7 @@ RenderReflectionsEnabled                            1 1     // Base Toggle for R
 // Glow Enablement & Quality
 RenderGlow                                          1 1     // Glow ON
 RenderGlowHDR                                       1 1     // HDR Glow ON
-RenderGlowResolutionPow                             1 10    // High Glow Quality
+RenderGlowResolutionPow                             1 13    // High Glow Quality
 RenderGlowIterations                                1 2     // Moderate Glow Iterations
 RenderGlowStrength                                  1 0.325 // Subtle Glow Strength default
 RenderGlowWidth                                     1 1.3   // Moderate Glow Width default
@@ -98,7 +98,7 @@ RenderWaterMaterials                                1 1     // Water reflects ma
 RenderShadowDetail                                  1 2     // Sun/Moon + Projectors
 
 // Shadow Quality Details (High Defaults for 'all')
-RenderShadowResolutionScale                         1 1.0   // High Shadow Map Resolution
+RenderShadowResolutionScale                         1 4.0   // High Shadow Map Resolution
 RenderShadowSplits                                  1 3     // Default Cascades
 RenderShadowBlurSize                                1 1.4   // Moderate Shadow Blur
 RenderShadowBlurDistFactor                          1 0.08   // Default Blur Distance Factor
@@ -111,7 +111,7 @@ RenderDeferredSSAO                                  1 1     // SSAO ON
 
 // SSAO REQUIRES SOME THOUGHT - We need a high rez mode
 // SSAO Quality Details (High Defaults for 'all')
-APRenderSSAOSampleCount                             1 8      // High SSAO Samples - we need to think about how do deal with AO overal, for now I think we leave these defaults
+APRenderSSAOSampleCount                             1 1024      // High SSAO Samples - we need to think about how do deal with AO overal, for now I think we leave these defaults
 RenderSSAOScale                                     1 500.0  // Default Scale?
 RenderSSAOMaxScale                                  1 200.0  // Default Max Scale?
 RenderSSAOFactor                                    1 1      // Default Factor?
@@ -123,12 +123,12 @@ RenderSSAOIrradianceScale                           1 1.0   // Default Irrad Sca
 RenderDepthOfField                                  1 1     // DoF ON
 
 // DoF Quality & Behavior (High Defaults for 'all')
-CameraFocusTransitionTime                           1 0.0   // Default Focus Transition
+CameraFocusTransitionTime                           1 5.0   // Default Focus Transition
 CameraFNumber                                       1 9.0   // Medium f-stop default
-CameraFocalLength                                   1 50.0  // Standard Lens default
+CameraFocalLength                                   1 500.0  // Standard Lens default
 CameraFieldOfView                                   1 60.0  // Standard FOV default (Separate from Cam Angle)
-CameraMaxCoF                                        1 10.0  // Default CoC Amount
-CameraDoFResScale                                   1 0.7   // Max DoF Resolution
+CameraMaxCoF                                        1 150.0  // Default CoC Amount
+CameraDoFResScale                                   1 1.0   // Max DoF Resolution
 
 // --- LEVEL 5: SSR (Screen-Space Reflections) SETTINGS ---
 // SSR Enablement
@@ -144,14 +144,14 @@ RenderScreenSpaceReflectionGlossySamples            1 1     // High Glossy Sampl
 RenderMirrors                                       1 1     // Mirrors ON
 
 // Mirror Quality Details (High Defaults for 'all')
-RenderHeroProbeResolution                           1 128  // High Mirror Resolution - now 8192 is possible just rdiiculous
+RenderHeroProbeResolution                           1 8192  // High Mirror Resolution - now 8192 is possible just rdiiculous
 RenderHeroProbeUpdateRate                           1 6     // Fast Mirror Update Rate
 
 // --- LEVELS 7/8: GENERAL QUALITY / PHOTOTOOLS GEN TAB / CANDY LEVEL ADJUSTMENTS ---
 // General Performance / Quality Trade-offs (High Defaults for 'all')
-RenderFarClip                                       1 256   // Draw Distance
+RenderFarClip                                       1 4096   // Draw Distance
 FramePerSecondLimit                                 1 60     // FPS Limit (0=Unlimited) - think carefully about this, it might be best to set it even to 30
-RenderMaxPartCount                                  1 1024   // Particle Count - we will set this to 1024 for all levels below candy and off for level 0
+RenderMaxPartCount                                  1 8192   // Particle Count - we will set this to 1024 for all levels below candy and off for level 0
 RenderAvatarComplexityMode                          1 0      /// 0 - complexity limit applies to everyone, 1 - always show friends, 2 - only show friends
 RenderAvatarMaxComplexity                           1 0      // Avatar Complexity Max
 RenderAvatarMaxNonImpostors                         1 16     // Max Fully Rendered Avatars
@@ -175,11 +175,11 @@ TextureCameraBoost                                  1 8     // Tex Boost Near Ca
 RenderAutoMuteSurfaceAreaLimit                      1 10.0  // Leaving in for now - ONLY TEMP - Must investigate if there is any need or benefit to changing this value
 
 // Anti-Aliasing Quality (High Defaults for 'all' - applied if Type is not 0)
-RenderFSAAType                                      1 0     // Type of Antialiasing to use: 0 = None, 1 = FXAA, 2 = SMAA
+RenderFSAAType                                      1 2     // Type of Antialiasing to use: 0 = None, 1 = FXAA, 2 = SMAA
 RenderFSAASamples                                   1 3     // AA Quality (Ultra)
 
 // Sharpening (Default)
-RenderCASSharpness                                  1 0.4   // Moderate Sharpening
+RenderCASSharpness                                  1 1.0   // Moderate Sharpening
 
 // Attached Lights
 RenderAttachedLights                                1 1     // Attached Lights ON
@@ -1669,7 +1669,7 @@ RenderTerrainPBRDetail                              1 0     // 0 is highest and 
 RenderTerrainPBRPlanarSampleCount                   1 3     // for level 0 set to 1
 
 // Basic Lighting
-RenderLocalLightCount                               1 256   // Number of local lights to render
+RenderLocalLightCount                               1 8192   // Number of local lights to render
 RenderShaderLightingMaxLevel                        1 3     // Enable All Local Light Shadows 1 - S/M, 2 Redueced, 3 Full
 
 // Basic Texture Handling
@@ -1862,7 +1862,7 @@ RenderTerrainPBRDetail                              1 0     // 0 is highest and 
 RenderTerrainPBRPlanarSampleCount                   1 3     // for level 0 set to 1
 
 // Basic Lighting
-RenderLocalLightCount                               1 256   // Number of local lights to render
+RenderLocalLightCount                               1 8192   // Number of local lights to render
 RenderShaderLightingMaxLevel                        1 3     // Enable All Local Light Shadows 1 - S/M, 2 Redueced, 3 Full
 
 // Basic Texture Handling
