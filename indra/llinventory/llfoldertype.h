@@ -99,6 +99,7 @@ public:
         FT_FIRESTORM = 58,
         FT_PHOENIX = 59,
         FT_RLV = 60,
+        FT_APERTURE = 61,
         // </FS:Ansariel> Folder types for our own virtual system folders
 
         FT_MY_SUITCASE = 100, // <FS:Ansariel> OpenSim HG-support

@@ -4100,8 +4100,9 @@ LLFolderType::EType LLFolderBridge::getPreferredType() const
         //               folders, which is not desired.
         //preferred_type = cat->getPreferredType();
         std::string catName(cat->getName());
-        if (catName == ROOT_FIRESTORM_FOLDER) preferred_type = LLFolderType::FT_FIRESTORM;
+        if (catName == ROOT_FIRESTORM_FOLDER) preferred_type = LLFolderType::FT_APERTURE;
         else if (catName == RLV_ROOT_FOLDER) preferred_type = LLFolderType::FT_RLV;
+        else if (catName == "#Firestorm") preferred_type = LLFolderType::FT_FIRESTORM;
         else if (catName == "#Phoenix") preferred_type = LLFolderType::FT_PHOENIX;
         else preferred_type = cat->getPreferredType();
         // </FS:Ansariel>

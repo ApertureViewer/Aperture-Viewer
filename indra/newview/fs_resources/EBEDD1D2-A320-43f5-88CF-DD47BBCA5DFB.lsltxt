@@ -1,5 +1,5 @@
 // HTTP Bridge script
-// Firestorm
+// Aperture | Firestorm
 // Tozh Taurog, Arrehn Oberlander, Tonya Souther
 
 //
@@ -77,7 +77,7 @@ aoListenOC(key collarid, integer enabled)
 
 aoState(string newstate)
 {
-    llOwnerSay("<clientAO state="+newstate+">");
+    llOwnerSay("<AVclientAO state="+newstate+">");
 }
 
 integrationCheckOC()
@@ -199,7 +199,7 @@ default
             // Check VM version
             if (llGetMemoryLimit() <= 16384)
             {
-                llOwnerSay("<bridgeError error=wrongvm>");
+                llOwnerSay("<AVbridgeError error=wrongvm>");
             }
 
             // Set the channel for the AO OC interface
@@ -310,7 +310,7 @@ default
             integer n = llGetInventoryNumber(INVENTORY_SCRIPT);
             if (n > 1)
             {
-                llOwnerSay("<bridgeError error=injection>");
+                llOwnerSay("<AVbridgeError error=injection>");
                 llSleep(1.0);
                 while (n)
                 {
@@ -394,7 +394,7 @@ default
             if (gViewerIsFirestorm || gTryHandshakeOnce)
             {
                 // Firestorm viewer and handshake
-                llOwnerSay("<bridgeURL>" + gLatestURL + "</bridgeURL><bridgeAuth>BRIDGEKEY</bridgeAuth><bridgeVer>" + BRIDGE_VERSION + "</bridgeVer>");
+                llOwnerSay("<AVbridgeURL>" + gLatestURL + "</AVbridgeURL><AVbridgeAuth>BRIDGEKEY</AVbridgeAuth><AVbridgeVer>" + BRIDGE_VERSION + "</AVbridgeVer>");
                 gTryHandshakeOnce = FALSE;
             }
             else
@@ -407,7 +407,7 @@ default
         else if (Method == URL_REQUEST_DENIED)
         {
             // No URLs free! Keep trying?
-            llOwnerSay("<bridgeRequestError/>");
+            llOwnerSay("<AVbridgeRequestError/>");
             llSleep(5);
             requestBridgeURL();
         }
@@ -456,7 +456,7 @@ default
                 movelockMe(gUseMoveLock);
                 if (llList2String(commandList, 2) != "noreport")
                 {
-                    llOwnerSay("<bridgeMovelock state=" + (string)gUseMoveLock + ">");
+                    llOwnerSay("<AVbridgeMovelock state=" + (string)gUseMoveLock + ">");
                 }
             }
 
@@ -519,11 +519,11 @@ default
                     {
                         returnedList = returnedList + [llStringToBase64(llStringTrim(llList2String(details, 6), STRING_TRIM)), llList2String(details, 7), llList2Integer(details, 8), llList2Integer(details, 9), llList2Integer(details, 10), llStringToBase64(llList2String(details, 11)), llStringToBase64(llList2String(details, 12) + " (" + (string)llVecDist(llList2Vector(details, 12), currentPosition) + " m)"), llStringToBase64(llList2String(details, 13) + " (" + (string)(RAD_TO_DEG * llRot2Euler(llList2Rot(details, 13))) + ")"), llStringToBase64(llList2String(details, 14)), llList2Key(details, 15), llList2Key(details, 16), llList2Key(details, 17), llList2Key(details, 18), llList2Key(details, 19), llList2String(details, 20), llList2String(details, 21), llList2Integer(details, 22), llList2Integer(details, 23), llList2Integer(details, 24), llStringToBase64(llList2String(details, 25)), llList2Key(details, 26)];
                     }
-                    llOwnerSay("<bridgeGetScriptInfo>" + llList2CSV(returnedList) + "</bridgeGetScriptInfo>");
+                    llOwnerSay("<AVbridgeGetScriptInfo>" + llList2CSV(returnedList) + "</bridgeGetScriptInfo>");
                 }
                 else
                 {
-                    llOwnerSay("<bridgeError error=scriptinfonotfound>");
+                    llOwnerSay("<AVbridgeError error=scriptinfonotfound>");
                 }
 
             }
@@ -581,7 +581,7 @@ default
             else if (cmd == "DetachBridge")
             {
                 // HTTP request from the viewer to immediately detach LSL-Client Bridge
-                // This can be passed as a response to llOwnerSay("<bridgeURL> ... </bridgeVer>") handshake right after granting URL by a region
+                // This can be passed as a response to llOwnerSay("<AVbridgeURL> ... </bridgeVer>") handshake right after granting URL by a region
                 // If bridge doesn't receive "URL Confirmed" message as a reply to handshake it'll automatically detach after next region change anyway
                 detachBridge();
             }
