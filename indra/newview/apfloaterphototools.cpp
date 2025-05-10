@@ -318,6 +318,7 @@ void APFloaterPhototools::onOpen(const LLSD& key)
     LLAvatarComplexityControls::setIndirectMaxNonImpostors();
     LLAvatarComplexityControls::setIndirectMaxArc();
     LLAvatarComplexityControls::setText(gSavedSettings.getU32("RenderAvatarMaxComplexity"), mMaxComplexityLabel);
+    refreshAvatarComplexityControlsFromSetting(LLSD());
 
     refreshSettings();             // Refresh settings-linked controls
     refreshCameraControls();       // <<<<<<<<<< ADDED: Refresh camera-state controls
@@ -430,7 +431,12 @@ void APFloaterPhototools::initCallbacks()
     // <AP:WW> ADD END: Connect Color Balance Callbacks
 
     mMaxComplexitySlider->setCommitCallback(boost::bind(&APFloaterPhototools::updateMaxComplexity, this));
-    gSavedSettings.getControl("RenderAvatarMaxComplexity")->getCommitSignal()->connect(boost::bind(&APFloaterPhototools::updateMaxComplexityLabel, this, _2));
+    // gSavedSettings.getControl("RenderAvatarMaxComplexity")->getCommitSignal()->connect(boost::bind(&APFloaterPhototools::updateMaxComplexityLabel, this, _2));
+    LLControlVariable* complexity_setting = gSavedSettings.getControl("RenderAvatarMaxComplexity");
+    if (complexity_setting)
+    {
+        complexity_setting->getCommitSignal()->connect(boost::bind(&APFloaterPhototools::refreshAvatarComplexityControlsFromSetting, this, _2));
+    }
     gSavedSettings.getControl("IndirectMaxNonImpostors")->getCommitSignal()->connect(boost::bind(&APFloaterPhototools::updateMaxNonImpostors, this, _2));
 
     // <AP:WW> ADD START: Connect UI Scale control callbacks
@@ -549,6 +555,20 @@ bool APFloaterPhototools::postBuild()
     
     mMaxComplexitySlider = getChild<LLSliderCtrl>("IndirectMaxComplexity2");
     mMaxComplexityLabel = getChild<LLTextBox>("IndirectMaxComplexityText2");
+
+    // <AP:WW> START: Initialize Avatar Complexity slider and label in Phototools
+    if (mMaxComplexitySlider && mMaxComplexityLabel) // Ensure pointers are valid
+    {
+        // 1. Update the 'IndirectMaxComplexity' setting. This is what the slider is bound to
+        //    via its control_name. LLAvatarComplexityControls::setIndirectMaxArc() reads
+        //    RenderAvatarMaxComplexity and calculates the appropriate IndirectMaxComplexity value.
+        LLAvatarComplexityControls::setIndirectMaxArc(); 
+
+        // 2. Update the text label directly.
+        U32 current_complexity = gSavedSettings.getU32("RenderAvatarMaxComplexity");
+        LLAvatarComplexityControls::setText(current_complexity, mMaxComplexityLabel);
+    }
+    // </AP:WW> END: Initialize Avatar Complexity slider and label
 
     // Atmospheric Colors
     getChild<LLUICtrl>(FIELD_SKY_AMBIENT_LIGHT)->setCommitCallback([this](LLUICtrl *, const LLSD &) { onAmbientLightChanged(); });
@@ -1544,11 +1564,22 @@ void APFloaterPhototools::updateMaxComplexity()
     LLAvatarComplexityControls::updateMax(mMaxComplexitySlider, mMaxComplexityLabel);
 }
 
-void APFloaterPhototools::updateMaxComplexityLabel(const LLSD& newvalue)
-{
-    U32 value = newvalue.asInteger();
+// void APFloaterPhototools::updateMaxComplexityLabel(const LLSD& newvalue)
+// {
+    // U32 value = newvalue.asInteger();
 
-    LLAvatarComplexityControls::setText(value, mMaxComplexityLabel);
+    // LLAvatarComplexityControls::setText(value, mMaxComplexityLabel);
+// }
+
+void APFloaterPhototools::refreshAvatarComplexityControlsFromSetting(const LLSD& new_setting_value_unused)
+{
+
+    if (mMaxComplexitySlider && mMaxComplexityLabel) 
+    {
+        LLAvatarComplexityControls::setIndirectMaxArc();
+        U32 actual_max_arc = gSavedSettings.getU32("RenderAvatarMaxComplexity");
+        LLAvatarComplexityControls::setText(actual_max_arc, mMaxComplexityLabel);
+    }
 }
 
 void APFloaterPhototools::onAmbientLightChanged()

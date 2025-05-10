@@ -153,7 +153,7 @@ RenderFarClip                                       1 4096   // Draw Distance
 FramePerSecondLimit                                 1 60     // FPS Limit (0=Unlimited) - think carefully about this, it might be best to set it even to 30
 RenderMaxPartCount                                  1 8192   // Particle Count - we will set this to 1024 for all levels below candy and off for level 0
 RenderAvatarComplexityMode                          1 0      /// 0 - complexity limit applies to everyone, 1 - always show friends, 2 - only show friends
-RenderAvatarMaxComplexity                           1 0      // Avatar Complexity Max
+RenderAvatarMaxComplexity                           1 350000      // Avatar Complexity Max
 RenderAvatarMaxNonImpostors                         1 16     // Max Fully Rendered Avatars
 RenderAttachedParticles                             1 1      // Show Particles Attached ON
 
@@ -586,7 +586,7 @@ RenderFarClip                                       1 256   // Draw Distance
 FramePerSecondLimit                                 1 30     // FPS Limit (0=Unlimited) - think carefully about this, it might be best to set it even to 30
 RenderMaxPartCount                                  1 1024   // Particle Count - we will set this to 1024 for all levels below candy and off for level 0
 RenderAvatarComplexityMode                          1 0      /// 0 - complexity limit applies to everyone, 1 - always show friends, 2 - only show friends
-RenderAvatarMaxComplexity                           1 0      // Avatar Complexity Max
+RenderAvatarMaxComplexity                           1 200000      // Avatar Complexity Max
 RenderAvatarMaxNonImpostors                         1 16     // Max Fully Rendered Avatars
 RenderAttachedParticles                             1 1      // Show Particles Attached ON
 
@@ -782,7 +782,7 @@ RenderFarClip                                       1 256   // Draw Distance
 FramePerSecondLimit                                 1 30     // FPS Limit (0=Unlimited) - think carefully about this, it might be best to set it even to 30
 RenderMaxPartCount                                  1 1024   // Particle Count - we will set this to 1024 for all levels below candy and off for level 0
 RenderAvatarComplexityMode                          1 0      /// 0 - complexity limit applies to everyone, 1 - always show friends, 2 - only show friends
-RenderAvatarMaxComplexity                           1 0      // Avatar Complexity Max
+RenderAvatarMaxComplexity                           1 200000      // Avatar Complexity Max
 RenderAvatarMaxNonImpostors                         1 16     // Max Fully Rendered Avatars
 RenderAttachedParticles                             1 1      // Show Particles Attached ON
 
@@ -978,7 +978,7 @@ RenderFarClip                                       1 256   // Draw Distance
 FramePerSecondLimit                                 1 30     // FPS Limit (0=Unlimited) - think carefully about this, it might be best to set it even to 30
 RenderMaxPartCount                                  1 1024   // Particle Count - we will set this to 1024 for all levels below candy and off for level 0
 RenderAvatarComplexityMode                          1 0      /// 0 - complexity limit applies to everyone, 1 - always show friends, 2 - only show friends
-RenderAvatarMaxComplexity                           1 0      // Avatar Complexity Max
+RenderAvatarMaxComplexity                           1 200000      // Avatar Complexity Max
 RenderAvatarMaxNonImpostors                         1 16     // Max Fully Rendered Avatars
 RenderAttachedParticles                             1 1      // Show Particles Attached ON
 
@@ -1174,7 +1174,7 @@ RenderFarClip                                       1 256   // Draw Distance
 FramePerSecondLimit                                 1 30     // FPS Limit (0=Unlimited) - think carefully about this, it might be best to set it even to 30
 RenderMaxPartCount                                  1 1024   // Particle Count - we will set this to 1024 for all levels below candy and off for level 0
 RenderAvatarComplexityMode                          1 0      /// 0 - complexity limit applies to everyone, 1 - always show friends, 2 - only show friends
-RenderAvatarMaxComplexity                           1 0      // Avatar Complexity Max
+RenderAvatarMaxComplexity                           1 200000      // Avatar Complexity Max
 RenderAvatarMaxNonImpostors                         1 16     // Max Fully Rendered Avatars
 RenderAttachedParticles                             1 1      // Show Particles Attached ON
 
@@ -1370,7 +1370,7 @@ RenderFarClip                                       1 256   // Draw Distance
 FramePerSecondLimit                                 1 30     // FPS Limit (0=Unlimited) - think carefully about this, it might be best to set it even to 30
 RenderMaxPartCount                                  1 1024   // Particle Count - we will set this to 1024 for all levels below candy and off for level 0
 RenderAvatarComplexityMode                          1 0      /// 0 - complexity limit applies to everyone, 1 - always show friends, 2 - only show friends
-RenderAvatarMaxComplexity                           1 0      // Avatar Complexity Max
+RenderAvatarMaxComplexity                           1 200000      // Avatar Complexity Max
 RenderAvatarMaxNonImpostors                         1 16     // Max Fully Rendered Avatars
 RenderAttachedParticles                             1 1      // Show Particles Attached ON
 
@@ -1565,7 +1565,7 @@ RenderFarClip                                       1 256   // Draw Distance
 FramePerSecondLimit                                 1 30     // FPS Limit (0=Unlimited) - think carefully about this, it might be best to set it even to 30
 RenderMaxPartCount                                  1 1024   // Particle Count - we will set this to 1024 for all levels below candy and off for level 0
 RenderAvatarComplexityMode                          1 0      /// 0 - complexity limit applies to everyone, 1 - always show friends, 2 - only show friends
-RenderAvatarMaxComplexity                           1 0      // Avatar Complexity Max
+RenderAvatarMaxComplexity                           1 200000      // Avatar Complexity Max
 RenderAvatarMaxNonImpostors                         1 16     // Max Fully Rendered Avatars
 RenderAttachedParticles                             1 1      // Show Particles Attached ON
 

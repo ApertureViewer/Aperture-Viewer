@@ -193,6 +193,7 @@ private:
     void updateMaxNonImpostors(const LLSD& newvalue);
     void updateMaxComplexity();
     void updateMaxComplexityLabel(const LLSD& newvalue);
+    void refreshAvatarComplexityControlsFromSetting(const LLSD& new_setting_value_unused);
 
     // --- Preset Helper Methods (Internal Logic):  Methods that are used internally within the class to set up and manage the floater's functionality. ---
     bool isValidPreset(const LLSD& preset);
@@ -382,9 +383,6 @@ private:
     // Handlers for Flycam Camera Presets (Uses LLViewerCamera state)
     void onStoreFlycamView(S32 slot_index); // Handles Camera.StoreFlycamViewXX
     void onLoadFlycamView(S32 slot_index);  // Handles Camera.LoadFlycamViewXX
-
-
-
 
 };
 
