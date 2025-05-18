@@ -7270,7 +7270,7 @@
              top_pad="0"
              left="0"
              width="286"
-             height="122"
+             height="117"
              border_visible="true"
              bevel_style="none"
              background_visible="true">
@@ -8132,6 +8132,18 @@
                  layout="topleft"
                  left="3"
                  label="Enable Nearby Chat Online/Offline Notices"
+                 tool_tip=""
+                 width="240">
+                </check_box>
+
+               <check_box
+                 name="CH_B_Show_Navbar_Favorites"
+                 control_name="FSInternalShowNavbarFavoritesPanel"
+                 height="16"
+                 top_pad="0"
+                 layout="topleft"
+                 left="3"
+                 label="Enable Favorites Bar (Nav Bar)"
                  tool_tip=""
                  width="240">
                 </check_box>

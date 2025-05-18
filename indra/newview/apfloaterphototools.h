@@ -106,6 +106,8 @@ public:
     void refreshSky();                         // FEA
     void onEnvironmentUpdated(LLEnvironment::EnvSelection_t env, S32 version);  //FEA
 
+    void onAPSShowFavoritesBarToggle();
+
 private:
     // --- Private Section ---
     // Methods and member variables in this section are only accessible from within the APFloaterPhototools class.

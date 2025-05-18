@@ -776,6 +776,20 @@ bool APFloaterPhototools::postBuild()
     refreshColorBalanceControls(); // Set initial slider/spinner values
     // <AP:WW> ADD END: Initialize Color Balance Mode and Controls
 
+
+    // <AP:WW> ADD THIS BLOCK to connect the Favorites Bar checkbox
+    LLCheckBoxCtrl* favBarCheckboxCtrl = getChild<LLCheckBoxCtrl>("CH_B_Show_Navbar_Favorites");
+    if (favBarCheckboxCtrl) // Still good practice to check if the getChild was successful
+    {
+        // Set its initial state when APS opens
+        favBarCheckboxCtrl->set(gSavedSettings.getBOOL("FSInternalShowNavbarFavoritesPanel")); 
+        
+        // Tell it what function to call when its value changes (i.e., when clicked)
+        favBarCheckboxCtrl->setCommitCallback(boost::bind(&APFloaterPhototools::onAPSShowFavoritesBarToggle, this)); 
+        // // <AP:WW/> Connected APS favorites bar toggle to its handler.
+    }
+    // </AP:WW>
+
     refreshSky();
 
     initCallbacks();
@@ -3379,4 +3393,20 @@ void APFloaterPhototools::onWaterBlurMultipChanged()
 
     LLEnvironment::instance().setEnvironment(LLEnvironment::ENV_LOCAL, current_sky, current_water);
     LLEnvironment::instance().updateEnvironment(LLEnvironment::TRANSITION_INSTANT, true);
+}
+
+void APFloaterPhototools::onAPSShowFavoritesBarToggle()
+{
+    LLCheckBoxCtrl* favBarCheckbox = getChild<LLCheckBoxCtrl>("CH_B_Show_Navbar_Favorites");
+    if (favBarCheckbox)
+    {
+        bool newValue = favBarCheckbox->get();
+
+        gSavedSettings.setBOOL("FSInternalShowNavbarFavoritesPanel", newValue);
+
+        if (gSavedSettings.getBOOL("ShowNavbarFavoritesPanel") != newValue)
+        {
+            gSavedSettings.setBOOL("ShowNavbarFavoritesPanel", newValue);
+        }
+    }
 }
