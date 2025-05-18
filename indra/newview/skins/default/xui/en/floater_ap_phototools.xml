@@ -8124,6 +8124,17 @@
                  width="240">
                 </check_box>
 
+               <check_box
+                 name="CH_B_Online_Offline_Notices"
+                 control_name="OnlineOfflinetoNearbyChat"
+                 height="16"
+                 top_pad="0"
+                 layout="topleft"
+                 left="3"
+                 label="Enable Nearby Chat Online/Offline Notices"
+                 tool_tip=""
+                 width="240">
+                </check_box>
 
 <!--
                 <check_box
