@@ -194,8 +194,8 @@ static const std::vector<std::string> sGraphicsLevelNames = boost::assign::list_
     ("AP_Level_1_HDR_Foundation")      // Level 1
     ("AP_Level_2_Shadows")             // Level 2
     ("AP_Level_3_SSAO")                // Level 3
-    ("AP_Level_4_DOF")                 // Level 4
-    ("AP_Level_5_SSR")                 // Level 5
+    ("AP_Level_4_SSR")                 // Level 4
+    ("AP_Level_5_DOF")                 // Level 5
     ("AP_Level_6_Mirrors")             // Level 6
     ("AP_Level_7_Rich_Candy")          // Level 7
     ("AP_Level_8_Full_Candy")          // Level 8

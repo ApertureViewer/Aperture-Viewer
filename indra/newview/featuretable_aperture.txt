@@ -118,7 +118,16 @@ RenderSSAOFactor                                    1 1      // Default Factor?
 RenderSSAOIrradianceMax                             1 1.0   // Default Irrad Max?
 RenderSSAOIrradianceScale                           1 1.0   // Default Irrad Scale?
 
-// --- LEVEL 4: DOF SETTINGS ---
+// --- LEVEL 4: SSR (Screen-Space Reflections) SETTINGS ---
+// SSR Enablement
+RenderScreenSpaceReflections                        1 1     // SSR ON
+
+// SSR Quality Details (High Defaults for 'all') 
+RenderScreenSpaceReflectionIterations               1 25    // High Iterations default?
+RenderScreenSpaceReflectionRayStep                  1 0.1   // Fine Ray Step default?
+RenderScreenSpaceReflectionGlossySamples            1 1     // High Glossy Samples default - sys default is 4 howeverI see no visual benefit to this. 1 looks the same as 4, the only time this doesn't hold true is on suirfaced water. 
+
+// --- LEVEL 5: DOF SETTINGS ---
 // DoF Enablement
 RenderDepthOfField                                  1 1     // DoF ON
 
@@ -129,15 +138,6 @@ CameraFocalLength                                   1 500.0  // Standard Lens de
 CameraFieldOfView                                   1 60.0  // Standard FOV default (Separate from Cam Angle)
 CameraMaxCoF                                        1 150.0  // Default CoC Amount
 CameraDoFResScale                                   1 1.0   // Max DoF Resolution
-
-// --- LEVEL 5: SSR (Screen-Space Reflections) SETTINGS ---
-// SSR Enablement
-RenderScreenSpaceReflections                        1 1     // SSR ON
-
-// SSR Quality Details (High Defaults for 'all') 
-RenderScreenSpaceReflectionIterations               1 25    // High Iterations default?
-RenderScreenSpaceReflectionRayStep                  1 0.1   // Fine Ray Step default?
-RenderScreenSpaceReflectionGlossySamples            1 1     // High Glossy Samples default - sys default is 4 howeverI see no visual benefit to this. 1 looks the same as 4, the only time this doesn't hold true is on suirfaced water. 
 
 // --- LEVEL 6: MIRRORS & PLANAR REFLECTION SETTINGS ---
 // Mirror Enablement
@@ -355,7 +355,16 @@ RenderSSAOFactor                                    1 1      // Default Factor?
 RenderSSAOIrradianceMax                             1 1.0   // Default Irrad Max?
 RenderSSAOIrradianceScale                           1 1.0   // Default Irrad Scale?
 
-// --- LEVEL 4: DOF SETTINGS ---
+// --- LEVEL 4: SSR (Screen-Space Reflections) SETTINGS ---
+// SSR Enablement
+RenderScreenSpaceReflections                        1 0     // SSR ON
+
+// SSR Quality Details (High Defaults for 'all') 
+RenderScreenSpaceReflectionIterations               1 25    // High Iterations default?
+RenderScreenSpaceReflectionRayStep                  1 0.1   // Fine Ray Step default?
+RenderScreenSpaceReflectionGlossySamples            1 1     // High Glossy Samples default - sys default is 4 howeverI see no visual benefit to this. 1 looks the same as 4, the only time this doesn't hold true is on suirfaced water. 
+
+// --- LEVEL 5: DOF SETTINGS ---
 // DoF Enablement
 RenderDepthOfField                                  1 0     // DoF ON
 
@@ -366,16 +375,6 @@ CameraFocalLength                                   1 50.0  // Standard Lens def
 CameraFieldOfView                                   1 60.0  // Standard FOV default (Separate from Cam Angle)
 CameraMaxCoF                                        1 10.0  // Default CoC Amount
 CameraDoFResScale                                   1 0.7   // Max DoF Resolution
-
-// --- LEVEL 5: SSR (Screen-Space Reflections) SETTINGS ---
-// SSR Enablement
-RenderScreenSpaceReflections                        1 0     // SSR ON
-
-
-// SSR Quality Details (High Defaults for 'all') 
-RenderScreenSpaceReflectionIterations               1 25    // High Iterations default?
-RenderScreenSpaceReflectionRayStep                  1 0.1   // Fine Ray Step default?
-RenderScreenSpaceReflectionGlossySamples            1 1     // High Glossy Samples default - sys default is 4 howeverI see no visual benefit to this. 1 looks the same as 4, the only time this doesn't hold true is on suirfaced water. 
 
 // --- LEVEL 6: MIRRORS & PLANAR REFLECTION SETTINGS ---
 // Mirror Enablement
@@ -551,7 +550,16 @@ RenderSSAOFactor                                    1 1      // Default Factor?
 RenderSSAOIrradianceMax                             1 1.0   // Default Irrad Max?
 RenderSSAOIrradianceScale                           1 1.0   // Default Irrad Scale?
 
-// --- LEVEL 4: DOF SETTINGS ---
+// --- LEVEL 4: SSR (Screen-Space Reflections) SETTINGS ---
+// SSR Enablement
+RenderScreenSpaceReflections                        1 0     // SSR ON
+
+// SSR Quality Details (High Defaults for 'all') 
+RenderScreenSpaceReflectionIterations               1 25    // High Iterations default?
+RenderScreenSpaceReflectionRayStep                  1 0.1   // Fine Ray Step default?
+RenderScreenSpaceReflectionGlossySamples            1 1     // High Glossy Samples default - sys default is 4 howeverI see no visual benefit to this. 1 looks the same as 4, the only time this doesn't hold true is on suirfaced water. 
+
+// --- LEVEL 5: DOF SETTINGS ---
 // DoF Enablement
 RenderDepthOfField                                  1 0     // DoF ON
 
@@ -562,15 +570,6 @@ CameraFocalLength                                   1 50.0  // Standard Lens def
 CameraFieldOfView                                   1 60.0  // Standard FOV default (Separate from Cam Angle)
 CameraMaxCoF                                        1 10.0  // Default CoC Amount
 CameraDoFResScale                                   1 0.7   // Max DoF Resolution
-
-// --- LEVEL 5: SSR (Screen-Space Reflections) SETTINGS ---
-// SSR Enablement
-RenderScreenSpaceReflections                        1 0     // SSR ON
-
-// SSR Quality Details (High Defaults for 'all') 
-RenderScreenSpaceReflectionIterations               1 25    // High Iterations default?
-RenderScreenSpaceReflectionRayStep                  1 0.1   // Fine Ray Step default?
-RenderScreenSpaceReflectionGlossySamples            1 1     // High Glossy Samples default - sys default is 4 howeverI see no visual benefit to this. 1 looks the same as 4, the only time this doesn't hold true is on suirfaced water. 
 
 // --- LEVEL 6: MIRRORS & PLANAR REFLECTION SETTINGS ---
 // Mirror Enablement
@@ -746,7 +745,16 @@ RenderSSAOFactor                                    1 1      // Default Factor?
 RenderSSAOIrradianceMax                             1 1.0   // Default Irrad Max?
 RenderSSAOIrradianceScale                           1 1.0   // Default Irrad Scale?
 
-// --- LEVEL 4: DOF SETTINGS ---
+// --- LEVEL 4: SSR (Screen-Space Reflections) SETTINGS ---
+// SSR Enablement
+RenderScreenSpaceReflections                        1 0     // SSR ON
+
+// SSR Quality Details (High Defaults for 'all') 
+RenderScreenSpaceReflectionIterations               1 25    // High Iterations default?
+RenderScreenSpaceReflectionRayStep                  1 0.1   // Fine Ray Step default?
+RenderScreenSpaceReflectionGlossySamples            1 1     // High Glossy Samples default - sys default is 4 howeverI see no visual benefit to this. 1 looks the same as 4, the only time this doesn't hold true is on suirfaced water. 
+
+// --- LEVEL 5: DOF SETTINGS ---
 // DoF Enablement
 RenderDepthOfField                                  1 0     // DoF ON
 
@@ -757,16 +765,6 @@ CameraFocalLength                                   1 50.0  // Standard Lens def
 CameraFieldOfView                                   1 60.0  // Standard FOV default (Separate from Cam Angle)
 CameraMaxCoF                                        1 10.0  // Default CoC Amount
 CameraDoFResScale                                   1 0.7   // Max DoF Resolution
-
-// --- LEVEL 5: SSR (Screen-Space Reflections) SETTINGS ---
-// SSR Enablement
-RenderScreenSpaceReflections                        1 0     // SSR ON
-
-
-// SSR Quality Details (High Defaults for 'all') 
-RenderScreenSpaceReflectionIterations               1 25    // High Iterations default?
-RenderScreenSpaceReflectionRayStep                  1 0.1   // Fine Ray Step default?
-RenderScreenSpaceReflectionGlossySamples            1 1     // High Glossy Samples default - sys default is 4 howeverI see no visual benefit to this. 1 looks the same as 4, the only time this doesn't hold true is on suirfaced water. 
 
 // --- LEVEL 6: MIRRORS & PLANAR REFLECTION SETTINGS ---
 // Mirror Enablement
@@ -942,7 +940,16 @@ RenderSSAOFactor                                    1 1      // Default Factor?
 RenderSSAOIrradianceMax                             1 1.0   // Default Irrad Max?
 RenderSSAOIrradianceScale                           1 1.0   // Default Irrad Scale?
 
-// --- LEVEL 4: DOF SETTINGS ---
+// --- LEVEL 4: SSR (Screen-Space Reflections) SETTINGS ---
+// SSR Enablement
+RenderScreenSpaceReflections                        1 0     // SSR ON
+
+// SSR Quality Details (High Defaults for 'all') 
+RenderScreenSpaceReflectionIterations               1 25    // High Iterations default?
+RenderScreenSpaceReflectionRayStep                  1 0.1   // Fine Ray Step default?
+RenderScreenSpaceReflectionGlossySamples            1 1     // High Glossy Samples default - sys default is 4 howeverI see no visual benefit to this. 1 looks the same as 4, the only time this doesn't hold true is on suirfaced water. 
+
+// --- LEVEL 5: DOF SETTINGS ---
 // DoF Enablement
 RenderDepthOfField                                  1 0     // DoF ON
 
@@ -953,11 +960,6 @@ CameraFocalLength                                   1 50.0  // Standard Lens def
 CameraFieldOfView                                   1 60.0  // Standard FOV default (Separate from Cam Angle)
 CameraMaxCoF                                        1 10.0  // Default CoC Amount
 CameraDoFResScale                                   1 0.7   // Max DoF Resolution
-
-// --- LEVEL 5: SSR (Screen-Space Reflections) SETTINGS ---
-// SSR Enablement
-RenderScreenSpaceReflections                        1 0     // SSR ON
-
 
 // SSR Quality Details (High Defaults for 'all') 
 RenderScreenSpaceReflectionIterations               1 25    // High Iterations default?
@@ -1046,8 +1048,8 @@ APRenderWhites                                      1 0.0
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
-// list AP_Level_4_DOF: Enables Depth of Field with moderate settings.
-list AP_Level_4_DOF
+// list AP_Level_4_SSR: Enables Screen Space Reflections with moderate settings.
+list AP_Level_4_SSR
 //
 // --- LEVEL 0: ESSENTIAL VISUALS SETTINGS (Always ON / Base Pipeline) ---
 // Core Pipeline & Base Performance
@@ -1138,9 +1140,18 @@ RenderSSAOFactor                                    1 1      // Default Factor?
 RenderSSAOIrradianceMax                             1 1.0   // Default Irrad Max?
 RenderSSAOIrradianceScale                           1 1.0   // Default Irrad Scale?
 
-// --- LEVEL 4: DOF SETTINGS ---
+// --- LEVEL 4: SSR (Screen-Space Reflections) SETTINGS ---
+// SSR Enablement
+RenderScreenSpaceReflections                        1 1     // SSR ON
+
+// SSR Quality Details (High Defaults for 'all') 
+RenderScreenSpaceReflectionIterations               1 25    // High Iterations default?
+RenderScreenSpaceReflectionRayStep                  1 0.1   // Fine Ray Step default?
+RenderScreenSpaceReflectionGlossySamples            1 1     // High Glossy Samples default - sys default is 4 howeverI see no visual benefit to this. 1 looks the same as 4, the only time this doesn't hold true is on suirfaced water. 
+
+// --- LEVEL 5: DOF SETTINGS ---
 // DoF Enablement
-RenderDepthOfField                                  1 1     // DoF ON
+RenderDepthOfField                                  1 0     // DoF ON
 
 // DoF Quality & Behavior (High Defaults for 'all')
 CameraFocusTransitionTime                           1 0.0   // Default Focus Transition
@@ -1149,16 +1160,6 @@ CameraFocalLength                                   1 50.0  // Standard Lens def
 CameraFieldOfView                                   1 60.0  // Standard FOV default (Separate from Cam Angle)
 CameraMaxCoF                                        1 10.0  // Default CoC Amount
 CameraDoFResScale                                   1 0.7   // Max DoF Resolution
-
-// --- LEVEL 5: SSR (Screen-Space Reflections) SETTINGS ---
-// SSR Enablement
-RenderScreenSpaceReflections                        1 0     // SSR ON
-
-
-// SSR Quality Details (High Defaults for 'all') 
-RenderScreenSpaceReflectionIterations               1 25    // High Iterations default?
-RenderScreenSpaceReflectionRayStep                  1 0.1   // Fine Ray Step default?
-RenderScreenSpaceReflectionGlossySamples            1 1     // High Glossy Samples default - sys default is 4 howeverI see no visual benefit to this. 1 looks the same as 4, the only time this doesn't hold true is on suirfaced water. 
 
 // --- LEVEL 6: MIRRORS & PLANAR REFLECTION SETTINGS ---
 // Mirror Enablement
@@ -1242,8 +1243,8 @@ APRenderWhites                                      1 0.0
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
-// list AP_Level_5_SSR: Enables Screen Space Reflections with moderate settings.
-list AP_Level_5_SSR
+// list AP_Level_5_DOF: Enables Depth of Field with moderate settings.
+list AP_Level_5_DOF
 //
 // --- LEVEL 0: ESSENTIAL VISUALS SETTINGS (Always ON / Base Pipeline) ---
 // Core Pipeline & Base Performance
@@ -1334,7 +1335,16 @@ RenderSSAOFactor                                    1 1      // Default Factor?
 RenderSSAOIrradianceMax                             1 1.0   // Default Irrad Max?
 RenderSSAOIrradianceScale                           1 1.0   // Default Irrad Scale?
 
-// --- LEVEL 4: DOF SETTINGS ---
+// --- LEVEL 4: SSR (Screen-Space Reflections) SETTINGS ---
+// SSR Enablement
+RenderScreenSpaceReflections                        1 1     // SSR ON
+
+// SSR Quality Details (High Defaults for 'all') 
+RenderScreenSpaceReflectionIterations               1 25    // High Iterations default?
+RenderScreenSpaceReflectionRayStep                  1 0.1   // Fine Ray Step default?
+RenderScreenSpaceReflectionGlossySamples            1 1     // High Glossy Samples default - sys default is 4 howeverI see no visual benefit to this. 1 looks the same as 4, the only time this doesn't hold true is on suirfaced water. 
+
+// --- LEVEL 5: DOF SETTINGS ---
 // DoF Enablement
 RenderDepthOfField                                  1 1     // DoF ON
 
@@ -1345,16 +1355,6 @@ CameraFocalLength                                   1 50.0  // Standard Lens def
 CameraFieldOfView                                   1 60.0  // Standard FOV default (Separate from Cam Angle)
 CameraMaxCoF                                        1 10.0  // Default CoC Amount
 CameraDoFResScale                                   1 0.7   // Max DoF Resolution
-
-// --- LEVEL 5: SSR (Screen-Space Reflections) SETTINGS ---
-// SSR Enablement
-RenderScreenSpaceReflections                        1 1     // SSR ON
-
-
-// SSR Quality Details (High Defaults for 'all') 
-RenderScreenSpaceReflectionIterations               1 25    // High Iterations default?
-RenderScreenSpaceReflectionRayStep                  1 0.1   // Fine Ray Step default?
-RenderScreenSpaceReflectionGlossySamples            1 1     // High Glossy Samples default - sys default is 4 howeverI see no visual benefit to this. 1 looks the same as 4, the only time this doesn't hold true is on suirfaced water. 
 
 // --- LEVEL 6: MIRRORS & PLANAR REFLECTION SETTINGS ---
 // Mirror Enablement
@@ -1529,7 +1529,16 @@ RenderSSAOFactor                                    1 1      // Default Factor?
 RenderSSAOIrradianceMax                             1 1.0   // Default Irrad Max?
 RenderSSAOIrradianceScale                           1 1.0   // Default Irrad Scale?
 
-// --- LEVEL 4: DOF SETTINGS ---
+// --- LEVEL 4: SSR (Screen-Space Reflections) SETTINGS ---
+// SSR Enablement
+RenderScreenSpaceReflections                        1 1     // SSR ON
+
+// SSR Quality Details (High Defaults for 'all') 
+RenderScreenSpaceReflectionIterations               1 25    // High Iterations default?
+RenderScreenSpaceReflectionRayStep                  1 0.1   // Fine Ray Step default?
+RenderScreenSpaceReflectionGlossySamples            1 1     // High Glossy Samples default - sys default is 4 howeverI see no visual benefit to this. 1 looks the same as 4, the only time this doesn't hold true is on suirfaced water. 
+
+// --- LEVEL 5: DOF SETTINGS ---
 // DoF Enablement
 RenderDepthOfField                                  1 1     // DoF ON
 
@@ -1540,16 +1549,6 @@ CameraFocalLength                                   1 50.0  // Standard Lens def
 CameraFieldOfView                                   1 60.0  // Standard FOV default (Separate from Cam Angle)
 CameraMaxCoF                                        1 10.0  // Default CoC Amount
 CameraDoFResScale                                   1 0.7   // Max DoF Resolution
-
-// --- LEVEL 5: SSR (Screen-Space Reflections) SETTINGS ---
-// SSR Enablement
-RenderScreenSpaceReflections                        1 1     // SSR ON
-
-
-// SSR Quality Details (High Defaults for 'all') 
-RenderScreenSpaceReflectionIterations               1 25    // High Iterations default?
-RenderScreenSpaceReflectionRayStep                  1 0.1   // Fine Ray Step default?
-RenderScreenSpaceReflectionGlossySamples            1 1     // High Glossy Samples default - sys default is 4 howeverI see no visual benefit to this. 1 looks the same as 4, the only time this doesn't hold true is on suirfaced water. 
 
 // --- LEVEL 6: MIRRORS & PLANAR REFLECTION SETTINGS ---
 // Mirror Enablement
@@ -1725,7 +1724,16 @@ RenderSSAOFactor                                    1 1      // Default Factor?
 RenderSSAOIrradianceMax                             1 1.0   // Default Irrad Max?
 RenderSSAOIrradianceScale                           1 1.0   // Default Irrad Scale?
 
-// --- LEVEL 4: DOF SETTINGS ---
+// --- LEVEL 4: SSR (Screen-Space Reflections) SETTINGS ---
+// SSR Enablement
+RenderScreenSpaceReflections                        1 1     // SSR ON
+
+// SSR Quality Details (High Defaults for 'all') 
+RenderScreenSpaceReflectionIterations               1 25    // High Iterations default?
+RenderScreenSpaceReflectionRayStep                  1 0.1   // Fine Ray Step default?
+RenderScreenSpaceReflectionGlossySamples            1 1     // High Glossy Samples default - sys default is 4 howeverI see no visual benefit to this. 1 looks the same as 4, the only time this doesn't hold true is on suirfaced water. 
+
+// --- LEVEL 5: DOF SETTINGS ---
 // DoF Enablement
 RenderDepthOfField                                  1 1     // DoF ON
 
@@ -1736,16 +1744,6 @@ CameraFocalLength                                   1 50.0  // Standard Lens def
 CameraFieldOfView                                   1 60.0  // Standard FOV default (Separate from Cam Angle)
 CameraMaxCoF                                        1 30.0  // Default CoC Amount
 CameraDoFResScale                                   1 1.0   // Max DoF Resolution
-
-// --- LEVEL 5: SSR (Screen-Space Reflections) SETTINGS ---
-// SSR Enablement
-RenderScreenSpaceReflections                        1 1     // SSR ON
-
-
-// SSR Quality Details (High Defaults for 'all') 
-RenderScreenSpaceReflectionIterations               1 25    // High Iterations default?
-RenderScreenSpaceReflectionRayStep                  1 0.1   // Fine Ray Step default?
-RenderScreenSpaceReflectionGlossySamples            1 1     // High Glossy Samples default - sys default is 4 howeverI see no visual benefit to this. 1 looks the same as 4, the only time this doesn't hold true is on suirfaced water. 
 
 // --- LEVEL 6: MIRRORS & PLANAR REFLECTION SETTINGS ---
 // Mirror Enablement
@@ -1918,7 +1916,16 @@ RenderSSAOFactor                                    1 1      // Default Factor?
 RenderSSAOIrradianceMax                             1 1.0   // Default Irrad Max?
 RenderSSAOIrradianceScale                           1 1.0   // Default Irrad Scale?
 
-// --- LEVEL 4: DOF SETTINGS ---
+// --- LEVEL 4: SSR (Screen-Space Reflections) SETTINGS ---
+// SSR Enablement
+RenderScreenSpaceReflections                        1 1     // SSR ON
+
+// SSR Quality Details (High Defaults for 'all') 
+RenderScreenSpaceReflectionIterations               1 25    // High Iterations default?
+RenderScreenSpaceReflectionRayStep                  1 0.1   // Fine Ray Step default?
+RenderScreenSpaceReflectionGlossySamples            1 1     // High Glossy Samples default - sys default is 4 howeverI see no visual benefit to this. 1 looks the same as 4, the only time this doesn't hold true is on suirfaced water. 
+
+// --- LEVEL 5: DOF SETTINGS ---
 // DoF Enablement
 RenderDepthOfField                                  1 1     // DoF ON
 
@@ -1929,16 +1936,6 @@ CameraFocalLength                                   1 50.0  // Standard Lens def
 CameraFieldOfView                                   1 60.0  // Standard FOV default (Separate from Cam Angle)
 CameraMaxCoF                                        1 30.0  // Default CoC Amount
 CameraDoFResScale                                   1 1.0   // Max DoF Resolution
-
-// --- LEVEL 5: SSR (Screen-Space Reflections) SETTINGS ---
-// SSR Enablement
-RenderScreenSpaceReflections                        1 1     // SSR ON
-
-
-// SSR Quality Details (High Defaults for 'all') 
-RenderScreenSpaceReflectionIterations               1 25    // High Iterations default?
-RenderScreenSpaceReflectionRayStep                  1 0.1   // Fine Ray Step default?
-RenderScreenSpaceReflectionGlossySamples            1 1     // High Glossy Samples default - sys default is 4 howeverI see no visual benefit to this. 1 looks the same as 4, the only time this doesn't hold true is on suirfaced water. 
 
 // --- LEVEL 6: MIRRORS & PLANAR REFLECTION SETTINGS ---
 // Mirror Enablement

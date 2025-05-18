@@ -7234,12 +7234,12 @@
                      name="GP_Ambient_Occlusion"
                      value="3"/>
                     <combo_box.item
-                     label="Depth of Field"
-                     name="GP_Depth_of_Field"
-                     value="4"/>
-                    <combo_box.item
                      label="Screen Space Reflections"
                      name="GP_SSR"
+                     value="4"/>
+                    <combo_box.item
+                     label="Depth of Field"
+                     name="GP_Depth_of_Field"
                      value="5"/>
                     <combo_box.item
                      label="Mirrors"
