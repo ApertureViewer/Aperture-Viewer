@@ -6728,7 +6728,7 @@
              top_pad="0"
              left="0"
              width="286"
-             height="235" 
+             height="257" 
              border_visible="true"
              bevel_style="none"
              background_visible="true">
@@ -6801,6 +6801,42 @@
                      parameter="character"/>
                 </check_box>
 
+                <text
+                 name="T_NAME"
+                 follows="left|top"
+                 height="20"
+                 left="5"
+                 v_pad="5"
+                 tool_tip=""
+                 top_pad="3"
+                 width="132"
+                 layout="topleft">
+                    Name Tag Display
+                </text>
+
+                <combo_box
+                 name="CB_Avatar_Name_Tag_Mode"
+                 control_name="AvatarNameTagMode"
+                 layout="topleft"
+                 follows="left|top"
+                 left_pad="0"
+                 top_delta="0"
+                 height="20"
+                 width="146"
+               >
+                    <combo_box.item
+                     label="Off"
+                     name="0"
+                     value="0"/>
+                    <combo_box.item
+                     label="On"
+                     name="1"
+                     value="1"/>
+                    <combo_box.item
+                     label="Show Briefly"
+                     name="2"
+                     value="2"/>
+                </combo_box>
 
                 <text
                  name="T_AvatarDisplay"
@@ -8156,42 +8192,7 @@
                  tool_tip="Reset to the default value.">
                 </button>
 
-                <text
-                 name="T_NAME"
-                 follows="left|top"
-                 height="20"
-                 left="5"
-                 v_pad="5"
-                 tool_tip=""
-                 top_pad="3"
-                 width="162"
-                 layout="topleft">
-                    Name Tag Display
-                </text>
 
-                <combo_box
-                 name="CB_Avatar_Name_Tag_Mode"
-                 control_name="AvatarNameTagMode"
-                 layout="topleft"
-                 follows="left|top"
-                 left_pad="0"
-                 top_delta="0"
-                 height="20"
-                 width="116"
-               >
-                    <combo_box.item
-                     label="Off"
-                     name="0"
-                     value="0"/>
-                    <combo_box.item
-                     label="On"
-                     name="1"
-                     value="1"/>
-                    <combo_box.item
-                     label="Show Briefly"
-                     name="2"
-                     value="2"/>
-                </combo_box>
 <!--
                 <button
                  follows="left|top"
