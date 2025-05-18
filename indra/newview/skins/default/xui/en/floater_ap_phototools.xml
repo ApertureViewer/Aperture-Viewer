@@ -8113,13 +8113,13 @@
                 </check_box>
 
                <check_box
-                 name="CH_B_Show_Grouo_Notices_Top_Right"
+                 name="CH_B_Show_Group_Notices_Top_Right"
                  control_name="ShowGroupNoticesTopRight"
                  height="16"
                  top_pad="0"
                  layout="topleft"
                  left="3"
-                 label="Enable Top-Right Group Notifications (Restart Req.)"
+                 label="Enable Top-Right Group Notices (Restart Req.)"
                  tool_tip=""
                  width="240">
                 </check_box>
