@@ -7916,6 +7916,9 @@ void handle_lure(const uuid_vec_t& ids)
     LLSD edit_args;
 // [RLVa:KB] - Checked: 2010-04-07 (RLVa-1.2.0d) | Modified: RLVa-1.0.0a
     edit_args["REGION"] = (!gRlvHandler.hasBehaviour(RLV_BHVR_SHOWLOC)) ? gAgent.getRegion()->getName() : RlvStrings::getString(RlvStringKeys::Hidden::Generic);
+    // <AP:PCD> - Override TP offer
+    edit_args["OVERRIDE_TELEPORT_OFFER_MESSAGE"] = gSavedPerAccountSettings.getString("APTeleportOfferMessageResponse");
+    // </AP:PCD>
 // [/RLVa:KB]
 //  edit_args["REGION"] = gAgent.getRegion()->getName();
 

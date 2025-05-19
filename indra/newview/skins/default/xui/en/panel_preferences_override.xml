@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<panel
+    height="408"
+    layout="topleft"
+    name="override_defaults"
+    top="0"
+    left="13"
+    width="525"> <text
+     type="string"
+     length="1"
+     follows="left|top"
+     height="13"
+     layout="topleft"
+     left="30"
+     mouse_opaque="false"
+     name="text_box1"
+     top_pad="3"
+     width="240">
+      Override Add Friend Message
+     </text>
+    <text_editor
+     control_name="APAddFriendMessageResponse"
+      text_readonly_color="LabelDisabledColor"
+      bg_writeable_color="LtGray"
+      use_ellipses="false"
+     commit_on_focus_lost = "true"
+     follows="left|top"
+     height="29"
+     layout="topleft"
+     left="30"
+     name="add_friend_message"
+     width="470"
+     word_wrap="true">
+       log_in_to_change
+    </text_editor>
+    <text
+     type="string"
+     length="1"
+     follows="left|top"
+     height="13"
+     layout="topleft"
+     left="30"
+     mouse_opaque="false"
+     name="text_box2"
+     top_pad="3"
+     width="240">
+     Override default Teleport Offer message
+     </text>
+    <text_editor
+     control_name="APTeleportOfferMessageResponse"
+      text_readonly_color="LabelDisabledColor"
+      bg_writeable_color="LtGray"
+      use_ellipses="false"
+     commit_on_focus_lost = "true"
+     follows="left|top"
+     height="29"
+     layout="topleft"
+     left="30"
+     name="teleport_offer_message"
+     width="470"
+     word_wrap="true">
+       log_in_to_change
+    </text_editor>
+    <text
+     type="string"
+     length="1"
+     follows="left|top"
+     height="13"
+     layout="topleft"
+     left="30"
+     mouse_opaque="false"
+     name="text_box3"
+     top_pad="3"
+     width="270/">
+     Override the default Teleport Request message
+     </text>
+    <text_editor
+     control_name="APTeleportRequestMessageResponse"
+      text_readonly_color="LabelDisabledColor"
+      bg_writeable_color="LtGray"
+      use_ellipses="false"
+     commit_on_focus_lost = "true"
+     follows="left|top"
+     height="29"
+     layout="topleft"
+     left="30"
+     name="teleport_request_message"
+     width="470"
+     word_wrap="true">
+       log_in_to_change
+    </text_editor>
+</panel>

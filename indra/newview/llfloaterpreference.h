@@ -177,6 +177,12 @@ protected:
     // <FS:Zi> Group Notices and chiclets location setting conversion bool => S32
     void onShowGroupNoticesTopRightChanged();
 
+    // <AP:PCD> ditched the panel cause signals suck.
+    void onOverrideAddFriendResponseChanged();
+    void onOverrideTeleportOfferResponseChanged();
+    void onOverrideTeleportRequestResponseChanged();
+    //</AP:PCD>
+
 public:
     // This function squirrels away the current values of the controls so that
     // cancel() can restore them.
@@ -678,6 +684,4 @@ private:
     control_values_map_t mSavedValues;
     LOG_CLASS(LLFloaterPreferenceProxy);
 };
-
-
 #endif  // LL_LLPREFERENCEFLOATER_H

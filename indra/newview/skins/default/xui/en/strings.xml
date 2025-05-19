@@ -1314,6 +1314,11 @@ If you continue to receive this message, please contact Second Life support for 
   <string name="MutedAvatarsResponseDefault">The Resident you messaged has blocked you from sending them any messages.</string>
   <string name="AwayAvatarResponseDefault">The Resident you messaged is currently away from keyboard. Your message will still be shown in their IM panel for later viewing.</string>
 
+  <!-- panel preferences overrides -->
+  <string name="AddFriendResponseDefault">Would you be my friend?</string>
+  <string name="TeleportOfferResponseDefault">Care to join me?</string>
+  <string name="TeleportRequestResponseDefault">May I join you?</string>
+
 	<!-- Mute -->
 	<string name="MuteByName">(By name)</string>
 	<string name="MuteAgent">(Resident)</string>

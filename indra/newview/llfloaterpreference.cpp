@@ -720,6 +720,12 @@ bool LLFloaterPreference::postBuild()
         gSavedPerAccountSettings.setString("FSMutedAvatarResponse", LLTrans::getString("MutedAvatarsResponseDefault"));
         gSavedPerAccountSettings.setString("FSAwayAvatarResponse", LLTrans::getString("AwayAvatarResponseDefault"));
         // </FS:Ansariel>
+
+        // <AP:PCD> - Override defaults
+        gSavedPerAccountSettings.setString("APAddFriendMessageReponse", LLTrans::getString("AddFriendResponseDefault"));
+        gSavedPerAccountSettings.setString("APTeleportRequestMessageResponse", LLTrans::getString("TeleportRequestResponseDefault"));
+        gSavedPerAccountSettings.setString("APTeleportOfferMessageResponse", LLTrans::getString("TeleportOfferResponseDefault"));
+        //<AP:PCD>
     }
 
     // set 'enable' property for 'Clear log...' button
@@ -940,6 +946,28 @@ void LLFloaterPreference::onDoNotDisturbResponseChanged()
     // </FS:Ansariel>
 }
 
+// <AP:PCD> New overrides.
+void LLFloaterPreference::onOverrideAddFriendResponseChanged()
+{
+    bool response_changed_flag =
+        LLTrans::getString("AddFriendResponseDefault") != getChild<LLUICtrl>("add_friend_message")->getValue().asString();
+    gSavedPerAccountSettings.setBOOL("APAddFriendReponseChanged", response_changed_flag);
+}
+
+void LLFloaterPreference::onOverrideTeleportRequestResponseChanged()
+{
+    bool response_changed_flag =
+        LLTrans::getString("TeleportRequestResponseDefault") != getChild<LLUICtrl>("teleport_request_message")->getValue().asString();
+    gSavedPerAccountSettings.setBOOL("APTeleportRequestResponseChanged", response_changed_flag);
+}
+void LLFloaterPreference::onOverrideTeleportOfferResponseChanged()
+{
+    bool response_changed_flag =
+        LLTrans::getString("TeleportOfferResponseDefault") != getChild<LLUICtrl>("teleport_offer_message")->getValue().asString();
+    gSavedPerAccountSettings.setBOOL("APTeleportOfferResponseChanged", response_changed_flag);
+}
+// </AP:PCD>
+
 LLFloaterPreference::~LLFloaterPreference()
 {
     LLConversationLog::instance().removeObserver(this);
@@ -1139,6 +1167,12 @@ void LLFloaterPreference::onOpen(const LLSD& key)
         gSavedPerAccountSettings.getControl("FSMutedAvatarResponse")->getSignal()->connect(boost::bind(&LLFloaterPreference::onDoNotDisturbResponseChanged, this));
         gSavedPerAccountSettings.getControl("FSAwayAvatarResponse")->getSignal()->connect(boost::bind(&LLFloaterPreference::onDoNotDisturbResponseChanged, this));
         // </FS:Ansariel>
+
+        //<AP:PCD> - Temporary fix as it's not working in it's own class.
+        gSavedPerAccountSettings.getControl("APAddFriendMessageResponse")->getSignal()->connect(boost::bind(&LLFloaterPreference::onOverrideAddFriendResponseChanged, this));
+        gSavedPerAccountSettings.getControl("APTeleportOfferMessageResponse")->getSignal()->connect(boost::bind(&LLFloaterPreference::onOverrideTeleportOfferResponseChanged, this));
+        gSavedPerAccountSettings.getControl("APTeleportRequestMessageResponse")->getSignal()->connect(boost::bind(&LLFloaterPreference::onOverrideTeleportRequestResponseChanged, this));
+        // <AP:PCD>
 
         // <FS:Ansariel> FIRE-17630: Properly disable per-account settings backup list
         getChildView("restore_per_account_disable_cover")->setVisible(false);
@@ -1399,6 +1433,24 @@ void LLFloaterPreference::initDoNotDisturbResponse()
             gSavedPerAccountSettings.setString("FSAwayAvatarResponse", LLTrans::getString("AwayAvatarResponseDefault"));
         }
         // </FS:Ansariel>
+
+        // <AP:PCD> Initialize the overrides
+        
+        if (!gSavedPerAccountSettings.getBOOL("APAddFriendReponseChanged"))
+        {
+            gSavedPerAccountSettings.setString("APAddFriendMessageResponse", LLTrans::getString("AddFriendResponseDefault"));
+        }
+
+        if (!gSavedPerAccountSettings.getBOOL("APTeleportOfferResponseChanged"))
+        {
+            gSavedPerAccountSettings.setString("APTeleportOfferMessageResponse", LLTrans::getString("TeleportOfferResponseDefault"));
+        }
+
+        if (!gSavedPerAccountSettings.getBOOL("APTeleportRequestResponseChanged"))
+        {
+            gSavedPerAccountSettings.setString("APTeleportRequestMessageResponse", LLTrans::getString("TeleportRequestResponseDefault"));
+        }
+        // </AP:PCD>
     }
 
 //static

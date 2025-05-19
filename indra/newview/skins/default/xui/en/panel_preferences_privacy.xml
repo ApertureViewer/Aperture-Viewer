@@ -776,5 +776,13 @@
          width="40"/>
 
     </panel>
+    <panel top_pad="5"
+     bottom="-1"
+     left="1"
+     right="-1"
+     follows="all"
+     label="Overrides"
+     name="tab-override-defaults"
+     filename="paneL_preferences_override.xml" />
 </tab_container>
 </panel>

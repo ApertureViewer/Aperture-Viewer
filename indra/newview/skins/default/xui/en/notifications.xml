@@ -3243,7 +3243,7 @@ Offer friendship to [NAME]?
     <tag>confirm</tag>
     <form name="form">
       <input name="message" type="text" default="true">
-Would you be my friend?
+[OVERRIDE_ADD_FRIEND_MESSAGE]
       </input>
       <button
        default="true"
@@ -5141,7 +5141,7 @@ Offer a teleport to your location with the following message?
     <tag>confirm</tag>
     <form name="form">
       <input name="message" type="text" default="true">
-Join me in [REGION]
+      [OVERRIDE_TELEPORT_OFFER_MESSAGE]
       </input>
 			<button
        default="true"
@@ -5163,7 +5163,7 @@ Request a teleport to [NAME] with the following message
     <tag>confirm</tag>
     <form name="form">
       <input name="message" type="text">
-
+         [OVERRIDE_TELEPORT_REQUEST_MESSAGE]
       </input>
       <button
        default="true"
@@ -5197,7 +5197,7 @@ God summon this resident to your location?
     <tag>confirm</tag>
     <form name="form">
       <input name="message" type="text" default="true">
-Join me in [REGION]
+      [OVERRIDE_TELEPORT_OFFER_MESSAGE]
       </input>
       <button
        default="true"
