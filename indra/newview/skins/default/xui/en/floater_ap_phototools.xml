@@ -6728,7 +6728,7 @@
              top_pad="0"
              left="0"
              width="286"
-             height="235" 
+             height="257" 
              border_visible="true"
              bevel_style="none"
              background_visible="true">
@@ -6801,6 +6801,42 @@
                      parameter="character"/>
                 </check_box>
 
+                <text
+                 name="T_NAME"
+                 follows="left|top"
+                 height="20"
+                 left="5"
+                 v_pad="5"
+                 tool_tip=""
+                 top_pad="3"
+                 width="132"
+                 layout="topleft">
+                    Name Tag Display
+                </text>
+
+                <combo_box
+                 name="CB_Avatar_Name_Tag_Mode"
+                 control_name="AvatarNameTagMode"
+                 layout="topleft"
+                 follows="left|top"
+                 left_pad="0"
+                 top_delta="0"
+                 height="20"
+                 width="146"
+               >
+                    <combo_box.item
+                     label="Off"
+                     name="0"
+                     value="0"/>
+                    <combo_box.item
+                     label="On"
+                     name="1"
+                     value="1"/>
+                    <combo_box.item
+                     label="Show Briefly"
+                     name="2"
+                     value="2"/>
+                </combo_box>
 
                 <text
                  name="T_AvatarDisplay"
@@ -7198,12 +7234,12 @@
                      name="GP_Ambient_Occlusion"
                      value="3"/>
                     <combo_box.item
-                     label="Depth of Field"
-                     name="GP_Depth_of_Field"
-                     value="4"/>
-                    <combo_box.item
                      label="Screen Space Reflections"
                      name="GP_SSR"
+                     value="4"/>
+                    <combo_box.item
+                     label="Depth of Field"
+                     name="GP_Depth_of_Field"
                      value="5"/>
                     <combo_box.item
                      label="Mirrors"
@@ -7234,7 +7270,7 @@
              top_pad="0"
              left="0"
              width="286"
-             height="122"
+             height="117"
              border_visible="true"
              bevel_style="none"
              background_visible="true">
@@ -8077,17 +8113,40 @@
                 </check_box>
 
                <check_box
-                 name="CH_B_Show_Grouo_Notices_Top_Right"
+                 name="CH_B_Show_Group_Notices_Top_Right"
                  control_name="ShowGroupNoticesTopRight"
                  height="16"
                  top_pad="0"
                  layout="topleft"
                  left="3"
-                 label="Enable Top-Right Group Notifications (Restart Req.)"
+                 label="Enable Top-Right Group Notices (Restart Req.)"
                  tool_tip=""
                  width="240">
                 </check_box>
 
+               <check_box
+                 name="CH_B_Online_Offline_Notices"
+                 control_name="OnlineOfflinetoNearbyChat"
+                 height="16"
+                 top_pad="0"
+                 layout="topleft"
+                 left="3"
+                 label="Enable Nearby Chat Online/Offline Notices"
+                 tool_tip=""
+                 width="240">
+                </check_box>
+
+               <check_box
+                 name="CH_B_Show_Navbar_Favorites"
+                 control_name="FSInternalShowNavbarFavoritesPanel"
+                 height="16"
+                 top_pad="0"
+                 layout="topleft"
+                 left="3"
+                 label="Enable Favorites Bar (Nav Bar)"
+                 tool_tip=""
+                 width="240">
+                </check_box>
 
 <!--
                 <check_box
@@ -8156,42 +8215,7 @@
                  tool_tip="Reset to the default value.">
                 </button>
 
-                <text
-                 name="T_NAME"
-                 follows="left|top"
-                 height="20"
-                 left="5"
-                 v_pad="5"
-                 tool_tip=""
-                 top_pad="3"
-                 width="162"
-                 layout="topleft">
-                    Name Tag Display
-                </text>
 
-                <combo_box
-                 name="CB_Avatar_Name_Tag_Mode"
-                 control_name="AvatarNameTagMode"
-                 layout="topleft"
-                 follows="left|top"
-                 left_pad="0"
-                 top_delta="0"
-                 height="20"
-                 width="116"
-               >
-                    <combo_box.item
-                     label="Off"
-                     name="0"
-                     value="0"/>
-                    <combo_box.item
-                     label="On"
-                     name="1"
-                     value="1"/>
-                    <combo_box.item
-                     label="Show Briefly"
-                     name="2"
-                     value="2"/>
-                </combo_box>
 <!--
                 <button
                  follows="left|top"
@@ -8893,7 +8917,7 @@
                          left="10"
                          font="SansSerif"
                          width="200">
-                            Addtional Camera Options
+                            Additional Camera Options
                         </text>
                     </panel>
 
