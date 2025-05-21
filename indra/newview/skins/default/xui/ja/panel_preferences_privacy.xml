@@ -137,5 +137,6 @@
 			<fs_copytrans_inventory_drop_target name="autoresponse_item" tool_tip="インベントリをここにドラッグ＆ドロップします。"/>
 			<button label="クリア" name="clear_autoresponse_item"/>
 		</panel>
+		<panel label="上書き" name="tab-override-defaults"/>
 	</tab_container>
 </panel>

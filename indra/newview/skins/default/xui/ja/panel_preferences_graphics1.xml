@@ -41,8 +41,8 @@
 				<combo_box.item label="レベル２－基本的なＨＤＲｔ＆効果" name="GP_HDR"/>
 				<combo_box.item label="レベル３－影" name="GP_Shadows"/>
 				<combo_box.item label="レベル４－アンビエントオクルージョン" name="GP_Ambient_Occlusion"/>
-				<combo_box.item label="レベル５－被写体深度" name="GP_Depth_of_Field"/>
-				<combo_box.item label="レベル６－スクリーンスペースリフレクション" name="GP_SSR"/>
+				<combo_box.item label="レベル５－スクリーンスペースリフレクション" name="GP_SSR"/>
+				<combo_box.item label="レベル６－被写体深度" name="GP_Depth_of_Field"/>
 				<combo_box.item label="レベル７－ミラー" name="GP_Mirrors"/>
 				<combo_box.item label="レベル８－魅力的な画像（ミラーなし）" name="GP_Eye_Candy_No_Mirrors" />
 				<combo_box.item label="レベル９－魅力的な画像（ミラーあり）" name="GP_Eye_Candy_Mirrors"/>
