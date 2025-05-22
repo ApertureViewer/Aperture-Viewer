@@ -4,9 +4,15 @@
 
 # Aperture Viewer: Nothing Is Not Possible
 
-**Version 1.0.0 | Pushing Visual Boundaries in Second Life & OpenSim**
+**Version 1.0.0 | Officially Listed Third-Party Viewer | Pushing Visual Boundaries in Second Life & OpenSim**
 
-Aperture Viewer is an advanced, open-source viewer designed for anyone seeking the highest level of visual fidelity, performance, and artistic control in Second Life and OpenSim. Meticulously crafted by William Weaver with tools prized by virtual photographers and videomakers, its enhancements benefit all users who appreciate stunning graphics and streamlined creative workflows. Built upon the robust Firestorm codebase but offering a distinct, refined experience focused on visual excellence, Aperture 1.0.0 delivers the foundational feature set envisioned for the viewer.
+<p align="left">
+  <a href="https://wiki.secondlife.com/wiki/Third_Party_Viewer_Directory/Aperture_Viewer" target="_blank">
+    <img src="https://img.shields.io/badge/Second_Life-Official_TPV-blue?style=for-the-badge&logo=secondlife" alt="Official Second Life Third-Party Viewer">
+  </a>
+</p>
+
+Aperture Viewer is an advanced, **officially listed Second Life Third-Party Viewer**, open-source and designed for anyone seeking the highest level of visual fidelity, performance, and artistic control in Second Life and OpenSim. Meticulously crafted by William Weaver with tools prized by virtual photographers and videomakers, its enhancements benefit all users who appreciate stunning graphics and streamlined creative workflows. Built upon the robust Firestorm codebase but offering a distinct, refined experience focused on visual excellence, Aperture 1.0.0 delivers the foundational feature set envisioned for the viewer.
 
 ---
 
@@ -57,7 +63,7 @@ See the visual quality Aperture Viewer delivers by exploring the creative work o
 <br/>
 
 > [!IMPORTANT]
-> **Disclaimer:** Aperture Viewer is an independent project and is not supported by Linden Lab or the Firestorm Viewer Project. While built on open-source code, it offers a unique feature set and development direction. Users should ensure their system meets requirements (Windows 64-bit with AVX) and understand that features may differ from other viewers.
+> **Disclaimer:** Disclaimer: Aperture Viewer is an independent project. While now an **officially listed Third-Party Viewer for Second Life**, it is not directly supported by Linden Lab beyond their standard open-source policies and TPV program guidelines. While built on Linden Lab's and Firestorm's open-source code, it offers a unique feature set and development direction. Users should ensure their system meets requirements and understand that features may differ from other viewers.
 >*   **Open Source Foundation:** Derived from the official [Second Life](https://github.com/secondlife/viewer) client via the Firestorm Viewer codebase. Aperture Viewer continues this open-source tradition.
 >*   **Hardware Considerations:** Advanced visual features, especially the Post-Processing pipeline and higher Graphics Preset levels, may require capable computer hardware for optimal performance.
 
@@ -175,9 +181,11 @@ Aperture Viewer is committed to upholding the principles of responsible open-sou
 
 **Ready to elevate your virtual creations? Download Aperture Viewer 1.0.0 today and experience the difference.**
 
+*   **View** our official listing on the **[Second Life Third-Party Viewer Directory](https://wiki.secondlife.com/wiki/Third_Party_Viewer_Directory/Aperture_Viewer)**.
 *   **Explore** the [Aperture Viewer Repository (Code)](https://github.com/williamweaver/Aperture-Viewer) and the **[Aperture Viewer Wiki](https://github.com/williamweaver/Aperture-Viewer/wiki/Home)**.
 *   **Download** the latest release: **[Aperture Viewer v1.0.0 from GitHub Releases](https://github.com/williamweaver/Aperture-Viewer/releases/tag/v1.0.0)**
 *   **Contribute** your feedback, suggestions, or code via **[GitHub Issues](https://github.com/williamweaver/Aperture-Viewer/issues)**.
 *   **Join** our community on **[Discord](https://discord.gg/rVmPcUgF7Z)**!
+
 
 ---
