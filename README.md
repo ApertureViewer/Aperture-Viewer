@@ -183,7 +183,7 @@ Aperture Viewer is committed to upholding the principles of responsible open-sou
 
 *   **View** our official listing on the **[Second Life Third-Party Viewer Directory](https://wiki.secondlife.com/wiki/Third_Party_Viewer_Directory/Aperture_Viewer)**.
 *   **Explore** the [Aperture Viewer Repository (Code)](https://github.com/williamweaver/Aperture-Viewer) and the **[Aperture Viewer Wiki](https://github.com/williamweaver/Aperture-Viewer/wiki/Home)**.
-*   **Download** the latest release: **[Aperture Viewer v1.0.0 from GitHub Releases](https://github.com/williamweaver/Aperture-Viewer/releases/tag/v1.0.0)**
+*   **Download** the latest release: **[Aperture Viewer v1.0.0 from GitHub Releases](https://github.com/ApertureViewer/Aperture-Viewer/releases/tag/1.0.0)**
 *   **Contribute** your feedback, suggestions, or code via **[GitHub Issues](https://github.com/williamweaver/Aperture-Viewer/issues)**.
 *   **Join** our community on **[Discord](https://discord.gg/rVmPcUgF7Z)**!
 
