@@ -14693,7 +14693,7 @@ For detailed instructions on how to whitelist [APP_NAME] - including a list of f
    icon="alertmodal.tga"
    name="PrimfeedLoginRequestFailed"
    persist="false"
-   log_to_im="true"   
+   log_to_im="true"
    type="notify">
 Login request denied by Primfeed.
   </notification>
