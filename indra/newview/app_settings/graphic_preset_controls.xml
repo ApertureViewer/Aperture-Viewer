@@ -133,10 +133,12 @@
         <string>RenderShadowResolutionScale</string>
         <string>RenderShadowSplitExponent</string>
         <string>RenderShadowSplits</string>
+        <string>RenderSkyAmbientScale</string> 
         <string>RenderSkyAutoAdjustAmbientScale</string>
         <string>RenderSkyAutoAdjustBlueDensityScale</string>
         <string>RenderSkyAutoAdjustBlueHorizonScale</string>
         <string>RenderSkyAutoAdjustHDRScale</string>
+        <string>RenderSkyAutoAdjustLegacy</string>
         <string>RenderSkyAutoAdjustProbeAmbiance</string>
         <string>RenderSkyAutoAdjustSunColorScale</string>
         <string>RenderSkySunlightScale</string>
