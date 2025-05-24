@@ -996,6 +996,7 @@ If you continue to receive this message, please contact Second Life support for 
 	<string name="InvFolder All">All</string>
 
 	<!-- Virtual Firestorm system folders -->
+	<string name="InvFolder #Aperture">#Aperture</string>
 	<string name="InvFolder #Firestorm">#Firestorm</string>
 	<string name="InvFolder #Phoenix">#Phoenix</string>
 	<string name="InvFolder #RLV">#RLV</string>

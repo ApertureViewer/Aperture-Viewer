@@ -182,7 +182,7 @@ bool FSLSLBridge::lslToViewer(std::string_view message, const LLUUID& fromID, co
 
     bool bridgeIsEnabled = gSavedSettings.getBOOL("UseLSLBridge");
     bool status = false;
-    if (tag == "<bridgeURL>")
+    if (tag == "<AVbridgeURL>")
     {
         if (!bridgeIsEnabled)
         {
@@ -191,15 +191,15 @@ bool FSLSLBridge::lslToViewer(std::string_view message, const LLUUID& fromID, co
         }
 
         // brutish parsing
-        static const std::string bridge_url_tag = "<bridgeURL>";
-        static const std::string bridge_auth_tag = "<bridgeAuth>";
-        static const std::string bridge_ver_tag = "<bridgeVer>";
+        static const std::string bridge_url_tag = "<AVbridgeURL>";
+        static const std::string bridge_auth_tag = "<AVbridgeAuth>";
+        static const std::string bridge_ver_tag = "<AVbridgeVer>";
         size_t urlStart  = message.find(bridge_url_tag) + bridge_url_tag.size();
-        size_t urlEnd    = message.find("</bridgeURL>");
+        size_t urlEnd    = message.find("</AVbridgeURL>");
         size_t authStart = message.find(bridge_auth_tag) + bridge_auth_tag.size();
-        size_t authEnd   = message.find("</bridgeAuth>");
+        size_t authEnd   = message.find("</AVbridgeAuth>");
         size_t verStart  = message.find(bridge_ver_tag) + bridge_ver_tag.size();
-        size_t verEnd    = message.find("</bridgeVer>");
+        size_t verEnd    = message.find("</AVbridgeVer>");
         std::string bURL = static_cast<std::string>(message.substr(urlStart,urlEnd - urlStart));
         std::string bAuth = static_cast<std::string>(message.substr(authStart,authEnd - authStart));
         std::string bVer = static_cast<std::string>(message.substr(verStart,verEnd - verStart));
@@ -304,7 +304,7 @@ bool FSLSLBridge::lslToViewer(std::string_view message, const LLUUID& fromID, co
 
         return true;
     }
-    else if (tag == "<bridgeRequestError/>")
+    else if (tag == "<AVbridgeRequestError/>")
     {
         LL_WARNS("FSLSLBridge") << "Could not obtain URL for LSL bridge." << LL_ENDL;
         return true;
@@ -395,11 +395,11 @@ bool FSLSLBridge::lslToViewer(std::string_view message, const LLUUID& fromID, co
     //</FS:TS> FIRE-962
 
     // <FS:PP> Get script info response
-    else if (tag == "<bridgeGetScriptInfo>")
+    else if (tag == "<AVbridgeGetScriptInfo>")
     {
         size_t tag_size = tag.size();
         status = true;
-        size_t getScriptInfoEnd = message.find("</bridgeGetScriptInfo>");
+        size_t getScriptInfoEnd = message.find("</AVbridgeGetScriptInfo>");
         if (getScriptInfoEnd != std::string::npos)
         {
             std::string getScriptInfoString = static_cast<std::string>(message.substr(tag_size, getScriptInfoEnd - tag_size));
@@ -495,7 +495,7 @@ bool FSLSLBridge::lslToViewer(std::string_view message, const LLUUID& fromID, co
     // </FS:PP>
 
     // <FS:PP> Movelock state response
-    else if (tag == "<bridgeMovelock ")
+    else if (tag == "<AVbridgeMovelock ")
     {
         status = true;
         size_t valuepos = message.find(FS_STATE_ATTRIBUTE);
@@ -518,7 +518,7 @@ bool FSLSLBridge::lslToViewer(std::string_view message, const LLUUID& fromID, co
     // </FS:PP>
 
     // <FS:PP> Error responses handling
-    else if (tag == "<bridgeError ")
+    else if (tag == "<AVbridgeError ")
     {
         status = true;
         size_t valuepos = message.find(FS_ERROR_ATTRIBUTE);
