@@ -41,7 +41,7 @@
 #include "lltexturectrl.h"
 #include "llviewercontrol.h"
 
-static LLPanelInjector<FSPanelPrefs> t_pref_fs("panel_preference_firestorm");
+static LLPanelInjector<FSPanelPrefs> t_pref_fs("panel_preference_aperture");
 
 FSPanelPrefs::FSPanelPrefs() : LLPanelPreference()
 {
