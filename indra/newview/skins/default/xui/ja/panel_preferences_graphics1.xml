@@ -38,7 +38,7 @@
 			</text>
 			<combo_box name="CB_Graphics_Preset">
 				<combo_box.item label="レベル１－必須機能" name="GP_Essential"/>
-				<combo_box.item label="レベル２－基本的なＨＤＲｔ＆効果" name="GP_HDR"/>
+				<combo_box.item label="レベル２－基本的なＨＤＲ＆効果" name="GP_HDR"/>
 				<combo_box.item label="レベル３－影" name="GP_Shadows"/>
 				<combo_box.item label="レベル４－アンビエントオクルージョン" name="GP_Ambient_Occlusion"/>
 				<combo_box.item label="レベル５－スクリーンスペースリフレクション" name="GP_SSR"/>
