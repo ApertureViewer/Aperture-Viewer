@@ -3,7 +3,7 @@
  can_resize="false"
  can_close="true"
  can_minimize="true"
- height="631"
+ height="640"
  help_topic="phototools_menu_floater"
  layout="topleft"
  name="phototools"
@@ -3974,7 +3974,7 @@
              top_pad="0"
              left="0"
              width="286"
-             height="56"
+             height="70"
              border_visible="true"
              bevel_style="none"
              background_visible="true">
@@ -4003,7 +4003,18 @@
                  tool_tip=""
                  width="240">
                 </check_box>
-
+               <check_box
+                  name="DoFLock"
+                  control_name="FSFocusPointLocked"
+                  enabled_control="RenderDepthOfField"
+                  height="16"
+                  top_pad="0"
+                  layout="topleft"
+                  left="3"
+                  label="Alt + Shift + X to lock DoF Focus"
+                  tool_tip=""
+                  width="240">
+                  </check_box>
                 <button
                  follows="left|top"
                  height="19"
@@ -10456,7 +10467,7 @@
      name="P_Divider"
      follows="top|left"
      layout="topleft"
-     top_pad="0"
+     top_pad="5"
      left="0"
      width="288"
      height="3"
@@ -10471,7 +10482,7 @@
      name="P_Graphic_Presets_Managment"
      follows="top|left"
      layout="topleft"
-     top_pad="0"
+     top_pad="5"
      left="0"
      width="288"
      height="30" 
