@@ -4,10 +4,10 @@
 		フォーカスに対してカメラを回転します。
 	</floater.string>
 	<floater.string name="zoom_tooltip">
-        フォーカスに対してカメラをズームします。
+		フォーカスに対してカメラをズームします。
 	</floater.string>
 	<floater.string name="move_tooltip">
-        カメラを上下左右に移動します。
+		カメラを上下左右に移動します。
 	</floater.string>
 	<floater.string name="free_mode_title">
 		オブジェクトを見ます。
@@ -756,6 +756,14 @@
 				<check_box name="Render Attached Particle" label="アバターのパーティクルを表示" tool_tip="アバターの装着物から放出されるパーティクルエフェクトのレンダリングを切り替えます。"/>
 				<check_box name="Render Attached Lights" label="装着光源を表示" tool_tip="フェイスライトなど、アバターに取り付けられた光源のレンダリングを切り替えます。"/>
 				<check_box name="CH_B_Render_Avatars" label="アバターを表示" tool_tip="すべてのアバター（自分のアバターを含む）のレンダリングを切り替えます。"/>
+				<text name="T_NAME">
+					名前タグの表示
+				</text>
+				<combo_box name="CB_Avatar_Name_Tag_Mode">
+					<combo_box.item label="オフ" name="0"/>
+					<combo_box.item label="オン" name="1"/>
+					<combo_box.item label="簡易表示" name="2"/>
+				</combo_box>
 				<text name="T_AvatarDisplay" tool_tip="複雑度やフレンドのステータスに基づいてアバターの表示方法を選択します。">
 					アバターの表示
 				</text>
@@ -802,8 +810,8 @@
 					<combo_box.item label="基本的なＨＤＲ＆効果" name="GP_HDR"/>
 					<combo_box.item label="影" name="GP_Shadows"/>
 					<combo_box.item label="アンビエントオクルージョン" name="GP_Ambient_Occlusion"/>
-					<combo_box.item label="被写体深度" name="GP_Depth_of_Field"/>
 					<combo_box.item label="スクリーンスペースリフレクション" name="GP_SSR"/>
+					<combo_box.item label="被写体深度" name="GP_Depth_of_Field"/>
 					<combo_box.item label="ミラー" name="GP_Mirrors"/>
 					<combo_box.item label="魅力的な画像（ミラーなし）" name="GP_Eye_Candy_No_Mirrors"/>
 					<combo_box.item label="魅力的な画像（ミラーあり）" name="GP_Eye_Candy_Mirrors"/>
@@ -900,13 +908,15 @@
 				-->
 				<check_box name="CH_B_Highlight_Transparent" label="透明なオブジェクトを赤色でハイライトする"/>
 				<check_box name="CH_B_Show_Color_Under_Cursor" label="カーソルの下のＲＧＢ－Ｉカラーを表示" tool_tip="カーソルの真下のピクセルの ＲＧＢ（赤、緑、青）と強度（Ｉ）のカラー値を表示します。"/>
-				<check_box name="CH_B_Show_Hover_Tips" label="ホバーでツールチップを表示"/>
+				<check_box name="CH_B_Show_Hover_Tips" label="ホバーでツールチップを表示する"/>
 				<check_box name="CH_B_Basic_UI_Tooltips" label="ツールチップを有効化"/>
-				<check_box name="CH_B_Show_Grouo_Notices_Top_Right" label="右上のグループ通知を有効にする（要再起動）"/>
+				<check_box name="CH_B_Show_Group_Notices_Top_Right" label="右上のグループ通知を有効にする（要再起動）"/>
+				<check_box name="CH_B_Online_Offline_Notices" label="近くのチャットでオンライン状況の通知を有効にする"/>
+				<check_box name="CH_B_Show_Navbar_Favorites" label="お気に入りバーを有効化（ナビバー）"/>
 				<!--
 				<check_box tool_tip="シーン全体をワイヤーフレームモードでレンダリングし、テクスチャやシェーディングなしでオブジェクトの基となるジオメトリを表示します。オブジェクトの構造、ＬｏＤ（詳細レベル）、メッシュトポロジの分析に役立ちます。" label="シーンをワイヤーフレームとして表示する" name="Wireframe"/>
 				-->
-				<text name="T_UI_Scaling" tool_tip="Adjust the overall size scaling of the user interface elements.">
+				<text name="T_UI_Scaling" tool_tip="ユーザーインターフェイス要素の全体的なサイズのスケーリングを調整します。">
 					UIスケーリング
 				</text>
 				<button name="ResetUIScale" tool_tip="デフォルト値にリセットします。">
