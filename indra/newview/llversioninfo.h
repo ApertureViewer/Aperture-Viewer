@@ -78,11 +78,6 @@ public:
     /// like "Second Life Release 2.0.0.200030"
     std::string getChannelAndVersion();
 
-    //<FS:TS> Needed for fsdata version checking
-    /// return the viewer version and hardcoded channel as a string
-    /// like "Firestorm-Release 2.0.0 (200030)"
-    std::string getChannelAndVersionFS() const;
-
     /// return the channel name, e.g. "Second Life"
     std::string getChannel() const;
 

@@ -22,7 +22,6 @@
 #include "lggcontactsets.h"
 
 #include "fscommon.h"
-#include "fsdata.h"
 #include "fsradar.h"
 #include "llagent.h"
 #include "llavatarnamecache.h"
@@ -378,28 +377,6 @@ LLColor4 LGGContactSets::colorize(const LLUUID& uuid, LLColor4 color, ContactSet
                 break;
             case ContactSetType::MINIMAP:
                 color = LLUIColorTable::instance().getColor("MapAvatarMutedColor", LLColor4::grey3).get();
-                break;
-            case ContactSetType::RADAR:
-                // Do nothing
-                break;
-            default:
-                LL_DEBUGS("ContactSets") << "Unhandled colorize case!" << LL_ENDL;
-                break;
-        }
-    }
-    else if (FSData::instance().isAgentFlag(uuid, FSData::CHAT_COLOR))
-    {
-        switch (type)
-        {
-            case ContactSetType::CHAT:
-            case ContactSetType::IM:
-                color = LLUIColorTable::instance().getColor("FirestormChatColor", LLColor4::red).get();
-                break;
-            case ContactSetType::TAG:
-                color = LLUIColorTable::instance().getColor("NameTagFirestorm", LLColor4::red).get();
-                break;
-            case ContactSetType::MINIMAP:
-                color = LLUIColorTable::instance().getColor("MapAvatarFirestormColor", LLColor4::red).get();
                 break;
             case ContactSetType::RADAR:
                 // Do nothing

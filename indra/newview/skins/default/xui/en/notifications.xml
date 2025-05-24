@@ -11126,59 +11126,6 @@ Creating animation link for animation "[NAME]" failed!
 
 <!-- ## Zi: Animation Overrider -->
 
-<notification
-   icon="alertmodal.tga"
-   name="SendSysinfoToIM"
-   type="alertmodal">
-This will send the following information to the current IM session:
-
-[SYSINFO]
-    <usetemplate
-     name="okcancelbuttons"
-     yestext="Send"
-     notext="Cancel" />
-  </notification>
-
-<!-- fsdata -->
-  <notification
-   icon="alertmodal.tga"
-   name="BlockLoginInfo"
-   type="alertmodal">
-    [REASON]
-    <usetemplate
-     name="okbutton"
-     yestext="OK"/>
-  </notification>
-
-  <notification
-   icon="alertmodal.tga"
-   name="TestversionExpired"
-   type="alertmodal">
-    This test version of [APP_NAME] has expired and cannot be used any further.
-    <usetemplate
-     name="okbutton"
-     yestext="OK"/>
-  </notification>
-
-  <notification
-   icon="alertmodal.tga"
-   name="FireStormReqInfo"
-   type="alertmodal">
-    [NAME] is requesting that you send them information about your [APP_NAME] setup.
-(This is the same information that can be found by going to Help->About [APP_NAME])
-[REASON]
-Would you like to send them this information?
-    <form name="form">
-      <button
-       index="0"
-       name="Yes"
-       text="Yes"/>
-      <button
-       index="1"
-       name="No"
-       text="No"/>
-    </form>
-  </notification>
 
 <!-- Firestorm Phantom -->
 

@@ -2715,23 +2715,6 @@
                  function="Floater.Show"
                  parameter="bumps" />
             </menu_item_call>
-        <!--
-        <menu_item_separator/>
-
-
-        <menu_item_check
-            label="Enable Sysinfo Button"
-            name="Enable Sysinfo Button">
-            <menu_item_check.on_check
-                function="CheckControl"
-                parameter="SysinfoButtonInIM" />
-            <menu_item_check.on_click
-                function="ToggleControl"
-                parameter="SysinfoButtonInIM" />
-        </menu_item_check>
-
-        -->
-
         <menu_item_separator/>
 
         <menu_item_call

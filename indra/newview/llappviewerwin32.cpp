@@ -700,7 +700,7 @@ void LLAppViewerWin32::bugsplatAddStaticAttributes(const LLSD& info)
     bugSplatMap.setAttribute("Draw Distance (m)", info["DRAW_DISTANCE"].asInteger());
     bugSplatMap.setAttribute("Bandwidth (kbit/s)", info["BANDWIDTH"].asInteger());
     bugSplatMap.setAttribute("LOD Factor", info["LOD"].asReal());
-    bugSplatMap.setAttribute("Render quality", info["RENDERQUALITY_FSDATA_ENGLISH"].asString());
+    bugSplatMap.setAttribute("Render quality", info["RENDERQUALITY_ENGLISH"].asString());
     bugSplatMap.setAttribute("Disk Cache", info["DISK_CACHE_INFO"].asString());
 
     bugSplatMap.setAttribute("GridName", gDebugInfo["GridName"].asString());

@@ -116,7 +116,8 @@
              label="Report Problem"
              name="Report Bug">
                 <menu_item_call.on_click
-                 function="Advanced.ReportBug"/>
+                 function="Advanced.ShowURL"
+                 parameter="https://github.com/ApertureViewer/Aperture-Viewer/issues"/>
             </menu_item_call>
         <menu_item_separator/>
         <menu_item_call
