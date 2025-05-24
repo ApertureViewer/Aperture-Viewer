@@ -4803,16 +4803,14 @@ bool process_login_success_response(U32 &first_sim_size_x, U32 &first_sim_size_y
     if (gAgent.mMOTD.empty() || !LLGridManager::getInstance()->isInSLMain())
 // </FS:CR>
     {
-        // <AP:WW> Disable Linden Lab MOTD
-        // gAgent.mMOTD.assign(response["message"]);
-        // </AP:WW>
-    }
-
-    // <FS:Techwolf Lupindo> fsdata opensim MOTD support
-#ifdef OPENSIM
-    if (LLGridManager::getInstance()->isInOpenSim() && !FSData::instance().getOpenSimMOTD().empty())
-    {
-        gAgent.mMOTD.assign(FSData::instance().getOpenSimMOTD());
+        // The MOTD is a part of the login response and is not a discrete component
+        // or request mechanism in the viewer. It contains important grid status messages
+        // and service announcements, so for the common good it should be preserved and
+        // displayed to users by default. An option to disable it is presented if desired.
+        if(!gSavedSettings.getBOOL("DisableMOTD"))
+        {
+            gAgent.mMOTD.assign(response["message"]);
+        }
     }
 #endif
     // </FS:Techwolf Lupindo>
