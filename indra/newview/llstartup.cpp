@@ -231,7 +231,6 @@
 #include "fsavatarrenderpersistence.h"
 #include "fscommon.h"
 #include "fscorehttputil.h"
-#include "fsdata.h"
 #include "fsfloatercontacts.h"
 #include "fsfloaterimcontainer.h"
 #include "fsfloaternearbychat.h"
@@ -414,47 +413,6 @@ void pump_idle_startup_network(void)
 // local classes
 //
 // <AW: opensim>
-static bool sGridListRequestReady = false;
-void downloadGridlistComplete( LLSD const &aData )
-{
-    LL_DEBUGS() << aData << LL_ENDL;
-
-    LLSD header = aData[ LLCoreHttpUtil::HttpCoroutineAdapter::HTTP_RESULTS ][ LLCoreHttpUtil::HttpCoroutineAdapter::HTTP_RESULTS_HEADERS];
-
-    LLDate lastModified;
-    if (header.has("last-modified"))
-    {
-        lastModified.secondsSinceEpoch( FSCommon::secondsSinceEpochFromString( "%a, %d %b %Y %H:%M:%S %ZP", header["last-modified"].asString() ) );
-    }
-
-    LLSD data = aData;
-    data.erase( LLCoreHttpUtil::HttpCoroutineAdapter::HTTP_RESULTS );
-
-    std::string filename = gDirUtilp->getExpandedFilename(LL_PATH_USER_SETTINGS, "grids.remote.xml");
-
-    llofstream out_file;
-    out_file.open(filename.c_str());
-    LLSDSerialize::toPrettyXML( data, out_file);
-    out_file.close();
-    LL_INFOS() << "GridListRequest: got new list." << LL_ENDL;
-    sGridListRequestReady = true;
-}
-
-void downloadGridlistError( LLSD const &aData, std::string const &aURL )
-{
-    LLCore::HttpStatus status = LLCoreHttpUtil::HttpCoroutineAdapter::getStatusFromLLSD(aData);
-
-    if (status.getType() == HTTP_NOT_MODIFIED)
-    {
-    // <AP:WW> LL_INFOS("fsdata") << "Didn't download grid list from " << aURL << " - no newer version available" << LL_ENDL;
-    }
-    else
-    {
-        LL_WARNS() << "Failed to download grid list from " << aURL << LL_ENDL;
-    }
-
-    sGridListRequestReady = true;
-}
 
  void downloadGridstatusComplete(LLSD const &aData)
 {
@@ -949,34 +907,6 @@ bool idle_startup()
 
         LL_INFOS("AppInit") << "Message System Initialized." << LL_ENDL;
 
-        // <FS:Techwolf Lupindo> load global xml data
-        FSData::instance().startDownload();
-        // </FS:Techwolf Lupindo>
-
-// <AW: opensim>
-#ifndef SINGLEGRID
-        if(!gSavedSettings.getBOOL("GridListDownload"))
-        {
-            sGridListRequestReady = true;
-        }
-        else
-        {
-            std::string filename = gDirUtilp->getExpandedFilename(LL_PATH_USER_SETTINGS, "grids.remote.xml");
-
-            llstat file_stat; //platform independent wrapper for stat
-            time_t last_modified = 0;
-
-            if(!LLFile::stat(filename, &file_stat))//exists
-            {
-                last_modified = file_stat.st_mtime;
-            }
-
-            std::string url = gSavedSettings.getString("GridListDownloadURL");
-            FSCoreHttpUtil::callbackHttpGet(url, last_modified, boost::bind(downloadGridlistComplete, _1), boost::bind(downloadGridlistError, _1, url));
-        }
-#else
-        sGridListRequestReady = true;
-#endif
 
 #ifdef OPENSIM // <FS:AW optional opensim support>
         // Fetch grid infos as needed
@@ -985,10 +915,6 @@ bool idle_startup()
 // <FS:AW optional opensim support>
 #else
         LLGridManager::getInstance()->initialize(std::string());
-        // <FS:Techwolf Lupindo> fsdata support
-        //LLStartUp::setStartupState( STATE_AUDIO_INIT );
-        LLStartUp::setStartupState( STATE_FETCH_GRID_INFO );
-        // </FS:Techwolf Lupindo>
 #endif // OPENSIM
 // </FS:AW optional opensim support>
     }
@@ -1001,14 +927,11 @@ bool idle_startup()
         const F32 grid_time = grid_timer.getElapsedTimeF32();
         const F32 MAX_WAIT_TIME = 15.f;//don't wait forever
 
-        if(grid_time > MAX_WAIT_TIME ||
+        if(grid_time > MAX_WAIT_TIME
 #ifdef OPENSIM
-            ( sGridListRequestReady && LLGridManager::getInstance()->isReadyToLogin() &&
-#endif      // <FS:WW> Removed FSData wait condition
-            /*FSData::instance().getFSDataDone()*/ true) // Force to true to bypass wait
-#ifdef OPENSIM
-                              )
-#endif      // </FS:WW>
+            || ( LLGridManager::getInstance()->isReadyToLogin() )
+#endif
+)
         {
             LLStartUp::setStartupState( STATE_AUDIO_INIT );
         }
@@ -1358,28 +1281,6 @@ bool idle_startup()
 
     if (STATE_LOGIN_CLEANUP == LLStartUp::getStartupState())
     {
-        // <FS:Ansariel> Check for test build expiration
-        if (is_testbuild_expired())
-        {
-            LL_INFOS() << "This test version has expired and cannot be used any further." << LL_ENDL;
-            LLNotificationsUtil::add("TestversionExpired", LLSD(), LLSD(), login_alert_done);
-            LLStartUp::setStartupState(STATE_LOGIN_CONFIRM_NOTIFICATON);
-            show_connect_box = true;
-            return false;
-        }
-        // </FS:Ansariel>
-
-        // <FS:Ansariel> Login block
-        LLSD blocked = FSData::instance().allowedLogin();
-        if (blocked.isMap()) //hack for testing for an empty LLSD
-        {
-            LLNotificationsUtil::add("BlockLoginInfo", blocked, LLSD(), login_alert_done);
-            LLStartUp::setStartupState(STATE_LOGIN_CONFIRM_NOTIFICATON);
-            show_connect_box = true;
-            return false;
-        }
-        // </FS:Ansariel>
-
         // Post login screen, we should see if any settings have changed that may
         // require us to either start/stop or change the socks proxy. As various communications
         // past this point may require the proxy to be up.
@@ -1576,9 +1477,6 @@ bool idle_startup()
         // <FS:WS> Initalize Account based asset_blacklist
         FSAssetBlacklist::getInstance()->init();
 
-        // <FS:Techwolf Lupindo> load per grid data
-        FSData::instance().downloadAgents();
-        // </FS:Techwolf Lupindo>
         if (show_connect_box)
         {
             LLSLURL slurl;
@@ -1649,37 +1547,10 @@ bool idle_startup()
         //           and "[CURRENT_GRID] Help" menu entries
         update_grid_help();
 
-        // <FS:Techwolf Lupindo> fsdata agents support
-        //LLStartUp::setStartupState( STATE_LOGIN_AUTH_INIT );
-        LLStartUp::setStartupState(STATE_AGENTS_WAIT);
-        // </FS:Techwolf Lupindo>
+        LLStartUp::setStartupState( STATE_LOGIN_AUTH_INIT );
 
         return false;
     }
-
-    // <FS:Techwolf Lupindo> fsdata support
-    if (STATE_AGENTS_WAIT == LLStartUp::getStartupState())
-    {
-        static LLFrameTimer agents_timer;
-        const F32 agents_time = agents_timer.getElapsedTimeF32();
-        const F32 MAX_AGENTS_TIME = 15.f;
-
-        // <FS:WW> Removed FSData wait condition - always proceed
-        LLStartUp::setStartupState(STATE_LOGIN_AUTH_INIT); // Directly proceed
-        // </FS:WW>
-
-
-        if(agents_time > MAX_AGENTS_TIME || FSData::instance().getAgentsDone())
-        {
-            LLStartUp::setStartupState(STATE_LOGIN_AUTH_INIT);
-        }
-        else
-        {
-            ms_sleep(1);
-            return false;
-        }
-    }
-    // </FS:Techwolf Lupindo>
 
     if(STATE_LOGIN_AUTH_INIT == LLStartUp::getStartupState())
     {
@@ -2296,10 +2167,6 @@ bool idle_startup()
         // <FS:Ansariel> Register check function for registrar enable checks
         gFSRegistrarUtils.setEnableCheckFunction(std::bind(&FSCommon::checkIsActionEnabled, std::placeholders::_1, std::placeholders::_2));
 
-        // <FS:Techwolf Lupindo> fsdata support
-        FSData::instance().addAgents();
-        // </FS:Techwolf Lupindo>
-
         // <FS:Ansariel> [FS communication UI]
         //gCacheName is required for nearby chat history loading
         //so I just moved nearby history loading a few states further
@@ -2495,7 +2362,7 @@ bool idle_startup()
             LLHUDManager::getInstance()->sendEffects();
         }
 
-        LLStartUp::setStartupState( STATE_AGENT_WAIT );     // Go to STATE_AGENT_WAIT
+        LLStartUp::setStartupState( STATE_AGENT_WAIT );
 
         timeout.reset();
         do_startup_frame();
@@ -4004,7 +3871,6 @@ std::string LLStartUp::startupStateToString(EStartupState state)
         // <FS:Ansariel> Add FS-specific startup states
         RTNENUM( STATE_FETCH_GRID_INFO );
         RTNENUM( STATE_AUDIO_INIT);
-        RTNENUM( STATE_AGENTS_WAIT );
         RTNENUM( STATE_LOGIN_CONFIRM_NOTIFICATON );
         // </FS:Ansariel>
     default:
@@ -4798,24 +4664,12 @@ bool process_login_success_response(U32 &first_sim_size_x, U32 &first_sim_size_y
         gAgent.setHomePosRegion(region_handle, position);
     }
 
-    // If MOTD has not been set by fsdata, fallback to LL MOTD
 // <FS:CR> FIRE-8571, FIRE-9274
     if (gAgent.mMOTD.empty() || !LLGridManager::getInstance()->isInSLMain())
 // </FS:CR>
     {
-        // <AP:WW> Disable Linden Lab MOTD
-        // gAgent.mMOTD.assign(response["message"]);
-        // </AP:WW>
+        gAgent.mMOTD.assign(response["message"]);
     }
-
-    // <FS:Techwolf Lupindo> fsdata opensim MOTD support
-#ifdef OPENSIM
-    if (LLGridManager::getInstance()->isInOpenSim() && !FSData::instance().getOpenSimMOTD().empty())
-    {
-        gAgent.mMOTD.assign(FSData::instance().getOpenSimMOTD());
-    }
-#endif
-    // </FS:Techwolf Lupindo>
 
     // Options...
     // Each 'option' is an array of submaps.
@@ -5075,24 +4929,9 @@ bool process_login_success_response(U32 &first_sim_size_x, U32 &first_sim_size_y
     else
 #endif // OPENSIM
     {
-        if (FSData::instance().enableLegacySearch())
-        {
-            LLFloaterReg::add("search", "floater_fs_search.xml", (LLFloaterBuildFunc)&LLFloaterReg::build<FSFloaterSearch>);
-        }
-        else
-        {
-            LLFloaterReg::add("search", "floater_search.xml", (LLFloaterBuildFunc)&LLFloaterReg::build<LLFloaterSearch>);
-        }
+        LLFloaterReg::add("search", "floater_fs_search.xml", (LLFloaterBuildFunc)&LLFloaterReg::build<FSFloaterSearch>);
     }
 // </FS:CR>
-
-    // <FS:Techwolf Lupindo> fsdata support
-    if (FSData::instance().isAgentFlag(gAgentID, FSData::NO_USE))
-    {
-        gAgentID.setNull();
-    }
-    // </FS:Techwolf Lupindo>
-
 
     bool success = false;
     // JC: gesture loading done below, when we have an asset system

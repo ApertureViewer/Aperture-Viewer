@@ -142,26 +142,6 @@ std::string LLVersionInfo::getChannelAndVersion()
     return mVersionChannel;
 }
 
-//<FS:TS> Get version and channel in the format needed for FSDATA.
-std::string LLVersionInfo::getChannelAndVersionFS() const
-{
-    static std::string sVersionChannelFS;
-    if (sVersionChannelFS.empty())
-    {
-        // cache the version string
-        std::ostringstream stream;
-        stream << LL_VIEWER_CHANNEL << " "
-               << LL_VIEWER_VERSION_MAJOR << "."
-               << LL_VIEWER_VERSION_MINOR << "."
-               << LL_VIEWER_VERSION_PATCH << " ("
-               << LL_VIEWER_VERSION_BUILD << ")";
-        sVersionChannelFS = stream.str();
-    }
-
-    return sVersionChannelFS;
-}
-//</FS:TS>
-
 std::string LLVersionInfo::getChannel() const
 {
     return mWorkingChannelName;

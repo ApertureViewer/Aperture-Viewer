@@ -72,7 +72,6 @@
 // Firestorm includes
 #include "exogroupmutelist.h"
 #include "fscommon.h"
-#include "fsdata.h"
 #include "fskeywords.h"
 #include "llagentui.h"
 #include "llavataractions.h"
@@ -849,13 +848,6 @@ void LLIMProcessing::processNewMessage(LLUUID from_id,
                 }
                 // </FS:Ansariel>
 
-                // <FS:Ansariel> checkfor and process reqinfo
-                if (has_session)
-                {
-                    message = FSData::getInstance()->processRequestForInfo(from_id,message,name,session_id);
-                }
-                // </FS:Ansariel>
-
                 // now store incoming IM in chat history
 
                 buffer = message;
@@ -1002,9 +994,6 @@ void LLIMProcessing::processNewMessage(LLUUID from_id,
 
                 if (!mute_im)
                 {
-                    // checkfor and process reqinfo
-                    message = FSData::getInstance()->processRequestForInfo(from_id, message, name, session_id);
-
                     // <FS:PP> FIRE-10178: Keyword Alerts in group IM do not work unless the group is in the foreground (notification on receipt of IM)
                     chat.mText = message;
                     bool keyword_alert_performed = false;

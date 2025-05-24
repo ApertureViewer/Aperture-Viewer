@@ -41,7 +41,6 @@ class FSChatHistory;
 class FSFloaterIMTimer;
 class FSPanelChatControlPanel;
 class LLAvatarName;
-class LLButton;     // support sysinfo button -Zi
 class LLChatEntry;
 class LLInventoryCategory;
 class LLInventoryItem;
@@ -168,11 +167,6 @@ protected:
     void    onClickCloseBtn(bool app_quitting = false);
     /*virtual*/ bool applyRectControl();
 
-    // support sysinfo button -Zi
-    void    onSysinfoButtonVisibilityChanged(const LLSD& yes);
-    LLButton* mSysinfoButton;
-    // support sysinfo button -Zi
-
     bool enableViewerVersionCallback(const LLSD& notification,const LLSD& response);        // <FS:Zi> Viewer version popup
     void reshapeChatLayoutPanel();
 private:
@@ -200,11 +194,6 @@ private:
 
     void doToSelected(const LLSD& userdata);
     bool checkEnabled(const LLSD& userdata);
-
-    // support sysinfo button -Zi
-    void onSysinfoButtonClicked();
-    bool onSendSysinfo(const LLSD& notification,const LLSD& response);
-    // support sysinfo button -Zi
 
     // connection to voice channel state change signal
     boost::signals2::connection mVoiceChannelStateChangeConnection;

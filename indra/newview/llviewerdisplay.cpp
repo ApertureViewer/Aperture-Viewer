@@ -94,7 +94,6 @@
 #include "rlvlocks.h"
 // [/RLVa:KB]
 #include "llpresetsmanager.h"
-#include "fsdata.h"
 
 #include <filesystem>
 #include <iomanip>
@@ -355,7 +354,6 @@ static void update_tp_display(bool minimized)
             LL_INFOS("Teleport") << "A teleport request has been sent, setting state to TELEPORT_REQUESTED" << LL_ENDL;
             gAgent.setTeleportState(LLAgent::TELEPORT_REQUESTED);
             gAgent.setTeleportMessage(msg);
-            FSData::instance().selectNextMOTD();
             if (!minimized)
             {
                 gViewerWindow->setShowProgress(true, !gSavedSettings.getBOOL("FSDisableTeleportScreens"));

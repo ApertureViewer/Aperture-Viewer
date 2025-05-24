@@ -82,7 +82,6 @@
 #include "llweb.h"
 #include "llviewernetwork.h" // <FS:Beq> For LLGridManager
 
-#include "fsdata.h"
 #include "fsradar.h"        // <FS:Zi> Update notes in radar when edited
 #include "llviewermenu.h"
 
@@ -1391,66 +1390,6 @@ void LLPanelProfileSecondLife::fillAccountStatus(const LLAvatarData* avatar_data
     args["[ACCTTYPE]"] = LLAvatarPropertiesProcessor::accountType(avatar_data);
     args["[PAYMENTINFO]"] = LLAvatarPropertiesProcessor::paymentInfo(avatar_data);
 
-    // <FS:Ansariel> FSData support
-    args["[FIRESTORM]"] = "";
-    args["[FSSUPP]"] = "";
-    args["[FSDEV]"] = "";
-    args["[FSQA]"] = "";
-    args["[FSGW]"] = "";
-    S32 flags = FSData::getInstance()->getAgentFlags(avatar_data->avatar_id);
-    if (flags != -1)
-    {
-        bool separator = false;
-        std::string text;
-        if (flags & (FSData::DEVELOPER | FSData::SUPPORT | FSData::QA | FSData::GATEWAY))
-        {
-// <FS:WW> Aperture Icon - rebranding - Use "Firestorm" string for [FIRESTORM] tag instead of APP_NAME
-//             args["[FIRESTORM]"] = LLTrans::getString("APP_NAME");
-            args["[FIRESTORM]"] = LLTrans::getString("Firestorm");
-// </FS:WW>
-        }
-
-        if (flags & FSData::DEVELOPER)
-        {
-            text = getString("FSDev");
-            args["[FSDEV]"] = text;
-            separator = true;
-        }
-
-        if (flags & FSData::SUPPORT)
-        {
-            text = getString("FSSupp");
-            if (separator)
-            {
-                text = " /" + text;
-            }
-            args["[FSSUPP]"] = text;
-            separator = true;
-        }
-
-        if (flags & FSData::QA)
-        {
-            text = getString("FSQualityAssurance");
-            if (separator)
-            {
-                text = " /" + text;
-            }
-            args["[FSQA]"] = text;
-            separator = true;
-        }
-
-        if (flags & FSData::GATEWAY)
-        {
-            text = getString("FSGW");
-            if (separator)
-            {
-                text = " /" + text;
-            }
-            args["[FSGW]"] = text;
-        }
-    }
-    // </FS:Ansariel>
-
     std::string caption_text = getString("CaptionTextAcctInfo", args);
     getChild<LLUICtrl>("account_info")->setValue(caption_text);
 
@@ -1520,12 +1459,6 @@ void LLPanelProfileSecondLife::fillAccountStatus(const LLAvatarData* avatar_data
         //childSetVisible("partner_spacer_layout", true);
     }
 
-    // <FS:Ansariel> Add Firestorm team badge
-    if (FSData::getInstance()->getAgentFlags(avatar_data->avatar_id) != -1)
-    {
-        setBadge("Profile_Badge_Team", "BadgeTeam", BadgeLocation::top);
-    }
-    // </FS:Ansariel>
 }
 
 // <FS:Ansariel> Fix LL UI/UX design accident
