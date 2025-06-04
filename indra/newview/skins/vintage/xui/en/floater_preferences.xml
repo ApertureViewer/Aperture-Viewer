@@ -198,12 +198,12 @@ https://accounts.secondlife.com/change_email/
          help_topic="preferences_crashreports_tab"
          name="crashreports" />
         <panel
-         class="panel_preference_firestorm"
-         filename="panel_preferences_firestorm.xml"
-         label="Firestorm"
+         class="panel_preference_aperture"
+         filename="panel_preferences_aperture.xml"
+         label="Aperture"
          layout="topleft"
          help_topic="preferences_firestorm_tab"
-         name="firestorm" />
+         name="aperture" />
         <panel
          class="panel_preference_opensim"
          filename="panel_preferences_opensim.xml"
