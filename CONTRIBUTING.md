@@ -10,6 +10,7 @@ This document provides guidelines for contributing to the Aperture Viewer projec
 
 *   [Project Vision](#project-vision)
 *   [How Can I Contribute?](#how-can-i-contribute)
+*   [Our Foundation: Policy & Agreements](#our-foundation-policies--agreements)
 *   [Getting Started with Code Contributions](#getting-started-with-code-contributions)
     *   [Prerequisites](#prerequisites)
     *   [Forking and Cloning](#forking-and-cloning)
@@ -37,6 +38,26 @@ There are many ways you can help Aperture Viewer:
 *   **Contributing Code:** While the core Aperture Viewer development often emphasizes advancements in visual creation, photography, videomaking, rendering quality, and the Phototools suite, we warmly welcome and encourage code contributions of **all types** that are beneficial to the broader Second Life and OpenSimulator user community. This can include performance improvements, UI/UX refinements, bug fixes, privacy enhancements, or new general-purpose features. If your contribution improves the viewer experience, we're interested! Please see [Getting Started with Code Contributions](#getting-started-with-code-contributions) below for technical guidelines.
 *   **Improving Documentation:** Our Wiki needs your help! For details on suggesting documentation changes or reporting errors, please see our [Wiki Contribution Guide](https://github.com/ApertureViewer/Aperture-Viewer/wiki/Contributing-to-the-Wiki).
 *   **Testing and Providing Feedback:** Your feedback, especially on alpha/beta releases, is invaluable. Please submit feedback via [GitHub Issues](https://github.com/ApertureViewer/Aperture-Viewer/issues) or our official community channels on [Discord](https://discord.gg/9a3x364f).
+
+## Our Foundation: Policies & Agreements
+
+Contributing to Aperture Viewer means becoming part of a community built on shared principles and respect. Before submitting any contributions, especially code, **it is essential that you read, understand, and agree to abide by the following foundational documents:**
+
+*   **[Contributor License Agreement (CLA)](https://github.com/ApertureViewer/Aperture-Opertations-Manual/wiki/Appendix-K%3A-Aperture-Viewer-%E2%80%90-Contributor-License-Agreement-%28CLA%29): (REQUIRED FOR ALL CODE CONTRIBUTIONS)**
+    *   This legal document grants Aperture Viewer the necessary rights to use your contributions while ensuring you retain ownership of your original work.
+    *   **Signing the CLA is mandatory before any code Pull Request can be merged.** We use an automated system (CLA Assistant) that will guide you through the signing process directly on your Pull Request if you haven't signed before. Your GitHub account will be used to record your agreement.
+*   **[Code of Conduct (CoC)](https://github.com/ApertureViewer/Aperture-Opertations-Manual/wiki/Appendix-E%3A-Aperture-Viewer-%E2%80%90-Code-of-Conduct-%28CoC%29):**
+    *   Outlines the expected standards of behavior within our community to ensure a respectful and inclusive environment for everyone.
+*   **[Collaboration, Values & Privacy Statement](https://github.com/ApertureViewer/Aperture-Viewer/wiki/Collaboration,-Values-&-Privacy-Statement):**
+    *   Explains our approach to collaboration, the core values that guide our project, and our unwavering commitment to user privacy.
+*   **[Diversity, Equity, and Inclusion (DEI) Statement](https://github.com/ApertureViewer/Aperture-Opertations-Manual/wiki/Appendix-G%3A-Aperture-Viewer-%E2%80%90-Diversity%2C-Equity%2C-and-Inclusion-%28DEI%29-Statement):**
+    *   Details our commitment to fostering a diverse, equitable, and inclusive community.
+*   **[Aperture Viewer: Core Principles](https://github.com/ApertureViewer/Aperture-Opertations-Manual/wiki/Section-2-%E2%80%90-Aperture-Viewer%3A-Core-Principles):**
+    *   Summarizes the fundamental tenets that drive the Aperture Viewer project.
+
+**By submitting a Pull Request to Aperture Viewer, you are affirming that you have read and understood these documents, that your contribution aligns with them, and specifically that you agree to the terms of the Contributor License Agreement (CLA) for your contributed code, which will also be licensed under the project's outbound LGPL 2.1 license.**
+
+Your adherence to these guidelines helps us maintain a healthy, productive, and welcoming project.
 
 ## Getting Started with Code Contributions
 
@@ -222,6 +243,7 @@ Before submitting your PR, please ensure the following:
     *   **For UI changes, visual features, or translations:** Please provide specific areas to check. If possible (especially for translations or complex UI), include screenshots showing the changes in action. Confirm that text fits within UI elements, and there are no obvious layout issues.
     *   If you are providing a translation, please confirm you have tested the viewer with the language selected and that strings display correctly.
 *   [ ] **Adherence to Guidelines:** ** Confirm your code follows the [Coding Conventions](#coding-conventions) (including using spaces for indentation) and ALL your commits follow the [Commit Message Guidelines](#commit-message-guidelines-strictly-enforced).`
+*   [ ] I have read and understand the project's foundational policies (CLA, CoC, Values, etc.) as linked in the "Our Foundation: Policies & Agreements" section.
 *   [ ] **Self-Review:** Review your own diff (`Files changed` tab on the PR) to catch any typos, leftover debug code, or unintended changes.
 *   [ ] **Single Purpose (Ideally):** PRs should ideally address a single issue or feature. If you have multiple unrelated changes, please submit them as separate PRs.
 *   [ ] **Working Code:** Your code compiles, runs, and has been tested by you.
