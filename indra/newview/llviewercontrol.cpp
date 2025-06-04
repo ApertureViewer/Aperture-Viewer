@@ -1270,7 +1270,7 @@ void setting_setup_signal_listener(LLControlGroup& group, const std::string& set
 // <AP:WW> Feature: Fullbright Toggle - Handle preference change
 static bool handleFullbrightChanged(const LLSD& newvalue)
 {
-    BOOL enabled = gSavedSettings.getBOOL("APRenderEnableFullbright"); // Refactor: Use AP Fullbright setting.
+    bool enabled = gSavedSettings.getBOOL("APRenderEnableFullbright"); // Refactor: Use AP Fullbright setting.
 
     if (!enabled)
     {
