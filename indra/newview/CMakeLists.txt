@@ -912,7 +912,7 @@ endif (OPENSIM)
 
 # <AP:WW> Rebrand: Rename viewer binary to "aperture".
 #set(VIEWER_BINARY_NAME "firestorm-bin" CACHE STRING
-set(VIEWER_BINARY_NAME "aperture" CACHE STRING
+set(VIEWER_BINARY_NAME "aperture-bin" CACHE STRING
 # </AP:WW>
     "The name of the viewer executable to create.")
 
