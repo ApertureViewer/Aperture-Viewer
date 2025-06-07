@@ -39,11 +39,12 @@ RenderAutoMaskAlphaNonDeferred                      1 1     // Render alpha mask
 RenderObjectBump                                    1 1     // <<< LEVEL 1 CHANGE: only Suported true for? ON
 RenderDeferred                                      1 1     // <<< LEVEL 1 CHANGE: Only Supported True  for? ON 
 RenderGLContextCoreProfile                          1 0     // Should consider leaving this off at all times as we are not sure the codebase is cleaned for all APIs?
+RenderCubeMap                                       1 1
 
 // --- LEVEL 1: HDR FOUNDATION, REFLECTION PROBES & GLOW SETTINGS ---
 // Core Pipeline & Base Performance
-RenderGLMultiThreadedMedia                          1 1     // Default ON
-RenderGLMultiThreadedTextures                       1 1     // Default ON
+RenderGLMultiThreadedMedia                          1 1     // Default OFF
+RenderGLMultiThreadedTextures                       1 1     // Default OFF
 UseOcclusion                                        1 1     // Occlusion Culling ON
 
 
@@ -169,7 +170,7 @@ RenderVolumeLODFactor                               1 8.0   // Object/Volume LOD
 // Textures (Max Quality Defaults)
 RenderMaxTextureResolution                          1 2048  // Max Texture Res (only at level 0 we set to 512)
 TextureDiscardLevel                                 1 0     // Tex Discard (0=Off) - it is off by default and should always be (maybe not in level 0)
-TextureCameraBoost                                  1 8     // Tex Boost Near Cam (Need to investigate further this is a scaler for priority of texture loading near camera - see investigation notes.)
+TextureCameraBoost                                  1 7.0     // Tex Boost Near Cam (Need to investigate further this is a scaler for priority of texture loading near camera - see investigation notes.)
 
 // Culling Thresholds (Generous Defaults for 'all')
 RenderAutoMuteSurfaceAreaLimit                      1 0     // Must be set to 0 for RenderAvatarComplexityMode to work properly
@@ -277,6 +278,7 @@ RenderAutoMaskAlphaNonDeferred                      1 1     // Render alpha mask
 RenderObjectBump                                    1 1     // <<< LEVEL 1 CHANGE: only Suported true for? ON
 RenderDeferred                                      1 1     // <<< LEVEL 1 CHANGE: Only Supported True  for? ON 
 RenderGLContextCoreProfile                          1 0     // Should consider leaving this off at all times as we are not sure the codebase is cleaned for all APIs?
+RenderCubeMap                                       1 1
 
 // --- LEVEL 1: HDR FOUNDATION, REFLECTION PROBES & GLOW SETTINGS ---
 // Core Pipeline & Base Performance
@@ -406,7 +408,7 @@ RenderVolumeLODFactor                               1 1.0   // Object/Volume LOD
 // Textures (Max Quality Defaults)
 RenderMaxTextureResolution                          1 512  // Max Texture Res (only at level 0 we set to 512)
 TextureDiscardLevel                                 1 0     // Tex Discard (0=Off) - it is off by default and should always be (maybe not in level 0)
-TextureCameraBoost                                  1 8     // Tex Boost Near Cam (Need to investigate further this is a scaler for priority of texture loading near camera - see investigation notes.)
+TextureCameraBoost                                  1 7.0     // Tex Boost Near Cam (Need to investigate further this is a scaler for priority of texture loading near camera - see investigation notes.)
 
 // Culling Thresholds (Generous Defaults for 'all')
 RenderAutoMuteSurfaceAreaLimit                      1 0     // Must be set to 0 for RenderAvatarComplexityMode to work properly
@@ -472,11 +474,12 @@ RenderAutoMaskAlphaNonDeferred                      1 1     // Render alpha mask
 RenderObjectBump                                    1 1     // <<< LEVEL 1 CHANGE: only Suported true for? ON
 RenderDeferred                                      1 1     // <<< LEVEL 1 CHANGE: Only Supported True  for? ON 
 RenderGLContextCoreProfile                          1 0     // Should consider leaving this off at all times as we are not sure the codebase is cleaned for all APIs?
+RenderCubeMap                                       1 1
 
 // --- LEVEL 1: HDR FOUNDATION, REFLECTION PROBES & GLOW SETTINGS ---
 // Core Pipeline & Base Performance
-RenderGLMultiThreadedMedia                          1 1     // Default ON
-RenderGLMultiThreadedTextures                       1 1     // Default ON
+RenderGLMultiThreadedMedia                          1 0     // Default ON
+RenderGLMultiThreadedTextures                       1 0     // Default ON
 UseOcclusion                                        1 1     // Occlusion Culling ON
 
 // HDR Enablement & Core Settings
@@ -601,7 +604,7 @@ RenderVolumeLODFactor                               1 8.0   // Object/Volume LOD
 // Textures (Max Quality Defaults)
 RenderMaxTextureResolution                          1 2048  // Max Texture Res (only at level 0 we set to 512)
 TextureDiscardLevel                                 1 0     // Tex Discard (0=Off) - it is off by default and should always be (maybe not in level 0)
-TextureCameraBoost                                  1 8     // Tex Boost Near Cam (Need to investigate further this is a scaler for priority of texture loading near camera - see investigation notes.)
+TextureCameraBoost                                  1 7.0     // Tex Boost Near Cam (Need to investigate further this is a scaler for priority of texture loading near camera - see investigation notes.)
 
 // Culling Thresholds (Generous Defaults for 'all')
 RenderAutoMuteSurfaceAreaLimit                      1 0     // Must be set to 0 for RenderAvatarComplexityMode to work properly
@@ -667,11 +670,12 @@ RenderAutoMaskAlphaNonDeferred                      1 1     // Render alpha mask
 RenderObjectBump                                    1 1     // <<< LEVEL 1 CHANGE: only Suported true for? ON
 RenderDeferred                                      1 1     // <<< LEVEL 1 CHANGE: Only Supported True  for? ON 
 RenderGLContextCoreProfile                          1 0     // Should consider leaving this off at all times as we are not sure the codebase is cleaned for all APIs?
+RenderCubeMap                                       1 1
 
 // --- LEVEL 1: HDR FOUNDATION, REFLECTION PROBES & GLOW SETTINGS ---
 // Core Pipeline & Base Performance
-RenderGLMultiThreadedMedia                          1 1     // Default ON
-RenderGLMultiThreadedTextures                       1 1     // Default ON
+RenderGLMultiThreadedMedia                          1 0     // Default ON
+RenderGLMultiThreadedTextures                       1 0     // Default ON
 UseOcclusion                                        1 1     // Occlusion Culling ON
 
 // HDR Enablement & Core Settings
@@ -796,7 +800,7 @@ RenderVolumeLODFactor                               1 8.0   // Object/Volume LOD
 // Textures (Max Quality Defaults)
 RenderMaxTextureResolution                          1 2048  // Max Texture Res (only at level 0 we set to 512)
 TextureDiscardLevel                                 1 0     // Tex Discard (0=Off) - it is off by default and should always be (maybe not in level 0)
-TextureCameraBoost                                  1 8     // Tex Boost Near Cam (Need to investigate further this is a scaler for priority of texture loading near camera - see investigation notes.)
+TextureCameraBoost                                  1 7.0     // Tex Boost Near Cam (Need to investigate further this is a scaler for priority of texture loading near camera - see investigation notes.)
 
 // Culling Thresholds (Generous Defaults for 'all')
 RenderAutoMuteSurfaceAreaLimit                      1 0     // Must be set to 0 for RenderAvatarComplexityMode to work properly
@@ -861,11 +865,12 @@ RenderAutoMaskAlphaNonDeferred                      1 1     // Render alpha mask
 RenderObjectBump                                    1 1     // <<< LEVEL 1 CHANGE: only Suported true for? ON
 RenderDeferred                                      1 1     // <<< LEVEL 1 CHANGE: Only Supported True  for? ON 
 RenderGLContextCoreProfile                          1 0     // Should consider leaving this off at all times as we are not sure the codebase is cleaned for all APIs?
+RenderCubeMap                                       1 1
 
 // --- LEVEL 1: HDR FOUNDATION, REFLECTION PROBES & GLOW SETTINGS ---
 // Core Pipeline & Base Performance
-RenderGLMultiThreadedMedia                          1 1     // Default ON
-RenderGLMultiThreadedTextures                       1 1     // Default ON
+RenderGLMultiThreadedMedia                          1 0     // Default ON
+RenderGLMultiThreadedTextures                       1 0     // Default ON
 UseOcclusion                                        1 1     // Occlusion Culling ON
 
 // HDR Enablement & Core Settings
@@ -996,7 +1001,7 @@ RenderVolumeLODFactor                               1 8.0   // Object/Volume LOD
 // Textures (Max Quality Defaults)
 RenderMaxTextureResolution                          1 2048  // Max Texture Res (only at level 0 we set to 512)
 TextureDiscardLevel                                 1 0     // Tex Discard (0=Off) - it is off by default and should always be (maybe not in level 0)
-TextureCameraBoost                                  1 8     // Tex Boost Near Cam (Need to investigate further this is a scaler for priority of texture loading near camera - see investigation notes.)
+TextureCameraBoost                                  1 7.0     // Tex Boost Near Cam (Need to investigate further this is a scaler for priority of texture loading near camera - see investigation notes.)
 
 // Culling Thresholds (Generous Defaults for 'all')
 RenderAutoMuteSurfaceAreaLimit                      1 0     // Must be set to 0 for RenderAvatarComplexityMode to work properly
@@ -1062,11 +1067,12 @@ RenderAutoMaskAlphaNonDeferred                      1 1     // Render alpha mask
 RenderObjectBump                                    1 1     // <<< LEVEL 1 CHANGE: only Suported true for? ON
 RenderDeferred                                      1 1     // <<< LEVEL 1 CHANGE: Only Supported True  for? ON 
 RenderGLContextCoreProfile                          1 0     // Should consider leaving this off at all times as we are not sure the codebase is cleaned for all APIs?
+RenderCubeMap                                       1 1
 
 // --- LEVEL 1: HDR FOUNDATION, REFLECTION PROBES & GLOW SETTINGS ---
 // Core Pipeline & Base Performance
-RenderGLMultiThreadedMedia                          1 1     // Default ON
-RenderGLMultiThreadedTextures                       1 1     // Default ON
+RenderGLMultiThreadedMedia                          1 0     // Default ON
+RenderGLMultiThreadedTextures                       1 0     // Default ON
 UseOcclusion                                        1 1     // Occlusion Culling ON
 
 // HDR Enablement & Core Settings
@@ -1191,7 +1197,7 @@ RenderVolumeLODFactor                               1 8.0   // Object/Volume LOD
 // Textures (Max Quality Defaults)
 RenderMaxTextureResolution                          1 2048  // Max Texture Res (only at level 0 we set to 512)
 TextureDiscardLevel                                 1 0     // Tex Discard (0=Off) - it is off by default and should always be (maybe not in level 0)
-TextureCameraBoost                                  1 8     // Tex Boost Near Cam (Need to investigate further this is a scaler for priority of texture loading near camera - see investigation notes.)
+TextureCameraBoost                                  1 7.0     // Tex Boost Near Cam (Need to investigate further this is a scaler for priority of texture loading near camera - see investigation notes.)
 
 // Culling Thresholds (Generous Defaults for 'all')
 RenderAutoMuteSurfaceAreaLimit                      1 0     // Must be set to 0 for RenderAvatarComplexityMode to work properly
@@ -1257,11 +1263,12 @@ RenderAutoMaskAlphaNonDeferred                      1 1     // Render alpha mask
 RenderObjectBump                                    1 1     // <<< LEVEL 1 CHANGE: only Suported true for? ON
 RenderDeferred                                      1 1     // <<< LEVEL 1 CHANGE: Only Supported True  for? ON 
 RenderGLContextCoreProfile                          1 0     // Should consider leaving this off at all times as we are not sure the codebase is cleaned for all APIs?
+RenderCubeMap                                       1 1
 
 // --- LEVEL 1: HDR FOUNDATION, REFLECTION PROBES & GLOW SETTINGS ---
 // Core Pipeline & Base Performance
-RenderGLMultiThreadedMedia                          1 1     // Default ON
-RenderGLMultiThreadedTextures                       1 1     // Default ON
+RenderGLMultiThreadedMedia                          1 0     // Default ON
+RenderGLMultiThreadedTextures                       1 0     // Default ON
 UseOcclusion                                        1 1     // Occlusion Culling ON
 
 // HDR Enablement & Core Settings
@@ -1386,7 +1393,7 @@ RenderVolumeLODFactor                               1 8.0   // Object/Volume LOD
 // Textures (Max Quality Defaults)
 RenderMaxTextureResolution                          1 2048  // Max Texture Res (only at level 0 we set to 512)
 TextureDiscardLevel                                 1 0     // Tex Discard (0=Off) - it is off by default and should always be (maybe not in level 0)
-TextureCameraBoost                                  1 8     // Tex Boost Near Cam (Need to investigate further this is a scaler for priority of texture loading near camera - see investigation notes.)
+TextureCameraBoost                                  1 7.0     // Tex Boost Near Cam (Need to investigate further this is a scaler for priority of texture loading near camera - see investigation notes.)
 
 // Culling Thresholds (Generous Defaults for 'all')
 RenderAutoMuteSurfaceAreaLimit                      1 0     // Must be set to 0 for RenderAvatarComplexityMode to work properly
@@ -1451,11 +1458,12 @@ RenderAutoMaskAlphaNonDeferred                      1 1     // Render alpha mask
 RenderObjectBump                                    1 1     // <<< LEVEL 1 CHANGE: only Suported true for? ON
 RenderDeferred                                      1 1     // <<< LEVEL 1 CHANGE: Only Supported True  for? ON 
 RenderGLContextCoreProfile                          1 0     // Should consider leaving this off at all times as we are not sure the codebase is cleaned for all APIs?
+RenderCubeMap                                       1 1
 
 // --- LEVEL 1: HDR FOUNDATION, REFLECTION PROBES & GLOW SETTINGS ---
 // Core Pipeline & Base Performance
-RenderGLMultiThreadedMedia                          1 1     // Default ON
-RenderGLMultiThreadedTextures                       1 1     // Default ON
+RenderGLMultiThreadedMedia                          1 0     // Default ON
+RenderGLMultiThreadedTextures                       1 0     // Default ON
 UseOcclusion                                        1 1     // Occlusion Culling ON
 
 // HDR Enablement & Core Settings
@@ -1580,7 +1588,7 @@ RenderVolumeLODFactor                               1 8.0   // Object/Volume LOD
 // Textures (Max Quality Defaults)
 RenderMaxTextureResolution                          1 2048  // Max Texture Res (only at level 0 we set to 512)
 TextureDiscardLevel                                 1 0     // Tex Discard (0=Off) - it is off by default and should always be (maybe not in level 0)
-TextureCameraBoost                                  1 8     // Tex Boost Near Cam (Need to investigate further this is a scaler for priority of texture loading near camera - see investigation notes.)
+TextureCameraBoost                                  1 7.0     // Tex Boost Near Cam (Need to investigate further this is a scaler for priority of texture loading near camera - see investigation notes.)
 
 // Culling Thresholds (Generous Defaults for 'all')
 RenderAutoMuteSurfaceAreaLimit                      1 0     // Must be set to 0 for RenderAvatarComplexityMode to work properly
@@ -1646,11 +1654,12 @@ RenderAutoMaskAlphaNonDeferred                      1 1     // Render alpha mask
 RenderObjectBump                                    1 1     // <<< LEVEL 1 CHANGE: only Suported true for? ON
 RenderDeferred                                      1 1     // <<< LEVEL 1 CHANGE: Only Supported True  for? ON 
 RenderGLContextCoreProfile                          1 0     // Should consider leaving this off at all times as we are not sure the codebase is cleaned for all APIs?
+RenderCubeMap                                       1 1
 
 // --- LEVEL 1: HDR FOUNDATION, REFLECTION PROBES & GLOW SETTINGS ---
 // Core Pipeline & Base Performance
-RenderGLMultiThreadedMedia                          1 1     // Default ON
-RenderGLMultiThreadedTextures                       1 1     // Default ON
+RenderGLMultiThreadedMedia                          1 0     // Default ON
+RenderGLMultiThreadedTextures                       1 0     // Default ON
 UseOcclusion                                        1 1     // Occlusion Culling ON
 
 // HDR Enablement & Core Settings
@@ -1775,7 +1784,7 @@ RenderVolumeLODFactor                               1 8.0   // Object/Volume LOD
 // Textures (Max Quality Defaults)
 RenderMaxTextureResolution                          1 2048  // Max Texture Res (only at level 0 we set to 512)
 TextureDiscardLevel                                 1 0     // Tex Discard (0=Off) - it is off by default and should always be (maybe not in level 0)
-TextureCameraBoost                                  1 8     // Tex Boost Near Cam (Need to investigate further this is a scaler for priority of texture loading near camera - see investigation notes.)
+TextureCameraBoost                                  1 7.0     // Tex Boost Near Cam (Need to investigate further this is a scaler for priority of texture loading near camera - see investigation notes.)
 
 // Culling Thresholds (Generous Defaults for 'all')
 RenderAutoMuteSurfaceAreaLimit                      1 0     // Must be set to 0 for RenderAvatarComplexityMode to work properly
@@ -1838,11 +1847,12 @@ RenderAutoMaskAlphaNonDeferred                      1 1     // Render alpha mask
 RenderObjectBump                                    1 1     // <<< LEVEL 1 CHANGE: only Suported true for? ON
 RenderDeferred                                      1 1     // <<< LEVEL 1 CHANGE: Only Supported True  for? ON 
 RenderGLContextCoreProfile                          1 0     // Should consider leaving this off at all times as we are not sure the codebase is cleaned for all APIs?
+RenderCubeMap                                       1 1
 
 // --- LEVEL 1: HDR FOUNDATION, REFLECTION PROBES & GLOW SETTINGS ---
 // Core Pipeline & Base Performance
-RenderGLMultiThreadedMedia                          1 1     // Default ON
-RenderGLMultiThreadedTextures                       1 1     // Default ON
+RenderGLMultiThreadedMedia                          1 0     // Default ON
+RenderGLMultiThreadedTextures                       1 0     // Default ON
 UseOcclusion                                        1 1     // Occlusion Culling ON
 
 // HDR Enablement & Core Settings
@@ -1967,7 +1977,7 @@ RenderVolumeLODFactor                               1 8.0   // Object/Volume LOD
 // Textures (Max Quality Defaults)
 RenderMaxTextureResolution                          1 2048  // Max Texture Res (only at level 0 we set to 512)
 TextureDiscardLevel                                 1 0     // Tex Discard (0=Off) - it is off by default and should always be (maybe not in level 0)
-TextureCameraBoost                                  1 8     // Tex Boost Near Cam (Need to investigate further this is a scaler for priority of texture loading near camera - see investigation notes.)
+TextureCameraBoost                                  1 7.0     // Tex Boost Near Cam (Need to investigate further this is a scaler for priority of texture loading near camera - see investigation notes.)
 
 // Culling Thresholds (Generous Defaults for 'all')
 RenderAutoMuteSurfaceAreaLimit                      1 0     // Must be set to 0 for RenderAvatarComplexityMode to work properly
