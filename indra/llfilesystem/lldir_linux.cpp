@@ -159,6 +159,7 @@ void LLDir_Linux::initAppDirs(const std::string &app_name,
 
     std::string upper_app_name(app_name);
     LLStringUtil::toUpper(upper_app_name);
+    LLStringUtil::replaceChar(upper_app_name, ' ', '_');
 
     auto app_home_env(LLStringUtil::getoptenv(upper_app_name + "_USER_DIR"));
     if (app_home_env)
@@ -174,6 +175,7 @@ void LLDir_Linux::initAppDirs(const std::string &app_name,
         mOSUserAppDir += ".";
         std::string lower_app_name(app_name);
         LLStringUtil::toLower(lower_app_name);
+        LLStringUtil::replaceChar(lower_app_name, ' ', '_');
         mOSUserAppDir += lower_app_name;
     }
 

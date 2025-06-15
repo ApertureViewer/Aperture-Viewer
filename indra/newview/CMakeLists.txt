@@ -912,7 +912,7 @@ endif (OPENSIM)
 
 # <AP:WW> Rebrand: Rename viewer binary to "aperture".
 #set(VIEWER_BINARY_NAME "firestorm-bin" CACHE STRING
-set(VIEWER_BINARY_NAME "aperture" CACHE STRING
+set(VIEWER_BINARY_NAME "aperture-bin" CACHE STRING
 # </AP:WW>
     "The name of the viewer executable to create.")
 
@@ -2669,7 +2669,7 @@ set(ARTWORK_DIR ${CMAKE_CURRENT_SOURCE_DIR} CACHE PATH
 # </FS:Ansariel>
 
 if (LINUX)
-  set(product Firestorm-${ARCH}-${VIEWER_SHORT_VERSION}.${VIEWER_VERSION_REVISION})
+	set(product Aperture-${ARCH}-${VIEWER_SHORT_VERSION}.${VIEWER_VERSION_REVISION})
 
   # These are the generated targets that are copied to package/
   set(COPY_INPUT_DEPENDENCIES
