@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<panel name="override_defaults">
+	<text name="text_box1">
+		フレンド追加時に上書きするデフォルトのメッセージ
+	</text>
+	<text_editor name="add_friend_message">
+		変更するにはログインしてください。
+	</text_editor>
+	<text name="text_box2">
+		テレポートのオファーを受けたときに上書きするデフォルトのメッセージ
+	</text>
+	<text_editor name="teleport_offer_message">
+		変更するにはログインしてください。
+	</text_editor>
+	<text name="text_box3">
+		テレポートのリクエストを受けたときに上書きするデフォルトのメッセージ
+	</text>
+	<text_editor name="teleport_request_message">
+		変更するにはログインしてください。
+	</text_editor>
+</panel>
