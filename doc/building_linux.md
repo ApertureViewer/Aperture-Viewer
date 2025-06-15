@@ -15,7 +15,7 @@ System requirements are:
 
 If you are using a newer version of Linux, you may need to make sure you're still using gcc 11, as Aperture may not compile with newer versions of gcc.
 
-It is recommended that you use a virtual machine for compiling, ensuring the guest can meet the hardware requirements.
+It is recommended that you use a virtual machine (or docker container) running Ubuntu 22.04 LTS for compiling, ensuring the guest can meet the hardware requirements.
 
 This procedure may or may not work on other Linux distributions (or you might need to adjust some of the package names to suit the distribution you are using).
 
@@ -68,7 +68,7 @@ cd ~/src
 git clone https://github.com/ApertureViewer/Aperture-Viewer.git
 ```
 
-This will create a folder called phoenix-firestorm and add all the source files. If you desire, you can choose a different folder name by adding the name to the end of the command:
+This will create a folder called Aperture-Viewer and add all the source files. If you desire, you can choose a different folder name by adding the name to the end of the command:
 
 ```
 git clone https://github.com/ApertureViewer/Aperture-Viewer.git NewDestinationDirectory
@@ -78,7 +78,7 @@ The rest of this document will assume the default directory, `Aperture-Viewer`
 
 ### Clone the Autobuild build variables
 
-Autobuild uses a separate file to control compiler options, switches, and the like for different configurations. 
+Autobuild uses a separate file to control compiler options, switches, and the like for different configurations. The Firestorm viewer repository has appropriate settings.
 
 ```
 cd ~/src
@@ -155,14 +155,17 @@ You can add that to `~/.bashrc` or `~/.profile` so they execute automatically, o
 cd ~/src/Aperture-Viewer
 autobuild configure -A 64 -c ReleaseFS_open
 ```
+or
+```
+autobuild configure -A 64 -c ReleaseFS_open -- --fmodstudio
+```
 
 This will set up to compile with all defaults and without non-default libraries. It will fetch any additional necessary libraries.
 
 Available premade build targets:
 
 ```
-ReleaseFS           (includes KDU, FMOD)
-ReleaseFS_open      (no KDU, no FMOD)
+ReleaseFS_open      (no KDU, no FMOD), unless you add them yourself
 RelWithDebInfoFS_open (no KDU, no FMOD)
 ```
 
@@ -198,6 +201,10 @@ The first time you configure, several additional files will be downloaded from F
 
 ```
 autobuild build -A 64 -c ReleaseFS_open
+```
+or
+```
+autobuild build -A 64 -c ReleaseFS_open -- --chan="MyBuild"
 ```
 
 Be sure to use the fmodstudio and chan switches again.
