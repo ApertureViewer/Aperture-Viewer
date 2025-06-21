@@ -236,63 +236,65 @@ void downloadComplete(LLSD const &aData, std::string const &aURL, bool success)
     FSData::getInstance()->processResponder(data, aURL, success, lastModified);
 }
 
-#ifdef OPENSIM
-static void downloadCompleteScript(LLSD const &aData, std::string const &aURL, std::string const &aFilename)
-{
-    LL_DEBUGS("fsdata") << aURL << ": " << aData << LL_ENDL;
-    LLSD header = aData[LLCoreHttpUtil::HttpCoroutineAdapter::HTTP_RESULTS][LLCoreHttpUtil::HttpCoroutineAdapter::HTTP_RESULTS_HEADERS];
-
-    LLDate lastModified;
-    if (header.has("last-modified"))
-    {
-        lastModified.secondsSinceEpoch(FSCommon::secondsSinceEpochFromString("%a, %d %b %Y %H:%M:%S %ZP", header["last-modified"].asString()));
-    }
-    const LLSD::Binary &rawData = aData[LLCoreHttpUtil::HttpCoroutineAdapter::HTTP_RESULTS_RAW].asBinary();
-
-    if (rawData.size() <= 0)
-    {
-        LL_WARNS("fsdata") << "Received zero data for " << aURL << LL_ENDL;
-        return;
-    }
-
-    // basic check for valid data received
-    LLXMLNodePtr xml_root;
-    std::string stringData;
-    stringData.assign( rawData.begin(), rawData.end() ); // LLXMLNode::parseBuffer wants a U8*, not a const U8*, so need to copy here just to be safe
-    if ( (!LLXMLNode::parseBuffer( reinterpret_cast<char*> ( &stringData[0] ), (U64)stringData.size(), xml_root, NULL)) || (xml_root.isNull()) || (!xml_root->hasName("script_library")) )
-    {
-        LL_WARNS("fsdata") << "Could not read the script library data from "<< aURL << LL_ENDL;
-        return;
-    }
-
-    LLAPRFile outfile ;
-    outfile.open(aFilename, LL_APR_WB);
-    if (!outfile.getFileHandle())
-    {
-        LL_WARNS("fsdata") << "Unable to open file for writing: " << aFilename << LL_ENDL;
-    }
-    else
-    {
-        LL_INFOS("fsdata") << "Saving " << aFilename << LL_ENDL;
-        outfile.write(  &rawData[0], (S32)rawData.size() );
-        outfile.close() ;
-    }
-}
-
-static void downloadError(LLSD const &aData, std::string const &aURL)
-{
-    LLCore::HttpStatus status = LLCoreHttpUtil::HttpCoroutineAdapter::getStatusFromLLSD(aData);
-
-    if (status.getType() == HTTP_NOT_MODIFIED)
-    {
-        LL_INFOS("fsdata") << "Didn't download " << aURL << " - no newer version available" << LL_ENDL;
-    }
-    else
-    {
-        LL_WARNS("fsdata") << "Failed to download " << aURL << ": " << aData << LL_ENDL;
-    }
-}
-#endif
+// <FS:AT> Disable FSData download for testing
+// #ifdef OPENSIM
+// static void downloadCompleteScript(LLSD const &aData, std::string const &aURL, std::string const &aFilename)
+// {
+//     LL_DEBUGS("fsdata") << aURL << ": " << aData << LL_ENDL;
+//     LLSD header = aData[LLCoreHttpUtil::HttpCoroutineAdapter::HTTP_RESULTS][LLCoreHttpUtil::HttpCoroutineAdapter::HTTP_RESULTS_HEADERS];
+// 
+//     LLDate lastModified;
+//     if (header.has("last-modified"))
+//     {
+//         lastModified.secondsSinceEpoch(FSCommon::secondsSinceEpochFromString("%a, %d %b %Y %H:%M:%S %ZP", header["last-modified"].asString()));
+//     }
+//     const LLSD::Binary &rawData = aData[LLCoreHttpUtil::HttpCoroutineAdapter::HTTP_RESULTS_RAW].asBinary();
+// 
+//     if (rawData.size() <= 0)
+//     {
+//         LL_WARNS("fsdata") << "Received zero data for " << aURL << LL_ENDL;
+//         return;
+//     }
+// 
+//     // basic check for valid data received
+//     LLXMLNodePtr xml_root;
+//     std::string stringData;
+//     stringData.assign( rawData.begin(), rawData.end() ); // LLXMLNode::parseBuffer wants a U8*, not a const U8*, so need to copy here just to be safe
+//     if ( (!LLXMLNode::parseBuffer( reinterpret_cast<char*> ( &stringData[0] ), (U64)stringData.size(), xml_root, NULL)) || (xml_root.isNull()) || (!xml_root->hasName("script_library")) )
+//     {
+//         LL_WARNS("fsdata") << "Could not read the script library data from "<< aURL << LL_ENDL;
+//         return;
+//     }
+// 
+//     LLAPRFile outfile ;
+//     outfile.open(aFilename, LL_APR_WB);
+//     if (!outfile.getFileHandle())
+//     {
+//         LL_WARNS("fsdata") << "Unable to open file for writing: " << aFilename << LL_ENDL;
+//     }
+//     else
+//     {
+//         LL_INFOS("fsdata") << "Saving " << aFilename << LL_ENDL;
+//         outfile.write(  &rawData[0], (S32)rawData.size() );
+//         outfile.close() ;
+//     }
+// }
+// 
+// static void downloadError(LLSD const &aData, std::string const &aURL)
+// {
+//     LLCore::HttpStatus status = LLCoreHttpUtil::HttpCoroutineAdapter::getStatusFromLLSD(aData);
+// 
+//     if (status.getType() == HTTP_NOT_MODIFIED)
+//     {
+//         LL_INFOS("fsdata") << "Didn't download " << aURL << " - no newer version available" << LL_ENDL;
+//     }
+//     else
+//     {
+//         LL_WARNS("fsdata") << "Failed to download " << aURL << ": " << aData << LL_ENDL;
+//     }
+// }
+// #endif
+// </FS:AT>
 
 // call this just before the login screen and after the LLProxy has been setup.
 void FSData::startDownload()

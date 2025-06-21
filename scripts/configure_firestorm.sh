@@ -67,7 +67,7 @@ showUsage()
     echo
     echo "  --clean                  : Remove past builds & configuration"
     echo "  --config                 : Generate a new architecture-specific config"
-    echo "  --build                  : Build Firestorm"
+    echo "  --build                  : Build Aperture"
     echo "  --version                : Update version number"
     echo "  --chan  [Release|Beta|Private]   : Private is the default, sets channel"
     echo "  --btype [Release|RelWithDebInfo] : Release is default, whether to use symbols"
@@ -525,14 +525,14 @@ if [ $WANTS_CONFIG -eq $TRUE ] ; then
         fi
         # This name is consumed by indra/newview/CMakeLists.txt
         if [ $TARGET_PLATFORM == "linux" ] ; then
-            VIEWER_SYMBOL_FILE="${BUILD_DIR}/newview/firestorm-symbols-${TARGET_PLATFORM}-${AUTOBUILD_ADDRSIZE}.tar.bz2"
+            VIEWER_SYMBOL_FILE="${BUILD_DIR}/newview/aperture-symbols-${TARGET_PLATFORM}-${AUTOBUILD_ADDRSIZE}.tar.bz2"
         else
-            VIEWER_SYMBOL_FILE="${BUILD_DIR}/newview/$BTYPE/firestorm-symbols-${TARGET_PLATFORM}-${AUTOBUILD_ADDRSIZE}.tar.bz2"
+            VIEWER_SYMBOL_FILE="${BUILD_DIR}/newview/$BTYPE/aperture-symbols-${TARGET_PLATFORM}-${AUTOBUILD_ADDRSIZE}.tar.bz2"
         fi
         CRASH_REPORTING="-DRELEASE_CRASH_REPORTING=ON"
         if [ ! -z $CHANNEL_SIMPLE ]
         then
-            CRASH_REPORTING="$CRASH_REPORTING -DUSE_BUGSPLAT=On -DBUGSPLAT_DB=firestorm_"`echo $CHANNEL_SIMPLE | tr [:upper:] [:lower:] | sed -e 's/x64//' | sed 's/[^A-Za-z0-9]//g'`
+            CRASH_REPORTING="$CRASH_REPORTING -DUSE_BUGSPLAT=On -DBUGSPLAT_DB=aperture_"`echo $CHANNEL_SIMPLE | tr [:upper:] [:lower:] | sed -e 's/x64//' | sed 's/[^A-Za-z0-9]//g'`
         fi
     else
         CRASH_REPORTING="-DRELEASE_CRASH_REPORTING:BOOL=OFF"

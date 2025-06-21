@@ -237,7 +237,7 @@ F32 LLPipeline::APRenderColorBalanceMidsBlue;
 F32 LLPipeline::APRenderColorBalanceLitesRed;
 F32 LLPipeline::APRenderColorBalanceLitesGreen;
 F32 LLPipeline::APRenderColorBalanceLitesBlue;
-BOOL LLPipeline::APColorBalancePreserveLuma; 
+bool LLPipeline::APColorBalancePreserveLuma; 
 // <AP:WW>
 LLVector3 LLPipeline::RenderSSAOEffect;
 F32 LLPipeline::RenderShadowOffsetError;
