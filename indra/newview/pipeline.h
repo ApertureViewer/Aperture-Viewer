@@ -1154,7 +1154,7 @@ public:
     static F32 APRenderColorBalanceLitesRed;
     static F32 APRenderColorBalanceLitesGreen;
     static F32 APRenderColorBalanceLitesBlue;
-    static BOOL APColorBalancePreserveLuma; 
+    static bool APColorBalancePreserveLuma;
     // <AP:WW>
 };
 

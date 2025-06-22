@@ -199,6 +199,9 @@ if (LINUX)
   set(CMAKE_EXE_LINKER_FLAGS "-Wl,--no-keep-memory -Wl,--build-id -Wl,-rpath,'$ORIGIN:$ORIGIN/../lib' -Wl,--exclude-libs,ALL")
 
   set(CMAKE_CXX_FLAGS_DEBUG "-fno-inline ${CMAKE_CXX_FLAGS_DEBUG}")
+
+  # gcc newer than v12 has some warnings that stop us compiling. (Ideally they should be fixed, of course)
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-error=nonnull -Wno-error=maybe-uninitialized")
 endif (LINUX)
 
 
