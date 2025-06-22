@@ -8,7 +8,7 @@ instructions were heavily based on the excellent work from the Firestorm team.
 
 System requirements are:
 - Ubuntu 22.04 LTS (x86_64) - fully upgraded (this is also now the minimum requirement for running the viewer).
-- 16GB or more RAM
+- 16GB or more RAM ([Low Memory Caution](#common-issuesbugsglitches-and-solutions))
 - 64GB hard drive space 
 - 4 or more core CPU (you could get by with 2 cores, but the process will take much longer)
 - GCC 11 compiler (which is the default version on Ubuntu 22.04 LTS)
