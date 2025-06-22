@@ -11,9 +11,7 @@ System requirements are:
 - 16GB or more RAM ([Low Memory Caution](#common-issuesbugsglitches-and-solutions))
 - 64GB hard drive space 
 - 4 or more core CPU (you could get by with 2 cores, but the process will take much longer)
-- GCC 11 compiler (which is the default version on Ubuntu 22.04 LTS)
-
-If you are using a newer version of Linux, you may need to make sure you're still using gcc 11, as Aperture may not compile with newer versions of gcc.
+- GCC 11, or newer, compiler.
 
 It is recommended that you use a virtual machine (or docker container) running Ubuntu 22.04 LTS for compiling, ensuring the guest can meet the hardware requirements.
 
